@@ -14,8 +14,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+<resources>
+    <dimen name="fab_line_width">2dp</dimen>
+
+    <!-- Notification light -->
+    <dimen name="alert_dialog_padding_material">20dp</dimen>
+    <dimen name="oval_notification_size">26dp</dimen>
+    
     <!-- App ops -->
     <color name="switch_accent_color">@*android:color/accent_device_default_light</color>
 

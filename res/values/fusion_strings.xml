@@ -19,5 +19,9 @@
     <!-- Fusion Reactor -->
     <string name="fusion_settings_title">Fusion Reactor</string>
     <string name="fusion_dashboard_summary">Where The Magic Begins.</string>
+    
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Advanced reboot</string>
+    <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery, bootloader or performing a soft reboot</string>
 
 </resources>

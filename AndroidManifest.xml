@@ -3211,5 +3211,12 @@
             android:enabled="@bool/config_has_help" />
 
         <!-- This is the longest AndroidManifest.xml ever. -->
+
+        <receiver android:name="com.android.settings.citrus.utils.OnBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>

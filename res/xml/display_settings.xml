@@ -98,6 +98,10 @@
         android:title="@string/pocket_judge_title"
         android:summary="@string/pocket_judge_summary" />
 
+    <SwitchPreference
+        android:key="srgb"
+        android:title="@string/srgb_title" />
+
     <PreferenceScreen
         android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
         android:key="font_size"

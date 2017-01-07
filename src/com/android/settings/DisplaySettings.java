@@ -61,6 +61,7 @@ import java.util.List;
 import static android.provider.Settings.Secure.CAMERA_GESTURE_DISABLED;
 import static android.provider.Settings.Secure.DOUBLE_TAP_TO_WAKE;
 import static android.provider.Settings.Secure.DOZE_ENABLED;
+import static android.provider.Settings.Secure.SRGB_ENABLED;
 import static android.provider.Settings.Secure.WAKE_GESTURE_ENABLED;
 import static android.provider.Settings.System.POCKET_JUDGE;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE;
@@ -91,6 +92,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE_FRAGMENT = "doze_fragment";
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
     private static final String KEY_POCKET_JUDGE = "pocket_judge";
+    private static final String KEY_SRGB = "srgb";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_NIGHT_DISPLAY = "night_display";
@@ -157,6 +159,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mDozeFragment;
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mPocketPreference;
+    private SwitchPreference mSrgbPreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
     private ContentObserver mAccelerometerRotationObserver =
@@ -188,6 +191,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static boolean isTapToWakeAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
+    }
+
+    private static boolean isSrgbAvailable(Context context) {
+        return !TextUtils.isEmpty(context.getString(com.android.internal.R.string.config_srgb_path));
     }
 
     private static boolean isAutomaticBrightnessAvailable(Resources res) {
@@ -263,6 +270,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mPocketPreference = (SwitchPreference) findPreference(KEY_POCKET_JUDGE);
         mPocketPreference.setOnPreferenceChangeListener(this);
+
+        if (isSrgbAvailable(activity)) {
+            mSrgbPreference = (SwitchPreference) findPreference(KEY_SRGB);
+            mSrgbPreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_SRGB);
+        }
 
         if (isCameraGestureAvailable(getResources())) {
             mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
@@ -453,6 +467,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mPocketPreference.setChecked(value != 0);
         }
 
+        if (mSrgbPreference != null) {
+            int value = Settings.Secure.getInt(getContentResolver(), SRGB_ENABLED, 0);
+            mSrgbPreference.setChecked(value != 0);
+        }
+
         // Update camera gesture #1 if it is available.
         if (mCameraGesturePreference != null) {
             int value = Settings.Secure.getInt(getContentResolver(), CAMERA_GESTURE_DISABLED, 0);
@@ -519,6 +538,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (preference == mPocketPreference) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(), POCKET_JUDGE, value ? 1 : 0);
+        }
+        if (preference == mSrgbPreference) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getContentResolver(), SRGB_ENABLED, value ? 1 : 0);
         }
         if (preference == mCameraGesturePreference) {
             boolean value = (Boolean) objValue;

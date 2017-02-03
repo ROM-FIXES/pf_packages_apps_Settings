@@ -70,6 +70,7 @@ import com.android.settings.applications.ManageDomainUrls;
 import com.android.settings.applications.NotificationApps;
 import com.android.settings.applications.ProcessStatsSummary;
 import com.android.settings.applications.ProcessStatsUi;
+import com.android.settings.applications.RunningServices;
 import com.android.settings.applications.UsageAccessDetails;
 import com.android.settings.applications.VrListenerSettings;
 import com.android.settings.applications.WriteSettingsDetails;
@@ -325,7 +326,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             DisplayRotation.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
             HeadsUpSettings.class.getName(),
-            AmbientSettings.class.getName()
+            AmbientSettings.class.getName(),
+            RunningServices.class.getName()
     };
     private static final String[] LIKE_SHORTCUT_INTENT_ACTION_ARRAY = {
             "android.settings.APPLICATION_DETAILS_SETTINGS"
@@ -376,6 +378,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.AccessibilitySettingsActivity.class.getName(),
             Settings.PrintSettingsActivity.class.getName(),
             Settings.PaymentSettingsActivity.class.getName(),
+            Settings.DevRunningServicesActivity.class.getName(),
     };
     private SharedPreferences mDevelopmentPreferences;
     private SharedPreferences.OnSharedPreferenceChangeListener mDevelopmentPreferencesListener;

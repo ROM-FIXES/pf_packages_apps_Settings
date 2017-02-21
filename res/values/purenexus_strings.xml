@@ -321,4 +321,7 @@
     <!-- Vibration mode entered indicated by vibrating switch -->
     <string name="vibration_mode_indication_title">Indicate vibration mode by vibrating</string>
 
+    <!-- Pocket judge -->
+    <string name="pocket_judge_title">Pocket detection</string>
+    <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
 </resources>

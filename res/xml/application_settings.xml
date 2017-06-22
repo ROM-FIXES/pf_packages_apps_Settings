@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -22,43 +21,45 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/applications_settings"
-        android:summary="@string/applications_settings_summary"
-        android:key="applications_settings">
+    android:key="applications_settings"
+    android:summary="@string/applications_settings_summary"
+    android:title="@string/applications_settings">
 
     <PreferenceScreen
-            android:fragment="com.android.settings.applications.ManageApplications"
-            android:title="@string/manageapplications_settings_title"
-            android:summary="@string/manageapplications_settings_summary">
+        android:fragment="com.android.settings.applications.ManageApplications"
+        android:summary="@string/manageapplications_settings_summary"
+        android:title="@string/manageapplications_settings_title"></PreferenceScreen>
+
+    <PreferenceScreen
+        android:fragment="com.android.settings.applications.ManageApplications"
+        android:summary="@string/runningservices_settings_summary"
+        android:title="@string/runningservices_settings_title">
+        <extra
+            android:name="classname"
+            android:value="com.android.settings.Settings$RunningServicesActivity" />
     </PreferenceScreen>
 
     <PreferenceScreen
-            android:fragment="com.android.settings.applications.ManageApplications"
-            android:title="@string/runningservices_settings_title"
-            android:summary="@string/runningservices_settings_summary">
-        <extra android:name="classname" android:value="com.android.settings.Settings$RunningServicesActivity" />
-    </PreferenceScreen>
-
-    <PreferenceScreen
-            android:fragment="com.android.settings.applications.ManageApplications"
-            android:title="@string/storageuse_settings_title"
-            android:summary="@string/storageuse_settings_summary">
-        <extra android:name="classname"
-                android:value="com.android.settings.Settings$StorageUseActivity" />
+        android:fragment="com.android.settings.applications.ManageApplications"
+        android:summary="@string/storageuse_settings_summary"
+        android:title="@string/storageuse_settings_title">
+        <extra
+            android:name="classname"
+            android:value="com.android.settings.Settings$StorageUseActivity" />
     </PreferenceScreen>
 
     <CheckBoxPreference
-            android:key="toggle_advanced_settings"
-            android:title="@string/advanced_settings"
-            android:summaryOff="@string/advanced_settings_summary"
-            android:summaryOn="@string/advanced_settings_summary" />
+        android:key="toggle_advanced_settings"
+        android:summaryOff="@string/advanced_settings_summary"
+        android:summaryOn="@string/advanced_settings_summary"
+        android:title="@string/advanced_settings" />
 
     <ListPreference
-        android:key="app_install_location"
-        android:title="@string/app_install_location_title"
-        android:summary="@string/app_install_location_summary"
         android:entries="@array/app_install_location_entries"
-        android:entryValues="@array/app_install_location_values"/>
+        android:entryValues="@array/app_install_location_values"
+        android:key="app_install_location"
+        android:summary="@string/app_install_location_summary"
+        android:title="@string/app_install_location_title" />
 
 </PreferenceScreen>
 

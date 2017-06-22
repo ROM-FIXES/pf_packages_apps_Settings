@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,10 +15,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="20dip"
+    android:orientation="vertical"
     android:paddingEnd="20dip"
-    android:paddingTop="20dip"
-    android:orientation="vertical">
+    android:paddingStart="20dip"
+    android:paddingTop="20dip">
 
     <EditText
         android:id="@+id/owner_info_edit_text"
@@ -27,8 +26,7 @@
         android:layout_height="wrap_content"
         android:gravity="top"
         android:hint="@string/owner_info_settings_edit_text_hint"
-        android:inputType="textMultiLine|textCapSentences"
-        />
+        android:inputType="textMultiLine|textCapSentences" />
 
 </LinearLayout>
 

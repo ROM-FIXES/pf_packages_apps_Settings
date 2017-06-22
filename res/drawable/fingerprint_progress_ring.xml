@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -30,10 +29,9 @@
             android:shape="ring"
             android:thickness="@dimen/fingerprint_ring_thickness">
             <gradient
-                android:startColor="@color/fingerprint_progress_ring"
-                android:endColor="@color/fingerprint_progress_ring"
                 android:angle="0"
-            />
+                android:endColor="@color/fingerprint_progress_ring"
+                android:startColor="@color/fingerprint_progress_ring" />
         </shape>
     </item>
 </layer-list>

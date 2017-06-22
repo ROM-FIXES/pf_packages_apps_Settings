@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2013 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,27 +16,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="15dip"
     android:layout_marginEnd="6dip"
-    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:layout_marginStart="15dip"
+    android:background="?android:attr/selectableItemBackground"
     android:gravity="top|start"
+    android:minHeight="?android:attr/listPreferredItemHeight"
     android:orientation="vertical"
-    android:paddingEnd="?android:attr/scrollbarSize"
-    android:background="?android:attr/selectableItemBackground">
+    android:paddingEnd="?android:attr/scrollbarSize">
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/listDivider">
-    </View>
+        android:background="?android:attr/listDivider"></View>
 
-    <TextView android:id="@+android:id/summary"
+    <TextView
+        android:id="@+android:id/summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dip"
         android:layout_marginBottom="6dip"
+        android:layout_marginTop="6dip"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="?android:attr/textColorSecondary">
-    </TextView>
+        android:textColor="?android:attr/textColorSecondary"></TextView>
 
 </LinearLayout>

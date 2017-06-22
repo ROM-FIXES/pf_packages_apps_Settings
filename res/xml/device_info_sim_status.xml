@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,83 +14,94 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/sim_status_title">
+    android:title="@string/sim_status_title">
 
-    <Preference android:key="operator_name"
+    <Preference
         android:enabled="false"
+        android:key="operator_name"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_operator"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_operator" />
 
-    <Preference android:key="signal_strength"
+    <Preference
         android:enabled="false"
+        android:key="signal_strength"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_signal_strength"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_signal_strength" />
 
-    <Preference android:key="network_type"
+    <Preference
         android:enabled="false"
+        android:key="network_type"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_network_type"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_network_type" />
 
-    <Preference android:key="latest_area_info"
+    <Preference
         android:enabled="false"
+        android:key="latest_area_info"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_latest_area_info"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_latest_area_info" />
 
-    <Preference android:key="service_state"
+    <Preference
         android:enabled="false"
+        android:key="service_state"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_service_state"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_service_state" />
 
-    <Preference android:key="roaming_state"
+    <Preference
         android:enabled="false"
+        android:key="roaming_state"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_roaming"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_roaming" />
 
-    <Preference android:key="data_state"
+    <Preference
         android:enabled="false"
+        android:key="data_state"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_data_state"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_data_state" />
 
-    <Preference android:key="number"
+    <Preference
         android:enabled="false"
+        android:key="number"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_number"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_number" />
 
-    <Preference android:key="imei"
+    <Preference
         android:enabled="false"
+        android:key="imei"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_imei"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_imei" />
 
-    <Preference android:key="imei_sv"
+    <Preference
         android:enabled="false"
+        android:key="imei_sv"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_imei_sv"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_imei_sv" />
 
-    <Preference android:key="iccid"
+    <Preference
         android:enabled="false"
+        android:key="iccid"
+        android:persistent="false"
         android:shouldDisableView="false"
-        android:title="@string/status_iccid"
         android:summary="@string/device_info_not_available"
-        android:persistent="false" />
+        android:title="@string/status_iccid" />
 
 </PreferenceScreen>

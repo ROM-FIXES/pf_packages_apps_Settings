@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,44 +14,44 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:title="@string/app_notifications_title"
-        android:key="app_notification_settings">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="app_notification_settings"
+    android:title="@string/app_notifications_title">
 
     <!-- Importance -->
     <!-- Block -->
     <com.android.settingslib.RestrictedSwitchPreference
-            android:key="block"
-            android:title="@string/app_notification_block_title"
-            android:summary="@string/app_notification_block_summary"
-            android:order="2"
-            settings:useAdditionalSummary="true"
-            settings:restrictedSwitchSummary="@string/enabled_by_admin" />
+        android:key="block"
+        android:order="2"
+        android:summary="@string/app_notification_block_summary"
+        android:title="@string/app_notification_block_title"
+        settings:restrictedSwitchSummary="@string/enabled_by_admin"
+        settings:useAdditionalSummary="true" />
     <!-- Silent -->
     <com.android.settingslib.RestrictedSwitchPreference
-            android:key="silent"
-            android:title="@string/show_silently"
-            android:summary="@string/show_silently_summary"
-            android:order="3"
-            settings:useAdditionalSummary="true" />
+        android:key="silent"
+        android:order="3"
+        android:summary="@string/show_silently_summary"
+        android:title="@string/show_silently"
+        settings:useAdditionalSummary="true" />
     <!-- Slider -->
     <com.android.settings.notification.ImportanceSeekBarPreference
-            android:key="importance"
-            android:title="@string/notification_importance_title"
-            android:order="4"/>
+        android:key="importance"
+        android:order="4"
+        android:title="@string/notification_importance_title" />
 
     <!-- Visibility Override -->
     <com.android.settings.notification.RestrictedDropDownPreference
-            android:key="visibility_override"
-            android:title="@string/app_notification_visibility_override_title"
-            android:order="5" />
+        android:key="visibility_override"
+        android:order="5"
+        android:title="@string/app_notification_visibility_override_title" />
 
     <!-- Bypass DND -->
     <com.android.settingslib.RestrictedSwitchPreference
-            android:key="bypass_dnd"
-            android:title="@string/app_notification_override_dnd_title"
-            android:summary="@string/app_notification_override_dnd_summary"
-            android:order="6"
-            settings:useAdditionalSummary="true" />
+        android:key="bypass_dnd"
+        android:order="6"
+        android:summary="@string/app_notification_override_dnd_summary"
+        android:title="@string/app_notification_override_dnd_title"
+        settings:useAdditionalSummary="true" />
 
 </PreferenceScreen>

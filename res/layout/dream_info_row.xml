@@ -16,12 +16,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal"
-    android:background="?android:attr/selectableItemBackground" >
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart">
 
     <!-- Dream icon -->
 
@@ -31,8 +31,8 @@
         android:layout_height="@android:dimen/app_icon_size"
         android:layout_centerVertical="true"
         android:layout_marginBottom="10dp"
-        android:layout_marginStart="0dp"
         android:layout_marginEnd="6dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@null"
         android:maxHeight="@android:dimen/app_icon_size"
@@ -45,14 +45,14 @@
         android:id="@android:id/title"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:layout_centerVertical="true"
+        android:layout_weight="1"
         android:ellipsize="end"
-        android:singleLine="true"
         android:gravity="center_vertical"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:labelFor="@android:id/button2"
+        android:singleLine="true"
         android:textAlignment="viewStart"
-        android:labelFor="@android:id/button2" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <!-- Dream radio button -->
 
@@ -62,8 +62,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:duplicateParentState="true"
         android:clickable="false"
+        android:duplicateParentState="true"
         android:focusable="false" />
 
     <!-- Divider -->
@@ -85,10 +85,10 @@
         android:layout_centerVertical="true"
         android:layout_margin="0dip"
         android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="@string/screensaver_settings_button"
-        android:padding="8dip"
         android:clickable="true"
+        android:contentDescription="@string/screensaver_settings_button"
         android:focusable="true"
+        android:padding="8dip"
         android:src="@drawable/ic_settings" />
 
 </LinearLayout>

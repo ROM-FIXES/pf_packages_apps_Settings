@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,40 +16,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="48dip"
+    android:background="?android:attr/selectableItemBackground"
     android:gravity="center_vertical"
-    android:background="?android:attr/selectableItemBackground">
+    android:minHeight="48dip">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingTop="6dip"
-        android:paddingBottom="6dip">
+        android:paddingBottom="6dip"
+        android:paddingTop="6dip">
 
         <TextView
             android:id="@+android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="16dip"
-            android:paddingEnd="16dip"
-            android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:ellipsize="marquee"
-            android:fadingEdge="horizontal" />
+            android:fadingEdge="horizontal"
+            android:paddingEnd="16dip"
+            android:paddingStart="16dip"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@android:id/title"
             android:layout_alignStart="@android:id/title"
-            android:paddingStart="16dip"
+            android:layout_below="@android:id/title"
             android:layout_marginEnd="16dip"
-            android:visibility="gone"
+            android:maxLines="4"
+            android:paddingStart="16dip"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="?android:attr/textColorSecondary"
-            android:maxLines="4" />
+            android:visibility="gone" />
 
     </RelativeLayout>
 

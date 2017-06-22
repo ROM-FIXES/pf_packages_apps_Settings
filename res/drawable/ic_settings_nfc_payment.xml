@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +15,7 @@
 -->
 
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:autoMirrored="true"
     android:src="@drawable/ic_settings_nfc_payment_am_alpha"
-    android:tint="?android:attr/colorAccent"
-    android:autoMirrored="true" />
+    android:tint="?android:attr/colorAccent" />
 

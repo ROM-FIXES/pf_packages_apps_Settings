@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2007 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -42,11 +41,14 @@
     <color name="setup_divider_color_dark">#33ffffff</color>
     <color name="setup_divider_color_light">#33000000</color>
     <color name="setup_lock_pattern_view_regular_color_dark">#ffbdbdbd</color>
-    <color name="setup_lock_pattern_view_regular_color_light">@color/lock_pattern_view_regular_color</color>
+    <color name="setup_lock_pattern_view_regular_color_light">
+        @color/lock_pattern_view_regular_color
+    </color>
     <color name="setup_lock_pattern_view_success_color_dark">#ff84ffff</color>
     <color name="setup_lock_pattern_view_success_color_light">@color/suw_color_accent_light</color>
     <color name="setup_lock_pattern_view_error_color_dark">#fff44336</color>
-    <color name="setup_lock_pattern_view_error_color_light">@color/lock_pattern_view_error_color</color>
+    <color name="setup_lock_pattern_view_error_color_light">@color/lock_pattern_view_error_color
+    </color>
     <color name="setup_wizard_wifi_color_dark">#89ffffff</color>
     <color name="setup_wizard_wifi_color_light">#89000000</color>
 

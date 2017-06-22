@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,13 +13,12 @@
      limitations under the License.
 -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android"
-          android:exitFadeDuration="@android:integer/config_mediumAnimTime">
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="@android:integer/config_mediumAnimTime">
 
-    <item android:state_window_focused="false" android:drawable="@android:color/transparent" />
+    <item android:drawable="@android:color/transparent" android:state_window_focused="false" />
 
-    <item android:state_focused="true" android:state_enabled="false" android:drawable="@*android:drawable/list_selector_background_disabled" />
-    <item android:state_focused="true" android:drawable="@*android:drawable/list_selector_background_focused" />
+    <item android:drawable="@*android:drawable/list_selector_background_disabled" android:state_enabled="false" android:state_focused="true" />
+    <item android:drawable="@*android:drawable/list_selector_background_focused" android:state_focused="true" />
     <item android:drawable="@android:color/transparent" />
 
 </selector>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,118 +14,122 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res-auto"
-        android:title="@string/about_settings">
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/about_settings">
 
-        <!-- Device status - launches activity -->
-        <PreferenceScreen android:key="status_info"
-                android:title="@string/device_status"
-                android:summary="@string/device_status_summary"
-                android:fragment="com.android.settings.deviceinfo.Status">
-        </PreferenceScreen>
+    <!-- Device status - launches activity -->
+    <PreferenceScreen
+        android:fragment="com.android.settings.deviceinfo.Status"
+        android:key="status_info"
+        android:summary="@string/device_status_summary"
+        android:title="@string/device_status"></PreferenceScreen>
 
-        <!-- Feedback on the device -->
-        <PreferenceScreen android:key="device_feedback"
-                android:title="@string/device_feedback">
-        </PreferenceScreen>
+    <!-- Feedback on the device -->
+    <PreferenceScreen
+        android:key="device_feedback"
+        android:title="@string/device_feedback"></PreferenceScreen>
 
-        <!-- Device hardware model -->
-        <com.android.settings.DividerPreference
-                android:key="device_model"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:selectable="false"
-                android:title="@string/model_info"
-                android:summary="@string/device_info_default"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true"/>
+    <!-- Device hardware model -->
+    <com.android.settings.DividerPreference
+        android:enabled="false"
+        android:key="device_model"
+        android:selectable="false"
+        android:shouldDisableView="false"
+        android:summary="@string/device_info_default"
+        android:title="@string/model_info"
+        settings:allowDividerAbove="true"
+        settings:allowDividerBelow="true" />
 
-        <!-- Device firmware version -->
-        <Preference android:key="firmware_version"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:title="@string/firmware_version"
-                android:summary="@string/device_info_default"/>
+    <!-- Device firmware version -->
+    <Preference
+        android:enabled="false"
+        android:key="firmware_version"
+        android:shouldDisableView="false"
+        android:summary="@string/device_info_default"
+        android:title="@string/firmware_version" />
 
-        <!-- Security patch level -->
-        <PreferenceScreen android:key="security_patch"
-                android:title="@string/security_patch"
-                android:summary="@string/device_info_default">
-                <intent android:action="android.intent.action.VIEW"
-                        android:data="https://source.android.com/security/bulletin/" />
-        </PreferenceScreen>
+    <!-- Security patch level -->
+    <PreferenceScreen
+        android:key="security_patch"
+        android:summary="@string/device_info_default"
+        android:title="@string/security_patch">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://source.android.com/security/bulletin/" />
+    </PreferenceScreen>
 
-        <!-- Device FCC equipment id -->
-        <com.android.settings.DividerPreference
-                android:key="fcc_equipment_id"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:selectable="false"
-                android:title="@string/fcc_equipment_id"
-                android:summary="@string/device_info_default"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true"/>
+    <!-- Device FCC equipment id -->
+    <com.android.settings.DividerPreference
+        android:enabled="false"
+        android:key="fcc_equipment_id"
+        android:selectable="false"
+        android:shouldDisableView="false"
+        android:summary="@string/device_info_default"
+        android:title="@string/fcc_equipment_id"
+        settings:allowDividerAbove="true"
+        settings:allowDividerBelow="true" />
 
-        <!-- Device Baseband version -->
-        <com.android.settings.DividerPreference
-                android:key="baseband_version"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:selectable="false"
-                android:title="@string/baseband_version"
-                android:summary="@string/device_info_default"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true"/>
+    <!-- Device Baseband version -->
+    <com.android.settings.DividerPreference
+        android:enabled="false"
+        android:key="baseband_version"
+        android:selectable="false"
+        android:shouldDisableView="false"
+        android:summary="@string/device_info_default"
+        android:title="@string/baseband_version"
+        settings:allowDividerAbove="true"
+        settings:allowDividerBelow="true" />
 
-        <!-- Device Kernel version -->
-        <com.android.settings.DividerPreference
-                android:key="kernel_version"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:selectable="false"
-                android:title="@string/kernel_version"
-                android:summary="@string/device_info_default"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true"/>
+    <!-- Device Kernel version -->
+    <com.android.settings.DividerPreference
+        android:enabled="false"
+        android:key="kernel_version"
+        android:selectable="false"
+        android:shouldDisableView="false"
+        android:summary="@string/device_info_default"
+        android:title="@string/kernel_version"
+        settings:allowDividerAbove="true"
+        settings:allowDividerBelow="true" />
 
-        <!-- Pure version -->
-        <com.android.settings.DividerPreference
-                android:key="pure_version"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:selectable="false"
-                android:title="@string/pure_version"
-                android:summary="@string/pure_version_default"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true"/>
+    <!-- Pure version -->
+    <com.android.settings.DividerPreference
+        android:enabled="false"
+        android:key="pure_version"
+        android:selectable="false"
+        android:shouldDisableView="false"
+        android:summary="@string/pure_version_default"
+        android:title="@string/pure_version"
+        settings:allowDividerAbove="true"
+        settings:allowDividerBelow="true" />
 
-        <!-- Vendor Version -->
-        <com.android.settings.DividerPreference
-                android:key="vendor_version"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:selectable="false"
-                android:title="@string/vendor_version"
-                android:summary="@string/vendor_version_default"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true"/>
+    <!-- Vendor Version -->
+    <com.android.settings.DividerPreference
+        android:enabled="false"
+        android:key="vendor_version"
+        android:selectable="false"
+        android:shouldDisableView="false"
+        android:summary="@string/vendor_version_default"
+        android:title="@string/vendor_version"
+        settings:allowDividerAbove="true"
+        settings:allowDividerBelow="true" />
 
-        <!-- Detailed build version -->
-        <Preference android:key="build_number"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:title="@string/build_number"
-                android:summary="@string/device_info_default"/>
+    <!-- Detailed build version -->
+    <Preference
+        android:enabled="false"
+        android:key="build_number"
+        android:shouldDisableView="false"
+        android:summary="@string/device_info_default"
+        android:title="@string/build_number" />
 
-        <!-- SELinux status information -->
-        <com.android.settings.DividerPreference
-                android:key="selinux_status"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:selectable="false"
-                android:title="@string/selinux_status"
-                android:summary="@string/selinux_status_enforcing"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true"/>
+    <!-- SELinux status information -->
+    <com.android.settings.DividerPreference
+        android:enabled="false"
+        android:key="selinux_status"
+        android:selectable="false"
+        android:shouldDisableView="false"
+        android:summary="@string/selinux_status_enforcing"
+        android:title="@string/selinux_status"
+        settings:allowDividerAbove="true"
+        settings:allowDividerBelow="true" />
 
 </PreferenceScreen>

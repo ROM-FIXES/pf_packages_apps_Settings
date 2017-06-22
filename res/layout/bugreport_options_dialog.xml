@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,14 +15,14 @@
 -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:paddingStart="20dp"
         android:paddingEnd="24dp"
-        android:paddingTop="15dp"
-        >
+        android:paddingStart="20dp"
+        android:paddingTop="15dp">
 
         <CheckedTextView
             android:id="@+id/bugreport_option_interactive_title"
@@ -45,8 +44,8 @@
             android:layout_below="@+id/bugreport_option_interactive_title"
             android:maxLines="10"
             android:paddingBottom="10dp"
-            android:paddingStart="32dp"
             android:paddingEnd="?android:attr/dialogPreferredPadding"
+            android:paddingStart="32dp"
             android:text="@*android:string/bugreport_option_interactive_summary"
             android:textAppearance="?android:attr/textAppearanceListItemSecondary"
             android:textColor="?android:attr/textColorSecondary" />
@@ -72,8 +71,8 @@
             android:layout_below="@+id/bugreport_option_full_title"
             android:maxLines="10"
             android:paddingBottom="10dp"
-            android:paddingStart="32dp"
             android:paddingEnd="?android:attr/dialogPreferredPadding"
+            android:paddingStart="32dp"
             android:text="@*android:string/bugreport_option_full_summary"
             android:textAppearance="?android:attr/textAppearanceListItemSecondary"
             android:textColor="?android:attr/textColorSecondary" />

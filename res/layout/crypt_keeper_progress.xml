@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,67 +13,60 @@
      limitations under the License.
   -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dip"
     android:orientation="vertical"
->
+    android:padding="16dip">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="48dip"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:textSize="30dip"
-        android:textColor="@color/title_color"
-        android:text="@string/crypt_keeper_setup_title"
         android:gravity="bottom"
-    />
+        android:minHeight="48dip"
+        android:text="@string/crypt_keeper_setup_title"
+        android:textColor="@color/title_color"
+        android:textSize="30dip" />
 
     <!-- Divider -->
     <RelativeLayout
         android:id="@+id/top_divider"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    >
+        android:layout_height="wrap_content">
+
         <ProgressBar
             android:id="@+id/progress_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             style="?android:attr/progressBarStyleHorizontal"
-        />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
 
     <TextView
         android:id="@+id/status"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-    />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ImageView
         android:id="@+id/encroid"
         android:layout_width="wrap_content"
         android:layout_height="0dip"
-        android:layout_weight="1"
         android:layout_gravity="bottom|end"
-        android:src="@drawable/encroid_waiting"
+        android:layout_weight="1"
         android:contentDescription="@null"
-    />
+        android:src="@drawable/encroid_waiting" />
 
     <Button
         android:id="@+id/factory_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="32dip"
         android:layout_gravity="center"
+        android:layout_margin="32dip"
         android:text="@string/master_clear_button_text"
-        android:visibility="gone"
-    />
+        android:visibility="gone" />
 
 </LinearLayout>

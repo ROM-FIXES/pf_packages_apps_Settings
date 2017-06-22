@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,14 +16,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/account_settings_menu_auto_sync"
-        android:title="@string/account_settings_menu_auto_sync"
-        android:checkable="true" />
+        android:checkable="true"
+        android:title="@string/account_settings_menu_auto_sync" />
     <item
         android:id="@+id/account_settings_menu_auto_sync_personal"
-        android:title="@string/account_settings_menu_auto_sync_personal"
-        android:checkable="true" />
+        android:checkable="true"
+        android:title="@string/account_settings_menu_auto_sync_personal" />
     <item
         android:id="@+id/account_settings_menu_auto_sync_work"
-        android:title="@string/account_settings_menu_auto_sync_work"
-        android:checkable="true" />
+        android:checkable="true"
+        android:title="@string/account_settings_menu_auto_sync_work" />
 </menu>

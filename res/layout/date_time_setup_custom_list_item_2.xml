@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,26 +17,25 @@
 <TwoLineListItem xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:mode="twoLine"
     android:gravity="center_vertical"
->
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:mode="twoLine">
 
-    <TextView android:id="@android:id/text1"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:minHeight="16dip"
-              android:layout_marginStart="10dip"
-              android:textAppearance="?android:attr/textAppearanceMedium"
-              />
+    <TextView
+        android:id="@android:id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dip"
+        android:minHeight="16dip"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView android:id="@android:id/text2"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:minHeight="10dip"
-              android:layout_below="@android:id/text1"
-              android:layout_alignStart="@android:id/text1"
-              android:textAppearance="?android:attr/textAppearanceSmall"
-              />
+    <TextView
+        android:id="@android:id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@android:id/text1"
+        android:layout_below="@android:id/text1"
+        android:minHeight="10dip"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </TwoLineListItem>

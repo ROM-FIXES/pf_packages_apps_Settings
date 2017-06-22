@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
 **
 ** Copyright 2006, The Android Open Source Project
@@ -27,8 +26,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/settings_side_margin"
         android:layout_marginEnd="@dimen/settings_side_margin"
+        android:layout_marginStart="@dimen/settings_side_margin"
         android:scaleType="fitXY"
         android:src="?android:attr/listDivider" />
 
@@ -40,30 +39,32 @@
         android:clipToPadding="false"
         android:scrollbarStyle="outsideOverlay" />
 
-    <TextView android:id="@+id/sync_settings_error_info"
+    <TextView
+        android:id="@+id/sync_settings_error_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dip"
-        android:text="@string/sync_is_failing"
+        android:drawableLeft="@drawable/ic_sync_error_holo"
         android:drawablePadding="8dip"
-        android:drawableLeft="@drawable/ic_sync_error_holo" />
+        android:text="@string/sync_is_failing" />
 
-    <RelativeLayout android:id="@+id/finish_button_area"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:id="@+id/finish_button_area"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/bottom_bar"
         android:visibility="gone">
-        
-        <Button android:id="@+id/finish_button"
+
+        <Button
+            android:id="@+id/finish_button"
             android:layout_width="150dip"
             android:layout_height="wrap_content"
-            android:layout_margin="5dip"
             android:layout_alignParentEnd="true"
+            android:layout_margin="5dip"
             android:drawableEnd="@drawable/ic_btn_next"
             android:drawablePadding="3dip"
-            android:text="@string/finish_button_label"
-        />
-        
+            android:text="@string/finish_button_label" />
+
     </RelativeLayout>
 
 </LinearLayout>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
 ** Copyright 2008, The Android Open Source Project
 **
@@ -17,23 +16,22 @@
 */
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/all_details"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:orientation="vertical"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:orientation="vertical">
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart">
 
     <!-- App snippet with buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:paddingTop="5dip"
+        android:orientation="vertical"
         android:paddingBottom="10dip"
-        android:orientation="vertical">
+        android:paddingTop="5dip">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,8 +43,8 @@
                 android:layout_weight="1">
                 <!-- Application snippet label, version and icon -->
                 <include
-                    layout="@layout/app_item"
-                    android:id="@+id/app_snippet" />
+                    android:id="@+id/app_snippet"
+                    layout="@layout/app_item" />
             </FrameLayout>
 
             <ImageView
@@ -54,11 +52,11 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
                 android:padding="12dp"
                 android:src="@drawable/ic_settings_24dp"
-                android:tint="?android:attr/colorAccent"
-                android:clickable="true"
-                android:background="?android:attr/selectableItemBackground" />
+                android:tint="?android:attr/colorAccent" />
 
         </LinearLayout>
 
@@ -68,8 +66,8 @@
 
         <!-- Force stop and uninstall buttons -->
         <include
-            layout="@layout/two_buttons_panel"
-            android:id="@+id/control_buttons_panel"/>
+            android:id="@+id/control_buttons_panel"
+            layout="@layout/two_buttons_panel" />
 
     </LinearLayout>
 </LinearLayout>

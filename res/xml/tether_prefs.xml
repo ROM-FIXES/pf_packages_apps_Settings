@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res-auto">
+    xmlns:settings="http://schemas.android.com/apk/res-auto">
 
     <SwitchPreference
         android:key="usb_tether_settings"
@@ -27,16 +26,16 @@
 
     <Preference
         android:key="wifi_ap_ssid_and_security"
-        android:title="@string/wifi_tether_configure_ap_text"
-        android:persistent="false" />
+        android:persistent="false"
+        android:title="@string/wifi_tether_configure_ap_text" />
 
     <SwitchPreference
         android:key="enable_bluetooth_tethering"
         android:title="@string/bluetooth_tether_checkbox_text" />
 
     <com.android.settings.DividerPreference
-            android:key="disabled_on_data_saver"
-            android:summary="@string/tether_settings_disabled_on_data_saver"
-            android:selectable="false"
-            settings:allowDividerAbove="true" />
+        android:key="disabled_on_data_saver"
+        android:selectable="false"
+        android:summary="@string/tether_settings_disabled_on_data_saver"
+        settings:allowDividerAbove="true" />
 </PreferenceScreen>

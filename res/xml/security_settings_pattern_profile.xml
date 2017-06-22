@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,18 +14,18 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-                  android:title="@string/security_settings_title">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/security_settings_title">
 
     <com.android.settingslib.RestrictedPreference
         android:key="unlock_set_or_change_profile"
-        android:title="@string/unlock_set_unlock_launch_picker_title_profile"
+        android:persistent="false"
         android:summary="@string/unlock_set_unlock_mode_pattern"
-        settings:keywords="@string/keywords_lockscreen"
-        android:persistent="false"/>
+        android:title="@string/unlock_set_unlock_launch_picker_title_profile"
+        settings:keywords="@string/keywords_lockscreen" />
 
     <SwitchPreference
         android:key="visiblepattern_profile"
-        android:title="@string/lockpattern_settings_enable_visible_pattern_title_profile"/>
+        android:title="@string/lockpattern_settings_enable_visible_pattern_title_profile" />
 
 </PreferenceScreen>

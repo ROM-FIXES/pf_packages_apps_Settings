@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 **
 ** Copyright 2014, The Android Open Source Project
 **
@@ -21,11 +20,12 @@
      switcher, if necessary. Assumed to be in a horizontal LinearLayout. -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-   <com.android.internal.widget.LockPatternView android:id="@+id/lockPattern"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:background="@color/lock_pattern_background" />
+    <com.android.internal.widget.LockPatternView
+        android:id="@+id/lockPattern"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lock_pattern_background" />
 
-   <include layout="@layout/crypt_keeper_switch_input_method" />
+    <include layout="@layout/crypt_keeper_switch_input_method" />
 
 </merge>

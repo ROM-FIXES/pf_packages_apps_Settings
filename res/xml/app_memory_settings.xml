@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,29 +14,28 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:title="@string/memory_usage">
+    android:title="@string/memory_usage">
 
     <PreferenceCategory
-        android:title="@string/average_memory_use"
-        android:layout="@layout/preference_category_short" />
+        android:layout="@layout/preference_category_short"
+        android:title="@string/average_memory_use" />
 
     <com.android.settings.SummaryPreference
         android:key="status_header"
         android:selectable="false" />
 
-    <com.android.settings.applications.SpacePreference
-        android:layout_height="5dp" />
+    <com.android.settings.applications.SpacePreference android:layout_height="5dp" />
 
     <Preference
         android:key="frequency"
-        android:selectable="false"
         android:layout="@layout/horizontal_preference"
+        android:selectable="false"
         android:title="@string/running_frequency" />
 
     <Preference
         android:key="max_usage"
-        android:selectable="false"
         android:layout="@layout/horizontal_preference"
+        android:selectable="false"
         android:title="@string/memory_maximum_usage" />
 
     <PreferenceCategory

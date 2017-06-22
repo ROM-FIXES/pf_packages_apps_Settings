@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2013 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,14 +17,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/preview_viewport"
         android:layout_width="match_parent"
         android:layout_height="@dimen/captioning_preview_height"
-        android:paddingStart="@dimen/settings_side_margin"
-        android:paddingEnd="@dimen/settings_side_margin" >
+        android:paddingEnd="@dimen/settings_side_margin"
+        android:paddingStart="@dimen/settings_side_margin">
 
         <ImageView
             android:layout_width="match_parent"
@@ -39,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
-            android:padding="16dp" >
+            android:padding="16dp">
 
             <com.android.internal.widget.SubtitleView
                 android:id="@+id/preview_text"

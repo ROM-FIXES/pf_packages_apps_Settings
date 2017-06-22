@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
 ** Copyright 2016, The Android Open Source Project
 **
@@ -20,24 +19,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:gravity="center_vertical"
-    android:paddingStart="16dip"
-    android:paddingEnd="16dip">
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:paddingEnd="16dip"
+    android:paddingStart="16dip">
+
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?android:attr/textColorAlertDialogListItem"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:layout_alignParentLeft="true"
         android:ellipsize="marquee"
-        android:layout_alignParentLeft="true" />
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="?android:attr/textColorAlertDialogListItem" />
+
     <ImageView
         android:id="@+id/restricted_icon"
         android:layout_width="@dimen/restricted_icon_size"
         android:layout_height="@dimen/restricted_icon_size"
+        android:layout_alignParentRight="true"
         android:scaleType="centerInside"
         android:src="@drawable/ic_info"
-        android:layout_alignParentRight="true"
         android:visibility="gone" />
 </RelativeLayout>

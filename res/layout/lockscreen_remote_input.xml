@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,30 +15,29 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <CheckBox
-            android:id="@+id/lockscreen_remote_input"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="20dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="?android:attr/dialogPreferredPadding"
-            android:minHeight="?android:attr/listPreferredItemHeightSmall"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorAlertDialogListItem"
-            android:gravity="center_vertical"
-            android:text="@string/lockscreen_remote_input"
-        />
+        android:id="@+id/lockscreen_remote_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:paddingEnd="?android:attr/dialogPreferredPadding"
+        android:paddingStart="20dp"
+        android:text="@string/lockscreen_remote_input"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="?android:attr/textColorAlertDialogListItem" />
 
     <ImageView
-            android:id="@+id/restricted_lock_icon_remote_input"
-            android:layout_width="@dimen/restricted_icon_size"
-            android:layout_height="@dimen/restricted_icon_size"
-            android:src="@drawable/ic_info"
-            android:layout_marginEnd="?android:attr/dialogPreferredPadding"
-            android:layout_gravity="center_vertical"
-            android:scaleType="centerInside" />
+        android:id="@+id/restricted_lock_icon_remote_input"
+        android:layout_width="@dimen/restricted_icon_size"
+        android:layout_height="@dimen/restricted_icon_size"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="?android:attr/dialogPreferredPadding"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_info" />
 </LinearLayout>

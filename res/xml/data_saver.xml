@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,20 +14,20 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res-auto"
-        android:title="@string/data_saver_title">
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/data_saver_title">
 
     <Preference
+        android:fragment="com.android.settings.datausage.UnrestrictedDataAccess"
         android:key="unrestricted_access"
-        android:title="@string/unrestricted_data_saver"
-        android:fragment="com.android.settings.datausage.UnrestrictedDataAccess" />
+        android:title="@string/unrestricted_data_saver" />
 
     <!-- Feature description text -->
     <com.android.settings.fuelgauge.WallOfTextPreference
-            android:key="description"
-            android:summary="@*android:string/data_saver_description"
-            android:persistent="false"
-            android:selectable="false"
-            settings:allowDividerAbove="true" />
+        android:key="description"
+        android:persistent="false"
+        android:selectable="false"
+        android:summary="@*android:string/data_saver_description"
+        settings:allowDividerAbove="true" />
 
 </PreferenceScreen>

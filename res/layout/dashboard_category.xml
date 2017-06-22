@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,19 +17,19 @@
     android:id="@+id/category"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dashboard_category_height"
+    android:background="@drawable/dashboard_category_title_bg"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/dashboard_category_padding_bottom"
-    android:background="@drawable/dashboard_category_title_bg">
+    android:paddingBottom="@dimen/dashboard_category_padding_bottom">
 
-    <TextView android:id="@android:id/title"
+    <TextView
+        android:id="@android:id/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="@dimen/dashboard_category_title_margin_start"
-        android:singleLine="true"
         android:ellipsize="marquee"
         android:gravity="center_vertical"
-        android:textAppearance="@style/TextAppearance.CategoryTitle"
+        android:paddingStart="@dimen/dashboard_category_title_margin_start"
+        android:singleLine="true"
         android:textAlignment="viewStart"
-        />
+        android:textAppearance="@style/TextAppearance.CategoryTitle" />
 
 </LinearLayout>

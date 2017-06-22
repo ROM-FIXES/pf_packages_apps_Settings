@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,33 +12,29 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:title="@string/testing_wifi_info"
-android:key="parent">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="parent"
+    android:title="@string/testing_wifi_info">
 
-    <Preference
-        android:title="@string/wifi_api_test" >
-                <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.Settings$WifiAPITestActivity" />
+    <Preference android:title="@string/wifi_api_test">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.Settings$WifiAPITestActivity"
+            android:targetPackage="com.android.settings" />
     </Preference>
 
-    <Preference
-        android:title="@string/wifi_config_info" >
+    <Preference android:title="@string/wifi_config_info">
         <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.wifi.WifiConfigInfo" />
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.wifi.WifiConfigInfo"
+            android:targetPackage="com.android.settings" />
     </Preference>
 
-    <Preference
-        android:title="@string/wifi_status_test" >
+    <Preference android:title="@string/wifi_status_test">
         <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.wifi.WifiStatusTest" />
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.wifi.WifiStatusTest"
+            android:targetPackage="com.android.settings" />
     </Preference>
 
 </PreferenceScreen>

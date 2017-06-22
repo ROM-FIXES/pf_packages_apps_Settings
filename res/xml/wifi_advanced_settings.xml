@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,26 +14,26 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/wifi_advanced_titlebar">
+    android:title="@string/wifi_advanced_titlebar">
 
     <Preference
-            android:key="install_credentials"
-            android:title="@string/wifi_install_credentials"
-            android:persistent="false" />
+        android:key="install_credentials"
+        android:persistent="false"
+        android:title="@string/wifi_install_credentials" />
 
     <Preference
-            android:key="wifi_direct"
-            android:title="@string/wifi_menu_p2p"
-            android:persistent="false" />
+        android:key="wifi_direct"
+        android:persistent="false"
+        android:title="@string/wifi_menu_p2p" />
 
     <Preference
-            android:key="wps_push_button"
-            android:title="@string/wifi_menu_wps_pbc"
-            android:persistent="false" />
+        android:key="wps_push_button"
+        android:persistent="false"
+        android:title="@string/wifi_menu_wps_pbc" />
 
     <Preference
-            android:key="wps_pin_entry"
-            android:title="@string/wifi_menu_wps_pin"
-            android:persistent="false" />
+        android:key="wps_pin_entry"
+        android:persistent="false"
+        android:title="@string/wifi_menu_wps_pin" />
 
 </PreferenceScreen>

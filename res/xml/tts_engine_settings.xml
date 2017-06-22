@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,23 +13,24 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="">
     <ListPreference
         android:key="tts_default_lang"
-        android:title="@string/tts_default_lang_title"
+        android:order="100"
         android:summary="@string/tts_default_lang_summary"
-        android:order="100" />
+        android:title="@string/tts_default_lang_title" />
 
     <Preference
         android:key="tts_engine_settings"
+        android:order="200"
         android:persistent="false"
-        android:title="@string/tts_engine_settings_title"
-        android:order="200" />
+        android:title="@string/tts_engine_settings_title" />
 
     <Preference
         android:key="tts_install_data"
+        android:order="300"
         android:persistent="false"
-        android:title="@string/tts_install_data_title"
         android:summary="@string/tts_install_data_summary"
-        android:order="300" />
+        android:title="@string/tts_install_data_title" />
 </PreferenceScreen>

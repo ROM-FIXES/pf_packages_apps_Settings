@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,12 +16,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     android:background="?android:attr/colorBackgroundFloating"
+    android:fillViewport="true"
     android:importantForAccessibility="noHideDescendants">
 
-    <view class="com.android.settings.TouchBlockingFrameLayout"
+    <view
         android:id="@+id/frame"
+        class="com.android.settings.TouchBlockingFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -35,16 +35,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
+                android:orientation="horizontal"
                 android:paddingStart="8dp"
-                android:orientation="horizontal">
+                android:paddingTop="16dp">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:scaleType="center"
                     android:src="@drawable/ic_settings_wireless"
-                    android:tint="?android:attr/colorAccent"
-                    android:scaleType="center" />
+                    android:tint="?android:attr/colorAccent" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -74,16 +74,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
+                android:orientation="horizontal"
                 android:paddingStart="8dp"
-                android:orientation="horizontal">
+                android:paddingTop="16dp">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:scaleType="center"
                     android:src="@drawable/ic_settings_data_usage"
-                    android:tint="?android:attr/colorAccent"
-                    android:scaleType="center" />
+                    android:tint="?android:attr/colorAccent" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -112,16 +112,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
+                android:orientation="horizontal"
                 android:paddingStart="8dp"
-                android:orientation="horizontal">
+                android:paddingTop="16dp">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:scaleType="center"
                     android:src="@drawable/ic_settings_display"
-                    android:tint="?android:attr/colorAccent"
-                    android:scaleType="center" />
+                    android:tint="?android:attr/colorAccent" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -150,16 +150,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
+                android:orientation="horizontal"
                 android:paddingStart="8dp"
-                android:orientation="horizontal">
+                android:paddingTop="16dp">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:scaleType="center"
                     android:src="@drawable/ic_settings_sound"
-                    android:tint="?android:attr/colorAccent"
-                    android:scaleType="center" />
+                    android:tint="?android:attr/colorAccent" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -188,16 +188,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
+                android:orientation="horizontal"
                 android:paddingStart="8dp"
-                android:orientation="horizontal">
+                android:paddingTop="16dp">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:scaleType="center"
                     android:src="@drawable/ic_settings_applications"
-                    android:tint="?android:attr/colorAccent"
-                    android:scaleType="center" />
+                    android:tint="?android:attr/colorAccent" />
 
                 <LinearLayout
                     android:layout_width="0dp"

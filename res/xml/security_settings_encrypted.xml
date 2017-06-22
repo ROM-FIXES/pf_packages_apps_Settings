@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:title="@string/security_settings_title">
+    android:title="@string/security_settings_title">
 
     <PreferenceCategory
         android:key="security_category"
@@ -23,10 +22,10 @@
 
         <Preference
             android:enabled="false"
-            android:shouldDisableView="false"
             android:key="crypt_keeper_encrypt_title"
-            android:title="@string/crypt_keeper_encrypt_title"
-            android:summary="@string/crypt_keeper_encrypted_summary"/>
+            android:shouldDisableView="false"
+            android:summary="@string/crypt_keeper_encrypted_summary"
+            android:title="@string/crypt_keeper_encrypt_title" />
 
     </PreferenceCategory>
 

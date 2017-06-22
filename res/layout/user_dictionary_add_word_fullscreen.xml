@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2012 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,7 +16,7 @@
     android:id="@+id/user_dict_settings_add_dialog_top"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/user_dictionary_add_word_text"
@@ -30,7 +29,7 @@
         android:hint="@string/user_dict_settings_add_word_hint"
         android:imeOptions="flagNoFullscreen"
         android:inputType="textNoSuggestions"
-        android:maxLength="@integer/maximum_user_dictionary_word_length" >
+        android:maxLength="@integer/maximum_user_dictionary_word_length">
 
         <requestFocus />
     </EditText>
@@ -41,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dip"
         android:layout_marginStart="8dip"
-        android:columnCount="2" >
+        android:columnCount="2">
 
         <TextView
             android:id="@+id/user_dictionary_add_shortcut_label"

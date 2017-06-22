@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,8 +14,8 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res-auto"
-        android:title="@string/automatic_storage_manager_settings" >
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/automatic_storage_manager_settings">
 
     <PreferenceCategory
         android:key="automatic"
@@ -24,8 +23,8 @@
 
         <SwitchPreference
             android:key="storage_manager_active"
-            android:title="@string/automatic_storage_manager_preference_title"
-            android:summary="@string/automatic_storage_manager_text"/>
+            android:summary="@string/automatic_storage_manager_text"
+            android:title="@string/automatic_storage_manager_preference_title" />
 
 
         <com.android.settings.fuelgauge.WallOfTextPreference
@@ -36,11 +35,11 @@
             settings:allowDividerBelow="true" />
 
         <DropDownPreference
+            android:entries="@array/automatic_storage_management_days"
+            android:entryValues="@array/automatic_storage_management_days_values"
             android:key="days"
             android:summary="%s"
             android:title="@string/automatic_storage_manager_days_title"
-            android:entries="@array/automatic_storage_management_days"
-            android:entryValues="@array/automatic_storage_management_days_values"
             settings:allowDividerAbove="true" />
 
     </PreferenceCategory>
@@ -51,7 +50,7 @@
 
         <Preference
             android:key="deletion_helper"
-            android:title="@string/deletion_helper_preference_title"/>
+            android:title="@string/deletion_helper_preference_title" />
 
     </PreferenceCategory>
 

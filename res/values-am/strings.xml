@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--  Copyright (C) 2007 The Android Open Source Project
+<?xml version="1.0" encoding="UTF-8"?><!--  Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,8 +13,7 @@
      limitations under the License.
  -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="yes" msgid="4676390750360727396">"አዎ"</string>
     <string name="no" msgid="6731231425810196216">"አይ"</string>
     <string name="create" msgid="3578857613172647409">"ፍጠር"</string>
@@ -25,8 +23,8 @@
     <string name="dlg_switch" msgid="6243971420240639064">"ቀይር"</string>
     <string name="device_info_default" msgid="7847265875578739287">"ያልታወቀ"</string>
     <plurals name="show_dev_countdown" formatted="false" msgid="7201398282729229649">
-      <item quantity="one">አሁን ገንቢ ለመሆን <xliff:g id="STEP_COUNT_1">%1$d</xliff:g> ደረጃዎች ይቀርዎታል።</item>
-      <item quantity="other">አሁን ገንቢ ለመሆን <xliff:g id="STEP_COUNT_1">%1$d</xliff:g> ደረጃዎች ይቀርዎታል።</item>
+        <item quantity="one">አሁን ገንቢ ለመሆን <xliff:g id="STEP_COUNT_1">%1$d</xliff:g> ደረጃዎች ይቀርዎታል።</item>
+        <item quantity="other">አሁን ገንቢ ለመሆን <xliff:g id="STEP_COUNT_1">%1$d</xliff:g> ደረጃዎች ይቀርዎታል።</item>
     </plurals>
     <string name="show_dev_on" msgid="1110711554982716293">"አሁን ገንቢ ሆነዋል!"</string>
     <string name="show_dev_already" msgid="2151632240145446227">"አያስፈልግም፣ አስቀድሞ ገንቢ ሆነዋል።"</string>
@@ -72,10 +70,10 @@
     <string name="radioInfo_display_asu" msgid="1422248392727818082">"asu"</string>
     <string name="radioInfo_lac" msgid="8415219164758307156">"LAC"</string>
     <string name="radioInfo_cid" msgid="4362599198392643138">"CID"</string>
-    <string name="sdcard_unmount" product="nosdcard" msgid="6325292633327972272">"የUSB  ማከማቻ ንቀል"</string>
-    <string name="sdcard_unmount" product="default" msgid="3364184561355611897">"SD ካርድ ንቀል"</string>
-    <string name="sdcard_format" product="nosdcard" msgid="6285310523155166716">"USB ማከማቻ አጥፋ"</string>
-    <string name="sdcard_format" product="default" msgid="6713185532039187532">"የSD ካርድ አጥፋ"</string>
+    <string name="sdcard_unmount" msgid="6325292633327972272" product="nosdcard">"የUSB  ማከማቻ ንቀል"</string>
+    <string name="sdcard_unmount" msgid="3364184561355611897" product="default">"SD ካርድ ንቀል"</string>
+    <string name="sdcard_format" msgid="6285310523155166716" product="nosdcard">"USB ማከማቻ አጥፋ"</string>
+    <string name="sdcard_format" msgid="6713185532039187532" product="default">"የSD ካርድ አጥፋ"</string>
     <string name="preview_pager_content_description" msgid="8926235999291761243">"ቅድመ-ዕይታ"</string>
     <string name="preview_page_indicator_content_description" msgid="4821343428913401264">"ቅድመ-እይታ፣ ገጽ <xliff:g id="CURRENT_PAGE">%1$d</xliff:g> ከ<xliff:g id="NUM_PAGES">%2$d</xliff:g>"</string>
     <string name="font_size_summary" msgid="1690992332887488183">"በማያ ገጽ ላይ ያለውን ጽሑፍ ያሳንሱ ወይም ያተልቁ።"</string>
@@ -91,8 +89,8 @@
     <string name="font_size_preview_text_subtitle" msgid="4231671528173110093">"ምዕራፍ 11፦ ኦዝ፣ አስደናቂዋ የኤምራልድ ከተማ"</string>
     <string name="font_size_preview_text_body" msgid="1250552239682375643">"ምንም እንኳን ዶሮቲ እና ጓደኛዎችዋ አይኖቻቸው በአረንጓዴ መነጽሮች የተጠበቁ የነበሩ ቢሆንም፣ በአስገራሚዋ ከተማ ብርቅርቅታ ገና ከመጀመሪያው ዓይኖቻቸው ተጭበርብረው ነበር። ጎዳናዎቹ ሁሉም ከአረንጓዴ እብነበረድ በተሠሩ በየቦታው ከሚያንጸባርቁ ውድ ኤምራልድ ድንጋዮች ያጌጡ ግድግዳዎች ባለቸው ቆንጆ ቤቶች ታጅበዋል። መልኩ ተመሳሳይ ከሆነ ከአረንጓዴ እብነበረድ በተሠራው የእግረኛ መንገድ ላይ  በእግር ተጉዘዋል፣ ክፍልፋዮች አጠገብ ለአጠገብ ጣል ጣል በተደረጉባቸው ቦታዎች ላይ በጸሐይዋ የሚያብለጨልጩ የኤመራልድ ረድፎች በተጠላለፉ የኤምራልድ ረድፎች፣ በእግራቸው ሲንሸራሸሩ ኤምራሎዶቹ በፀሐይዋ ብርሃን ብርቅርቅ ይሉ ነበር። የመስታወቶቹ የመስኮት ክፈፎች አረንጓዴ ነበሩ፤ ሌላው ሳይቀር ከከተማው በላይ ያለው ሰማይ አረንጓዴ ቅብ ነበረበት፤ የፀሐይዋ ጨረሮችም አረንጓዴ ነበሩ። \n\nወዲያ ወዲህ የሚሉ በርካታ ሰዎች፣ ወንዶች፣ ሴቶች እና ሕፃናት ነበሩ፤ ሁሉም ደግሞ አረንጓዴ ልብሶችን ለብሰዋል ቆዳቸውም አረንጓዴ ነበር። የዶሮቲ እና ግር የሚያስብለው የአጋሮቿ ስብስብ በመደነቅ ዓይን እያዩዋቸው ያልፋሉ፤ እና ሕፃናቱ አንበሳውን ሲያዩ ሮጠው ከእናቶቻቸው ጀርባ ተደበቁ፤ ነገር ግን ማንም ሰው አላናገራቸውም። በርካታ ሱቆች በጎዳናው ላይ ተደርድረዋል፤ እና ዶሮቲ በውስጣቸው ያለው ነገር ሁሉ አረንጓዴ እንደሆነ ተመለከተች። አረንጓዴ ከረሜላ እና አረንጓዴ ፈንድሻ እንዲሁም አረንጓዴ ጫማዎች፣ አረንጓዴ ባርኔጣዎች እና አረንጓዴ ልብሶች በዓይነት በዓይነቱ ለሽያጭ ቀርበዋል። አንድ ቦታ ላይ የሆነ ሰውዬ አረንጓዴ የሎሚ ጭማቂዎችን እየሸጠ ነበር፣ ልጆቹ ሲገዙት አረንጓዴ ሳንቲሞች ተጠቀመው እንደሚከፍሉት ዶሮቲ ለማየት ችላ ነበር። \n\nምንም ዓይነት ፈረሶች ወይም እንስሳት በቦታው ላይ አይታዩም፤ ሰዎቹ ዕቃዎችን የሚያጓጉዙት ከፊታቸው እየገፉ በሚወስዷቸው አረንጓቼ ጋሪዎች ነበር። ሁሉም ሰው ደስተኛ እና ፍልቅልቅ ያለ እና ባለጠጋ ይመስል ነበር።"</string>
     <string name="font_size_save" msgid="3450855718056759095">"እሺ"</string>
-    <string name="sdcard_setting" product="nosdcard" msgid="8281011784066476192">"የUSB  ማከማቻ"</string>
-    <string name="sdcard_setting" product="default" msgid="5922637503871474866">"SD ካርድ"</string>
+    <string name="sdcard_setting" msgid="8281011784066476192" product="nosdcard">"የUSB  ማከማቻ"</string>
+    <string name="sdcard_setting" msgid="5922637503871474866" product="default">"SD ካርድ"</string>
     <string name="bluetooth" msgid="5549625000628014477">"ብሉቱዝ"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"ለሁሉም የብሉቱዝ መሣሪያዎች(<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>) የሚታይ"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"ለሁሉም የብሉቱዝ መሣሪያዎች የሚታይ"</string>
@@ -128,17 +126,17 @@
     <string name="device_picker" msgid="4978696506172252813">"የብሉቱዝ መሣሪያ ምረጥ"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"የብሉቱዝ ፈቃድ ጥየቃ"</string>
     <string name="bluetooth_ask_enablement" msgid="1712443355224737143">"አንድ መተግበሪያ ለዚህ መሣሪያ ብሉቱዝን ማብራት ይፈልጋል።"</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"አንድ መተግበሪያ ጡባዊዎን ለ<xliff:g id="TIMEOUT">%1$d</xliff:g> ሰከንዶች ያህል ለሌሎች የብሉቱዝ መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል።"</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"አንድ መተግበሪያ ስልክዎን ለ<xliff:g id="TIMEOUT">%1$d</xliff:g> ሰከንዶች ያህል ለሌሎች የብሉቱዝ መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል።"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"አንድ መተግበሪያ ጡባዊዎን ለሌሎች የብሉቱዝ መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል። ይሄን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ ሊቀይሩት ይችላሉ።"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"አንድ መተግበሪያ ስልክዎን ለሌሎች የብሉቱዝ መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል። ይሄን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ ሊቀይሩት ይችላሉ።"</string>
-    <string name="bluetooth_ask_start_broadcast" product="default" msgid="3535628155254187911">"<xliff:g id="APP_NAME">%1$s</xliff:g> አጠገብ ካሉ ሌሎች መሣሪያዎች ጋር ለመገናኘት የብሉቱዝ ማሰራጨትን ማብራት ይፈልጋል። ይህን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ መቀየር ይችላሉ።"</string>
-    <string name="bluetooth_ask_enablement_and_start_broadcast" product="default" msgid="8810858601242763295">"<xliff:g id="APP_NAME">%1$s</xliff:g> አጠገብ ካሉ ሌሎች መሣሪያዎች ጋር ለመገናኘት ብሉቱዙን እና የብሉቱዝ ማሰራጨትን ማብራት ይፈልጋል። ይህን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ መቀየር ይችላሉ።"</string>
-    <string name="bluetooth_broadcasting_explaination" product="default" msgid="4249322115655011799">"ይህ ባህሪ ሲበራ የእርስዎ ስልክ አጠገብ ካሉ ሌሎች መሣሪያዎች ጋር መገናኘት ይችላል።\n\nማሰራጨት ባለአነስተኛ ኃይል የብሉቱዝ ምልክቶችን ነው የሚጠቀመው።"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"አንድ መተግበሪያ ብሉቱዝን አብርቶ ጡባዊዎን ለ<xliff:g id="TIMEOUT">%1$d</xliff:g> ሰከንዶች ያህል ለሌሎች መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል።"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"አንድ መተግበሪያ ብሉቱዝን አብርቶ ስልክዎን ለ<xliff:g id="TIMEOUT">%1$d</xliff:g> ሰከንዶች ያህል ለሌሎች መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል።"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"አንድ መተግበሪያ ብሉቱዝን አብርቶ ጡባዊዎን ለሌሎች መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል። ይሄን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ ሊቀይሩት ይችላሉ።"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"አንድ መተግበሪያ ብሉቱዝን አብርቶ ስልክዎን ለሌሎች መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል። ይሄን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ ሊቀይሩት ይችላሉ።"</string>
+    <string name="bluetooth_ask_discovery" msgid="786921566047356213" product="tablet">"አንድ መተግበሪያ ጡባዊዎን ለ<xliff:g id="TIMEOUT">%1$d</xliff:g> ሰከንዶች ያህል ለሌሎች የብሉቱዝ መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል።"</string>
+    <string name="bluetooth_ask_discovery" msgid="5510358858113713272" product="default">"አንድ መተግበሪያ ስልክዎን ለ<xliff:g id="TIMEOUT">%1$d</xliff:g> ሰከንዶች ያህል ለሌሎች የብሉቱዝ መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል።"</string>
+    <string name="bluetooth_ask_lasting_discovery" msgid="8863617309580598607" product="tablet">"አንድ መተግበሪያ ጡባዊዎን ለሌሎች የብሉቱዝ መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል። ይሄን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ ሊቀይሩት ይችላሉ።"</string>
+    <string name="bluetooth_ask_lasting_discovery" msgid="6487606808683607975" product="default">"አንድ መተግበሪያ ስልክዎን ለሌሎች የብሉቱዝ መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል። ይሄን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ ሊቀይሩት ይችላሉ።"</string>
+    <string name="bluetooth_ask_start_broadcast" msgid="3535628155254187911" product="default">"<xliff:g id="APP_NAME">%1$s</xliff:g> አጠገብ ካሉ ሌሎች መሣሪያዎች ጋር ለመገናኘት የብሉቱዝ ማሰራጨትን ማብራት ይፈልጋል። ይህን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ መቀየር ይችላሉ።"</string>
+    <string name="bluetooth_ask_enablement_and_start_broadcast" msgid="8810858601242763295" product="default">"<xliff:g id="APP_NAME">%1$s</xliff:g> አጠገብ ካሉ ሌሎች መሣሪያዎች ጋር ለመገናኘት ብሉቱዙን እና የብሉቱዝ ማሰራጨትን ማብራት ይፈልጋል። ይህን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ መቀየር ይችላሉ።"</string>
+    <string name="bluetooth_broadcasting_explaination" msgid="4249322115655011799" product="default">"ይህ ባህሪ ሲበራ የእርስዎ ስልክ አጠገብ ካሉ ሌሎች መሣሪያዎች ጋር መገናኘት ይችላል።\n\nማሰራጨት ባለአነስተኛ ኃይል የብሉቱዝ ምልክቶችን ነው የሚጠቀመው።"</string>
+    <string name="bluetooth_ask_enablement_and_discovery" msgid="3346529092809011149" product="tablet">"አንድ መተግበሪያ ብሉቱዝን አብርቶ ጡባዊዎን ለ<xliff:g id="TIMEOUT">%1$d</xliff:g> ሰከንዶች ያህል ለሌሎች መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል።"</string>
+    <string name="bluetooth_ask_enablement_and_discovery" msgid="4724094889807196118" product="default">"አንድ መተግበሪያ ብሉቱዝን አብርቶ ስልክዎን ለ<xliff:g id="TIMEOUT">%1$d</xliff:g> ሰከንዶች ያህል ለሌሎች መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል።"</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" msgid="989613204829097159" product="tablet">"አንድ መተግበሪያ ብሉቱዝን አብርቶ ጡባዊዎን ለሌሎች መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል። ይሄን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ ሊቀይሩት ይችላሉ።"</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" msgid="6671615712909139801" product="default">"አንድ መተግበሪያ ብሉቱዝን አብርቶ ስልክዎን ለሌሎች መሣሪያዎች እንዲታይ ሊያደርገው ይፈልጋል። ይሄን በኋላ ላይ በብሉቱዝ ቅንብሮች ውስጥ ሊቀይሩት ይችላሉ።"</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"ብሉቱዝ በማብራት ላይ..."</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"ብሉቱዝ በማጥፋት ላይ..."</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"በራስ ሰር ተገናኝ"</string>
@@ -219,20 +217,20 @@
     <string name="sdcard_changes_instructions" msgid="4482324130377280131">"የUSB ሽቦ ድጋሚ ሲገናኝ ለውጡ ስራ ላይ ይውላል።"</string>
     <string name="sdcard_settings_screen_mass_storage_text" msgid="3741220147296482474">"የUSB  ሰፊማከማቻ አንቃ"</string>
     <string name="sdcard_settings_total_bytes_label" msgid="9184160745785062144">"ጠቅላላ ባይቶች፡"</string>
-    <string name="sdcard_settings_not_present_status" product="nosdcard" msgid="1636218515775929394">"የUSB ማከማቻ አልተሰካም።"</string>
-    <string name="sdcard_settings_not_present_status" product="default" msgid="2048419626134861599">"ምንም SD ካርድ የለም።"</string>
+    <string name="sdcard_settings_not_present_status" msgid="1636218515775929394" product="nosdcard">"የUSB ማከማቻ አልተሰካም።"</string>
+    <string name="sdcard_settings_not_present_status" msgid="2048419626134861599" product="default">"ምንም SD ካርድ የለም።"</string>
     <string name="sdcard_settings_available_bytes_label" msgid="763232429899373001">"የተገኙ ባይቶች፡"</string>
-    <string name="sdcard_settings_mass_storage_status" product="nosdcard" msgid="7993410985895217054">"USB ማከማቻ እንደብዙ ማከማቻ መሣሪያ በማገልገል ላይ ነው።"</string>
-    <string name="sdcard_settings_mass_storage_status" product="default" msgid="2742075324087038036">"SD ካርድ እንደብዙ ማከማቻ መሣሪያ በማገልገል ላይ ነው።"</string>
-    <string name="sdcard_settings_unmounted_status" product="nosdcard" msgid="5128923500235719226">"አሁን የUSB ማከማቻውን ለማስወገድ አስተማመኝ ነው።"</string>
-    <string name="sdcard_settings_unmounted_status" product="default" msgid="666233604712540408">"አሁን የSD ማከማቻውን ለማስወገድ አስተማመኝ ነው።"</string>
-    <string name="sdcard_settings_bad_removal_status" product="nosdcard" msgid="7761390725880773697">"የUSB  ማከማቻ በጥቅም ላይ እያለ ተወግዶ ነበር!"</string>
-    <string name="sdcard_settings_bad_removal_status" product="default" msgid="5145797653495907970">"የSD ማከማቻ በጥቅም ላይ እያለ ተወግዶ ነበር!"</string>
+    <string name="sdcard_settings_mass_storage_status" msgid="7993410985895217054" product="nosdcard">"USB ማከማቻ እንደብዙ ማከማቻ መሣሪያ በማገልገል ላይ ነው።"</string>
+    <string name="sdcard_settings_mass_storage_status" msgid="2742075324087038036" product="default">"SD ካርድ እንደብዙ ማከማቻ መሣሪያ በማገልገል ላይ ነው።"</string>
+    <string name="sdcard_settings_unmounted_status" msgid="5128923500235719226" product="nosdcard">"አሁን የUSB ማከማቻውን ለማስወገድ አስተማመኝ ነው።"</string>
+    <string name="sdcard_settings_unmounted_status" msgid="666233604712540408" product="default">"አሁን የSD ማከማቻውን ለማስወገድ አስተማመኝ ነው።"</string>
+    <string name="sdcard_settings_bad_removal_status" msgid="7761390725880773697" product="nosdcard">"የUSB  ማከማቻ በጥቅም ላይ እያለ ተወግዶ ነበር!"</string>
+    <string name="sdcard_settings_bad_removal_status" msgid="5145797653495907970" product="default">"የSD ማከማቻ በጥቅም ላይ እያለ ተወግዶ ነበር!"</string>
     <string name="sdcard_settings_used_bytes_label" msgid="8820289486001170836">"ያገለገሉ ባይቶች፡"</string>
-    <string name="sdcard_settings_scanning_status" product="nosdcard" msgid="7503429447676219564">"ለማህደረ መረጃ የUSB ማከማቻ በመቃኘት ላይ...."</string>
-    <string name="sdcard_settings_scanning_status" product="default" msgid="2763464949274455656">"ለማህደረ መረጃ የ SD ካርደ በመቃኘት ላይ..."</string>
-    <string name="sdcard_settings_read_only_status" product="nosdcard" msgid="3624143937437417788">"የUSB ማከማቻ አንብብ -ብቻ ሰክቷል።"</string>
-    <string name="sdcard_settings_read_only_status" product="default" msgid="4518291824764698112">"የSD ካርድ አንባቢ- ብቻ ተሰክቷል።"</string>
+    <string name="sdcard_settings_scanning_status" msgid="7503429447676219564" product="nosdcard">"ለማህደረ መረጃ የUSB ማከማቻ በመቃኘት ላይ...."</string>
+    <string name="sdcard_settings_scanning_status" msgid="2763464949274455656" product="default">"ለማህደረ መረጃ የ SD ካርደ በመቃኘት ላይ..."</string>
+    <string name="sdcard_settings_read_only_status" msgid="3624143937437417788" product="nosdcard">"የUSB ማከማቻ አንብብ -ብቻ ሰክቷል።"</string>
+    <string name="sdcard_settings_read_only_status" msgid="4518291824764698112" product="default">"የSD ካርድ አንባቢ- ብቻ ተሰክቷል።"</string>
     <string name="skip_label" msgid="47510779345218297">"ዝለል"</string>
     <string name="next_label" msgid="4693520878012668114">"ቀጥል"</string>
     <string name="language_picker_title" msgid="3596315202551687690">"ቋንቋዎች"</string>
@@ -240,8 +238,8 @@
     <string name="locale_remove_menu" msgid="7651301406723638854">"አስወግድ"</string>
     <string name="add_a_language" msgid="2330538812283783022">"ቋንቋ አክል"</string>
     <plurals name="dlg_remove_locales_title" formatted="false" msgid="4276642359346122396">
-      <item quantity="one">የተመረጡት ቋንቋዎች ይወገዱ?</item>
-      <item quantity="other">የተመረጡት ቋንቋዎች ይወገዱ?</item>
+        <item quantity="one">የተመረጡት ቋንቋዎች ይወገዱ?</item>
+        <item quantity="other">የተመረጡት ቋንቋዎች ይወገዱ?</item>
     </plurals>
     <string name="dlg_remove_locales_message" msgid="1361354927342876114">"ጽሑፍ በሌላ ቋንቋ ይታያል።"</string>
     <string name="dlg_remove_locales_error_title" msgid="2653242337224911425">"ሁሉንም ቋንቋዎች ማስወገድ አይቻልም"</string>
@@ -255,10 +253,10 @@
     <string name="activity_picker_label" msgid="6295660302548177109">"እንቅስቃሴ ምረጥ"</string>
     <string name="device_info_label" msgid="6551553813651711205">"የመሣሪያ መረጃ"</string>
     <string name="display_label" msgid="8074070940506840792">"ማያ"</string>
-    <string name="phone_info_label" product="tablet" msgid="7820855350955963628">"የጡባዊ መረጃ"</string>
-    <string name="phone_info_label" product="default" msgid="2127552523124277664">"የስልክ መረጃ"</string>
-    <string name="sd_card_settings_label" product="nosdcard" msgid="8101475181301178428">"የUSB  ማከማቻ"</string>
-    <string name="sd_card_settings_label" product="default" msgid="5743100901106177102">"SD ካርድ"</string>
+    <string name="phone_info_label" msgid="7820855350955963628" product="tablet">"የጡባዊ መረጃ"</string>
+    <string name="phone_info_label" msgid="2127552523124277664" product="default">"የስልክ መረጃ"</string>
+    <string name="sd_card_settings_label" msgid="8101475181301178428" product="nosdcard">"የUSB  ማከማቻ"</string>
+    <string name="sd_card_settings_label" msgid="5743100901106177102" product="default">"SD ካርድ"</string>
     <string name="proxy_settings_label" msgid="3271174136184391743">"የእጅ አዙር ቅንብሮች"</string>
     <string name="cancel" msgid="6859253417269739139">"ይቅር"</string>
     <string name="okay" msgid="1997666393121016642">"እሺ"</string>
@@ -283,8 +281,8 @@
     <string name="roaming_reenable_message" msgid="9141007271031717369">"የውሂብዎ ተያያዥነት ጠፍቷል ምክንያቱም የቤትዎን አውታረመረብ በእንቅስቃሴ ላይ አጥፋተው በመተዎ ነው።"</string>
     <string name="roaming_turn_it_on_button" msgid="4387601818162120589">"አብራው"</string>
     <string name="roaming_warning" msgid="4275443317524544705">"ቀላል የማይባል ክፍያ ሊጠየቁ ይችሉ ይሆናል።"</string>
-    <string name="roaming_warning_multiuser" product="tablet" msgid="6458990250829214777">"የውሂብ ዝውውር ሲፈቅዱ ጉልህ የሆኑ የውሂብ ዝውውር ክፍያዎች ሊደርስብዎት ይችላል!\n\nይህ ቅንብር እዚህ ጡባዊ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
-    <string name="roaming_warning_multiuser" product="default" msgid="6368421100292355440">"የውሂብ ዝውውር ሲፈቅዱ ጉልህ የሆኑ የውሂብ ዝውውር ክፍያዎች ሊደርስብዎት ይችላል!\n\nይህ ቅንብር እዚህ ስልክ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
+    <string name="roaming_warning_multiuser" msgid="6458990250829214777" product="tablet">"የውሂብ ዝውውር ሲፈቅዱ ጉልህ የሆኑ የውሂብ ዝውውር ክፍያዎች ሊደርስብዎት ይችላል!\n\nይህ ቅንብር እዚህ ጡባዊ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
+    <string name="roaming_warning_multiuser" msgid="6368421100292355440" product="default">"የውሂብ ዝውውር ሲፈቅዱ ጉልህ የሆኑ የውሂብ ዝውውር ክፍያዎች ሊደርስብዎት ይችላል!\n\nይህ ቅንብር እዚህ ስልክ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
     <string name="roaming_reenable_title" msgid="6068100976707316772">"የውሂብ ዝውውር ፍቀድ?"</string>
     <string name="networks" msgid="6333316876545927039">"የከዋኝ ምርጫ"</string>
     <string name="sum_carrier_select" msgid="3616956422251879163">"የአውታረ መረብ ከዋኝ ምረጥ"</string>
@@ -337,8 +335,8 @@
     <string name="fingerprint_add_title" msgid="1926752654454033904">"የጣት አሻራ አክል"</string>
     <string name="fingerprint_enable_keyguard_toggle_title" msgid="5078060939636911795">"ማያ ገጽ መቆለፊያ"</string>
     <plurals name="security_settings_fingerprint_preference_summary" formatted="false" msgid="624961700033979880">
-      <item quantity="one">የ<xliff:g id="COUNT_1">%1$d</xliff:g> ጣት አሻራዎች ማዋቀር</item>
-      <item quantity="other">የ<xliff:g id="COUNT_1">%1$d</xliff:g> ጣት አሻራዎች ማዋቀር</item>
+        <item quantity="one">የ<xliff:g id="COUNT_1">%1$d</xliff:g> ጣት አሻራዎች ማዋቀር</item>
+        <item quantity="other">የ<xliff:g id="COUNT_1">%1$d</xliff:g> ጣት አሻራዎች ማዋቀር</item>
     </plurals>
     <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_introduction_title" msgid="3201556857492526098">"በጣት አሻራ ይክፈቱ"</string>
@@ -350,12 +348,12 @@
     <string name="security_settings_fingerprint_enroll_introduction_continue" msgid="7472492858148162530">"ቀጥል"</string>
     <string name="security_settings_fingerprint_enroll_introduction_cancel_setup" msgid="5021369420474432665">"ዝለል"</string>
     <string name="security_settings_fingerprint_enroll_introduction_continue_setup" msgid="8386444182056861429">"የጣት አሻራ አክል"</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="tablet" msgid="7234486440384881699">"የመሣሪያ ጥበቃ ባሕሪያት ገቢር አይሆኑም። ይህ ጡባዊ ከጠፋ፣ ከተሰረቀ ወይም ከተጸዳ ሌሎች እንዳይጠቀሙበት ለመከላከል አይችሉም።"</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="device" msgid="3519190003101280912">"የመሣሪያ ጥበቃ ባሕሪያት ገቢር አይሆኑም። ይህ መሣሪያ ከጠፋ፣ ከተሰረቀ ወይም ከተጸዳ ሌሎች እንዳይጠቀሙበት ለመከላከል አይችሉም።"</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="default" msgid="417315011140961">"የመሣሪያ ጥበቃ ባሕሪያት ገቢር አይሆኑም። ይህ ስልክ ከጠፋ፣ ከተሰረቀ ወይም ከተጸዳ ሌሎች እንዳይጠቀሙበት ለመከላከል አይችሉም።"</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="tablet" msgid="8783499872534165700">"የመሣሪያ ጥበቃ ባሕሪያት አይነቁም። ይህ ጡባዊ ከጠፋ ወይም ከተሰረቀ ሌሎች እንዳይጠቀሙበት መከላከል አይችሉም።"</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="device" msgid="3120512940873907578">"የመሣሪያ ጥበቃ ባህሪያት ገቢር አይሆኑም። ይህ መሣሪያ ከጠፋ ወይም ከተሰረቀ ሌሎች እንዳይጠቀሙበት መከላከል አይችሉም።"</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="default" msgid="3589945558504439395">"የመሳሪያ ጥበቃ ባህሪያት አይነቁም። ይህ ስልክ ከጠፋ ወይም ከተሰረቀ ሌሎች እንዳይጠቀሙበት መከላከል አይችሉም።"</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="7234486440384881699" product="tablet">"የመሣሪያ ጥበቃ ባሕሪያት ገቢር አይሆኑም። ይህ ጡባዊ ከጠፋ፣ ከተሰረቀ ወይም ከተጸዳ ሌሎች እንዳይጠቀሙበት ለመከላከል አይችሉም።"</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="3519190003101280912" product="device">"የመሣሪያ ጥበቃ ባሕሪያት ገቢር አይሆኑም። ይህ መሣሪያ ከጠፋ፣ ከተሰረቀ ወይም ከተጸዳ ሌሎች እንዳይጠቀሙበት ለመከላከል አይችሉም።"</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="417315011140961" product="default">"የመሣሪያ ጥበቃ ባሕሪያት ገቢር አይሆኑም። ይህ ስልክ ከጠፋ፣ ከተሰረቀ ወይም ከተጸዳ ሌሎች እንዳይጠቀሙበት ለመከላከል አይችሉም።"</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="8783499872534165700" product="tablet">"የመሣሪያ ጥበቃ ባሕሪያት አይነቁም። ይህ ጡባዊ ከጠፋ ወይም ከተሰረቀ ሌሎች እንዳይጠቀሙበት መከላከል አይችሉም።"</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="3120512940873907578" product="device">"የመሣሪያ ጥበቃ ባህሪያት ገቢር አይሆኑም። ይህ መሣሪያ ከጠፋ ወይም ከተሰረቀ ሌሎች እንዳይጠቀሙበት መከላከል አይችሉም።"</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="3589945558504439395" product="default">"የመሳሪያ ጥበቃ ባህሪያት አይነቁም። ይህ ስልክ ከጠፋ ወይም ከተሰረቀ ሌሎች እንዳይጠቀሙበት መከላከል አይችሉም።"</string>
     <string name="skip_anyway_button_label" msgid="2323522873558834513">"ለማንኛውም ዝለል"</string>
     <string name="go_back_button_label" msgid="4745265266186209467">"ወደኋላ ተመለስ"</string>
     <string name="security_settings_fingerprint_enroll_find_sensor_title" msgid="5877265753699187149">"ዳሳሹን ያግኙት"</string>
@@ -393,35 +391,35 @@
     <string name="fingerprint_last_delete_confirm" msgid="2634726361059274289">"አዎ፣ አስወግድ"</string>
     <string name="confirm_fingerprint_icon_content_description" msgid="5255544532157079096">"ለመቀጠል የእርስዎን የጣት አሻራ ይጠቀሙ።"</string>
     <string name="crypt_keeper_settings_title" msgid="4219233835490520414">"ማመስጠሪያ"</string>
-    <string name="crypt_keeper_encrypt_title" product="tablet" msgid="1060273569887301457">"ጡባዊ አመስጥር"</string>
-    <string name="crypt_keeper_encrypt_title" product="default" msgid="1878996487755806122">"ስልክ አመስጥር"</string>
+    <string name="crypt_keeper_encrypt_title" msgid="1060273569887301457" product="tablet">"ጡባዊ አመስጥር"</string>
+    <string name="crypt_keeper_encrypt_title" msgid="1878996487755806122" product="default">"ስልክ አመስጥር"</string>
     <string name="crypt_keeper_encrypted_summary" msgid="1868233637888132906">"ተመስጥሯል"</string>
-    <string name="crypt_keeper_desc" product="tablet" msgid="503014594435731275">"የእርስዎን መለያዎች፣ ቅንብሮች፣ የወረዱ መተግበሪያዎች እና ውሂባቸው፣ ማህደረመረጃቸው እና ሌሎች ፋይሎቻቸውን ማመስጠር ይችላሉ። ጡባዊዎን ካመሰጠሩት በኋላ የማያ ገጽ ቁልፍ እንዳዋቀሩ ታሳቢ በማድረግ (ማለትም ስርዓተ-ጥለት፣ ቁጥራዊ ፒን ወይም የይለፍ ቃል) ጡባዊዎን ባበሩት ቁጥር ጡባዊውን ለመፍታት ማያ ገጹን መክፈት ይኖርብዎታል። የሚፈቱበት ሌላኛው ብቻ መንገድ የፋብሪካ ዳግም ማስጀመር ነው፣ ሁሉንም ውሂብዎን በመደምሰስ።\n\nማመስጠር አንድ ሰዓት ወይም ከዚያ በላይ ይወስዳል። በሙሉ ባትሪ መጀመር አለብዎት፣ እና ሂደቱ እስኪያልቅ ድረስ ጡባዊዎ መሰካት አለበት። ካቋረጡት አንዳንድ ወይም ሁሉም ውሂብዎን ያጣሉ።"</string>
-    <string name="crypt_keeper_desc" product="default" msgid="2579929266645543631">"የእርስዎን መለያዎች፣ ቅንብሮች፣ የወረዱ መተግበሪያዎች እና ውሂባቸው፣ ማህደረመረጃቸው እና ሌሎች ፋይሎቻቸውን ማመስጠር ይችላሉ። ስልክዎን ካመሰጠሩት በኋላ የማያ ገጽ ቁልፍ እንዳዋቀሩ ታሳቢ በማድረግ (ማለትም ስርዓተ-ጥለት፣ ቁጥራዊ ፒን ወይም የይለፍ ቃል) ስልክዎን ባበሩት ቁጥር ስልኩን ለመፍታት ማያ ገጹን መክፈት ይኖርብዎታል። የሚፈቱበት ሌላኛው ብቻ መንገድ የፋብሪካ ዳግም ማስጀመር ነው፣ ሁሉንም ውሂብዎን በመደምሰስ።\n\nማመስጠር አንድ ሰዓት ወይም ከዚያ በላይ ይወስዳል። በሙሉ ባትሪ መጀመር አለብዎት፣ እና ሂደቱ እስኪያልቅ ድረስ ስልክዎ መሰካት አለበት። ካቋረጡት አንዳንድ ወይም ሁሉም ውሂብዎን ያጣሉ።"</string>
-    <string name="crypt_keeper_button_text" product="tablet" msgid="1189623490604750854">"ጡባዊ አመስጥር"</string>
-    <string name="crypt_keeper_button_text" product="default" msgid="2008346408473255519">"ስልክ አመስጥር"</string>
+    <string name="crypt_keeper_desc" msgid="503014594435731275" product="tablet">"የእርስዎን መለያዎች፣ ቅንብሮች፣ የወረዱ መተግበሪያዎች እና ውሂባቸው፣ ማህደረመረጃቸው እና ሌሎች ፋይሎቻቸውን ማመስጠር ይችላሉ። ጡባዊዎን ካመሰጠሩት በኋላ የማያ ገጽ ቁልፍ እንዳዋቀሩ ታሳቢ በማድረግ (ማለትም ስርዓተ-ጥለት፣ ቁጥራዊ ፒን ወይም የይለፍ ቃል) ጡባዊዎን ባበሩት ቁጥር ጡባዊውን ለመፍታት ማያ ገጹን መክፈት ይኖርብዎታል። የሚፈቱበት ሌላኛው ብቻ መንገድ የፋብሪካ ዳግም ማስጀመር ነው፣ ሁሉንም ውሂብዎን በመደምሰስ።\n\nማመስጠር አንድ ሰዓት ወይም ከዚያ በላይ ይወስዳል። በሙሉ ባትሪ መጀመር አለብዎት፣ እና ሂደቱ እስኪያልቅ ድረስ ጡባዊዎ መሰካት አለበት። ካቋረጡት አንዳንድ ወይም ሁሉም ውሂብዎን ያጣሉ።"</string>
+    <string name="crypt_keeper_desc" msgid="2579929266645543631" product="default">"የእርስዎን መለያዎች፣ ቅንብሮች፣ የወረዱ መተግበሪያዎች እና ውሂባቸው፣ ማህደረመረጃቸው እና ሌሎች ፋይሎቻቸውን ማመስጠር ይችላሉ። ስልክዎን ካመሰጠሩት በኋላ የማያ ገጽ ቁልፍ እንዳዋቀሩ ታሳቢ በማድረግ (ማለትም ስርዓተ-ጥለት፣ ቁጥራዊ ፒን ወይም የይለፍ ቃል) ስልክዎን ባበሩት ቁጥር ስልኩን ለመፍታት ማያ ገጹን መክፈት ይኖርብዎታል። የሚፈቱበት ሌላኛው ብቻ መንገድ የፋብሪካ ዳግም ማስጀመር ነው፣ ሁሉንም ውሂብዎን በመደምሰስ።\n\nማመስጠር አንድ ሰዓት ወይም ከዚያ በላይ ይወስዳል። በሙሉ ባትሪ መጀመር አለብዎት፣ እና ሂደቱ እስኪያልቅ ድረስ ስልክዎ መሰካት አለበት። ካቋረጡት አንዳንድ ወይም ሁሉም ውሂብዎን ያጣሉ።"</string>
+    <string name="crypt_keeper_button_text" msgid="1189623490604750854" product="tablet">"ጡባዊ አመስጥር"</string>
+    <string name="crypt_keeper_button_text" msgid="2008346408473255519" product="default">"ስልክ አመስጥር"</string>
     <string name="crypt_keeper_low_charge_text" msgid="2029407131227814893">"እባክዎ ባትሪዎን ኃይል ይሙላ እና እንደገና ይሞክሩ።"</string>
     <string name="crypt_keeper_unplugged_text" msgid="4785376766063053901">"እባክዎ የኃይል መሙያዎን ይሰኩ እና እንደገና ይሞክሩ።"</string>
     <string name="crypt_keeper_dialog_need_password_title" msgid="4058971800557767">"ምንም የማያቆልፍ ፒን  ወይም ይለፍቃል የለም"</string>
     <string name="crypt_keeper_dialog_need_password_message" msgid="4071395977297369642">"ምስጠራ ከመጀመርህ በፊት የማያ ቆልፍ ፒን  ወይም ይለፍቃል ማዘጋጀት አለብህ።"</string>
     <string name="crypt_keeper_confirm_title" msgid="5100339496381875522">"ይመስጠር?"</string>
-    <string name="crypt_keeper_final_desc" product="tablet" msgid="517662068757620756">"የምስጠራ ክንውኑ የማይመለስ ነው እና ካቋረጡት፤ ውሂብ ያጣሉ።ምስጠራ 1 ሰዓት ወይም ከዛ የበለጠ ይወስዳል፤ በዛ ጊዜ ስልኩ ለብዙ ጊዜያቶች በድጋሚ ይነሳል።"</string>
-    <string name="crypt_keeper_final_desc" product="default" msgid="287503113671320916">"የምስጠራ ክንውኑ የማይመለስ ነው እና ካቋረጡት፤ ውሂብ ያጣሉ።ምስጠራ 1 ሰዓት ወይም ከዛ የበለጠ ይወስዳል፤ በዛ ጊዜ ስልኩ ለብዙ ጊዜያቶች በድጋሚ ይነሳል።"</string>
+    <string name="crypt_keeper_final_desc" msgid="517662068757620756" product="tablet">"የምስጠራ ክንውኑ የማይመለስ ነው እና ካቋረጡት፤ ውሂብ ያጣሉ።ምስጠራ 1 ሰዓት ወይም ከዛ የበለጠ ይወስዳል፤ በዛ ጊዜ ስልኩ ለብዙ ጊዜያቶች በድጋሚ ይነሳል።"</string>
+    <string name="crypt_keeper_final_desc" msgid="287503113671320916" product="default">"የምስጠራ ክንውኑ የማይመለስ ነው እና ካቋረጡት፤ ውሂብ ያጣሉ።ምስጠራ 1 ሰዓት ወይም ከዛ የበለጠ ይወስዳል፤ በዛ ጊዜ ስልኩ ለብዙ ጊዜያቶች በድጋሚ ይነሳል።"</string>
     <string name="crypt_keeper_setup_title" msgid="1783951453124244969">"ማመስጠሪያ"</string>
-    <string name="crypt_keeper_setup_description" product="tablet" msgid="6689952371032099350">"እባክህ ጡባዊህ እስኪመሳጠር ድረስ ጠብቅ።<xliff:g id="PERCENT">^1</xliff:g> ተጠናቋል።"</string>
-    <string name="crypt_keeper_setup_description" product="default" msgid="951918761585534875">"እባክህ  ስልክህ እስኪመሳጠር ድረስ ጠብቅ። <xliff:g id="PERCENT">^1</xliff:g>% ተጠናቋል።"</string>
-    <string name="crypt_keeper_setup_time_remaining" product="tablet" msgid="1655047311546745695">"ጡባዊዎ እስኪመሰጠር ድረስ ይጠብቁ። ቀሪ ጊዜ፦ <xliff:g id="DURATION">^1</xliff:g>"</string>
-    <string name="crypt_keeper_setup_time_remaining" product="default" msgid="1862964662304683072">"ስልክዎ እስኪመሰጠር ድረስ ይጠብቁ። ቀሪ ጊዜ፦ <xliff:g id="DURATION">^1</xliff:g>"</string>
-    <string name="crypt_keeper_force_power_cycle" product="tablet" msgid="556504311511212648">"ጡባዊዎን ለማስከፈት ያጥፉትና ከዚያ ያብሩት።"</string>
-    <string name="crypt_keeper_force_power_cycle" product="default" msgid="1794353635603020327">"ስልክዎን ለማስከፈት ያጥፉትና ከዚያ ያብሩት።"</string>
+    <string name="crypt_keeper_setup_description" msgid="6689952371032099350" product="tablet">"እባክህ ጡባዊህ እስኪመሳጠር ድረስ ጠብቅ።<xliff:g id="PERCENT">^1</xliff:g> ተጠናቋል።"</string>
+    <string name="crypt_keeper_setup_description" msgid="951918761585534875" product="default">"እባክህ  ስልክህ እስኪመሳጠር ድረስ ጠብቅ። <xliff:g id="PERCENT">^1</xliff:g>% ተጠናቋል።"</string>
+    <string name="crypt_keeper_setup_time_remaining" msgid="1655047311546745695" product="tablet">"ጡባዊዎ እስኪመሰጠር ድረስ ይጠብቁ። ቀሪ ጊዜ፦ <xliff:g id="DURATION">^1</xliff:g>"</string>
+    <string name="crypt_keeper_setup_time_remaining" msgid="1862964662304683072" product="default">"ስልክዎ እስኪመሰጠር ድረስ ይጠብቁ። ቀሪ ጊዜ፦ <xliff:g id="DURATION">^1</xliff:g>"</string>
+    <string name="crypt_keeper_force_power_cycle" msgid="556504311511212648" product="tablet">"ጡባዊዎን ለማስከፈት ያጥፉትና ከዚያ ያብሩት።"</string>
+    <string name="crypt_keeper_force_power_cycle" msgid="1794353635603020327" product="default">"ስልክዎን ለማስከፈት ያጥፉትና ከዚያ ያብሩት።"</string>
     <string name="crypt_keeper_warn_wipe" msgid="2738374897337991667">"ማስጠንቀቂያ፦ መሳሪያዎ ከ<xliff:g id="COUNT">^1</xliff:g> ተጨማሪ የመክፈት ሙከራዎች በኋላ ይጠረጋል!"</string>
     <string name="crypt_keeper_enter_password" msgid="2223340178473871064">"የይለፍቃልህን ተይብ"</string>
     <string name="crypt_keeper_failed_title" msgid="7133499413023075961">"ምስጠራ ስኬታማ አልነበረም"</string>
-    <string name="crypt_keeper_failed_summary" product="tablet" msgid="8219375738445017266">"ማመስጠር ተቆራርጧል እና መጨረስ አይችልም። በመሆኑም፣ በጡባዊዎ ላይ ያለውን ውሂብ እስከነጭራሹ መድረስ አይቻልም። \n\n ጡባዊህን በመጠቀም ለመቀጠል፣ የፋብሪካ ዳግም አስጀምር ማከናወን አለብህ። ጡባዊህን ዳግም ካስጀመርክ በኋላ ስታዘጋጅ፣ ወደ Google መለያህ አስጠብቀህ የነበረውን ውሂብ እነበረበት ለመመለስ እድሉን ታገኛለህ።"</string>
-    <string name="crypt_keeper_failed_summary" product="default" msgid="3270131542549577953">"ማመስጠር ተቆራርጧል እና መጨረስ አይችልም። በመሆኑም፣ በስልክዎ ላይ ያለውን ውሂብ እስከነጭራሹ መድረስ አይቻልም። \n\n ስልክዎን በመጠቀም ለመቀጠል፣ የፋብሪካ ዳግም አስጀምር ማከናወን አለብዎት። ስልክዎን ዳግም ካስጀመሩ በኋላ ሲያዘጋጁ፣ ወደ Google መለያዎ አስጠብቀው የነበረውን ውሂብ እነበረበት ለመመለስ እድሉን ያገኛሉ።"</string>
+    <string name="crypt_keeper_failed_summary" msgid="8219375738445017266" product="tablet">"ማመስጠር ተቆራርጧል እና መጨረስ አይችልም። በመሆኑም፣ በጡባዊዎ ላይ ያለውን ውሂብ እስከነጭራሹ መድረስ አይቻልም። \n\n ጡባዊህን በመጠቀም ለመቀጠል፣ የፋብሪካ ዳግም አስጀምር ማከናወን አለብህ። ጡባዊህን ዳግም ካስጀመርክ በኋላ ስታዘጋጅ፣ ወደ Google መለያህ አስጠብቀህ የነበረውን ውሂብ እነበረበት ለመመለስ እድሉን ታገኛለህ።"</string>
+    <string name="crypt_keeper_failed_summary" msgid="3270131542549577953" product="default">"ማመስጠር ተቆራርጧል እና መጨረስ አይችልም። በመሆኑም፣ በስልክዎ ላይ ያለውን ውሂብ እስከነጭራሹ መድረስ አይቻልም። \n\n ስልክዎን በመጠቀም ለመቀጠል፣ የፋብሪካ ዳግም አስጀምር ማከናወን አለብዎት። ስልክዎን ዳግም ካስጀመሩ በኋላ ሲያዘጋጁ፣ ወደ Google መለያዎ አስጠብቀው የነበረውን ውሂብ እነበረበት ለመመለስ እድሉን ያገኛሉ።"</string>
     <string name="crypt_keeper_data_corrupt_title" msgid="8759119849089795751">"መፍታት አልተሳካም"</string>
-    <string name="crypt_keeper_data_corrupt_summary" product="tablet" msgid="840107296925798402">"ያስገቡት የይለፍ ቃል ትክክል ነው፣ ይሁንና ውሂብዎ የተበላሸ ነው። \n\nጡባዊዎን መጠቀሙን ለመቀጠል የፋብሪካ ዳግም ማስጀመር ማከናወን ያስፈልግዎታል። ከዳግም ማስጀመሩ በኋላ ጡባዊዎን ሲያዋቅሩት በGoogle መለያዎ ላይ ምትኬ የተቀመጠለት ማንኛውም ውሂብ ወደነበረበት የመመለስ አጋጣሚ ይኖርዎታል።"</string>
-    <string name="crypt_keeper_data_corrupt_summary" product="default" msgid="8843311420059663824">"ያስገቡት የይለፍ ቃል ትክክል ነው፣ ይሁንና ውሂብዎ የተበላሸ ነው። \n\nስልክዎን መጠቀሙን ለመቀጠል የፋብሪካ ዳግም ማስጀመር ማከናወን ያስፈልግዎታል። ከዳግም ማስጀመሩ በኋላ ስልክዎን ሲያዋቅሩት በGoogle መለያዎ ላይ ምትኬ የተቀመጠለት ማንኛውም ውሂብ ወደነበረበት የመመለስ አጋጣሚ ይኖርዎታል።"</string>
+    <string name="crypt_keeper_data_corrupt_summary" msgid="840107296925798402" product="tablet">"ያስገቡት የይለፍ ቃል ትክክል ነው፣ ይሁንና ውሂብዎ የተበላሸ ነው። \n\nጡባዊዎን መጠቀሙን ለመቀጠል የፋብሪካ ዳግም ማስጀመር ማከናወን ያስፈልግዎታል። ከዳግም ማስጀመሩ በኋላ ጡባዊዎን ሲያዋቅሩት በGoogle መለያዎ ላይ ምትኬ የተቀመጠለት ማንኛውም ውሂብ ወደነበረበት የመመለስ አጋጣሚ ይኖርዎታል።"</string>
+    <string name="crypt_keeper_data_corrupt_summary" msgid="8843311420059663824" product="default">"ያስገቡት የይለፍ ቃል ትክክል ነው፣ ይሁንና ውሂብዎ የተበላሸ ነው። \n\nስልክዎን መጠቀሙን ለመቀጠል የፋብሪካ ዳግም ማስጀመር ማከናወን ያስፈልግዎታል። ከዳግም ማስጀመሩ በኋላ ስልክዎን ሲያዋቅሩት በGoogle መለያዎ ላይ ምትኬ የተቀመጠለት ማንኛውም ውሂብ ወደነበረበት የመመለስ አጋጣሚ ይኖርዎታል።"</string>
     <string name="crypt_keeper_switch_input_method" msgid="4168332125223483198">"የግቤት ስልት ቀይር"</string>
     <string name="suggested_lock_settings_title" msgid="8971630898700461034">"ማያ ገጽ መቆለፊያውን ያዘጋጁ"</string>
     <string name="suggested_lock_settings_summary" msgid="8778462376012231110">"መሣሪያዎን ይጠብቁ"</string>
@@ -429,13 +427,13 @@
     <string name="suggested_fingerprint_lock_settings_summary" msgid="2149569133725273864">"በእርስዎ የጣት አሻራ ይክፈቱ"</string>
     <string name="lock_settings_picker_title" msgid="1095755849152582712">"ማሳያ ቆልፍ ምረጥ"</string>
     <string name="lock_settings_picker_title_profile" msgid="8822511284992306796">"የስራ ቁልፍ ይምረጡ"</string>
-    <string name="setup_lock_settings_picker_title" product="tablet" msgid="90329443364067215">"ለጡባዊዎ ጥበቃ ያድርጉ"</string>
-    <string name="setup_lock_settings_picker_title" product="device" msgid="2399952075134938929">"ለመሣሪያዎ ጥበቃ ያድርጉ"</string>
-    <string name="setup_lock_settings_picker_title" product="default" msgid="1572244299605153324">"ለእርስዎ ስልክ ጥበቃ ይድርጉ"</string>
+    <string name="setup_lock_settings_picker_title" msgid="90329443364067215" product="tablet">"ለጡባዊዎ ጥበቃ ያድርጉ"</string>
+    <string name="setup_lock_settings_picker_title" msgid="2399952075134938929" product="device">"ለመሣሪያዎ ጥበቃ ያድርጉ"</string>
+    <string name="setup_lock_settings_picker_title" msgid="1572244299605153324" product="default">"ለእርስዎ ስልክ ጥበቃ ይድርጉ"</string>
     <string name="setup_lock_settings_picker_fingerprint_message" msgid="5585650064305600578">"ለተጨማሪ ደህንነት የምትኬ ማያ ገጽ መቆለፊያን ያዘጋጁ።"</string>
-    <string name="setup_lock_settings_picker_message" product="tablet" msgid="8919671129189936210">"የመሣሪያ ጥበቃ ባህሪያትን በማግበር ሌሎች ይህን ጡባዊ ያለእርስዎ ፈቃድ እንዳይጠቀሙበት ይከልክሉ። መጠቀም የሚፈልጉትን የማያ ገጽ መቆለፊያ ይምረጡ።"</string>
-    <string name="setup_lock_settings_picker_message" product="device" msgid="3787276514406353777">"የመሣሪያ ጥበቃ ማድረጊያ ባሕሪዎችን በማግበር ያለ እርስዎ ፈቃድ ሌሎች ይህን መሣሪያ እንዳይጠቀሙ ይከላከሉዋቸው። መጠቀም የሚፈልጉትን ማያ ገጽ መቆለፊያ ይምረጡ።"</string>
-    <string name="setup_lock_settings_picker_message" product="default" msgid="3692856437543730446">"የመሣሪያ ጥበቃ ባህሪያትን በማግበር ሌሎች ይህን ስልክ ያለእርስዎ ፈቃድ እንዳይጠቀሙበት ይከልክሉ። መጠቀም የሚፈልጉትን የማያ ገጽ መቆለፊያ ይምረጡ።"</string>
+    <string name="setup_lock_settings_picker_message" msgid="8919671129189936210" product="tablet">"የመሣሪያ ጥበቃ ባህሪያትን በማግበር ሌሎች ይህን ጡባዊ ያለእርስዎ ፈቃድ እንዳይጠቀሙበት ይከልክሉ። መጠቀም የሚፈልጉትን የማያ ገጽ መቆለፊያ ይምረጡ።"</string>
+    <string name="setup_lock_settings_picker_message" msgid="3787276514406353777" product="device">"የመሣሪያ ጥበቃ ማድረጊያ ባሕሪዎችን በማግበር ያለ እርስዎ ፈቃድ ሌሎች ይህን መሣሪያ እንዳይጠቀሙ ይከላከሉዋቸው። መጠቀም የሚፈልጉትን ማያ ገጽ መቆለፊያ ይምረጡ።"</string>
+    <string name="setup_lock_settings_picker_message" msgid="3692856437543730446" product="default">"የመሣሪያ ጥበቃ ባህሪያትን በማግበር ሌሎች ይህን ስልክ ያለእርስዎ ፈቃድ እንዳይጠቀሙበት ይከልክሉ። መጠቀም የሚፈልጉትን የማያ ገጽ መቆለፊያ ይምረጡ።"</string>
     <string name="lock_settings_picker_fingerprint_message" msgid="4755230324778371292">"የምትኬ ቁልፍ ገጽ ስልትዎን ይምረጡ"</string>
     <string name="unlock_set_unlock_launch_picker_title" msgid="2084576942666016993">"ማሳያ መቆለፊያ"</string>
     <string name="unlock_set_unlock_launch_picker_title_profile" msgid="124176557311393483">"የስራ መገለጫ መቆለፊያ"</string>
@@ -524,28 +522,28 @@
     <string name="lockpassword_password_requires_digit" msgid="5140062925787058765">"ቢያንስ አንድ አሃዝ መያዝ አለበት"</string>
     <string name="lockpassword_password_requires_symbol" msgid="5944350865681510893">"ቢያንስ አንድ ምልክት መያዝ አለበት"</string>
     <plurals name="lockpassword_password_requires_letters" formatted="false" msgid="3121545900151618401">
-      <item quantity="one">ቢያንስ %d ፊደሎችን መያዝ አለበት</item>
-      <item quantity="other">ቢያንስ %d ፊደሎችን መያዝ አለበት</item>
+        <item quantity="one">ቢያንስ %d ፊደሎችን መያዝ አለበት</item>
+        <item quantity="other">ቢያንስ %d ፊደሎችን መያዝ አለበት</item>
     </plurals>
     <plurals name="lockpassword_password_requires_lowercase" formatted="false" msgid="5415008859853535577">
-      <item quantity="one">ቢያንስ %d ንዑስ ሆሄዎችን መያዝ አለበት</item>
-      <item quantity="other">ቢያንስ %d ንዑስ ሆሄዎችን መያዝ አለበት</item>
+        <item quantity="one">ቢያንስ %d ንዑስ ሆሄዎችን መያዝ አለበት</item>
+        <item quantity="other">ቢያንስ %d ንዑስ ሆሄዎችን መያዝ አለበት</item>
     </plurals>
     <plurals name="lockpassword_password_requires_uppercase" formatted="false" msgid="1452012183267855761">
-      <item quantity="one">ቢያንስ %d ዓቢይ ሆሄዎችን መያዝ አለበት</item>
-      <item quantity="other">ቢያንስ %d ዓቢይ ሆሄዎችን መያዝ አለበት</item>
+        <item quantity="one">ቢያንስ %d ዓቢይ ሆሄዎችን መያዝ አለበት</item>
+        <item quantity="other">ቢያንስ %d ዓቢይ ሆሄዎችን መያዝ አለበት</item>
     </plurals>
     <plurals name="lockpassword_password_requires_numeric" formatted="false" msgid="5536275490534483515">
-      <item quantity="one">ቢያንስ %d ቁጥራዊ አሃዞችን መያዝ አለበት</item>
-      <item quantity="other">ቢያንስ %d ቁጥራዊ አሃዞችን መያዝ አለበት</item>
+        <item quantity="one">ቢያንስ %d ቁጥራዊ አሃዞችን መያዝ አለበት</item>
+        <item quantity="other">ቢያንስ %d ቁጥራዊ አሃዞችን መያዝ አለበት</item>
     </plurals>
     <plurals name="lockpassword_password_requires_symbols" formatted="false" msgid="5132998285340017795">
-      <item quantity="one">ቢያንስ %d ልዩ ምልክቶችን መያዝ አለበት</item>
-      <item quantity="other">ቢያንስ %d ልዩ ምልክቶችን መያዝ አለበት</item>
+        <item quantity="one">ቢያንስ %d ልዩ ምልክቶችን መያዝ አለበት</item>
+        <item quantity="other">ቢያንስ %d ልዩ ምልክቶችን መያዝ አለበት</item>
     </plurals>
     <plurals name="lockpassword_password_requires_nonletter" formatted="false" msgid="2778958281865593579">
-      <item quantity="one">ቢያንስ %d ፊደል ያልሆኑ ቁምፊዎችን መያዝ አለበት</item>
-      <item quantity="other">ቢያንስ %d ፊደል ያልሆኑ ቁምፊዎችን መያዝ አለበት</item>
+        <item quantity="one">ቢያንስ %d ፊደል ያልሆኑ ቁምፊዎችን መያዝ አለበት</item>
+        <item quantity="other">ቢያንስ %d ፊደል ያልሆኑ ቁምፊዎችን መያዝ አለበት</item>
     </plurals>
     <string name="lockpassword_password_recently_used" msgid="4687102591995446860">"የቅርብ ጊዜ የይለፍ ቃል መጠቀም የመሳሪያ አስተዳዳሪ አይፈቅድም።"</string>
     <string name="lockpassword_pin_no_sequential_digits" msgid="6830610582179569631">"ከላይ ወደታች የተዘረዘሩ፣ ከታች ወደላይ የተዘረዘሩ ወይም የተደራረቡ የአሃዞች አደራደር የተከለከለ ነው"</string>
@@ -610,8 +608,8 @@
     <string name="bluetooth_disconnect_headset_profile" msgid="8635908811168780720">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ከእጅ ነፃኦዲዮ ይለያያል።"</string>
     <string name="bluetooth_disconnect_hid_profile" msgid="3282295189719352075">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ከግቤት መሣሪያ ይለያያል።"</string>
     <string name="bluetooth_disconnect_pan_user_profile" msgid="8037627994382458698">"በ<xliff:g id="DEVICE_NAME">%1$s</xliff:g> በኩል የበይነመረብ ድረስ ይለያያል።"</string>
-    <string name="bluetooth_disconnect_pan_nap_profile" product="tablet" msgid="1262792320446274407">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> የዚህን ጡባዊ የበይነ መረብ ተያያዥነትከማጋራት ይለያያል።"</string>
-    <string name="bluetooth_disconnect_pan_nap_profile" product="default" msgid="5700332050175684571">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> የዚህን ስልክ የበይነ መረብ ተያያዥነትከማጋራት ይለያያል።"</string>
+    <string name="bluetooth_disconnect_pan_nap_profile" msgid="1262792320446274407" product="tablet">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> የዚህን ጡባዊ የበይነ መረብ ተያያዥነትከማጋራት ይለያያል።"</string>
+    <string name="bluetooth_disconnect_pan_nap_profile" msgid="5700332050175684571" product="default">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> የዚህን ስልክ የበይነ መረብ ተያያዥነትከማጋራት ይለያያል።"</string>
     <string name="bluetooth_device_advanced_title" msgid="6066342531927499308">"የተገናኘ የብሉቱዝ መሣሪያ"</string>
     <string name="bluetooth_device_advanced_online_mode_title" msgid="3689050071425683114">"አያይዝ"</string>
     <string name="bluetooth_device_advanced_online_mode_summary" msgid="1204424107263248336">"ወደ ብሉቱዝ መሳሪያ አያይዝ"</string>
@@ -642,8 +640,8 @@
     <string name="wifi_band_5ghz" msgid="6433822023268515117">"5 ጊኸ"</string>
     <string name="link_speed" msgid="8896664974117585555">"%1$d ሜቢ/ሴ"</string>
     <string name="nfc_quick_toggle_title" msgid="6769159366307299004">"NFC"</string>
-    <string name="nfc_quick_toggle_summary" product="tablet" msgid="8302974395787498915">"ጡባዊ ቱኮው ሌላ መሳሪያ ሲነካ የውሂብ ልውውጥ ፍቀድ"</string>
-    <string name="nfc_quick_toggle_summary" product="default" msgid="5237208142892767592">"ስልኩ ሌላ መሳሪያ ሲነካ የውሂብ ልውውጥ ፍቀድ"</string>
+    <string name="nfc_quick_toggle_summary" msgid="8302974395787498915" product="tablet">"ጡባዊ ቱኮው ሌላ መሳሪያ ሲነካ የውሂብ ልውውጥ ፍቀድ"</string>
+    <string name="nfc_quick_toggle_summary" msgid="5237208142892767592" product="default">"ስልኩ ሌላ መሳሪያ ሲነካ የውሂብ ልውውጥ ፍቀድ"</string>
     <string name="nfc_disclaimer_title" msgid="4364003873202264039">"NFC ያብሩ"</string>
     <string name="nfc_disclaimer_content" msgid="5566907911915158075">"NFC ውሂብን በዚህ መሣሪያ እና በአቅራቢያ ባሉ ሌሎች መሣሪያዎች ወይም እንደ የመክፈያ ጣቢአይዎች፣ የመዳረሻ አንባቢዎች እና በይነተገናኝ ማስታወቂያዎች ወይም መለያዎች ያሉ ዒላማዎች መካከል ውሂብ ያለዋውጣል።"</string>
     <string name="android_beam_settings_title" msgid="7832812974600338649">"Android Beam"</string>
@@ -781,15 +779,15 @@
     <string name="wifi_cancel" msgid="6763568902542968964">"ይቅር"</string>
     <string name="wifi_skip_anyway" msgid="6965361454438011190">"ለማንኛውም ዝለለ"</string>
     <string name="wifi_dont_skip" msgid="3615535136327231588">"ወደኋላ ተመለስ"</string>
-    <string name="wifi_skipped_message" product="tablet" msgid="6761689889733331124">"ማስጠንቀቂያ፦ Wi‑Fiን ከዘለሉ ጡባዊዎ ለተጀመሩ ውርዶች እና ዝማኔዎች የተንቀሳቃሽ ስልክ ውሂብ ብቻ ነው የሚጠቀመው። ሊከሰቱ የሚችሉ የውሂብ ክፍያዎችን ለማቀብ ከWi‑Fi ጋር ይገናኙ።"</string>
-    <string name="wifi_skipped_message" product="device" msgid="1385490367826852775">"ማስጠንቀቂያ፦ Wi‑Fiን ከዘለሉ መሣሪያዎ ለተጀመሩ ውርዶች እና ዝማኔዎች የተንቀሳቃሽ ስልክ ውሂብ ብቻ ነው የሚጠቀመው። ሊከሰቱ የሚችሉ የውሂብ ክፍያዎችን ለማቀብ ከWi‑Fi ጋር ይገናኙ።"</string>
-    <string name="wifi_skipped_message" product="default" msgid="6084295135297772350">"ማስጠንቀቂያ፦ Wi‑Fiን ከዘለሉ ስልክዎ ለተጀመሩ ውርዶች እና ዝማኔዎች የተንቀሳቃሽ ስልክ ውሂብ ብቻ ነው የሚጠቀመው። ሊከሰቱ የሚችሉ የውሂብ ክፍያዎችን ለማቀብ ከWi‑Fi ጋር ይገናኙ።"</string>
-    <string name="wifi_and_mobile_skipped_message" product="tablet" msgid="6324917391996718760">"Wi‑Fiን ከዘለሉ፦\n\n"<li>"የእርስዎ ጡባዊ የበይነመረብ ግንኙነት አይኖረውም።"</li>\n\n<li>"ከበይነመረቡ ጋር እስካልተገናኙ ድረስ የሶፍትዌር ዝማኔዎችን አያገኙም።"</li>\n\n<li>"በዚህ ጊዜ የመሣሪያ ጥበቃ ባህሪያትን ማግበር አይችሉም።"</li></string>
-    <string name="wifi_and_mobile_skipped_message" product="device" msgid="1110629752293998468">"Wi‑Fiን ከዘለሉ፦\n\n"<li>"የእርስዎ መሣሪያ የበይነመረብ ግንኙነት አይኖረውም።"</li>\n\n<li>"ከበይነመረቡ ጋር እስካልተገናኙ ድረስ የሶፍትዌር ዝማኔዎችን አያገኙም።"</li>\n\n<li>"በዚህ ጊዜ የመሣሪያ ጥበቃ ባህሪያትን ማግበር አይችሉም።"</li></string>
-    <string name="wifi_and_mobile_skipped_message" product="default" msgid="8271524692702309267">"Wi‑Fiን ከዘለሉ፦\n\n"<li>"የእርስዎ ስልክ የበይነመረብ ግንኙነት አይኖረውም።"</li>\n\n<li>"ከበይነመረቡ ጋር እስካልተገናኙ ድረስ የሶፍትዌር ዝማኔዎችን አያገኙም።"</li>\n\n<li>"በዚህ ጊዜ የመሣሪያ ጥበቃ ባህሪያትን ማግበር አይችሉም።"</li></string>
-    <string name="wifi_connect_failed_message" product="tablet" msgid="4474691090681670156">"ጡባዊው ከዚህ የWi-Fi አውታረ መረብ ጋር መገናኘት አልቻለም።"</string>
-    <string name="wifi_connect_failed_message" product="device" msgid="8870885845666880869">"መሣሪያው ከዚህ የWi‑Fi አውታረ መረብ ጋር ሊገናኝ አልቻለም።"</string>
-    <string name="wifi_connect_failed_message" product="default" msgid="2185803140161396572">"ስልኩ ከዚህ የWi-Fi አውታረ መረብ ጋር መገናኘት አልቻለም።"</string>
+    <string name="wifi_skipped_message" msgid="6761689889733331124" product="tablet">"ማስጠንቀቂያ፦ Wi‑Fiን ከዘለሉ ጡባዊዎ ለተጀመሩ ውርዶች እና ዝማኔዎች የተንቀሳቃሽ ስልክ ውሂብ ብቻ ነው የሚጠቀመው። ሊከሰቱ የሚችሉ የውሂብ ክፍያዎችን ለማቀብ ከWi‑Fi ጋር ይገናኙ።"</string>
+    <string name="wifi_skipped_message" msgid="1385490367826852775" product="device">"ማስጠንቀቂያ፦ Wi‑Fiን ከዘለሉ መሣሪያዎ ለተጀመሩ ውርዶች እና ዝማኔዎች የተንቀሳቃሽ ስልክ ውሂብ ብቻ ነው የሚጠቀመው። ሊከሰቱ የሚችሉ የውሂብ ክፍያዎችን ለማቀብ ከWi‑Fi ጋር ይገናኙ።"</string>
+    <string name="wifi_skipped_message" msgid="6084295135297772350" product="default">"ማስጠንቀቂያ፦ Wi‑Fiን ከዘለሉ ስልክዎ ለተጀመሩ ውርዶች እና ዝማኔዎች የተንቀሳቃሽ ስልክ ውሂብ ብቻ ነው የሚጠቀመው። ሊከሰቱ የሚችሉ የውሂብ ክፍያዎችን ለማቀብ ከWi‑Fi ጋር ይገናኙ።"</string>
+    <string name="wifi_and_mobile_skipped_message" msgid="6324917391996718760" product="tablet">"Wi‑Fiን ከዘለሉ፦\n\n"<li>"የእርስዎ ጡባዊ የበይነመረብ ግንኙነት አይኖረውም።"</li>\n\n<li>"ከበይነመረቡ ጋር እስካልተገናኙ ድረስ የሶፍትዌር ዝማኔዎችን አያገኙም።"</li>\n\n<li>"በዚህ ጊዜ የመሣሪያ ጥበቃ ባህሪያትን ማግበር አይችሉም።"</li></string>
+    <string name="wifi_and_mobile_skipped_message" msgid="1110629752293998468" product="device">"Wi‑Fiን ከዘለሉ፦\n\n"<li>"የእርስዎ መሣሪያ የበይነመረብ ግንኙነት አይኖረውም።"</li>\n\n<li>"ከበይነመረቡ ጋር እስካልተገናኙ ድረስ የሶፍትዌር ዝማኔዎችን አያገኙም።"</li>\n\n<li>"በዚህ ጊዜ የመሣሪያ ጥበቃ ባህሪያትን ማግበር አይችሉም።"</li></string>
+    <string name="wifi_and_mobile_skipped_message" msgid="8271524692702309267" product="default">"Wi‑Fiን ከዘለሉ፦\n\n"<li>"የእርስዎ ስልክ የበይነመረብ ግንኙነት አይኖረውም።"</li>\n\n<li>"ከበይነመረቡ ጋር እስካልተገናኙ ድረስ የሶፍትዌር ዝማኔዎችን አያገኙም።"</li>\n\n<li>"በዚህ ጊዜ የመሣሪያ ጥበቃ ባህሪያትን ማግበር አይችሉም።"</li></string>
+    <string name="wifi_connect_failed_message" msgid="4474691090681670156" product="tablet">"ጡባዊው ከዚህ የWi-Fi አውታረ መረብ ጋር መገናኘት አልቻለም።"</string>
+    <string name="wifi_connect_failed_message" msgid="8870885845666880869" product="device">"መሣሪያው ከዚህ የWi‑Fi አውታረ መረብ ጋር ሊገናኝ አልቻለም።"</string>
+    <string name="wifi_connect_failed_message" msgid="2185803140161396572" product="default">"ስልኩ ከዚህ የWi-Fi አውታረ መረብ ጋር መገናኘት አልቻለም።"</string>
     <string name="wifi_saved_access_points_titlebar" msgid="2996149477240134064">"የተቀመጡ አውታረ መረቦች"</string>
     <string name="wifi_advanced_titlebar" msgid="4485841401774142908">"የላቀ Wi-Fi"</string>
     <string name="wifi_configure_titlebar" msgid="7977475161589303074">"የWi-Fi ያዋቅሩ"</string>
@@ -845,33 +843,33 @@
     <!-- no translation found for wifi_calling_roaming_mode_summary (8642014873060687717) -->
     <skip />
     <string name="wifi_calling_roaming_mode_dialog_title" msgid="7800926602662078576">"ውጫዊ አገልግሎት ምርጫ"</string>
-  <string-array name="wifi_calling_mode_choices">
-    <item msgid="2124257075906188844">"Wi-Fi ተመራጭ"</item>
-    <item msgid="5267397515594230396">"የተንቀሳቃሽ ስልክ ተመራጭ"</item>
-    <item msgid="3132912693346866895">"Wi-Fi ብቻ"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_choices_v2">
-    <item msgid="742988808283756263">"Wi-Fi"</item>
-    <item msgid="122823150092396518">"የተንቀሳቃሽ ስልክ"</item>
-    <item msgid="2838022395783120596">"Wi-Fi ብቻ"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_values">
-    <item msgid="4799585830102342375">"2"</item>
-    <item msgid="1171822231056612021">"1"</item>
-    <item msgid="3194458950573886239">"0"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_choices_without_wifi_only">
-    <item msgid="5782108782860004851">"Wi-Fi ተመራጭ"</item>
-    <item msgid="9006785365352731433">"የተንቀሳቃሽ ስልክ ተመርጧል"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_choices_v2_without_wifi_only">
-    <item msgid="6132150507201243768">"Wi-Fi"</item>
-    <item msgid="2749029835484916851">"የተንቀሳቃሽ ስልክ"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_values_without_wifi_only">
-    <item msgid="2339246858001475047">"2"</item>
-    <item msgid="6200207341126893791">"1"</item>
-  </string-array>
+    <string-array name="wifi_calling_mode_choices">
+        <item msgid="2124257075906188844">"Wi-Fi ተመራጭ"</item>
+        <item msgid="5267397515594230396">"የተንቀሳቃሽ ስልክ ተመራጭ"</item>
+        <item msgid="3132912693346866895">"Wi-Fi ብቻ"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_choices_v2">
+        <item msgid="742988808283756263">"Wi-Fi"</item>
+        <item msgid="122823150092396518">"የተንቀሳቃሽ ስልክ"</item>
+        <item msgid="2838022395783120596">"Wi-Fi ብቻ"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_values">
+        <item msgid="4799585830102342375">"2"</item>
+        <item msgid="1171822231056612021">"1"</item>
+        <item msgid="3194458950573886239">"0"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_choices_without_wifi_only">
+        <item msgid="5782108782860004851">"Wi-Fi ተመራጭ"</item>
+        <item msgid="9006785365352731433">"የተንቀሳቃሽ ስልክ ተመርጧል"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_choices_v2_without_wifi_only">
+        <item msgid="6132150507201243768">"Wi-Fi"</item>
+        <item msgid="2749029835484916851">"የተንቀሳቃሽ ስልክ"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_values_without_wifi_only">
+        <item msgid="2339246858001475047">"2"</item>
+        <item msgid="6200207341126893791">"1"</item>
+    </string-array>
     <string name="wifi_calling_off_explanation" msgid="2597566001655908391">"የWi-Fi ጥሪ ሲበራ የእርስዎ ስልክ በምርጫዎ እና በየትኛው ይበልጥ ጠንካራ እንደሆነ የሚወሰን ሆኖ ጥሪዎችን በWi-Fi አውታረ መረቦች ወይም በአገልግሎት አቅራቢዎ አውታረ መረብ በኩል ሊያዞር ይችላል። ይህን ባህሪ ከማብራትዎ በፊት ክፍያዎችን እና ሌሎች ዝርዝሮችን በተመለከተ አገልግሎት አቅራቢዎን ያነጋግሩ።"</string>
     <string name="emergency_address_title" msgid="3571902448699714454">"የአስቸኳይ አደጋ አድራሻን ያዘምኑ"</string>
     <string name="emergency_address_summary" msgid="306028701568728126">"እንደ WiFi ያለ የ911 ጥሪ ካደረጉ የአስቸኳይ አደጋ አገልግሎቶች እንደ የእርስዎ አካባቢ ያለ አድራሻ ይጠቀሙበታል"</string>
@@ -911,17 +909,17 @@
     <string name="dock_audio_settings_title" msgid="3324750259959570305">"ኦዲዮ"</string>
     <string name="dock_audio_summary_desk" msgid="6487784412371139335">"ለአባሪ ዴስክቶፕ ትከል ቅንብሮች"</string>
     <string name="dock_audio_summary_car" msgid="6740897586006248450">"ለአባሪ መኪና ትከል ቅንብሮች"</string>
-    <string name="dock_audio_summary_none" product="tablet" msgid="8215337394914283607">"ጡባዊ አልተተከለም"</string>
-    <string name="dock_audio_summary_none" product="default" msgid="289909253741048784">"ስልክ አልተተከለም"</string>
+    <string name="dock_audio_summary_none" msgid="8215337394914283607" product="tablet">"ጡባዊ አልተተከለም"</string>
+    <string name="dock_audio_summary_none" msgid="289909253741048784" product="default">"ስልክ አልተተከለም"</string>
     <string name="dock_audio_summary_unknown" msgid="4465059868974255693">"ለአባሪ ትከል ቅንብሮች"</string>
     <string name="dock_not_found_title" msgid="3290961741828952424">"ትከል አልተገኘም"</string>
-    <string name="dock_not_found_text" product="tablet" msgid="8405432495282299143">"ተሰኪ ድምጽን ከማቀናበርህ በፊት ጡባዊ ተኮን መሰካት ያስፈልግሃል፡፡"</string>
-    <string name="dock_not_found_text" product="default" msgid="1460497923342627801">"ተሰኪ ድምጽን ከማቀናበርህ በፊት ስልኩን መሰካት ያስፈልግሃል፡፡"</string>
+    <string name="dock_not_found_text" msgid="8405432495282299143" product="tablet">"ተሰኪ ድምጽን ከማቀናበርህ በፊት ጡባዊ ተኮን መሰካት ያስፈልግሃል፡፡"</string>
+    <string name="dock_not_found_text" msgid="1460497923342627801" product="default">"ተሰኪ ድምጽን ከማቀናበርህ በፊት ስልኩን መሰካት ያስፈልግሃል፡፡"</string>
     <string name="dock_sounds_enable_title" msgid="885839627097024110">"ማስገቢያ ድምፅ ትከል"</string>
-    <string name="dock_sounds_enable_summary_on" product="tablet" msgid="838102386448981339">"ጡባዊ ከትከል ስትከት ወይም ስታስወግድ ድምፅ አጫውት"</string>
-    <string name="dock_sounds_enable_summary_on" product="default" msgid="8491180514199743771">"ስልክ ከትከል ሲከት ወይም ሲያስወግድ በድምፅ አጫውት"</string>
-    <string name="dock_sounds_enable_summary_off" product="tablet" msgid="4308252722466813560">"ከትከል ጡባዊ ስትከት ወይም ስታስወግድ ድምፅ አታጫውት"</string>
-    <string name="dock_sounds_enable_summary_off" product="default" msgid="2034927992716667672">"ስልኩን ከትከል ስታስገባ ወይም ስታስወግድ ዘፈን አታጫውት"</string>
+    <string name="dock_sounds_enable_summary_on" msgid="838102386448981339" product="tablet">"ጡባዊ ከትከል ስትከት ወይም ስታስወግድ ድምፅ አጫውት"</string>
+    <string name="dock_sounds_enable_summary_on" msgid="8491180514199743771" product="default">"ስልክ ከትከል ሲከት ወይም ሲያስወግድ በድምፅ አጫውት"</string>
+    <string name="dock_sounds_enable_summary_off" msgid="4308252722466813560" product="tablet">"ከትከል ጡባዊ ስትከት ወይም ስታስወግድ ድምፅ አታጫውት"</string>
+    <string name="dock_sounds_enable_summary_off" msgid="2034927992716667672" product="default">"ስልኩን ከትከል ስታስገባ ወይም ስታስወግድ ዘፈን አታጫውት"</string>
     <string name="account_settings" msgid="6403589284618783461">"መለያዎች"</string>
     <string name="accessibility_category_work" msgid="4339262969083355720">"የስራ መገለጫ መለያዎች - <xliff:g id="MANAGED_BY">%s</xliff:g>"</string>
     <string name="accessibility_category_personal" msgid="1263518850905945594">"የግል መገለጫ መለያዎች"</string>
@@ -931,10 +929,10 @@
     <string name="search_settings_summary" msgid="9205656546570654169">"የፍለጋ ታሪክ እና ቅንብሮችን ያደራጁ"</string>
     <string name="display_settings" msgid="7965901687241669598">"አሳይ"</string>
     <string name="accelerometer_title" msgid="7854608399547349157">"ማያ በራስ ሰር አሽከርክር"</string>
-    <string name="accelerometer_summary_on" product="tablet" msgid="429982132339828942">"ጡባዊ ሲሽከረከርየገፅ አቀማመጥ በራስሰርቀይር"</string>
-    <string name="accelerometer_summary_on" product="default" msgid="1133737282813048021">"ስልክ ስታሽከረክር በራስሰር ገፅ አቀማመጡን ቀይር"</string>
-    <string name="accelerometer_summary_off" product="tablet" msgid="4781734213242521682">"ጡባዊ ሲሽከረከርየገፅ አቀማመጥ በራስሰርቀይር"</string>
-    <string name="accelerometer_summary_off" product="default" msgid="5485489363715740761">"ስልክ ስታሽከረክር በራስሰር ገፅ አቀማመጡን ቀይር"</string>
+    <string name="accelerometer_summary_on" msgid="429982132339828942" product="tablet">"ጡባዊ ሲሽከረከርየገፅ አቀማመጥ በራስሰርቀይር"</string>
+    <string name="accelerometer_summary_on" msgid="1133737282813048021" product="default">"ስልክ ስታሽከረክር በራስሰር ገፅ አቀማመጡን ቀይር"</string>
+    <string name="accelerometer_summary_off" msgid="4781734213242521682" product="tablet">"ጡባዊ ሲሽከረከርየገፅ አቀማመጥ በራስሰርቀይር"</string>
+    <string name="accelerometer_summary_off" msgid="5485489363715740761" product="default">"ስልክ ስታሽከረክር በራስሰር ገፅ አቀማመጡን ቀይር"</string>
     <string name="brightness" msgid="8480105032417444275">"የብሩህነት ደረጃ"</string>
     <string name="brightness_title" msgid="5746272622112982836">"ብሩህነት"</string>
     <string name="brightness_summary" msgid="838917350127550703">"የማያ ብሩህነት አስተካክል"</string>
@@ -985,10 +983,10 @@
     <string name="sim_lock_settings_category" msgid="5136244267576697004">"የSIM ካርድ መቆለፊያ አዘጋጅ"</string>
     <string name="sim_lock_settings_title" msgid="9018585580955414596">"SIM ካርድቆልፍ"</string>
     <string name="sim_pin_toggle" msgid="1742123478029451888">"SIM ካርድ ቆልፍ"</string>
-    <string name="sim_lock_on" product="tablet" msgid="5058355081270397764">"ጡባዊ ለመጠቀም ፒን  ጠይቅ"</string>
-    <string name="sim_lock_on" product="default" msgid="2503536505568814324">"ስልክ ለመጠቀም ፒን  ጠይቅ"</string>
-    <string name="sim_lock_off" product="tablet" msgid="2813800553917012356">"ጡባዊ ለመጠቀም ፒን  ጠይቅ"</string>
-    <string name="sim_lock_off" product="default" msgid="258981978215428916">"ስልክ ለመጠቀም ፒን  ጠይቅ"</string>
+    <string name="sim_lock_on" msgid="5058355081270397764" product="tablet">"ጡባዊ ለመጠቀም ፒን  ጠይቅ"</string>
+    <string name="sim_lock_on" msgid="2503536505568814324" product="default">"ስልክ ለመጠቀም ፒን  ጠይቅ"</string>
+    <string name="sim_lock_off" msgid="2813800553917012356" product="tablet">"ጡባዊ ለመጠቀም ፒን  ጠይቅ"</string>
+    <string name="sim_lock_off" msgid="258981978215428916" product="default">"ስልክ ለመጠቀም ፒን  ጠይቅ"</string>
     <string name="sim_pin_change" msgid="6311414184279932368">"SIM ፒን  ለውጥ"</string>
     <string name="sim_enter_pin" msgid="6608715137008508432">"SIM ፒን"</string>
     <string name="sim_enable_sim_lock" msgid="4517742794997166918">"SIM ካርድ ሸንጉር"</string>
@@ -1012,12 +1010,12 @@
     <string name="sim_preferred_message" msgid="301251431163650167">"<xliff:g id="NEW_SIM">%1$s</xliff:g> በመሣሪያዎ ውስጥ ያለው ብቸኛ ሲም ነው። ይህን ሲም ለተንቀሳቃሽ ስልክ ውሂብ፣ ጥሪዎች እና የኤስኤምኤስ መልዕክቶች መጠቀም ይፈልጋሉ?"</string>
     <string name="wrong_pin_code_pukked" msgid="4003655226832658066">"ልክ ያልሆነ የሲም ኮድ። አሁን መሳሪያዎን ለማስከፈት ድምጸ ተያያዥ ሞደምዎን ማግኘት አለብዎ።"</string>
     <plurals name="wrong_pin_code" formatted="false" msgid="1582398808893048097">
-      <item quantity="one">ልክ ያልሆነ የሲም ፒን ኮድ፣ <xliff:g id="NUMBER_1">%d</xliff:g> ሙከራዎች ይቀርዎታል።</item>
-      <item quantity="other">ልክ ያልሆነ የሲም ፒን ኮድ፣ <xliff:g id="NUMBER_1">%d</xliff:g> ሙከራዎች ይቀርዎታል።</item>
+        <item quantity="one">ልክ ያልሆነ የሲም ፒን ኮድ፣ <xliff:g id="NUMBER_1">%d</xliff:g> ሙከራዎች ይቀርዎታል።</item>
+        <item quantity="other">ልክ ያልሆነ የሲም ፒን ኮድ፣ <xliff:g id="NUMBER_1">%d</xliff:g> ሙከራዎች ይቀርዎታል።</item>
     </plurals>
     <string name="pin_failed" msgid="1848423634948587645">"የሲም ፒን ክወና አልተሳካም!"</string>
-    <string name="device_info_settings" product="tablet" msgid="1119755927536987178">"የጡባዊ ኹነታ"</string>
-    <string name="device_info_settings" product="default" msgid="475872867864762157">"የስልክ ሁኔታዎች"</string>
+    <string name="device_info_settings" msgid="1119755927536987178" product="tablet">"የጡባዊ ኹነታ"</string>
+    <string name="device_info_settings" msgid="475872867864762157" product="default">"የስልክ ሁኔታዎች"</string>
     <string name="system_update_settings_list_item_title" msgid="3342887311059985961">"የሥርዓት ዝመናዎች"</string>
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"Android ሥሪት"</string>
@@ -1031,15 +1029,15 @@
     <string name="device_info_not_available" msgid="8062521887156825182">"አይገኝም"</string>
     <string name="device_status_activity_title" msgid="1411201799384697904">"ኹናቴ"</string>
     <string name="device_status" msgid="607405385799807324">"ሁኔታ"</string>
-    <string name="device_status_summary" product="tablet" msgid="3292717754497039686">"የባትሪ፣ አውታረ መረብ  እና ሌላ መረጃ ሁኔታ"</string>
-    <string name="device_status_summary" product="default" msgid="2599162787451519618">"ስልክቁጥር፣ሲግናል፣ወዘተ።"</string>
+    <string name="device_status_summary" msgid="3292717754497039686" product="tablet">"የባትሪ፣ አውታረ መረብ  እና ሌላ መረጃ ሁኔታ"</string>
+    <string name="device_status_summary" msgid="2599162787451519618" product="default">"ስልክቁጥር፣ሲግናል፣ወዘተ።"</string>
     <string name="storage_settings" msgid="4211799979832404953">"ማከማቻ"</string>
     <string name="storage_usb_settings" msgid="7293054033137078060">"ማከማቻ"</string>
     <string name="storage_settings_title" msgid="8746016738388094064">"የማቸከማቻ ቅንብሮች"</string>
-    <string name="storage_settings_summary" product="nosdcard" msgid="3543813623294870759">"የUSB  ማከማቻ ንቀል፣የቀረማከማቻ እይ"</string>
-    <string name="storage_settings_summary" product="default" msgid="9176693537325988610">"የSD ካርድ ንቀል፣ የሚገኝ ማከማቻ ዕይ"</string>
-    <string name="status_number" product="tablet" msgid="1138837891091222272">"MDN"</string>
-    <string name="status_number" product="default" msgid="5123197324870153205">"የእኔ  ስልክ ቁጥር"</string>
+    <string name="storage_settings_summary" msgid="3543813623294870759" product="nosdcard">"የUSB  ማከማቻ ንቀል፣የቀረማከማቻ እይ"</string>
+    <string name="storage_settings_summary" msgid="9176693537325988610" product="default">"የSD ካርድ ንቀል፣ የሚገኝ ማከማቻ ዕይ"</string>
+    <string name="status_number" msgid="1138837891091222272" product="tablet">"MDN"</string>
+    <string name="status_number" msgid="5123197324870153205" product="default">"የእኔ  ስልክ ቁጥር"</string>
     <string name="status_min_number" msgid="3519504522179420597">"ዝቅተኛ"</string>
     <string name="status_msid_number" msgid="909010114445780530">"MSID"</string>
     <string name="status_prl_version" msgid="1007470446618081441">"PRL ስሪት"</string>
@@ -1059,8 +1057,8 @@
     <string name="status_up_time" msgid="7294859476816760399">"የቆየበት ሰዓት"</string>
     <string name="status_awake_time" msgid="2393949909051183652">"ነቅቶ የቆየበት ሰዓት"</string>
     <string name="internal_memory" msgid="9129595691484260784">"የውስጥ ማከማቻ"</string>
-    <string name="sd_memory" product="nosdcard" msgid="2510246194083052841">"የUSB  ማከማቻ"</string>
-    <string name="sd_memory" product="default" msgid="151871913888051515">"SD ካርድ"</string>
+    <string name="sd_memory" msgid="2510246194083052841" product="nosdcard">"የUSB  ማከማቻ"</string>
+    <string name="sd_memory" msgid="151871913888051515" product="default">"SD ካርድ"</string>
     <string name="memory_available" msgid="5052397223077021181">"የሚገኝ"</string>
     <string name="memory_available_read_only" msgid="6497534390167920206">"የሚገኝ (ተነባቢ ብቻ)"</string>
     <string name="memory_size" msgid="6629067715017232195">"ጠቅላላ ባዶ ቦታ"</string>
@@ -1072,33 +1070,33 @@
     <string name="memory_music_usage" msgid="1363785144783011606">"ኦዲዮ (ሙዚቃ፣ የስልክ ጥሪ ድምፅ፣ ፖድካስቶች ወዘተ)"</string>
     <string name="memory_media_misc_usage" msgid="6094866738586451683">"ሌሎች ፋይሎች"</string>
     <string name="memory_media_cache_usage" msgid="6704293333141177910">"የተሸጎጠ ውሂብ"</string>
-    <string name="sd_eject" product="nosdcard" msgid="4988563376492400073">"የተጋራ ማከማቻ ንቀል"</string>
-    <string name="sd_eject" product="default" msgid="6915293408836853020">" SD ካርድ ንቀል"</string>
-    <string name="sd_eject_summary" product="nosdcard" msgid="5009296896648072891">"የውስጥ USB  ማከማቻ ንቀል"</string>
-    <string name="sd_eject_summary" product="default" msgid="3300599435073550246">"በደህና ለማስወገድ የSD ካርዱን ንቀል"</string>
-    <string name="sd_insert_summary" product="nosdcard" msgid="5264016886409577313">"ለመሰካት የUSB  ማከማቻ አስገባ"</string>
-    <string name="sd_insert_summary" product="default" msgid="2048640010381803841">"የSD ካርድ ለመሰካት አስገባ"</string>
-    <string name="sd_mount" product="nosdcard" msgid="8966695015677343116">"USB  ማከማቻ ሰካ"</string>
-    <string name="sd_mount" product="default" msgid="5940523765187704135">"SD ካርድ ሰካ"</string>
-    <string name="sd_mount_summary" product="nosdcard" msgid="4673411327373419641"></string>
-    <string name="sd_mount_summary" product="default" msgid="4673411327373419641"></string>
-    <string name="sd_format" product="nosdcard" msgid="2148179271623099054">"USB ማከማቻ አጥፋ"</string>
-    <string name="sd_format" product="default" msgid="2576054280507119870">"የSD ካርድ አጥፋ"</string>
-    <string name="sd_format_summary" product="nosdcard" msgid="6331905044907914603">"እንደ ሙዚቃ እና ፎቶዎች፣ በውስጥ USB ማከማቻ ላይ ያለ ውሂብ ሁሉ ያጠፋል"</string>
-    <string name="sd_format_summary" product="default" msgid="212703692181793109">"እንደ ሙዚቃ እና ፎቶዎች፣ በ SD ካርድ ላይ ያለን ውሂብ ሁሉ ያጠፋል"</string>
+    <string name="sd_eject" msgid="4988563376492400073" product="nosdcard">"የተጋራ ማከማቻ ንቀል"</string>
+    <string name="sd_eject" msgid="6915293408836853020" product="default">" SD ካርድ ንቀል"</string>
+    <string name="sd_eject_summary" msgid="5009296896648072891" product="nosdcard">"የውስጥ USB  ማከማቻ ንቀል"</string>
+    <string name="sd_eject_summary" msgid="3300599435073550246" product="default">"በደህና ለማስወገድ የSD ካርዱን ንቀል"</string>
+    <string name="sd_insert_summary" msgid="5264016886409577313" product="nosdcard">"ለመሰካት የUSB  ማከማቻ አስገባ"</string>
+    <string name="sd_insert_summary" msgid="2048640010381803841" product="default">"የSD ካርድ ለመሰካት አስገባ"</string>
+    <string name="sd_mount" msgid="8966695015677343116" product="nosdcard">"USB  ማከማቻ ሰካ"</string>
+    <string name="sd_mount" msgid="5940523765187704135" product="default">"SD ካርድ ሰካ"</string>
+    <string name="sd_mount_summary" msgid="4673411327373419641" product="nosdcard"></string>
+    <string name="sd_mount_summary" msgid="4673411327373419641" product="default"></string>
+    <string name="sd_format" msgid="2148179271623099054" product="nosdcard">"USB ማከማቻ አጥፋ"</string>
+    <string name="sd_format" msgid="2576054280507119870" product="default">"የSD ካርድ አጥፋ"</string>
+    <string name="sd_format_summary" msgid="6331905044907914603" product="nosdcard">"እንደ ሙዚቃ እና ፎቶዎች፣ በውስጥ USB ማከማቻ ላይ ያለ ውሂብ ሁሉ ያጠፋል"</string>
+    <string name="sd_format_summary" msgid="212703692181793109" product="default">"እንደ ሙዚቃ እና ፎቶዎች፣ በ SD ካርድ ላይ ያለን ውሂብ ሁሉ ያጠፋል"</string>
     <string name="memory_clear_cache_title" msgid="5423840272171286191">"የተሸጎጠ ውሂብ ይጽዳ?"</string>
     <string name="memory_clear_cache_message" msgid="4550262490807415948">"ይሄ የተሸጎጡ የሁሉም መተግበሪያዎች ውሂብ ያጸዳል።"</string>
     <string name="mtp_ptp_mode_summary" msgid="3710436114807789270">"የMTP ወይም PTP ተግባር ገባሪ ሆኗል"</string>
-    <string name="dlg_confirm_unmount_title" product="nosdcard" msgid="3077285629197874055">"የUSB ማከማቻ ንቀል?"</string>
-    <string name="dlg_confirm_unmount_title" product="default" msgid="3634502237262534381">"SD ካርድ ንቀል?"</string>
-    <string name="dlg_confirm_unmount_text" product="nosdcard" msgid="4322636662873269018">"የ USB ማከማቻውን ከነቀልክ፣  እየተጠቀምክባቸው ያለኸው አንዳንድ መተግበሪያዎች መስራታቸውን ይቆማሉ እና USB ውን ድጋሚ እስከምትሰካ ድረስ ላይኖሩ ይችላሉ።"</string>
-    <string name="dlg_confirm_unmount_text" product="default" msgid="6998379994779187692">"የSD ካርዱን ከነቀልክ አንዳንድ እየተጠቀምክባቸው ያሉ መተግበሪያዎች ይቆሙ እና SD ካርዱን እስከምትሰካ ላይገኙ ይችላሉ።"</string>
-    <string name="dlg_error_unmount_title" product="nosdcard" msgid="4642742385125426529"></string>
-    <string name="dlg_error_unmount_title" product="default" msgid="4642742385125426529"></string>
-    <string name="dlg_error_unmount_text" product="nosdcard" msgid="9191518889746166147">"USB ማከማቻ መንቀል አልተቻለም።ኋላ እንደገና ሞክር።"</string>
-    <string name="dlg_error_unmount_text" product="default" msgid="3500976899159848422">"SD ካርድ መንቀል አልተቻለም። ኋላ እንደገና ሞክር።"</string>
-    <string name="unmount_inform_text" product="nosdcard" msgid="7120241136790744265">"USB ማከማቻ ይነቀላል።"</string>
-    <string name="unmount_inform_text" product="default" msgid="1904212716075458402">"SD ካርድ ይነቀላል።"</string>
+    <string name="dlg_confirm_unmount_title" msgid="3077285629197874055" product="nosdcard">"የUSB ማከማቻ ንቀል?"</string>
+    <string name="dlg_confirm_unmount_title" msgid="3634502237262534381" product="default">"SD ካርድ ንቀል?"</string>
+    <string name="dlg_confirm_unmount_text" msgid="4322636662873269018" product="nosdcard">"የ USB ማከማቻውን ከነቀልክ፣  እየተጠቀምክባቸው ያለኸው አንዳንድ መተግበሪያዎች መስራታቸውን ይቆማሉ እና USB ውን ድጋሚ እስከምትሰካ ድረስ ላይኖሩ ይችላሉ።"</string>
+    <string name="dlg_confirm_unmount_text" msgid="6998379994779187692" product="default">"የSD ካርዱን ከነቀልክ አንዳንድ እየተጠቀምክባቸው ያሉ መተግበሪያዎች ይቆሙ እና SD ካርዱን እስከምትሰካ ላይገኙ ይችላሉ።"</string>
+    <string name="dlg_error_unmount_title" msgid="4642742385125426529" product="nosdcard"></string>
+    <string name="dlg_error_unmount_title" msgid="4642742385125426529" product="default"></string>
+    <string name="dlg_error_unmount_text" msgid="9191518889746166147" product="nosdcard">"USB ማከማቻ መንቀል አልተቻለም።ኋላ እንደገና ሞክር።"</string>
+    <string name="dlg_error_unmount_text" msgid="3500976899159848422" product="default">"SD ካርድ መንቀል አልተቻለም። ኋላ እንደገና ሞክር።"</string>
+    <string name="unmount_inform_text" msgid="7120241136790744265" product="nosdcard">"USB ማከማቻ ይነቀላል።"</string>
+    <string name="unmount_inform_text" msgid="1904212716075458402" product="default">"SD ካርድ ይነቀላል።"</string>
     <string name="sd_ejecting_title" msgid="8824572198034365468">"በመንቀል ላይ"</string>
     <string name="sd_ejecting_summary" msgid="2028753069184908491">"ንቀል በሂደት ላይ"</string>
     <string name="storage_low_title" msgid="1388569749716225155">"የማከማቻ ቦታ እያለቀ ነው"</string>
@@ -1239,19 +1237,19 @@
     <string name="reset_network_complete_toast" msgid="787829973559541880">"የአውታረ መረብ ቅንብሮች ዳግም ጀምረዋል።"</string>
     <string name="device_reset_title" msgid="2384019005638768076">"መሣሪያ ዳግም አስጀመር"</string>
     <string name="master_clear_title" msgid="5907939616087039756">"የፋብሪካ ውሂብ ዳግም አስጀምር"</string>
-    <string name="master_clear_desc" product="tablet" msgid="9146059417023157222">"ይህ ከእርስዎ ጡባዊ "<b>"ውስጣዊ ማከማቻ"</b>" የሚከተሉትን ጨምሮ:\n\n"<li>"የእርስዎ  Google መለያ"</li>\n<li>"ሥርዓት እና መተግበሪያ ውሂብ እና ቅንብሮች"</li>\n<li>"የወረዱ መተግበሪያዎች"</li>" ላይ ያሉ ሁሉንም ውሂብ ይሰርዛል።"</string>
-    <string name="master_clear_desc" product="default" msgid="4800386183314202571">"ይህ ከእርስዎ ጡባዊ "<b>"ውስጣዊ ማከማቻ"</b>" የሚከተሉትን ጨምሮ:\n\n"<li>"የእርስዎ  Google መለያ"</li>\n<li>"ሥርዓት እና መተግበሪያ ውሂብ እና ቅንብሮች"</li>\n<li>"የወረዱ መተግበሪያዎች"</li>" ላይ ያሉ ሁሉንም ውሂብ ይሰርዛል።"</string>
-    <string name="master_clear_accounts" product="default" msgid="6412857499147999073">\n\n" እርስዎ በአሁን ጊዜ የሚከተለው መለያዎች ውስጥ ገብተዋል፡\n"</string>
-    <string name="master_clear_other_users_present" product="default" msgid="5161423070702470742">\n\n"በዚህ መሣሪያ ላይ ያሉ ሌሎች ተጠቃሚዎች አሉ።\n"</string>
+    <string name="master_clear_desc" msgid="9146059417023157222" product="tablet">"ይህ ከእርስዎ ጡባዊ "<b>"ውስጣዊ ማከማቻ"</b>" የሚከተሉትን ጨምሮ:\n\n"<li>"የእርስዎ  Google መለያ"</li>\n<li>"ሥርዓት እና መተግበሪያ ውሂብ እና ቅንብሮች"</li>\n<li>"የወረዱ መተግበሪያዎች"</li>" ላይ ያሉ ሁሉንም ውሂብ ይሰርዛል።"</string>
+    <string name="master_clear_desc" msgid="4800386183314202571" product="default">"ይህ ከእርስዎ ጡባዊ "<b>"ውስጣዊ ማከማቻ"</b>" የሚከተሉትን ጨምሮ:\n\n"<li>"የእርስዎ  Google መለያ"</li>\n<li>"ሥርዓት እና መተግበሪያ ውሂብ እና ቅንብሮች"</li>\n<li>"የወረዱ መተግበሪያዎች"</li>" ላይ ያሉ ሁሉንም ውሂብ ይሰርዛል።"</string>
+    <string name="master_clear_accounts" msgid="6412857499147999073" product="default">\n\n" እርስዎ በአሁን ጊዜ የሚከተለው መለያዎች ውስጥ ገብተዋል፡\n"</string>
+    <string name="master_clear_other_users_present" msgid="5161423070702470742" product="default">\n\n"በዚህ መሣሪያ ላይ ያሉ ሌሎች ተጠቃሚዎች አሉ።\n"</string>
     <string name="master_clear_desc_also_erases_external" msgid="1903185203791274237"><li>"ሙዚቃ"</li>\n<li>"ፎቶዎች"</li>\n<li>"ሌላ የተጠቃሚ ውሂብ"</li></string>
-    <string name="master_clear_desc_erase_external_storage" product="nosdcard" msgid="7744115866662613411">"ሙዚቃ፣ ምስሎች፣ እና ሌላ ተጠቃሚ ውሂብ \n\nለማጥራት፣"<b>"USBማከማቻ"</b>" መጥፋት ያስፈልገዋል።"</string>
-    <string name="master_clear_desc_erase_external_storage" product="default" msgid="4801026652617377093">\n\n" ሙዚቃ፣ ምስሎች፣ እና ሌላ ተጠቃሚ ውሂብ ለማጥራት፣"<b>" የSD ካርድ "</b>"መጥፋት ያስፈልገዋል።"</string>
-    <string name="erase_external_storage" product="nosdcard" msgid="969364037450286809">"USB ማከማቻ አጥፋ"</string>
-    <string name="erase_external_storage" product="default" msgid="1397239046334307625">"የSD ካርድ አጥፋ"</string>
-    <string name="erase_external_storage_description" product="nosdcard" msgid="4728558173931599429">"እንደ ሙዚቃ እና ፎቶዎች፣ ሁሉንም ውሂብ በውስጥ USB ማከማቻ አጥፋ።"</string>
-    <string name="erase_external_storage_description" product="default" msgid="1737638779582964966">"እንደ ሙዚቃ እና ፎቶዎች፣ ሁሉንም ውሂብ በSD ካርድ ላይ አጥፋ።"</string>
-    <string name="master_clear_button_text" product="tablet" msgid="3130786116528304116">"ጡባዊ ዳግም አስጀምር"</string>
-    <string name="master_clear_button_text" product="default" msgid="7550632653343157971">"ስልክ ድጋሚ አስጀምር"</string>
+    <string name="master_clear_desc_erase_external_storage" msgid="7744115866662613411" product="nosdcard">"ሙዚቃ፣ ምስሎች፣ እና ሌላ ተጠቃሚ ውሂብ \n\nለማጥራት፣"<b>"USBማከማቻ"</b>" መጥፋት ያስፈልገዋል።"</string>
+    <string name="master_clear_desc_erase_external_storage" msgid="4801026652617377093" product="default">\n\n" ሙዚቃ፣ ምስሎች፣ እና ሌላ ተጠቃሚ ውሂብ ለማጥራት፣"<b>" የSD ካርድ "</b>"መጥፋት ያስፈልገዋል።"</string>
+    <string name="erase_external_storage" msgid="969364037450286809" product="nosdcard">"USB ማከማቻ አጥፋ"</string>
+    <string name="erase_external_storage" msgid="1397239046334307625" product="default">"የSD ካርድ አጥፋ"</string>
+    <string name="erase_external_storage_description" msgid="4728558173931599429" product="nosdcard">"እንደ ሙዚቃ እና ፎቶዎች፣ ሁሉንም ውሂብ በውስጥ USB ማከማቻ አጥፋ።"</string>
+    <string name="erase_external_storage_description" msgid="1737638779582964966" product="default">"እንደ ሙዚቃ እና ፎቶዎች፣ ሁሉንም ውሂብ በSD ካርድ ላይ አጥፋ።"</string>
+    <string name="master_clear_button_text" msgid="3130786116528304116" product="tablet">"ጡባዊ ዳግም አስጀምር"</string>
+    <string name="master_clear_button_text" msgid="7550632653343157971" product="default">"ስልክ ድጋሚ አስጀምር"</string>
     <string name="master_clear_final_desc" msgid="7318683914280403086">"ሁሉም የእርስዎ የግል መረጃ እና የወረዱ መተግበሪያዎች ይሰረዙ? ይህን እርምጃ መቀልበስ አይችሉም!"</string>
     <string name="master_clear_final_button_text" msgid="5390908019019242910">"ሁሉንም አጥፋ"</string>
     <string name="master_clear_failed" msgid="2503230016394586353">"የስርዓቱ አገልግሎት አጽዳ ስላልተገኘ ዳግም ለማስጀመር ምንም አልተከናወነም።"</string>
@@ -1276,15 +1274,15 @@
     <string name="usb_tethering_turnon_subtext" msgid="4748616058219273033">"ለማብራት ይገናኙ"</string>
     <string name="usb_tethering_errored_subtext" msgid="1377574819427841992">"USB የመሰካት ስህተት"</string>
     <string name="bluetooth_tether_checkbox_text" msgid="2379175828878753652">"ብሉቱዝ ማያያዝ"</string>
-    <string name="bluetooth_tethering_available_subtext" product="tablet" msgid="4328374808439440517">"የዚህን ጡባዊ በይነመረብ ተያያዥ በማጋራት ላይ"</string>
-    <string name="bluetooth_tethering_available_subtext" product="default" msgid="7451579908917710359">"የዚህን ስልክ በይነመረብ ተያያዥ በማጋራት ላይ"</string>
-    <string name="bluetooth_tethering_device_connected_subtext" product="tablet" msgid="7296104766087335891">"የዚህን ጡባዊ በይነመረብ ተያያዥ ለ1 መሣሪያ በማጋራት ላይ"</string>
-    <string name="bluetooth_tethering_device_connected_subtext" product="default" msgid="2785474869740805972">"የዚህን ስልክ በይነመረብ ተያያዥ ለ1 መሣሪያ በማጋራት ላይ"</string>
-    <string name="bluetooth_tethering_devices_connected_subtext" product="tablet" msgid="7345108029216525495">"የዚህን ስልክ በይነመረብ ተያያዥ ለ<xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g>መሣሪያዎች በማጋራት ላይ"</string>
-    <string name="bluetooth_tethering_devices_connected_subtext" product="default" msgid="2992288063706153665">"የዚህን ስልክ በይነመረብ ተያያዥ ለ<xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g>መሣሪያዎች በማጋራት ላይ"</string>
+    <string name="bluetooth_tethering_available_subtext" msgid="4328374808439440517" product="tablet">"የዚህን ጡባዊ በይነመረብ ተያያዥ በማጋራት ላይ"</string>
+    <string name="bluetooth_tethering_available_subtext" msgid="7451579908917710359" product="default">"የዚህን ስልክ በይነመረብ ተያያዥ በማጋራት ላይ"</string>
+    <string name="bluetooth_tethering_device_connected_subtext" msgid="7296104766087335891" product="tablet">"የዚህን ጡባዊ በይነመረብ ተያያዥ ለ1 መሣሪያ በማጋራት ላይ"</string>
+    <string name="bluetooth_tethering_device_connected_subtext" msgid="2785474869740805972" product="default">"የዚህን ስልክ በይነመረብ ተያያዥ ለ1 መሣሪያ በማጋራት ላይ"</string>
+    <string name="bluetooth_tethering_devices_connected_subtext" msgid="7345108029216525495" product="tablet">"የዚህን ስልክ በይነመረብ ተያያዥ ለ<xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g>መሣሪያዎች በማጋራት ላይ"</string>
+    <string name="bluetooth_tethering_devices_connected_subtext" msgid="2992288063706153665" product="default">"የዚህን ስልክ በይነመረብ ተያያዥ ለ<xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g>መሣሪያዎች በማጋራት ላይ"</string>
     <string name="bluetooth_tethering_off_subtext_config" msgid="6630416508030836214">"የዚህ <xliff:g id="DEVICE_NAME">%1$d</xliff:g> በይነመረብ ግንኙነት በማጋራት ላይ"</string>
-    <string name="bluetooth_tethering_off_subtext" product="tablet" msgid="3737828501935728137">"የዚህ ጡባዊ በይነመረብ ተያያዥ በማጋራት ላይ አይደለም።"</string>
-    <string name="bluetooth_tethering_off_subtext" product="default" msgid="9099562374002272901">"የዚህ ስልክ በይነመረብ ተያያዥ በማጋራት ላይ አይደለም።"</string>
+    <string name="bluetooth_tethering_off_subtext" msgid="3737828501935728137" product="tablet">"የዚህ ጡባዊ በይነመረብ ተያያዥ በማጋራት ላይ አይደለም።"</string>
+    <string name="bluetooth_tethering_off_subtext" msgid="9099562374002272901" product="default">"የዚህ ስልክ በይነመረብ ተያያዥ በማጋራት ላይ አይደለም።"</string>
     <string name="bluetooth_tethering_errored_subtext" msgid="4926566308991142264">"አልተገናኘም"</string>
     <string name="bluetooth_tethering_overflow_error" msgid="2135590598511178690">"ከ<xliff:g id="MAXCONNECTION">%1$d</xliff:g> መሣሪያዎች በላይ ማገናኘት አይቻልም።"</string>
     <string name="bluetooth_untether_blank" msgid="2871192409329334813">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> አይያያዝም።"</string>
@@ -1328,8 +1326,8 @@
     <string name="location_neighborhood_level" msgid="5141318121229984788">"መተግበሪያዎች አካባቢዎትን በበለጠ ፍጥነት እንዲገምቱ የGoogle የአካባቢ አገልግሎትን ይጠቀሙ። ስም አልባ የአካባቢ ውሂብ ተሰብስቦ ወደ Google ይላካል።"</string>
     <string name="location_neighborhood_level_wifi" msgid="4234820941954812210">"አካባቢ በWi-Fi ይታወቃል"</string>
     <string name="location_gps" msgid="8392461023569708478">"የGPS ሳተላይቶች"</string>
-    <string name="location_street_level" product="tablet" msgid="1669562198260860802">"መተግበሪያዎች አካባቢዎትን ለይተው እንዲያስቀምጡ ጡባዊ ቱኮዎ ላይ ያለውን GPS ይጠቀሙ"</string>
-    <string name="location_street_level" product="default" msgid="4617445745492014203">"መተግበሪያዎች አካባቢዎትን ለይተው እንዲያስቀምጡ ስልክዎ ላይ ያለውን GPS ይጠቀሙ"</string>
+    <string name="location_street_level" msgid="1669562198260860802" product="tablet">"መተግበሪያዎች አካባቢዎትን ለይተው እንዲያስቀምጡ ጡባዊ ቱኮዎ ላይ ያለውን GPS ይጠቀሙ"</string>
+    <string name="location_street_level" msgid="4617445745492014203" product="default">"መተግበሪያዎች አካባቢዎትን ለይተው እንዲያስቀምጡ ስልክዎ ላይ ያለውን GPS ይጠቀሙ"</string>
     <string name="assisted_gps" msgid="4649317129586736885">"አጋዥ GPS ተጠቀም"</string>
     <string name="assisted_gps_enabled" msgid="8751899609589792803">"GPSን ለማገዝአገልጋይ ተጠቀም(የአውታረ መረብ አጠቃቀምን ለመቀነስ አታመልክት)"</string>
     <string name="assisted_gps_disabled" msgid="6982698333968010748">"GPSን ለማገዝአገልጋይ ተጠቀም(የGPSንብቃት ለማሻሻል አታመልክት)"</string>
@@ -1338,9 +1336,9 @@
     <string name="location_access_title" msgid="7064108942964081243">"ወደ አካባቢዬ መዳረሻ"</string>
     <string name="location_access_summary" msgid="69031404093194341">"የእርስዎን ፍቃድ የጠየቁ መተግበሪያዎች የአካባቢ መረጃዎትን ይጠቀሙ ዘንድ ይፍቀዱ"</string>
     <string name="location_sources_heading" msgid="1278732419851088319">"የአካባቢ ምንጮች"</string>
-    <string name="about_settings" product="tablet" msgid="593457295516533765">"ስለጡባዊ"</string>
-    <string name="about_settings" product="default" msgid="1743378368185371685">"ስለስልክ"</string>
-    <string name="about_settings" product="emulator" msgid="221313099578564438">"ስለ ተገመተ መሣሪያ"</string>
+    <string name="about_settings" msgid="593457295516533765" product="tablet">"ስለጡባዊ"</string>
+    <string name="about_settings" msgid="1743378368185371685" product="default">"ስለስልክ"</string>
+    <string name="about_settings" msgid="221313099578564438" product="emulator">"ስለ ተገመተ መሣሪያ"</string>
     <string name="about_settings_summary" msgid="3371517697156165959">"የሕግ መረጃ፣ኹነታ፣ የሶፍትዌር ሥሪት እይ"</string>
     <string name="legal_information" msgid="5769301644270604095">"የህግ መረጃ"</string>
     <string name="contributors_title" msgid="5917703088825286504">"አዋጮች"</string>
@@ -1435,8 +1433,8 @@
     <string name="install_applications_title" msgid="4987712352256508946">"የሁሉም መተግበሪያ ምንጮችን ፍቀድ"</string>
     <string name="install_unknown_applications_title" msgid="663831043139080992">"ከGoogle Play ውጪ የመጡ መተግበሪያዎችን እንዲጭኑ ያስችልዎታል"</string>
     <string name="install_unknown_applications" msgid="176855644862942064">"ካልታወቁ ምንጮች የሚመጡ መተግበሪያዎች እንዲጫኑ ፍቀድ"</string>
-    <string name="install_all_warning" product="tablet" msgid="3263360446508268880">"የእርስዎ ጡባዊ እና የግል ውሂብ ካልታወቁ ምንጮች በሚመጡ መተግበሪያዎች ለጥቃት የተጋለጡ ናቸው። እነዚህን መተግበሪያዎች በመጠቀምዎ ሊከሰት በሚችለው የጡባዊዎ ጉዳት ወይም የውሂብ መጥፋት ሙሉ በሙሉ ሃላፊነቱን እርስዎ ብቻ ለመውሰድ ተስማምተዋል።"</string>
-    <string name="install_all_warning" product="default" msgid="8113734576826384682">"የእርስዎ ስልክ እና የግል ውሂብ ከአልታወቁ ምንጭ መተግበሪያዎች ለሚደርሱ ጥቃቶች የተጋለጡ ናቸው። እነዚህን መተግበሪያዎች መጠቀም በመቀጠልዎ ለሚደርስ ማናቸውም ጉዳት ሆነ የውሂብ መጥፋት ሃላፊነቱን ሙሉ በሙሉ ለብቻዎ እንደሚወስዱ ተስማማተዋል።"</string>
+    <string name="install_all_warning" msgid="3263360446508268880" product="tablet">"የእርስዎ ጡባዊ እና የግል ውሂብ ካልታወቁ ምንጮች በሚመጡ መተግበሪያዎች ለጥቃት የተጋለጡ ናቸው። እነዚህን መተግበሪያዎች በመጠቀምዎ ሊከሰት በሚችለው የጡባዊዎ ጉዳት ወይም የውሂብ መጥፋት ሙሉ በሙሉ ሃላፊነቱን እርስዎ ብቻ ለመውሰድ ተስማምተዋል።"</string>
+    <string name="install_all_warning" msgid="8113734576826384682" product="default">"የእርስዎ ስልክ እና የግል ውሂብ ከአልታወቁ ምንጭ መተግበሪያዎች ለሚደርሱ ጥቃቶች የተጋለጡ ናቸው። እነዚህን መተግበሪያዎች መጠቀም በመቀጠልዎ ለሚደርስ ማናቸውም ጉዳት ሆነ የውሂብ መጥፋት ሃላፊነቱን ሙሉ በሙሉ ለብቻዎ እንደሚወስዱ ተስማማተዋል።"</string>
     <string name="advanced_settings" msgid="1777249286757067969">"የላቁ ቅንብሮች"</string>
     <string name="advanced_settings_summary" msgid="4016682978071086747">"ተጨማሪ የቅንብሮች አማራጮች ያንቁ"</string>
     <string name="application_info_label" msgid="5736524913065714880">"የመተግበሪያ መረጃ"</string>
@@ -1449,8 +1447,8 @@
     <string name="clear_cache_btn_text" msgid="5756314834291116325">"መሸጎጫ አጽዳ"</string>
     <string name="cache_size_label" msgid="7505481393108282913">"መሸጎጫ"</string>
     <plurals name="uri_permissions_text" formatted="false" msgid="3983110543017963732">
-      <item quantity="one">%d ንጥሎች</item>
-      <item quantity="other">%d ንጥሎች</item>
+        <item quantity="one">%d ንጥሎች</item>
+        <item quantity="other">%d ንጥሎች</item>
     </plurals>
     <string name="clear_uri_btn_text" msgid="8575655132961012158">"መዳረሻውን አጥራ"</string>
     <string name="controls_label" msgid="7611113077086853799">"ይቆጣጠራል"</string>
@@ -1459,8 +1457,8 @@
     <string name="application_size_label" msgid="8494609207373874267">"መተግበሪያዎች"</string>
     <string name="external_code_size_label" msgid="3459343140355961335">"የUSB ማከማቻ ትግበራ"</string>
     <string name="data_size_label" msgid="8679376373625710107">"ውሂብ"</string>
-    <string name="external_data_size_label" product="nosdcard" msgid="7533821466482000453">"የUSB ማከማቻ ውሂብ"</string>
-    <string name="external_data_size_label" product="default" msgid="626414192825329708">"SD ካርድ"</string>
+    <string name="external_data_size_label" msgid="7533821466482000453" product="nosdcard">"የUSB ማከማቻ ውሂብ"</string>
+    <string name="external_data_size_label" msgid="626414192825329708" product="default">"SD ካርድ"</string>
     <string name="uninstall_text" msgid="3644892466144802466">"አራግፍ"</string>
     <string name="uninstall_all_users_text" msgid="851857393177950340">"ለሁሉም ተጠቃሚዎች ያራግፉ"</string>
     <string name="install_text" msgid="884360662922471113">"ጫን"</string>
@@ -1492,15 +1490,15 @@
     <string name="filter_apps_disabled" msgid="5364447573326472890">"ተሰናክሏል"</string>
     <string name="filter_apps_third_party" msgid="7786348047690140979">"ወርዷል"</string>
     <string name="filter_apps_running" msgid="7767071454371350486">"አሂድ"</string>
-    <string name="filter_apps_onsdcard" product="nosdcard" msgid="4843063154701023349">"የUSB  ማከማቻ"</string>
-    <string name="filter_apps_onsdcard" product="default" msgid="1477351142334784771">"በSD ካርድ ላይ"</string>
+    <string name="filter_apps_onsdcard" msgid="4843063154701023349" product="nosdcard">"የUSB  ማከማቻ"</string>
+    <string name="filter_apps_onsdcard" msgid="1477351142334784771" product="default">"በSD ካርድ ላይ"</string>
     <string name="disabled" msgid="9206776641295849915">"ቦዝኗል"</string>
     <string name="not_installed" msgid="2797554494953450291">"ለዚህ ተጠቃሚ አልተጫነም"</string>
     <string name="no_applications" msgid="7336588977497084921">"ምንም መተግበሪያዎች የሉም::"</string>
     <string name="internal_storage" msgid="1584700623164275282">"የውስጥ ማከማቻ"</string>
     <string name="internal_storage_sentence" msgid="889098931914857143">"ውስጣዊ ማከማቻ"</string>
-    <string name="sd_card_storage" product="nosdcard" msgid="2673203150465132465">"የUSB  ማከማቻ"</string>
-    <string name="sd_card_storage" product="default" msgid="7623513618171928235">"SD ካርድ ማከማቻ"</string>
+    <string name="sd_card_storage" msgid="2673203150465132465" product="nosdcard">"የUSB  ማከማቻ"</string>
+    <string name="sd_card_storage" msgid="7623513618171928235" product="default">"SD ካርድ ማከማቻ"</string>
     <string name="recompute_size" msgid="7722567982831691718">"መጠን ድጋሚ በማስላት ላይ..."</string>
     <string name="clear_data_dlg_title" msgid="5605258400134511197">"መተግበሪያ ውሂብ ሰርዝ?"</string>
     <string name="clear_data_dlg_text" msgid="3951297329833822490">"የዚህ መተግበሪያ ውሂቦች ሁሉ በቋሚነት ይሰረዛሉ።እነዚህም ፋይሎችን፣ ቅንብሮችን፣ መለያዎችን፣ የውሂብ ጎታዎች እና የመሳሰሉትን ያካትታሉ።"</string>
@@ -1511,10 +1509,10 @@
     <string name="clear_data_failed" msgid="7214074331627422248">"የመተግበሪያ ውሂብ ማጽዳት አልተቻለም::"</string>
     <string name="clear_failed_dlg_title" msgid="2387060805294783175">"ውሂብ አጽዳ"</string>
     <string name="clear_failed_dlg_text" msgid="5464475937929941008">"ለመተግበሪያ ውሂብ ማጽዳት አልተቻለም፡፡"</string>
-    <string name="security_settings_desc" product="tablet" msgid="1292421279262430109">"ይህ መተግበሪያ የሚከተለውን በጡባዊዎ ላይ መድረስ ይችላል፡"</string>
-    <string name="security_settings_desc" product="default" msgid="61749028818785244">"ይህ መተግበሪያ ስልክዎ ላይ የሚከተለውን መድረስ ይችላል፡"</string>
-    <string name="security_settings_desc_multi" product="tablet" msgid="7300932212437084403">"ይህ መተግበሪያ ጡባዊ ቱኮህ ላይ የሚከተለውን ሊደርስባቸው ይችላል። አፈጻጸሙን ለማሻሻልና የማህደረ ትውስታውን አጠቃቀም ለመቀነስ ሲባል ከእነኚህ ፍቃዶች ውስጥ አንዳንዶቹ ልክ <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> ባለበት ሂደት ውስጥ ስለሚካሄዱ ለ<xliff:g id="BASE_APP_NAME">%1$s</xliff:g>ም ይገኛሉ፦"</string>
-    <string name="security_settings_desc_multi" product="default" msgid="6610268420793984752">"ይህ መተግበሪያ ስልክዎ ላይ የሚከተሉትን ሊደርስባቸው ይችላል። አፈጻጸሙን ለማሻሻልና የማህደረ ትውስታውን አጠቃቀም ለመቀነስ ሲባል ከእነኚህ ፍቃዶች ውስጥ አንዳንዶቹ ልክ <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> ባለበት ሂደት ውስጥ ስለሚካሄዱ ለ<xliff:g id="BASE_APP_NAME">%1$s</xliff:g>ም ይገኛሉ፦"</string>
+    <string name="security_settings_desc" msgid="1292421279262430109" product="tablet">"ይህ መተግበሪያ የሚከተለውን በጡባዊዎ ላይ መድረስ ይችላል፡"</string>
+    <string name="security_settings_desc" msgid="61749028818785244" product="default">"ይህ መተግበሪያ ስልክዎ ላይ የሚከተለውን መድረስ ይችላል፡"</string>
+    <string name="security_settings_desc_multi" msgid="7300932212437084403" product="tablet">"ይህ መተግበሪያ ጡባዊ ቱኮህ ላይ የሚከተለውን ሊደርስባቸው ይችላል። አፈጻጸሙን ለማሻሻልና የማህደረ ትውስታውን አጠቃቀም ለመቀነስ ሲባል ከእነኚህ ፍቃዶች ውስጥ አንዳንዶቹ ልክ <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> ባለበት ሂደት ውስጥ ስለሚካሄዱ ለ<xliff:g id="BASE_APP_NAME">%1$s</xliff:g>ም ይገኛሉ፦"</string>
+    <string name="security_settings_desc_multi" msgid="6610268420793984752" product="default">"ይህ መተግበሪያ ስልክዎ ላይ የሚከተሉትን ሊደርስባቸው ይችላል። አፈጻጸሙን ለማሻሻልና የማህደረ ትውስታውን አጠቃቀም ለመቀነስ ሲባል ከእነኚህ ፍቃዶች ውስጥ አንዳንዶቹ ልክ <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> ባለበት ሂደት ውስጥ ስለሚካሄዱ ለ<xliff:g id="BASE_APP_NAME">%1$s</xliff:g>ም ይገኛሉ፦"</string>
     <string name="join_two_items" msgid="1336880355987539064">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> እና <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_two_unrelated_items" msgid="1873827777191260824">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>፣ <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="5925635036718502724">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> እና <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
@@ -1527,10 +1525,10 @@
     <string name="empty_list_msg" msgid="3552095537348807772">"የተጫኑ የማንኛውም ሦስተኛ ወገን መተግበሪያ የሉህም።"</string>
     <string name="version_text" msgid="9189073826278676425">"ሥሪት<xliff:g id="VERSION_NUM">%1$s</xliff:g>"</string>
     <string name="move_app" msgid="5042838441401731346">"አንቀሳቅስ"</string>
-    <string name="move_app_to_internal" product="tablet" msgid="2299714147283854957">"ወደ ጡባዊ አንቀሳቅስ"</string>
-    <string name="move_app_to_internal" product="default" msgid="3895430471913858185">"ወደ ስልክ አንቀሳቅስ"</string>
-    <string name="move_app_to_sdcard" product="nosdcard" msgid="4350451696315265420">"ወደUSB ማከማቻ አንቀሳቅስ"</string>
-    <string name="move_app_to_sdcard" product="default" msgid="1143379049903056407">"ወደ SD ካርድ አንቀሳቅስ"</string>
+    <string name="move_app_to_internal" msgid="2299714147283854957" product="tablet">"ወደ ጡባዊ አንቀሳቅስ"</string>
+    <string name="move_app_to_internal" msgid="3895430471913858185" product="default">"ወደ ስልክ አንቀሳቅስ"</string>
+    <string name="move_app_to_sdcard" msgid="4350451696315265420" product="nosdcard">"ወደUSB ማከማቻ አንቀሳቅስ"</string>
+    <string name="move_app_to_sdcard" msgid="1143379049903056407" product="default">"ወደ SD ካርድ አንቀሳቅስ"</string>
     <string name="moving" msgid="6431016143218876491">"በማንቀሳቀስ ላይ"</string>
     <string name="another_migration_already_in_progress" msgid="7817354268848365487">"ሌላ ዝውውር አስቀድሞ በሂደት ላይ ነው።"</string>
     <string name="insufficient_storage" msgid="481763122991093080">"በቂ ማከማቻ ቦታ የለም::"</string>
@@ -1600,8 +1598,8 @@
     <string name="process_service_in_use_description" msgid="8993335064403217080">"<xliff:g id="COMP_NAME">%1$s</xliff:g> አገልግሎት ጥቅም ላይ ነው።"</string>
     <string name="process_provider_in_use_description" msgid="5586603325677678940">"<xliff:g id="COMP_NAME">%1$s</xliff:g> አቅራቢ አገልግሎት ላይ ነው።"</string>
     <string name="runningservicedetails_stop_dlg_title" msgid="4253292537154337233">"የስርዓት አገልግለቶት ይቁም?"</string>
-    <string name="runningservicedetails_stop_dlg_text" product="tablet" msgid="3371302398335665793">"ይህን የስርዓት አገልግሎት ለማቆም በእርግጥ ይፈልጋሉ? ከፈለጉ፣ አጥፍተውት እንደገና እስኪያበሩት አንዳንድ የጡባዊዎ ገጽታዎች በትክክል መስራት ያቆማሉ።"</string>
-    <string name="runningservicedetails_stop_dlg_text" product="default" msgid="3920243762189484756">"ይህን አገልግሎት ለማቆም ከፈለግክ አጥፍተህ እንደገና እስክታበራው ድረስ አንዳንድ የስልክህ ገጽታዎች በትክክል መስራት ያቆማሉ ።"</string>
+    <string name="runningservicedetails_stop_dlg_text" msgid="3371302398335665793" product="tablet">"ይህን የስርዓት አገልግሎት ለማቆም በእርግጥ ይፈልጋሉ? ከፈለጉ፣ አጥፍተውት እንደገና እስኪያበሩት አንዳንድ የጡባዊዎ ገጽታዎች በትክክል መስራት ያቆማሉ።"</string>
+    <string name="runningservicedetails_stop_dlg_text" msgid="3920243762189484756" product="default">"ይህን አገልግሎት ለማቆም ከፈለግክ አጥፍተህ እንደገና እስክታበራው ድረስ አንዳንድ የስልክህ ገጽታዎች በትክክል መስራት ያቆማሉ ።"</string>
     <string name="language_settings" msgid="8758655933029560944">"ቋንቋዎች እና ግቤት"</string>
     <string name="language_keyboard_settings_title" msgid="3709159207482544398">"ቋንቋዎች እና ግቤት"</string>
     <string name="keyboard_settings_category" msgid="8275523930352487827">"ሰሌዳ ቁልፍ እና የግቤት ዘዴዎች"</string>
@@ -1661,8 +1659,8 @@
     <string name="user_dict_settings_all_languages" msgid="6742000040975959247">"ለሁሉም ቋንቋዎች"</string>
     <string name="user_dict_settings_more_languages" msgid="7316375944684977910">"ተጨማሪ ቋንቋዎች…"</string>
     <string name="testing" msgid="6584352735303604146">"ሙከራ"</string>
-    <string name="testing_phone_info" product="tablet" msgid="193561832258534798">"የጡባዊ መረጃ"</string>
-    <string name="testing_phone_info" product="default" msgid="8656693364332840056">"የስልክ መረጃ"</string>
+    <string name="testing_phone_info" msgid="193561832258534798" product="tablet">"የጡባዊ መረጃ"</string>
+    <string name="testing_phone_info" msgid="8656693364332840056" product="default">"የስልክ መረጃ"</string>
     <string name="input_methods_settings_title" msgid="6800066636850553887">"ፅሁፍ ግቤት"</string>
     <string name="input_method" msgid="5434026103176856164">"የግቤት ስልት"</string>
     <string name="current_input_method" msgid="2636466029213488159">"የአሁኑ ቁልፍ ሰሌዳ"</string>
@@ -1731,24 +1729,24 @@
     <string name="enable_quick_setting" msgid="2366999897816894536">"በፈጣን ቅንብሮች ውስጥ አሳይ"</string>
     <string name="daltonizer_type" msgid="1124178250809091080">"የእርማት ሁነታ"</string>
     <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay" formatted="false" msgid="7340347830562315800">
-      <item quantity="one">እጅግ በጣም አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
-      <item quantity="other">እጅግ በጣም አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="one">እጅግ በጣም አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="other">እጅግ በጣም አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
     </plurals>
     <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay" formatted="false" msgid="5589565607652364932">
-      <item quantity="one">በጣም አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
-      <item quantity="other">በጣም አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="one">በጣም አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="other">በጣም አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
     </plurals>
     <plurals name="accessibilty_autoclick_preference_subtitle_short_delay" formatted="false" msgid="5887754135102768400">
-      <item quantity="one">አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
-      <item quantity="other">አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="one">አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="other">አጭር መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
     </plurals>
     <plurals name="accessibilty_autoclick_preference_subtitle_long_delay" formatted="false" msgid="6340683412750219405">
-      <item quantity="one">ረጅም መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
-      <item quantity="other">ረጅም መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="one">ረጅም መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="other">ረጅም መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
     </plurals>
     <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay" formatted="false" msgid="3503199424330634970">
-      <item quantity="one">በጣም ረጅም መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
-      <item quantity="other">በጣም ረጅም መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="one">በጣም ረጅም መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
+        <item quantity="other">በጣም ረጅም መዘግየት (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> ሚሴ)</item>
     </plurals>
     <string name="accessibility_menu_item_settings" msgid="3344942964710773365">"ቅንብሮች"</string>
     <string name="accessibility_feature_state_on" msgid="2864292320042673806">"በርቷል"</string>
@@ -1800,8 +1798,8 @@
     <string name="settings_button" msgid="3006713718908152930">"ቅንብሮች"</string>
     <string name="print_settings" msgid="4742428530112487843">"ማተም"</string>
     <plurals name="print_settings_title" formatted="false" msgid="6994238166067938432">
-      <item quantity="one">%d የህትመት ስራዎች</item>
-      <item quantity="other">%d የህትመት ስራዎች</item>
+        <item quantity="one">%d የህትመት ስራዎች</item>
+        <item quantity="other">%d የህትመት ስራዎች</item>
     </plurals>
     <string name="print_settings_title" msgid="3685449667822217816">"የህትመት አገልግሎቶች"</string>
     <string name="print_no_services_installed" msgid="8443039625463872294">"ምንም አገልግሎቶች አልተጫኑም"</string>
@@ -1863,8 +1861,8 @@
     <string name="power_bluetooth" msgid="4373329044379008289">"ብሉቱዝ"</string>
     <string name="power_cell" msgid="6596471490976003056">"ስልክ ሲጠባበቅ"</string>
     <string name="power_phone" msgid="5392641106474567277">"የድምፅ ጥሪዎች"</string>
-    <string name="power_idle" product="tablet" msgid="4612478572401640759">"ስራ ፈትጡባዊ"</string>
-    <string name="power_idle" product="default" msgid="9055659695602194990">"ስልክ ሥራ የፈታበት"</string>
+    <string name="power_idle" msgid="4612478572401640759" product="tablet">"ስራ ፈትጡባዊ"</string>
+    <string name="power_idle" msgid="9055659695602194990" product="default">"ስልክ ሥራ የፈታበት"</string>
     <string name="power_unaccounted" msgid="709925017022660740">"የተለያዩ"</string>
     <string name="power_overcounted" msgid="2762354976171358445">"ከመጠን በላይ የተቆጠረ"</string>
     <string name="usage_type_cpu" msgid="715162150698338714">"CPU ጠቅላላ"</string>
@@ -1872,8 +1870,8 @@
     <string name="usage_type_wake_lock" msgid="5125438890233677880">"ነቃ ብሏል"</string>
     <string name="usage_type_gps" msgid="7989688715128160790">"GPS"</string>
     <string name="usage_type_wifi_running" msgid="3134357198266380400">"Wi-Fiን በማስኬድ ላይ"</string>
-    <string name="usage_type_phone" product="tablet" msgid="262638572890253393">"ጡባዊ"</string>
-    <string name="usage_type_phone" product="default" msgid="9108247984998041853">"ስልክ"</string>
+    <string name="usage_type_phone" msgid="262638572890253393" product="tablet">"ጡባዊ"</string>
+    <string name="usage_type_phone" msgid="9108247984998041853" product="default">"ስልክ"</string>
     <string name="usage_type_data_send" msgid="8971710128438365919">"የሞባይል ጥቅሎች ተልከዋል"</string>
     <string name="usage_type_data_recv" msgid="5468564329333954445">"የሞባይል ጥቅሎች መጥተዋል"</string>
     <string name="usage_type_radio_active" msgid="1732647857619420121">"ገባሪ የሞባይል ሬዲዮ"</string>
@@ -1895,8 +1893,8 @@
     <string name="battery_action_wifi" msgid="8181553479021841207">"የWi-Fi ቅንብሮች"</string>
     <string name="battery_action_bluetooth" msgid="8374789049507723142">"የብሉቱዝ ቅንብሮች"</string>
     <string name="battery_desc_voice" msgid="8980322055722959211">"የድምፅ ጥሪዎች የተጠቀሙበት ባትሪ መጠን"</string>
-    <string name="battery_desc_standby" product="tablet" msgid="6284747418668280364">"ጡባዊ ስራ ፈት ሲሆን ባትሪ ተጠቅሟል"</string>
-    <string name="battery_desc_standby" product="default" msgid="3009080001948091424">"ስልክ ሲቦዝን የተጠቀመበት ባትሪ መጠን"</string>
+    <string name="battery_desc_standby" msgid="6284747418668280364" product="tablet">"ጡባዊ ስራ ፈት ሲሆን ባትሪ ተጠቅሟል"</string>
+    <string name="battery_desc_standby" msgid="3009080001948091424" product="default">"ስልክ ሲቦዝን የተጠቀመበት ባትሪ መጠን"</string>
     <string name="battery_desc_radio" msgid="5479196477223185367">"የስልክ ሬዲዮ የተጠቀመበት ባትሪ መጠን"</string>
     <string name="battery_sugg_radio" msgid="8211336978326295047">"ምንም የአውታረመረብ ሽፋን የሌለበትአካባቢ ኃይል ለመቆጠብ ወደ አውሮፕላን ሁነታ ቀይር"</string>
     <string name="battery_desc_flashlight" msgid="2908579430841025494">"በአንጸባራቂ መብራቱ ጥቅም ላይ የዋለ የባትሪ ሃይል"</string>
@@ -2000,10 +1998,10 @@
     <string name="gadget_brightness_state_off" msgid="946382262872753084">"ጠፍቷል"</string>
     <string name="vpn_settings_title" msgid="5662579425832406705">"VPN"</string>
     <string name="credentials_title" msgid="4446234003860769883">"መረጃ ማከማቻ"</string>
-    <string name="credentials_install" product="nosdcard" msgid="466093273825150847">"ከUSB  ማከማቻ ጫን"</string>
-    <string name="credentials_install" product="default" msgid="953914549998062317">"ከSD  ካርድ ጫን"</string>
-    <string name="credentials_install_summary" product="nosdcard" msgid="4220422806818210676">"ከማከማቻ ምስክሮች ጫን"</string>
-    <string name="credentials_install_summary" product="default" msgid="5737658257407822713">"ከ SD ካርድ ምስክሮችንጫን"</string>
+    <string name="credentials_install" msgid="466093273825150847" product="nosdcard">"ከUSB  ማከማቻ ጫን"</string>
+    <string name="credentials_install" msgid="953914549998062317" product="default">"ከSD  ካርድ ጫን"</string>
+    <string name="credentials_install_summary" msgid="4220422806818210676" product="nosdcard">"ከማከማቻ ምስክሮች ጫን"</string>
+    <string name="credentials_install_summary" msgid="5737658257407822713" product="default">"ከ SD ካርድ ምስክሮችንጫን"</string>
     <string name="credentials_reset" msgid="3239382277144980418">"መረጃዎች አጽዳ"</string>
     <string name="credentials_reset_summary" msgid="3369361230171260282">"ሁሉንም ምስክሮችአስወግድ"</string>
     <string name="trusted_credentials" msgid="4266945289534242402">"የሚታመን ማስረጃ"</string>
@@ -2139,8 +2137,8 @@
     <string name="header_add_an_account" msgid="756108499532023798">"መለያ አክል"</string>
     <string name="finish_button_label" msgid="481587707657751116">"ጨርስ"</string>
     <string name="really_remove_account_title" msgid="8800653398717172460">"መለያ አስወግድ?"</string>
-    <string name="really_remove_account_message" product="tablet" msgid="1936147502815641161">"ይህን መለያ ማስወገድ ሁሉንም መልዕክቶቹን፣ እውቂያዎቹን፣ እና ከጡባዊው ውስጥ ሌላ ውሂብ ይሰርዛል!"</string>
-    <string name="really_remove_account_message" product="default" msgid="3483528757922948356">"ይህን መለያ ማስወገድ ሁሉንም መልዕክቶቹን፣ እውቂያዎቹን፣ እና ከስልኩ ውስጥ ያለ ሌላ ውሂብን ይሰርዛል!"</string>
+    <string name="really_remove_account_message" msgid="1936147502815641161" product="tablet">"ይህን መለያ ማስወገድ ሁሉንም መልዕክቶቹን፣ እውቂያዎቹን፣ እና ከጡባዊው ውስጥ ሌላ ውሂብ ይሰርዛል!"</string>
+    <string name="really_remove_account_message" msgid="3483528757922948356" product="default">"ይህን መለያ ማስወገድ ሁሉንም መልዕክቶቹን፣ እውቂያዎቹን፣ እና ከስልኩ ውስጥ ያለ ሌላ ውሂብን ይሰርዛል!"</string>
     <string name="remove_account_failed" msgid="6980737964448187854">"ይህ ለውጥ በአስተዳዳሪዎ አይፈቀድም"</string>
     <string name="provider_label" msgid="7724593781904508866">"ምዝገባዎችላይ ተጫን"</string>
     <!-- no translation found for sync_item_title (4782834606909853006) -->
@@ -2218,8 +2216,8 @@
     <string name="data_usage_app_restrict_dialog" msgid="5871168521456832764">"ይህ ባህሪ የተንቀሳቃሽ ስልክ አውታረ መረቦች ብቻ የሚገኙ ሲሆኑ በጀርባ ውሂብ ላይ የሚወሰን መተግበሪያ ስራውን እንዲያቆም ሊያደርግ ይችላል።\n\nበመተግበሪያው ቅንብሮች ውስጥ በሚገኙ ቅንብሮች ላይ ይበልጥ አግባብ የሆነ የውሂብ አጠቃቀም መቆጣጠሪያዎችን ማግኘት ይችላሉ።"</string>
     <string name="data_usage_restrict_denied_dialog" msgid="1493134803720421674">"የተንቀሳቃሽ ስልክ ውሂብ ወሰን ሲያዘጋጁ ብቻ ነው የጀርባ ውሂብ መገደብ የሚቻለው።"</string>
     <string name="data_usage_auto_sync_on_dialog_title" msgid="2438617846762244389">"ውሂብ ራስ-አመሳስል ይብራ?"</string>
-    <string name="data_usage_auto_sync_on_dialog" product="tablet" msgid="8581983093524041669">"ድር ላይ በመለያዎችዎ ላይ የሚያደርጓቸው ማንኛቸውም ለውጦች በራስ-ሰር ወደ ጡባዊዎ ይቀዳሉ።\n\nአንዳንድ መለያዎች እንዲሁም በጡባዊ ላይ የሚያደርጓቸውን ማንኛቸውም ለውጦች ወደ ድሩ ሊቀዱት ይችላሉ። የGoogle መለያ በዚህ መንገድ ነው የሚሰራው።"</string>
-    <string name="data_usage_auto_sync_on_dialog" product="default" msgid="8651376294887142858">"ድር ላይ በመለያዎችዎ ላይ የሚያደርጓቸው ማንኛቸውም ለውጦች በራስ-ሰር ወደ ስልክዎ ይቀዳሉ።\n\nአንዳንድ መለያዎች እንዲሁም በስልክ ላይ የሚያደርጓቸውን ማንኛቸውም ለውጦች ወደ ድሩ ሊቀዱት ይችላሉ። የGoogle መለያ በዚህ መንገድ ነው የሚሰራው።"</string>
+    <string name="data_usage_auto_sync_on_dialog" msgid="8581983093524041669" product="tablet">"ድር ላይ በመለያዎችዎ ላይ የሚያደርጓቸው ማንኛቸውም ለውጦች በራስ-ሰር ወደ ጡባዊዎ ይቀዳሉ።\n\nአንዳንድ መለያዎች እንዲሁም በጡባዊ ላይ የሚያደርጓቸውን ማንኛቸውም ለውጦች ወደ ድሩ ሊቀዱት ይችላሉ። የGoogle መለያ በዚህ መንገድ ነው የሚሰራው።"</string>
+    <string name="data_usage_auto_sync_on_dialog" msgid="8651376294887142858" product="default">"ድር ላይ በመለያዎችዎ ላይ የሚያደርጓቸው ማንኛቸውም ለውጦች በራስ-ሰር ወደ ስልክዎ ይቀዳሉ።\n\nአንዳንድ መለያዎች እንዲሁም በስልክ ላይ የሚያደርጓቸውን ማንኛቸውም ለውጦች ወደ ድሩ ሊቀዱት ይችላሉ። የGoogle መለያ በዚህ መንገድ ነው የሚሰራው።"</string>
     <string name="data_usage_auto_sync_off_dialog_title" msgid="9013139130490125793">"ውሂብ ራስ-አመሳስል ይጥፋ?"</string>
     <string name="data_usage_auto_sync_off_dialog" msgid="4025938250775413864">"ይሄ የውሂብ እና የባትሪ አጠቃቀም ይቆጥባል፣ ግን የቅርብ ጊዜ መረጃ ለመሰብሰብ እያንዳንዱ መለያ እየመረጡ  ማመሳሰል ይኖርብዎታል። እናም ዝማኔዎች ሲኖሩ ምንም ማሳወቂያዎች አይደርስዎትም።"</string>
     <string name="data_usage_cycle_editor_title" msgid="1373797281540188533">"የአጠቃቀም ዑደት ቀን ዳግም ያስጀምራል"</string>
@@ -2228,20 +2226,20 @@
     <string name="data_usage_warning_editor_title" msgid="3704136912240060339">"የውሂብ አጠቃቀም ማስጠንቀቂያ አዘጋጅ"</string>
     <string name="data_usage_limit_editor_title" msgid="9153595142385030015">"የውሂብ አጠቃቀም ወሰን አዘጋጅ"</string>
     <string name="data_usage_limit_dialog_title" msgid="3023111643632996097">"የውሂብ አጠቃቀም መወሰን"</string>
-    <string name="data_usage_limit_dialog_mobile" product="tablet" msgid="5788774061143636263">"ጡባዊዎ አንዴ ያዘጋጁት የውሂብ ገደብ ላይ ሲደርስ የተንቀሳቃሽ ስልክ ውሂቡን ያጠፋዋል።\n\nየውሂብ አጠቃቀም የሚለካው በስልክዎ፣ እና የአገልግሎት አቅራቢዎ አጠቃቀም በተለየ መልኩ ሊቆጥር የሚችል እንደመሆኑ መጠን ቆጠብ ያለ ገደብ ማዘጋጀቱን ያስቡበት።"</string>
-    <string name="data_usage_limit_dialog_mobile" product="default" msgid="3511301596446820549">"ስልክዎ አንዴ ያዘጋጁት የውሂብ ገደብ ላይ ሲደርስ የተንቀሳቃሽ ስልክ ውሂቡን ያጠፋዋል።\n\nየውሂብ አጠቃቀም የሚለካው በስልክዎ፣ እና የአገልግሎት አቅራቢዎ አጠቃቀም በተለየ መልኩ ሊቆጥር የሚችል እንደመሆኑ መጠን ቆጠብ ያለ ገደብ ማዘጋጀቱን ያስቡበት።"</string>
+    <string name="data_usage_limit_dialog_mobile" msgid="5788774061143636263" product="tablet">"ጡባዊዎ አንዴ ያዘጋጁት የውሂብ ገደብ ላይ ሲደርስ የተንቀሳቃሽ ስልክ ውሂቡን ያጠፋዋል።\n\nየውሂብ አጠቃቀም የሚለካው በስልክዎ፣ እና የአገልግሎት አቅራቢዎ አጠቃቀም በተለየ መልኩ ሊቆጥር የሚችል እንደመሆኑ መጠን ቆጠብ ያለ ገደብ ማዘጋጀቱን ያስቡበት።"</string>
+    <string name="data_usage_limit_dialog_mobile" msgid="3511301596446820549" product="default">"ስልክዎ አንዴ ያዘጋጁት የውሂብ ገደብ ላይ ሲደርስ የተንቀሳቃሽ ስልክ ውሂቡን ያጠፋዋል።\n\nየውሂብ አጠቃቀም የሚለካው በስልክዎ፣ እና የአገልግሎት አቅራቢዎ አጠቃቀም በተለየ መልኩ ሊቆጥር የሚችል እንደመሆኑ መጠን ቆጠብ ያለ ገደብ ማዘጋጀቱን ያስቡበት።"</string>
     <string name="data_usage_restrict_background_title" msgid="2201315502223035062">"ዳራ ውሂብ አግድ?"</string>
     <string name="data_usage_restrict_background" msgid="6264965779074729381">"የተንቀሳቃሽ ስልክ ውሂብ ጀርባን ከገደቡ ከWi-Fi ጋር ካልተገናኙ በስተቀር አንዳንድ መተግበሪያዎች እና አገልግሎቶች አይሰሩም።"</string>
-    <string name="data_usage_restrict_background_multiuser" product="tablet" msgid="7954930300449415764">"የጀርባ ተንቀሳቃሽ ስልክ ውሂብ ከገደቡ አንዳንድ መተግበሪያዎች እና አገልግሎቶች ከWi-Fi አውታረ መረብ ጋር ካልተገናኙ በስተቀር አይሰሩም።\n\nይህ ቅንብር እዚህ ጡባዊ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
-    <string name="data_usage_restrict_background_multiuser" product="default" msgid="259958321968870600">"የጀርባ ተንቀሳቃሽ ስልክ ውሂብ ከገደቡ አንዳንድ መተግበሪያዎች እና አገልግሎቶች ከWi-Fi ጋር ካልተገናኙ በስተቀር ድረስ አይሰሩም።\n\nይህ ቅንብር እዚህ ስልክ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
+    <string name="data_usage_restrict_background_multiuser" msgid="7954930300449415764" product="tablet">"የጀርባ ተንቀሳቃሽ ስልክ ውሂብ ከገደቡ አንዳንድ መተግበሪያዎች እና አገልግሎቶች ከWi-Fi አውታረ መረብ ጋር ካልተገናኙ በስተቀር አይሰሩም።\n\nይህ ቅንብር እዚህ ጡባዊ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
+    <string name="data_usage_restrict_background_multiuser" msgid="259958321968870600" product="default">"የጀርባ ተንቀሳቃሽ ስልክ ውሂብ ከገደቡ አንዳንድ መተግበሪያዎች እና አገልግሎቶች ከWi-Fi ጋር ካልተገናኙ በስተቀር ድረስ አይሰሩም።\n\nይህ ቅንብር እዚህ ስልክ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
     <string name="data_usage_sweep_warning" msgid="6387081852568846982"><font size="18">"<xliff:g id="NUMBER">^1</xliff:g>"</font><font size="9">"<xliff:g id="UNIT">^2</xliff:g>"</font>\n<font size="12">"ማስጠንቀቂያ  "</font></string>
     <string name="data_usage_sweep_limit" msgid="860566507375933039"><font size="18">"<xliff:g id="NUMBER">^1</xliff:g>"</font>" "<font size="9">"<xliff:g id="UNIT">^2</xliff:g>"</font>\n<font size="12">"ወሰን"</font></string>
     <string name="data_usage_uninstalled_apps" msgid="614263770923231598">"የተወገዱ መተግበሪያዎች"</string>
     <string name="data_usage_uninstalled_apps_users" msgid="7986294489899813194">"የተወገዱ መተግበሪያዎች እና ተጠቃሚዎች"</string>
     <string name="data_usage_received_sent" msgid="5039699009276621757">"<xliff:g id="RECEIVED">%1$s</xliff:g> ደርሷል፣<xliff:g id="SENT">%2$s</xliff:g> ተልኳል"</string>
     <string name="data_usage_total_during_range" msgid="4091294280619255237">"<xliff:g id="RANGE">%2$s</xliff:g>፦ <xliff:g id="TOTAL">%1$s</xliff:g> ገደማ ጥቅም ላይ ውሏል።"</string>
-    <string name="data_usage_total_during_range_mobile" product="tablet" msgid="1925687342154538972">"<xliff:g id="RANGE">%2$s</xliff:g>፦ <xliff:g id="TOTAL">%1$s</xliff:g> ገደማ ስራ ላይ ውሏል፣ በጡባዊ ቱኮህ በተለካው መሠረት። የድምጸ ተያያዥህ ውሂብ አጠቃቀም ሒሳብ አያያዝ ሊለይ ይችላል።"</string>
-    <string name="data_usage_total_during_range_mobile" product="default" msgid="5063981061103812900">"<xliff:g id="RANGE">%2$s</xliff:g>፦ <xliff:g id="TOTAL">%1$s</xliff:g> ገደማ ስራ ላይ ውሏል፣ በስልክዎ በተለካው መሠረት። የድምጸ ተያያዥዎ ውሂብ አጠቃቀም ሒሳብ አያያዝ ሊለይ ይችላል።"</string>
+    <string name="data_usage_total_during_range_mobile" msgid="1925687342154538972" product="tablet">"<xliff:g id="RANGE">%2$s</xliff:g>፦ <xliff:g id="TOTAL">%1$s</xliff:g> ገደማ ስራ ላይ ውሏል፣ በጡባዊ ቱኮህ በተለካው መሠረት። የድምጸ ተያያዥህ ውሂብ አጠቃቀም ሒሳብ አያያዝ ሊለይ ይችላል።"</string>
+    <string name="data_usage_total_during_range_mobile" msgid="5063981061103812900" product="default">"<xliff:g id="RANGE">%2$s</xliff:g>፦ <xliff:g id="TOTAL">%1$s</xliff:g> ገደማ ስራ ላይ ውሏል፣ በስልክዎ በተለካው መሠረት። የድምጸ ተያያዥዎ ውሂብ አጠቃቀም ሒሳብ አያያዝ ሊለይ ይችላል።"</string>
     <string name="data_usage_metered_title" msgid="7383175371006596441">"የአውታረ መረብ ገደቦች"</string>
     <string name="data_usage_metered_body" msgid="3262343834446126044">"የጀርባ ውሂብ ሲገደብ የሚለኩ አውታረ መረቦች እንደ የተንቀሳቃሽ ስልክ አውታረ መረብ ነው የሚቆጠሩት። መተግበሪያዎች ትልልቅ ውርዶችን ለማውረድ እነዚህን አውታረ መረቦች ከመጠቀማቸው በፊት ሊያስጠነቅቁ ይችላሉ።"</string>
     <string name="data_usage_metered_mobile" msgid="2326986339431119372">"የተንቀሳቃሽ ስልክ አውታረ መረቦች"</string>
@@ -2326,21 +2324,21 @@
     <string name="ssl_ca_cert_warning" msgid="2045866713601984673">"አውታረ መረብ በክትትል ውስጥ ሊሆን ይችላል"</string>
     <string name="done_button" msgid="1991471253042622230">"ተከናውኗል"</string>
     <plurals name="ssl_ca_cert_dialog_title" formatted="false" msgid="7145092748045794650">
-      <item quantity="one">የእውቅና ማረጋገጫዎችን ይመኑ ወይም ያስወግዱ</item>
-      <item quantity="other">የእውቅና ማረጋገጫዎችን ይመኑ ወይም ያስወግዱ</item>
+        <item quantity="one">የእውቅና ማረጋገጫዎችን ይመኑ ወይም ያስወግዱ</item>
+        <item quantity="other">የእውቅና ማረጋገጫዎችን ይመኑ ወይም ያስወግዱ</item>
     </plurals>
     <plurals name="ssl_ca_cert_info_message_device_owner" formatted="false" msgid="1489335297837656666">
-      <item quantity="one"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> በመሣሪያዎ ላይ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የሥራ አውታረ መረብ እንቅስቃሴዎን እንዲከታተሉ ሊያስችላቸው ይችላል።\n\n ስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።</item>
-      <item quantity="other"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> በመሣሪያዎ ላይ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የሥራ አውታረ መረብ እንቅስቃሴዎን እንዲከታተሉ ሊያስችላቸው ይችላል።\n\n ስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።</item>
+        <item quantity="one"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> በመሣሪያዎ ላይ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የሥራ አውታረ መረብ እንቅስቃሴዎን እንዲከታተሉ ሊያስችላቸው ይችላል።\n\n ስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።</item>
+        <item quantity="other"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> በመሣሪያዎ ላይ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የሥራ አውታረ መረብ እንቅስቃሴዎን እንዲከታተሉ ሊያስችላቸው ይችላል።\n\n ስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።</item>
     </plurals>
     <plurals name="ssl_ca_cert_info_message" formatted="false" msgid="30645643499556573">
-      <item quantity="one"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g>ለስራ መገለጫዎ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የስራ አውታረ መረብ እንቅስቃሴን እንዲከታተሉ ሊያስችላቸው ይችላል።\n\nስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።</item>
-      <item quantity="other"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g>ለስራ መገለጫዎ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የስራ አውታረ መረብ እንቅስቃሴን እንዲከታተሉ ሊያስችላቸው ይችላል።\n\nስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።</item>
+        <item quantity="one"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g>ለስራ መገለጫዎ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የስራ አውታረ መረብ እንቅስቃሴን እንዲከታተሉ ሊያስችላቸው ይችላል።\n\nስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።</item>
+        <item quantity="other"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g>ለስራ መገለጫዎ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የስራ አውታረ መረብ እንቅስቃሴን እንዲከታተሉ ሊያስችላቸው ይችላል።\n\nስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።</item>
     </plurals>
     <string name="ssl_ca_cert_warning_message" msgid="8216218659139190498">"ሶስተኛ ወገን ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የእርስዎን የአውታረ መረብ እንቅስቃሴ የመከታተል ችሎታ አለው።\n\nበእርስዎ መሣሪያ ላይ የተጫነ አንድ የሚታመን ምስክርነት ይሄ እንዲከሰት የሚቻል እያደረገ ነው።"</string>
     <plurals name="ssl_ca_cert_settings_button" formatted="false" msgid="2426799352517325228">
-      <item quantity="one">የእውቅና ማረጋገጫዎችን ይፈትሹ</item>
-      <item quantity="other">የእውቅና ማረጋገጫዎችን ይፈትሹ</item>
+        <item quantity="one">የእውቅና ማረጋገጫዎችን ይፈትሹ</item>
+        <item quantity="other">የእውቅና ማረጋገጫዎችን ይፈትሹ</item>
     </plurals>
     <string name="user_settings_title" msgid="6151874007858148344">"ተጠቃሚዎች"</string>
     <string name="user_list_title" msgid="7937158411137563543">"ተጠቃሚዎች እና መገለጫዎች"</string>
@@ -2369,8 +2367,8 @@
     <string name="user_setup_profile_dialog_message" msgid="3896568553327558731">"መገለጫ አሁን ይዋቀር?"</string>
     <string name="user_setup_button_setup_now" msgid="3391388430158437629">"አሁን ያዋቅሩ"</string>
     <string name="user_setup_button_setup_later" msgid="3068729597269172401">"አሁን አይደለም"</string>
-    <string name="user_cannot_manage_message" product="tablet" msgid="7153048188252553320">"የጡባዊው ባለቤት ብቻ ነው ተጠቃሚዎችን ማስተዳደር የሚችለው።"</string>
-    <string name="user_cannot_manage_message" product="default" msgid="959315813089950649">"የስልኩ ባለቤት ብቻ ነው ተጠቃሚዎችን ማስተዳደር የሚችለው።"</string>
+    <string name="user_cannot_manage_message" msgid="7153048188252553320" product="tablet">"የጡባዊው ባለቤት ብቻ ነው ተጠቃሚዎችን ማስተዳደር የሚችለው።"</string>
+    <string name="user_cannot_manage_message" msgid="959315813089950649" product="default">"የስልኩ ባለቤት ብቻ ነው ተጠቃሚዎችን ማስተዳደር የሚችለው።"</string>
     <string name="user_cannot_add_accounts_message" msgid="5116692653439737050">"የተገደቡ መገለጫዎች መለያዎችን ማከል አይችሉም"</string>
     <string name="user_remove_user_menu" msgid="6897150520686691355">"<xliff:g id="USER_NAME">%1$s</xliff:g>ን ከዚህ መሣሪያ ሰርዝ"</string>
     <string name="user_lockscreen_settings" msgid="4965661345247084878">"የገጽ ቆልፍ ቅንብሮች"</string>
@@ -2382,8 +2380,8 @@
     <string name="user_confirm_remove_title" msgid="1163721647646152032">"ይሄ ተጠቃሚ ይወገድ?"</string>
     <string name="user_profile_confirm_remove_title" msgid="5573161550669867342">"ይህ መገለጫ ይወገድ?"</string>
     <string name="work_profile_confirm_remove_title" msgid="2017323555783522213">"የስራ መገለጫ ይወገድ?"</string>
-    <string name="user_confirm_remove_self_message" product="tablet" msgid="2391372805233812410">"በዚህ ጡባዊ ላይ ቦታዎን እና ውሂብዎን ያጣሉ። ይህን እርምጃ መቀልበስ አይችሉም።"</string>
-    <string name="user_confirm_remove_self_message" product="default" msgid="7943645442479360048">"በዚህ ስልክ ላይ ቦታዎን እና ውሂብዎን ያጣሉ። ይህን እርምጃ መቀልበስ አይችሉም።"</string>
+    <string name="user_confirm_remove_self_message" msgid="2391372805233812410" product="tablet">"በዚህ ጡባዊ ላይ ቦታዎን እና ውሂብዎን ያጣሉ። ይህን እርምጃ መቀልበስ አይችሉም።"</string>
+    <string name="user_confirm_remove_self_message" msgid="7943645442479360048" product="default">"በዚህ ስልክ ላይ ቦታዎን እና ውሂብዎን ያጣሉ። ይህን እርምጃ መቀልበስ አይችሉም።"</string>
     <string name="user_confirm_remove_message" msgid="1020629390993095037">"ሁሉም መተግበሪያዎች እና ውሂብ ይሰረዛሉ።"</string>
     <string name="work_profile_confirm_remove_message" msgid="323856589749078140">"ከቀጠሉ በዚህ መገለጫ ውስጥ ያሉት ሁሉም መተግበሪያዎች እና ውሂብ ይሰረዛሉ።"</string>
     <string name="user_profile_confirm_remove_message" msgid="7373754145959298522">"ሁሉም መተግበሪያዎች እና ውሂብ ይሰረዛሉ።"</string>
@@ -2408,8 +2406,8 @@
     <string name="apps_with_restrictions_settings_button" msgid="3841347287916635821">"የመተግበሪያዎች ቅንብሮችን ዘርጋ"</string>
     <string name="home_app_uninstall_button" msgid="6808453012607962899">"ይህንን መተግበሪያ አራግፍ"</string>
     <string name="only_one_home_message" msgid="3538846733750242759">"ሌላ የመነሻ መተግበሪያ እስኪጭኑ ድረስ የመነሻ ቅንብሮች ይደበቃሉ።"</string>
-    <string name="global_change_warning" product="tablet" msgid="8045013389464294039">"ይህ ቅንብር እዚህ ጡባዊ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
-    <string name="global_change_warning" product="default" msgid="2461264421590324675">"ይህ ቅንብር እዚህ ስልክ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
+    <string name="global_change_warning" msgid="8045013389464294039" product="tablet">"ይህ ቅንብር እዚህ ጡባዊ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
+    <string name="global_change_warning" msgid="2461264421590324675" product="default">"ይህ ቅንብር እዚህ ስልክ ላይ ያሉት ሁሉም ተጠቃሚዎች ይመለከታቸዋል።"</string>
     <string name="global_locale_change_title" msgid="5956281361384221451">"ቋንቋ ይቀይሩ"</string>
     <string name="nfc_payment_settings_title" msgid="1807298287380821613">"መታ አድርገው ይክፈሉ"</string>
     <string name="nfc_payment_how_it_works" msgid="3028822263837896720">"እንዴት እንደሚሰራ"</string>
@@ -2467,8 +2465,8 @@
     <string name="restriction_bluetooth_config_summary" msgid="8372319681287562506">"የብሉቱዝ ጥምረቶች እና ቅንብሮች መቀየርን ይፍቀዱ"</string>
     <string name="restriction_nfc_enable_title" msgid="5888100955212267941">"ኤን ኤፍ ሲ"</string>
     <string name="restriction_nfc_enable_summary_config" msgid="3232480757215851738">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ሌላ የNFC መሣሪያ ሲነካ የውሂብ ልውውጥ ፍቀድ"</string>
-    <string name="restriction_nfc_enable_summary" product="tablet" msgid="3891097373396149915">"ጡባዊው ሌላ መሳሪያ ሲነካ የውሂብ ልውውጥ ይፍቀዱ"</string>
-    <string name="restriction_nfc_enable_summary" product="default" msgid="825331120501418592">"ስልኩ ሌላ መሳሪያ ሲነካ የውሂብ ልውውጥ ይፍቀዱ"</string>
+    <string name="restriction_nfc_enable_summary" msgid="3891097373396149915" product="tablet">"ጡባዊው ሌላ መሳሪያ ሲነካ የውሂብ ልውውጥ ይፍቀዱ"</string>
+    <string name="restriction_nfc_enable_summary" msgid="825331120501418592" product="default">"ስልኩ ሌላ መሳሪያ ሲነካ የውሂብ ልውውጥ ይፍቀዱ"</string>
     <string name="restriction_location_enable_title" msgid="5020268888245775164">"አካባቢ"</string>
     <string name="restriction_location_enable_summary" msgid="3489765572281788755">"መተግበሪያዎች የአካባቢ መረጃዎትን እንዲጠቀሙ ይፍቀዱ"</string>
     <string name="wizard_back" msgid="5567007959434765743">"ተመለስ"</string>
@@ -2518,8 +2516,8 @@
     <string name="sim_selection_required_pref" msgid="3446721423206414652">"መምረጥ ይጠየቃል"</string>
     <string name="dashboard_title" msgid="5453710313046681820">"ቅንብሮች"</string>
     <plurals name="settings_suggestion_header_summary_hidden_items" formatted="false" msgid="5597356221942118048">
-      <item quantity="one">%d የተደበቁ ንጥሎችን አሳይ</item>
-      <item quantity="other">%d የተደበቁ ንጥሎችን አሳይ</item>
+        <item quantity="one">%d የተደበቁ ንጥሎችን አሳይ</item>
+        <item quantity="other">%d የተደበቁ ንጥሎችን አሳይ</item>
     </plurals>
     <string name="search_results_title" msgid="1796252422574886932">"ቅንብሮች"</string>
     <string name="search_menu" msgid="6283419262313758339">"የፍለጋ ቅንብሮች"</string>
@@ -2643,8 +2641,8 @@
     <string name="manage_notification_access_title" msgid="7510080164564944891">"የማሳወቂያ መዳረሻ"</string>
     <string name="manage_notification_access_summary_zero" msgid="2409912785614953348">"መተግበሪያዎች ማሳወቂያዎችን ማንበብ አይችሉም"</string>
     <plurals name="manage_notification_access_summary_nonzero" formatted="false" msgid="7930130030691218387">
-      <item quantity="one">የ%d መተግበሪያዎች ማሳወቂያዎችን ማንበብ ይችላሉ</item>
-      <item quantity="other">የ%d መተግበሪያዎች ማሳወቂያዎችን ማንበብ ይችላሉ</item>
+        <item quantity="one">የ%d መተግበሪያዎች ማሳወቂያዎችን ማንበብ ይችላሉ</item>
+        <item quantity="other">የ%d መተግበሪያዎች ማሳወቂያዎችን ማንበብ ይችላሉ</item>
     </plurals>
     <string name="no_notification_listeners" msgid="3487091564454192821">"ምንም የተጫኑ መተግበሪያዎች የማሳወቂያ መዳረሻ አልጠየቁም።"</string>
     <string name="notification_listener_security_warning_title" msgid="5522924135145843279">"ለ<xliff:g id="SERVICE">%1$s</xliff:g> የማሳወቂያ መዳረሻ ይፈቀድ?"</string>
@@ -2731,12 +2729,12 @@
     <string name="zen_mode_end_time_next_day_summary_format" msgid="4201521691238728701">"<xliff:g id="FORMATTED_TIME">%s</xliff:g> next day"</string>
     <string name="zen_mode_summary_alarms_only_indefinite" msgid="2061973221027570123">"ወደ ማንቂያዎች ብቻ ያለገደብ ለውጥ"</string>
     <plurals name="zen_mode_summary_alarms_only_by_minute" formatted="false" msgid="6122003583875424601">
-      <item quantity="one">ወደ ማንቂያዎች ለ<xliff:g id="DURATION">%1$d</xliff:g> ደቂቃዎች ብቻ ለውጥ (እስከ <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
-      <item quantity="other">ወደ ማንቂያዎች ለ<xliff:g id="DURATION">%1$d</xliff:g> ደቂቃዎች ብቻ ለውጥ (እስከ <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
+        <item quantity="one">ወደ ማንቂያዎች ለ<xliff:g id="DURATION">%1$d</xliff:g> ደቂቃዎች ብቻ ለውጥ (እስከ <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
+        <item quantity="other">ወደ ማንቂያዎች ለ<xliff:g id="DURATION">%1$d</xliff:g> ደቂቃዎች ብቻ ለውጥ (እስከ <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
     </plurals>
     <plurals name="zen_mode_summary_alarms_only_by_hour" formatted="false" msgid="2407703455581767748">
-      <item quantity="one">ወደ ማንቂያዎች ለ<xliff:g id="DURATION">%1$d</xliff:g> ሰዓቶች ብቻ እስከ <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g> ድረስ ለውጥ</item>
-      <item quantity="other">ወደ ማንቂያዎች ለ<xliff:g id="DURATION">%1$d</xliff:g> ሰዓቶች ብቻ እስከ <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g> ድረስ ለውጥ</item>
+        <item quantity="one">ወደ ማንቂያዎች ለ<xliff:g id="DURATION">%1$d</xliff:g> ሰዓቶች ብቻ እስከ <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g> ድረስ ለውጥ</item>
+        <item quantity="other">ወደ ማንቂያዎች ለ<xliff:g id="DURATION">%1$d</xliff:g> ሰዓቶች ብቻ እስከ <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g> ድረስ ለውጥ</item>
     </plurals>
     <string name="zen_mode_summary_alarms_only_by_time" msgid="7465525754879341907">"እስከ <xliff:g id="FORMATTEDTIME">%1$s</xliff:g> ድረስ ብቻ ወደ ማንቂያዎች ይቀይሩ"</string>
     <string name="zen_mode_summary_always" msgid="6172985102689237703">"ወደ ሁልጊዜ አቋርጥ ለውጥ"</string>
@@ -2820,16 +2818,16 @@
     <string name="notifications_summary_divider" msgid="9013807608804041387">" / "</string>
     <string name="notification_summary_level" msgid="2726571692704140826">"ደረጃ %d"</string>
     <plurals name="permissions_summary" formatted="false" msgid="6402730318075959117">
-      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ፈቃዶች ተሰጥተዋል</item>
-      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ፈቃዶች ተሰጥተዋል</item>
+        <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ፈቃዶች ተሰጥተዋል</item>
+        <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ፈቃዶች ተሰጥተዋል</item>
     </plurals>
     <plurals name="runtime_permissions_summary" formatted="false" msgid="1564663886246010959">
-      <item quantity="one"><xliff:g id="COUNT_2">%d</xliff:g> ከ<xliff:g id="COUNT_3">%d</xliff:g> ፈቃዶች ተሰጥቷል</item>
-      <item quantity="other"><xliff:g id="COUNT_2">%d</xliff:g> ከ<xliff:g id="COUNT_3">%d</xliff:g> ፈቃዶች ተሰጥተዋል</item>
+        <item quantity="one"><xliff:g id="COUNT_2">%d</xliff:g> ከ<xliff:g id="COUNT_3">%d</xliff:g> ፈቃዶች ተሰጥቷል</item>
+        <item quantity="other"><xliff:g id="COUNT_2">%d</xliff:g> ከ<xliff:g id="COUNT_3">%d</xliff:g> ፈቃዶች ተሰጥተዋል</item>
     </plurals>
     <plurals name="runtime_permissions_additional_count" formatted="false" msgid="931276038884210752">
-      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ተጨማሪ ፈቃዶች</item>
-      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ተጨማሪ ፈቃዶች</item>
+        <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ተጨማሪ ፈቃዶች</item>
+        <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> ተጨማሪ ፈቃዶች</item>
     </plurals>
     <string name="runtime_permissions_summary_no_permissions_granted" msgid="1679758182657005375">"ምንም ፈቃዶች አልተሰጡም"</string>
     <string name="runtime_permissions_summary_no_permissions_requested" msgid="7655100570513818534">"ምንም ፈቃዶች አልተጠየቁም"</string>
@@ -2856,8 +2854,8 @@
     <string name="domain_urls_summary_one" msgid="3704934031930978405">"<xliff:g id="DOMAIN">%s</xliff:g>ን ክፈት"</string>
     <string name="domain_urls_summary_some" msgid="3950089361819428455">"<xliff:g id="DOMAIN">%s</xliff:g>ን እና ሌሎች ዩአርኤሎችን ይክፈቱ"</string>
     <plurals name="domain_urls_apps_summary" formatted="false" msgid="4322996467951692661">
-      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> መተግበሪያዎች የሚደገፉ አገናኞቻቸውን መክፈት ይችላሉ</item>
-      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> መተግበሪያዎች የሚደገፉ አገናኞቻቸውን መክፈት ይችላሉ</item>
+        <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> መተግበሪያዎች የሚደገፉ አገናኞቻቸውን መክፈት ይችላሉ</item>
+        <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> መተግበሪያዎች የሚደገፉ አገናኞቻቸውን መክፈት ይችላሉ</item>
     </plurals>
     <string name="app_link_open_always" msgid="2474058700623948148">"በዚህ መተግበሪያ ውስጥ ክፈት"</string>
     <string name="app_link_open_ask" msgid="7800878430190575991">"ሁልጊዜ ጊዜ ጠይቅ"</string>
@@ -2904,8 +2902,8 @@
     <string name="high_power_system" msgid="7362862974428225301">"የባትሪ ማትባት አይገኝም"</string>
     <string name="high_power_desc" msgid="6283926163708585760">"የባትሪ ማትባትን አትተግብር። ባትሪዎን በበለጠ ፍጥነት ሊጨርሰው ይችላል።"</string>
     <plurals name="high_power_count" formatted="false" msgid="2464701722383894640">
-      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> መተግበሪያዎች ባትሪን ማትባት ችላ እንዲባል ፈቅደዋል</item>
-      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> መተግበሪያዎች ባትሪን ማትባት ችላ እንዲባል ፈቅደዋል</item>
+        <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> መተግበሪያዎች ባትሪን ማትባት ችላ እንዲባል ፈቅደዋል</item>
+        <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> መተግበሪያዎች ባትሪን ማትባት ችላ እንዲባል ፈቅደዋል</item>
     </plurals>
     <string name="high_power_prompt_title" msgid="4257734526819699048">"የባትሪ ማትባቶችን ችላ ይባሉ?"</string>
     <string name="high_power_prompt_body" msgid="4072587909486730876">"<xliff:g id="APP_NAME">%1$s</xliff:g> በጀርባ ውስጥ እንደተገናኘ ይቆይ? ይሄ ተጨማሪ ባትሪን ሊጠቀም ይችላል።"</string>
@@ -2956,8 +2954,8 @@
     <string name="free_memory" msgid="4003936141603549746">"ነጻ"</string>
     <string name="memory_usage_apps" msgid="5650192998273294098">"በመተግበሪያዎች ጥቅም ላይ የዋለ ማህደረ ትውስታ"</string>
     <plurals name="memory_usage_apps_summary" formatted="false" msgid="6089210945574265774">
-      <item quantity="one"><xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ባለፈው <xliff:g id="DURATION_1">%2$s</xliff:g> ጊዜ ውስጥ ማህደረ ትውስታን ተጠቅመዋል</item>
-      <item quantity="other"><xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ባለፈው <xliff:g id="DURATION_1">%2$s</xliff:g> ጊዜ ውስጥ ማህደረ ትውስታን ተጠቅመዋል</item>
+        <item quantity="one"><xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ባለፈው <xliff:g id="DURATION_1">%2$s</xliff:g> ጊዜ ውስጥ ማህደረ ትውስታን ተጠቅመዋል</item>
+        <item quantity="other"><xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ባለፈው <xliff:g id="DURATION_1">%2$s</xliff:g> ጊዜ ውስጥ ማህደረ ትውስታን ተጠቅመዋል</item>
     </plurals>
     <string name="running_frequency" msgid="6622624669948277693">"ድግግሞሽ"</string>
     <string name="memory_maximum_usage" msgid="6513785462055278341">"ከፍተኛ አጠቃቀም"</string>
@@ -3027,8 +3025,8 @@
     <string name="disconnected" msgid="5787956818111197212">"ግንኙነት ተቋርጧል"</string>
     <string name="data_usage_summary_format" msgid="7507047900192160585">"<xliff:g id="AMOUNT">%1$s</xliff:g> ከውሂብ ጥቅም ላይ ውሏል"</string>
     <plurals name="notification_summary" formatted="false" msgid="4019451362120557382">
-      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> መተግበሪያዎች እንዳይልኩ ታግደዋል</item>
-      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> መተግበሪያዎች እንዳይልኩ ታግደዋል</item>
+        <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> መተግበሪያዎች እንዳይልኩ ታግደዋል</item>
+        <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> መተግበሪያዎች እንዳይልኩ ታግደዋል</item>
     </plurals>
     <string name="notification_summary_none" msgid="3440195312233351409">"ሁሉም መተግበሪያዎች እንዲልኩ ተፈቅዶላቸዋል"</string>
     <string name="apps_summary" msgid="193158055537070092">"<xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ተጭነዋል"</string>
@@ -3100,8 +3098,8 @@
     <string name="configure" msgid="1029654422228677273">"አዋቅር"</string>
     <string name="data_usage_other_apps" msgid="3272872663517382050">"በአጠቃቀም ውስጥ ሌሎች መተግበሪያዎች ተካትተዋል"</string>
     <plurals name="data_saver_unrestricted_summary" formatted="false" msgid="2635267833484232703">
-      <item quantity="one"><xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ውሂብ ቆጣቢ በሚበራበት ጊዜ ያልተገደበ ውሂብን እንዲጠቀሙ ተፈቅዶላቸዋል</item>
-      <item quantity="other"><xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ውሂብ ቆጣቢ በሚበራበት ጊዜ ያልተገደበ ውሂብን እንዲጠቀሙ ተፈቅዶላቸዋል</item>
+        <item quantity="one"><xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ውሂብ ቆጣቢ በሚበራበት ጊዜ ያልተገደበ ውሂብን እንዲጠቀሙ ተፈቅዶላቸዋል</item>
+        <item quantity="other"><xliff:g id="COUNT">%1$d</xliff:g> መተግበሪያዎች ውሂብ ቆጣቢ በሚበራበት ጊዜ ያልተገደበ ውሂብን እንዲጠቀሙ ተፈቅዶላቸዋል</item>
     </plurals>
     <string name="data_saver_title" msgid="398458827917495765">"ውሂብ ቆጣቢ"</string>
     <string name="unrestricted_data_saver" msgid="7019858887510062789">"ያልተገደበ የውሂብ መዳረሻ"</string>
@@ -3197,16 +3195,16 @@
     <string name="managed_profile_contact_search_title" msgid="6034734926815544221">"የእውቂያ ፍለጋ"</string>
     <string name="managed_profile_contact_search_summary" msgid="5431253552272970512">"በእርስዎ ድርጅት የሚደረጉ የእውቂያ ፍለጋዎች ደዋዮችን እና እውቂያዎችን እንዲለዩ ፍቀድ"</string>
     <plurals name="hours" formatted="false" msgid="7020844602875333472">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ሰዓቶች</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ሰዓቶች</item>
+        <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ሰዓቶች</item>
+        <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ሰዓቶች</item>
     </plurals>
     <plurals name="minutes" formatted="false" msgid="4666832442068789413">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ደቂቃዎች</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ደቂቃዎች</item>
+        <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ደቂቃዎች</item>
+        <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ደቂቃዎች</item>
     </plurals>
     <plurals name="seconds" formatted="false" msgid="3876307354560025025">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ሰከንዶች</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ሰከንዶች</item>
+        <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ሰከንዶች</item>
+        <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ሰከንዶች</item>
     </plurals>
     <string name="support_estimated_wait_time" msgid="6523081420029378051">"~<xliff:g id="ESTIMATE">%1$s</xliff:g> ይጠብቁ"</string>
     <string name="bluetooth_talkback_computer" msgid="4875089335641234463">"ኮምፒዩተር"</string>
@@ -3224,27 +3222,27 @@
     <string name="deletion_helper_manual_title" msgid="7947432164411214029">"በራስ"</string>
     <string name="deletion_helper_preference_title" msgid="5271510052022285884">"አሁኑኑ ባዶ ቦታ ያስለቅቁ"</string>
     <string name="gesture_preference_title" msgid="5280023307132819052">"የእጅ ምልክቶች"</string>
-    <string name="gesture_preference_summary" product="default" msgid="8627850388011956901">"ስልክዎን የሚቆጣጠሩባቸው ፈጣን የጣት ምልክቶች"</string>
-    <string name="gesture_preference_summary" product="tablet" msgid="4717535378272065510">"ጡባዊዎን የሚቆጣጠሩባቸው ፈጣን የጣት ምልክቶች"</string>
-    <string name="gesture_preference_summary" product="device" msgid="4205941452664950852">"መሣሪያዎን የሚቆጣጠሩባቸው ፈጣን የጣት ምልክቶች"</string>
+    <string name="gesture_preference_summary" msgid="8627850388011956901" product="default">"ስልክዎን የሚቆጣጠሩባቸው ፈጣን የጣት ምልክቶች"</string>
+    <string name="gesture_preference_summary" msgid="4717535378272065510" product="tablet">"ጡባዊዎን የሚቆጣጠሩባቸው ፈጣን የጣት ምልክቶች"</string>
+    <string name="gesture_preference_summary" msgid="4205941452664950852" product="device">"መሣሪያዎን የሚቆጣጠሩባቸው ፈጣን የጣት ምልክቶች"</string>
     <string name="double_tap_power_for_camera_title" msgid="2993443929413421363">"ወደ ካሜራ ዝለል"</string>
     <string name="double_tap_power_for_camera_summary" msgid="6005086458928518432">"ካሜራውን በፍጥነት ለመክፈት በቀላሉ የኃይል አዝራሩን ይጫኑት። ከማንኛውም ማያ ገጽ ላይ ይሠራል"</string>
     <string name="double_twist_for_camera_mode_title" msgid="4877834147983530479">"ካሜራ ወርወር ያድርጉ"</string>
     <string name="double_twist_for_camera_mode_summary" msgid="122977081337563340"></string>
-    <string name="ambient_display_title" product="default" msgid="5144814600610448504">"ስልኩን ለመመልከት ሁለቴ መታ ያድርጉ"</string>
-    <string name="ambient_display_title" product="tablet" msgid="8688795028609563837">"ጡባዊውን ለመመልከት ሁለቴ መታ ያድርጉ"</string>
-    <string name="ambient_display_title" product="device" msgid="3423781975742145894">"መሣሪያውን ለመመልከት ሁለቴ መታ ያድርጉ"</string>
+    <string name="ambient_display_title" msgid="5144814600610448504" product="default">"ስልኩን ለመመልከት ሁለቴ መታ ያድርጉ"</string>
+    <string name="ambient_display_title" msgid="8688795028609563837" product="tablet">"ጡባዊውን ለመመልከት ሁለቴ መታ ያድርጉ"</string>
+    <string name="ambient_display_title" msgid="3423781975742145894" product="device">"መሣሪያውን ለመመልከት ሁለቴ መታ ያድርጉ"</string>
     <string name="ambient_display_summary" msgid="5817384104520817202">"ማሳወቂያዎችዎን በፍጥነት ለመመልከት የእርስዎ ማያ ገጽን ሁለቴ መታ ያድርጉ"</string>
-    <string name="ambient_display_pickup_title" product="default" msgid="818688002837687268">"ስልኩን ለማረጋገጥ ያንሱ"</string>
-    <string name="ambient_display_pickup_title" product="tablet" msgid="4455864282995698097">"ጡባዊውን ለማረጋገጥ ያንሱ"</string>
-    <string name="ambient_display_pickup_title" product="device" msgid="5380534405773531175">"መሣሪያውን ለማረጋገጥ ያንሱ"</string>
-    <string name="ambient_display_pickup_summary" product="default" msgid="7887685543895952417">"የእርስዎን ማሳወቂያዎች በፍጥነት ለመፈተሽ ስልክዎን ያንሱ"</string>
-    <string name="ambient_display_pickup_summary" product="tablet" msgid="4703466494089486840">"የእርስዎን ማሳወቂያዎች በፍጥነት ለመፈተሽ ጡባዊዎን ያንሱ"</string>
-    <string name="ambient_display_pickup_summary" product="device" msgid="3557276829636914807">"የእርስዎን ማሳወቂያዎች በፍጥነት ለመፈተሽ መሣሪያዎን ያንሱ"</string>
+    <string name="ambient_display_pickup_title" msgid="818688002837687268" product="default">"ስልኩን ለማረጋገጥ ያንሱ"</string>
+    <string name="ambient_display_pickup_title" msgid="4455864282995698097" product="tablet">"ጡባዊውን ለማረጋገጥ ያንሱ"</string>
+    <string name="ambient_display_pickup_title" msgid="5380534405773531175" product="device">"መሣሪያውን ለማረጋገጥ ያንሱ"</string>
+    <string name="ambient_display_pickup_summary" msgid="7887685543895952417" product="default">"የእርስዎን ማሳወቂያዎች በፍጥነት ለመፈተሽ ስልክዎን ያንሱ"</string>
+    <string name="ambient_display_pickup_summary" msgid="4703466494089486840" product="tablet">"የእርስዎን ማሳወቂያዎች በፍጥነት ለመፈተሽ ጡባዊዎን ያንሱ"</string>
+    <string name="ambient_display_pickup_summary" msgid="3557276829636914807" product="device">"የእርስዎን ማሳወቂያዎች በፍጥነት ለመፈተሽ መሣሪያዎን ያንሱ"</string>
     <string name="fingerprint_swipe_for_notifications_title" msgid="2750203868053669600">"ለማስታወቂያዎች በጣት ጠረግ ያድርጉ"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="default" msgid="5274050434459511239">"የእርስዎን ማሳወቂያዎች ለመመልከት በስልክዎ ጀርባ ላይ ባለው የጣት አሻራ ዳሳሽ ላይ ወደ ታች ጠረግ ያድርጉት"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="tablet" msgid="7557602481555096698">"የእርስዎን ማሳወቂያዎች ለመፈተሽ በጡባዊዎ ጀርባ ላይ ባለው የጣት አሻራ ዳሳሽ ላይ ወደ ታች ጠረግ ያድርጉት"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="device" msgid="5635310946298433769">"የእርስዎን ማሳወቂያዎች ለመፈተሽ በመሣሪያዎ ጀርባ ላይ ባለው የጣት አሻራ ዳሳሽ ላይ ወደ ታች ጠረግ ያድርጉት"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="5274050434459511239" product="default">"የእርስዎን ማሳወቂያዎች ለመመልከት በስልክዎ ጀርባ ላይ ባለው የጣት አሻራ ዳሳሽ ላይ ወደ ታች ጠረግ ያድርጉት"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="7557602481555096698" product="tablet">"የእርስዎን ማሳወቂያዎች ለመፈተሽ በጡባዊዎ ጀርባ ላይ ባለው የጣት አሻራ ዳሳሽ ላይ ወደ ታች ጠረግ ያድርጉት"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="5635310946298433769" product="device">"የእርስዎን ማሳወቂያዎች ለመፈተሽ በመሣሪያዎ ጀርባ ላይ ባለው የጣት አሻራ ዳሳሽ ላይ ወደ ታች ጠረግ ያድርጉት"</string>
     <string name="gesture_setting_on" msgid="3455094265233870280">"በርቷል"</string>
     <string name="gesture_setting_off" msgid="5230169535435881894">"ጠፍቷል"</string>
     <string name="oem_unlock_enable_disabled_summary_bootloader_unlocked" msgid="4265541229765635629">"ማስነሻ አስቀድሞ ተከፍቷል"</string>

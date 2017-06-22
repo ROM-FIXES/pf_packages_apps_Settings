@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
 ** Copyright 2014, The Android Open Source Project
 **
@@ -20,24 +19,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:orientation="vertical"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:orientation="vertical">
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
-        android:singleLine="true"
         android:ellipsize="marquee"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
-        android:textColor="?android:attr/colorAccent"
-        android:textAlignment="viewStart"
         android:gravity="left|center_vertical"
-        android:text="@string/running_processes_header_title" />
+        android:singleLine="true"
+        android:text="@string/running_processes_header_title"
+        android:textAlignment="viewStart"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:textColor="?android:attr/colorAccent" />
 
-    <view class="com.android.settings.applications.LinearColorBar"
+    <view
         android:id="@+id/color_bar"
+        class="com.android.settings.applications.LinearColorBar"
         android:layout_width="match_parent"
         android:layout_height="16sp"
         android:orientation="horizontal" />
@@ -47,44 +47,49 @@
         android:layout_height="32sp"
         android:layout_marginTop="8sp"
         android:orientation="horizontal">
+
         <ImageView
             android:layout_width="16sp"
             android:layout_height="16sp"
             android:layout_gravity="center"
+            android:contentDescription="@null"
             android:scaleType="centerInside"
-            android:src="@color/running_processes_system_ram"
-            android:contentDescription="@null" />
+            android:src="@color/running_processes_system_ram" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/systemSizePrefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:maxLines="1"
                 android:text="@string/running_processes_header_system_prefix"
                 android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:maxLines="1" />
+                android:textColor="?android:attr/textColorSecondary" />
+
             <ImageView
-                android:src="@drawable/dotted_line_480px"
                 android:layout_width="0dip"
-                android:layout_weight="1"
                 android:layout_height="1px"
-                android:layout_marginStart="1dip"
                 android:layout_marginEnd="1dip"
+                android:layout_marginStart="1dip"
+                android:layout_weight="1"
                 android:baselineAlignBottom="true"
+                android:contentDescription="@null"
                 android:scaleType="center"
-                android:contentDescription="@null" />
+                android:src="@drawable/dotted_line_480px" />
+
             <TextView
                 android:id="@+id/systemSize"
-                android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:maxLines="1" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="@android:style/TextAppearance.Material.Body1"
+                android:textColor="?android:attr/textColorSecondary" />
         </LinearLayout>
     </LinearLayout>
 
@@ -92,44 +97,49 @@
         android:layout_width="match_parent"
         android:layout_height="32sp"
         android:orientation="horizontal">
+
         <ImageView
             android:layout_width="16sp"
             android:layout_height="16sp"
             android:layout_gravity="center"
+            android:contentDescription="@null"
             android:scaleType="centerInside"
-            android:src="?android:attr/colorAccent"
-            android:contentDescription="@null" />
+            android:src="?android:attr/colorAccent" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/appsSizePrefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:maxLines="1"
                 android:text="@string/running_processes_header_apps_prefix"
                 android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:maxLines="1" />
+                android:textColor="?android:attr/textColorSecondary" />
+
             <ImageView
-                android:src="@drawable/dotted_line_480px"
                 android:layout_width="0dip"
-                android:layout_weight="1"
                 android:layout_height="1px"
-                android:baselineAlignBottom="true"
-                android:layout_marginStart="1dip"
                 android:layout_marginEnd="1dip"
+                android:layout_marginStart="1dip"
+                android:layout_weight="1"
+                android:baselineAlignBottom="true"
+                android:contentDescription="@null"
                 android:scaleType="center"
-                android:contentDescription="@null" />
+                android:src="@drawable/dotted_line_480px" />
+
             <TextView
                 android:id="@+id/appsSize"
-                android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:maxLines="1" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="@android:style/TextAppearance.Material.Body1"
+                android:textColor="?android:attr/textColorSecondary" />
         </LinearLayout>
     </LinearLayout>
 
@@ -137,44 +147,49 @@
         android:layout_width="match_parent"
         android:layout_height="32sp"
         android:orientation="horizontal">
+
         <ImageView
             android:layout_width="16sp"
             android:layout_height="16sp"
             android:layout_gravity="center"
+            android:contentDescription="@null"
             android:scaleType="centerInside"
-            android:src="@color/running_processes_free_ram"
-            android:contentDescription="@null" />
+            android:src="@color/running_processes_free_ram" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/freeSizePrefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:maxLines="1"
                 android:text="@string/running_processes_header_free_prefix"
                 android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:maxLines="1" />
+                android:textColor="?android:attr/textColorSecondary" />
+
             <ImageView
-                android:src="@drawable/dotted_line_480px"
                 android:layout_width="0dip"
-                android:layout_weight="1"
                 android:layout_height="1px"
-                android:baselineAlignBottom="true"
-                android:layout_marginStart="1dip"
                 android:layout_marginEnd="1dip"
+                android:layout_marginStart="1dip"
+                android:layout_weight="1"
+                android:baselineAlignBottom="true"
+                android:contentDescription="@null"
                 android:scaleType="center"
-                android:contentDescription="@null" />
+                android:src="@drawable/dotted_line_480px" />
+
             <TextView
                 android:id="@+id/freeSize"
-                android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:maxLines="1" />
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="@android:style/TextAppearance.Material.Body1"
+                android:textColor="?android:attr/textColorSecondary" />
         </LinearLayout>
     </LinearLayout>
 
@@ -183,12 +198,12 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="8sp"
-        android:singleLine="true"
         android:ellipsize="marquee"
-        android:textAppearance="@android:style/TextAppearance.Material.Body2"
-        android:textColor="?android:attr/colorAccent"
-        android:textAlignment="viewStart"
         android:gravity="left|center_vertical"
-        android:text="@string/running_processes_header_footer" />
+        android:singleLine="true"
+        android:text="@string/running_processes_header_footer"
+        android:textAlignment="viewStart"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        android:textColor="?android:attr/colorAccent" />
 
 </LinearLayout>

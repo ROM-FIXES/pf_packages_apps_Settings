@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,16 +13,15 @@
      limitations under the License.
 -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     <item settings:state_encrypted="true">
         <layer-list>
             <item>
                 <level-list>
-                    <item android:maxLevel="0" android:drawable="@drawable/ic_wifi_signal_1" />
-                    <item android:maxLevel="1" android:drawable="@drawable/ic_wifi_signal_2" />
-                    <item android:maxLevel="2" android:drawable="@drawable/ic_wifi_signal_3" />
-                    <item android:maxLevel="3" android:drawable="@drawable/ic_wifi_signal_4" />
+                    <item android:drawable="@drawable/ic_wifi_signal_1" android:maxLevel="0" />
+                    <item android:drawable="@drawable/ic_wifi_signal_2" android:maxLevel="1" />
+                    <item android:drawable="@drawable/ic_wifi_signal_3" android:maxLevel="2" />
+                    <item android:drawable="@drawable/ic_wifi_signal_4" android:maxLevel="3" />
                 </level-list>
             </item>
             <item android:drawable="@drawable/ic_wifi_signal_lock" />
@@ -31,10 +29,10 @@
     </item>
     <item settings:state_encrypted="false">
         <level-list>
-            <item android:maxLevel="0" android:drawable="@drawable/ic_wifi_signal_1" />
-            <item android:maxLevel="1" android:drawable="@drawable/ic_wifi_signal_2" />
-            <item android:maxLevel="2" android:drawable="@drawable/ic_wifi_signal_3" />
-            <item android:maxLevel="3" android:drawable="@drawable/ic_wifi_signal_4" />
+            <item android:drawable="@drawable/ic_wifi_signal_1" android:maxLevel="0" />
+            <item android:drawable="@drawable/ic_wifi_signal_2" android:maxLevel="1" />
+            <item android:drawable="@drawable/ic_wifi_signal_3" android:maxLevel="2" />
+            <item android:drawable="@drawable/ic_wifi_signal_4" android:maxLevel="3" />
         </level-list>
     </item>
 </selector>

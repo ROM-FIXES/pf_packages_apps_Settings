@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,20 +14,19 @@
   ~ limitations under the License
   -->
 
-<com.android.setupwizardlib.GlifLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.setupwizardlib.GlifLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/setup_wizard_layout"
+    style="?attr/fingerprint_layout_theme"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="?attr/fingerprint_layout_theme">
+    android:layout_height="match_parent">
 
     <LinearLayout
         style="@style/SuwContentFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:clipChildren="false"
         android:clipToPadding="false"
-        android:clipChildren="false">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/message"
@@ -36,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/suw_description_glif_margin_top"
-            android:text="@string/security_settings_fingerprint_enroll_finish_message"/>
+            android:text="@string/security_settings_fingerprint_enroll_finish_message" />
 
         <TextView
             android:id="@+id/message_secondary"
@@ -49,27 +47,27 @@
             android:visibility="gone" />
 
         <View
-            android:layout_height="24dp"
             android:layout_width="match_parent"
-            android:layout_weight="1"/>
+            android:layout_height="24dp"
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/fingerprint_in_app_indicator"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="5"
-            android:minHeight="@dimen/fingerprint_in_app_indicator_min_size"
-            android:minWidth="@dimen/fingerprint_in_app_indicator_min_size"
+            android:contentDescription="@android:string/fingerprint_icon_content_description"
             android:maxHeight="@dimen/fingerprint_in_app_indicator_max_size"
             android:maxWidth="@dimen/fingerprint_in_app_indicator_max_size"
-            android:layout_gravity="center_horizontal"
-            android:contentDescription="@android:string/fingerprint_icon_content_description"
+            android:minHeight="@dimen/fingerprint_in_app_indicator_min_size"
+            android:minWidth="@dimen/fingerprint_in_app_indicator_min_size"
             android:src="@drawable/fp_app_indicator" />
 
         <View
-            android:layout_height="24dp"
             android:layout_width="match_parent"
-            android:layout_weight="1"/>
+            android:layout_height="24dp"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,8 +76,8 @@
             android:orientation="horizontal">
 
             <Button
-                style="@style/SetupWizardButton.Negative"
                 android:id="@+id/add_another_button"
+                style="@style/SetupWizardButton.Negative"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fingerprint_enroll_button_add" />
@@ -90,8 +88,8 @@
                 android:layout_weight="1" />
 
             <Button
-                style="@style/SetupWizardButton.Positive"
                 android:id="@+id/next_button"
+                style="@style/SetupWizardButton.Positive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/security_settings_fingerprint_enroll_done" />

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,11 +17,14 @@
     <step category="com.android.settings.suggested.category.RESTORE_BACKUP" />
     <step category="com.android.settings.suggested.category.LOCK_SCREEN" />
     <step category="com.android.settings.suggested.category.EMAIL" />
-    <step category="com.android.settings.suggested.category.PARTNER_ACCOUNT"
+    <step
+        category="com.android.settings.suggested.category.PARTNER_ACCOUNT"
         multiple="true" />
     <step category="com.android.settings.suggested.category.HOTWORD" />
-    <step category="com.android.settings.suggested.category.DEFAULT"
+    <step
+        category="com.android.settings.suggested.category.DEFAULT"
         multiple="true" />
-    <step category="com.android.settings.suggested.category.SETTINGS_ONLY"
+    <step
+        category="com.android.settings.suggested.category.SETTINGS_ONLY"
         multiple="true" />
 </optional-steps>

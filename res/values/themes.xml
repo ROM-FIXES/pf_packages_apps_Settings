@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -74,8 +73,10 @@
         <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard.Light</item>
 
         <!-- LockPatternView colors -->
-        <item name="@*android:regularColor">@color/setup_lock_pattern_view_regular_color_light</item>
-        <item name="@*android:successColor">@color/setup_lock_pattern_view_success_color_light</item>
+        <item name="@*android:regularColor">@color/setup_lock_pattern_view_regular_color_light
+        </item>
+        <item name="@*android:successColor">@color/setup_lock_pattern_view_success_color_light
+        </item>
         <item name="@*android:errorColor">@color/setup_lock_pattern_view_error_color_light</item>
     </style>
 
@@ -135,10 +136,12 @@
 
     <style name="Theme.Settings" parent="Theme.SettingsBase">
         <item name="preferenceTheme">@style/PreferenceTheme</item>
-        <item name="@*android:preferenceHeaderPanelStyle">@style/PreferenceHeaderPanelSinglePane</item>
+        <item name="@*android:preferenceHeaderPanelStyle">@style/PreferenceHeaderPanelSinglePane
+        </item>
         <item name="@*android:preferencePanelStyle">@style/PreferencePanelSinglePane</item>
         <item name="@*android:preferenceListStyle">@style/PreferenceHeaderListSinglePane</item>
-        <item name="@*android:preferenceFragmentListStyle">@style/PreferenceFragmentListSinglePane</item>
+        <item name="@*android:preferenceFragmentListStyle">@style/PreferenceFragmentListSinglePane
+        </item>
         <item name="@*android:preferenceFragmentPaddingSide">@dimen/settings_side_margin</item>
 
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
@@ -227,7 +230,8 @@
     <style name="Theme.SubSettingsDialogWhenLarge" parent="Theme.DialogWhenLarge">
         <item name="preferenceTheme">@style/PreferenceTheme</item>
         <item name="android:actionBarWidgetTheme">@null</item>
-        <item name="android:actionBarTheme">@android:style/ThemeOverlay.Material.Dark.ActionBar</item>
+        <item name="android:actionBarTheme">@android:style/ThemeOverlay.Material.Dark.ActionBar
+        </item>
 
         <item name="preferenceBackgroundColor">@drawable/preference_background</item>
     </style>
@@ -269,15 +273,19 @@
         <item name="@*android:successColor">@color/lock_pattern_view_regular_color_dark</item>
         <item name="@*android:errorColor">@color/lock_pattern_view_error_color</item>
 
-        <item name="android:windowAnimationStyle">@style/ConfirmDeviceCredentialsAnimationStyle</item>
+        <item name="android:windowAnimationStyle">@style/ConfirmDeviceCredentialsAnimationStyle
+        </item>
     </style>
+
     <style name="Theme.ConfirmDeviceCredentialsWork" parent="Theme.ConfirmDeviceCredentialsDark">
         <item name="@*android:regularColor">@*android:color/white</item>
         <item name="android:colorAccent">@*android:color/white</item>
     </style>
 
     <style name="Theme.FingerprintEnroll" parent="SuwThemeGlif.Light">
-        <item name="android:textAppearanceListItemSmall">@android:style/TextAppearance.Material.Body1</item>
+        <item name="android:textAppearanceListItemSmall">
+            @android:style/TextAppearance.Material.Body1
+        </item>
 
         <item name="suwDividerCondition">both</item>
         <item name="suwListItemIconColor">?android:attr/colorAccent</item>
@@ -296,7 +304,8 @@
     </style>
 
     <style name="FallbackHome.SetupWizard" parent="@android:style/Theme.Material.NoActionBar.Fullscreen">
-        <item name="android:windowBackground">@drawable/fallback_home_unprovisioned_background</item>
+        <item name="android:windowBackground">@drawable/fallback_home_unprovisioned_background
+        </item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The CyanogenMod Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,8 +16,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
     android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeight"
     android:paddingEnd="?android:attr/scrollbarSize">
 
     <ImageView
@@ -26,80 +25,87 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/ring_notif_increasing"
-        android:minWidth="48dp" />
+        android:minWidth="48dp"
+        android:src="@drawable/ring_notif_increasing" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dip"
-        android:layout_marginEnd="8dip"
-        android:layout_marginTop="6dip"
         android:layout_marginBottom="6dip"
+        android:layout_marginEnd="8dip"
+        android:layout_marginStart="16dip"
+        android:layout_marginTop="6dip"
         android:layout_weight="1">
 
-        <TextView android:id="@android:id/title"
+        <TextView
+            android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:ellipsize="marquee"
-            android:fadingEdge="horizontal" />
+            android:fadingEdge="horizontal"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView android:id="@+id/start_volume_label"
+        <TextView
+            android:id="@+id/start_volume_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@android:id/title"
             android:layout_alignStart="@android:id/title"
+            android:layout_below="@android:id/title"
+            android:singleLine="true"
             android:text="@string/increasing_ring_min_volume_title"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"
-            android:singleLine="true" />
+            android:textColor="?android:attr/textColorSecondary" />
 
-        <SeekBar android:id="@+id/start_volume"
+        <SeekBar
+            android:id="@+id/start_volume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/start_volume_label"
             android:layout_alignParentEnd="true"
+            android:layout_below="@id/start_volume_label"
             android:max="1000" />
 
-        <TextView android:id="@+id/ramp_up_time_label"
+        <TextView
+            android:id="@+id/ramp_up_time_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/start_volume"
             android:layout_alignStart="@android:id/title"
+            android:layout_below="@id/start_volume"
+            android:singleLine="true"
             android:text="@string/increasing_ring_ramp_up_time_title"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"
-            android:singleLine="true" />
+            android:textColor="?android:attr/textColorSecondary" />
 
-        <TextView android:id="@+id/ramp_up_time_value"
+        <TextView
+            android:id="@+id/ramp_up_time_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/start_volume"
-            android:layout_toEndOf="@id/ramp_up_time_label"
             android:layout_alignBaseline="@id/ramp_up_time_label"
             android:layout_alignParentEnd="true"
+            android:layout_below="@id/start_volume"
+            android:layout_toEndOf="@id/ramp_up_time_label"
             android:gravity="end"
+            android:singleLine="true"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"
-            android:singleLine="true" />
+            android:textColor="?android:attr/textColorSecondary" />
 
-        <SeekBar android:id="@+id/ramp_up_time"
+        <SeekBar
+            android:id="@+id/ramp_up_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ramp_up_time_label"
             android:layout_alignParentEnd="true"
+            android:layout_below="@id/ramp_up_time_label"
             android:max="11" />
 
-        <TextView android:id="@android:id/summary"
+        <TextView
+            android:id="@android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ramp_up_time"
             android:layout_alignStart="@android:id/title"
+            android:layout_below="@id/ramp_up_time"
+            android:maxLines="4"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"
-            android:maxLines="4" />
+            android:textColor="?android:attr/textColorSecondary" />
 
     </RelativeLayout>
 

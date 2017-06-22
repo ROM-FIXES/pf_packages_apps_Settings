@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,78 +16,78 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="72dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:gravity="top"
     android:columnCount="3"
-    android:duplicateParentState="true">
+    android:duplicateParentState="true"
+    android:gravity="top"
+    android:minHeight="72dp"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp">
 
     <ImageView
         android:id="@android:id/icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:scaleType="fitXY"
         android:layout_marginEnd="16dip"
         android:contentDescription="@null"
-        android:duplicateParentState="true" />
+        android:duplicateParentState="true"
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@android:id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@android:id/icon"
-        android:singleLine="true"
+        android:duplicateParentState="true"
         android:ellipsize="marquee"
-        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
-        android:textColor="?android:attr/textColorPrimary"
+        android:singleLine="true"
         android:textAlignment="viewStart"
-        android:duplicateParentState="true" />
+        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+        android:textColor="?android:attr/textColorPrimary" />
 
     <TextView
         android:id="@android:id/summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@android:id/title"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="6dip"
+        android:layout_toEndOf="@android:id/title"
+        android:duplicateParentState="true"
+        android:ellipsize="marquee"
         android:gravity="end"
         android:singleLine="true"
-        android:ellipsize="marquee"
         android:textAppearance="@android:style/TextAppearance.Material.Subhead"
-        android:textColor="?android:attr/textColorSecondary"
-        android:duplicateParentState="true" />
+        android:textColor="?android:attr/textColorSecondary" />
 
     <Switch
-            android:id="@android:id/switch_widget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@null"
-            android:visibility="gone"/>
+        android:id="@android:id/switch_widget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:visibility="gone" />
 
     <FrameLayout
         android:id="@android:id/widget_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@android:id/icon"
-        android:layout_below="@android:id/title"
         android:layout_alignParentEnd="true"
+        android:layout_below="@android:id/title"
         android:layout_gravity="fill_horizontal|top"
+        android:layout_toEndOf="@android:id/icon"
         android:duplicateParentState="true" />
 
     <TextView
         android:id="@+id/pkgname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@android:id/widget_frame"
         android:layout_toEndOf="@android:id/icon"
-        android:layout_below="@android:id/widget_frame"                
-        android:singleLine="true"
+        android:duplicateParentState="true"
         android:ellipsize="marquee"
+        android:singleLine="true"
         android:textAppearance="@android:style/TextAppearance.Material.Body1"
         android:textColor="?android:attr/textColorSecondary"
-        android:visibility="gone"
-        android:duplicateParentState="true" />  
+        android:visibility="gone" />
 
 </RelativeLayout>

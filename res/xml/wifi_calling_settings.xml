@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,28 +14,28 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:key="wifi_calling_settings"
-                  android:title="@string/wifi_calling_settings_title">
+    android:key="wifi_calling_settings"
+    android:title="@string/wifi_calling_settings_title">
 
     <ListPreference
-            android:key="wifi_calling_mode"
-            android:title="@string/wifi_calling_mode_title"
-            android:summary="@string/wifi_calling_mode_title"
-            android:entries="@array/wifi_calling_mode_choices"
-            android:entryValues="@array/wifi_calling_mode_values"
-            android:dialogTitle="@string/wifi_calling_mode_dialog_title" />
+        android:dialogTitle="@string/wifi_calling_mode_dialog_title"
+        android:entries="@array/wifi_calling_mode_choices"
+        android:entryValues="@array/wifi_calling_mode_values"
+        android:key="wifi_calling_mode"
+        android:summary="@string/wifi_calling_mode_title"
+        android:title="@string/wifi_calling_mode_title" />
 
     <ListPreference
-            android:key="wifi_calling_roaming_mode"
-            android:title="@string/wifi_calling_roaming_mode_title"
-            android:summary="@string/wifi_calling_roaming_mode_summary"
-            android:entries="@array/wifi_calling_mode_choices_v2"
-            android:entryValues="@array/wifi_calling_mode_values"
-            android:dialogTitle="@string/wifi_calling_roaming_mode_dialog_title" />
+        android:dialogTitle="@string/wifi_calling_roaming_mode_dialog_title"
+        android:entries="@array/wifi_calling_mode_choices_v2"
+        android:entryValues="@array/wifi_calling_mode_values"
+        android:key="wifi_calling_roaming_mode"
+        android:summary="@string/wifi_calling_roaming_mode_summary"
+        android:title="@string/wifi_calling_roaming_mode_title" />
 
     <Preference
-            android:key="emergency_address_key"
-            android:title="@string/emergency_address_title"
-            android:summary="@string/emergency_address_summary" />
+        android:key="emergency_address_key"
+        android:summary="@string/emergency_address_summary"
+        android:title="@string/emergency_address_title" />
 
 </PreferenceScreen>

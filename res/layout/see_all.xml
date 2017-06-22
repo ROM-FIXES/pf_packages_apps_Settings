@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,47 +13,47 @@
      limitations under the License.
 -->
 
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:minHeight="@dimen/dashboard_tile_minimum_height"
-        android:clickable="true"
-        android:focusable="true">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/dashboard_tile_minimum_height">
 
     <View
-            android:layout_width="@dimen/dashboard_tile_image_size"
-            android:layout_height="@dimen/dashboard_tile_image_size"
-            android:layout_marginStart="@dimen/dashboard_tile_image_margin_start"
-            android:layout_marginEnd="@dimen/dashboard_tile_image_margin_end"
-            android:visibility="invisible" />
+        android:layout_width="@dimen/dashboard_tile_image_size"
+        android:layout_height="@dimen/dashboard_tile_image_size"
+        android:layout_marginEnd="@dimen/dashboard_tile_image_margin_end"
+        android:layout_marginStart="@dimen/dashboard_tile_image_margin_start"
+        android:visibility="invisible" />
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:orientation="vertical"
+            android:layout_weight="1"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:orientation="vertical">
 
             <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                <TextView android:id="@android:id/title"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:singleLine="true"
-                          android:textAppearance="@android:style/TextAppearance.Material.Widget.Button.Inverse"
-                          android:textColor="?android:attr/colorAccent"
-                          android:ellipsize="marquee"
-                          android:fadingEdge="horizontal" />
+                <TextView
+                    android:id="@android:id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:fadingEdge="horizontal"
+                    android:singleLine="true"
+                    android:textAppearance="@android:style/TextAppearance.Material.Widget.Button.Inverse"
+                    android:textColor="?android:attr/colorAccent" />
 
             </RelativeLayout>
 

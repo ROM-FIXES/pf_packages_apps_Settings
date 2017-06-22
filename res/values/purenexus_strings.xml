@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2017 The Pure Nexus Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2017 The Pure Nexus Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,16 +12,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
- <!-- Application Settings -->
-   <!-- Manage applications: show substratum overlays -->
-   <string name="filter_substratum_apps">Substratum overlays</string>
-   <string name="menu_show_substratum">Show overlays</string>
-   <string name="menu_hide_substratum">Hide overlays</string>
-   <!-- Manage applications: show substratum icon overlays -->
-   <string name="filter_substratum_icons">Substratum icon overlays</string>
-   <string name="menu_show_substratum_icons">Show icon overlays</string>
-   <string name="menu_hide_substratum_icons">Hide icon overlays</string>
+<resources>
+    <!-- Application Settings -->
+    <!-- Manage applications: show substratum overlays -->
+    <string name="filter_substratum_apps">Substratum overlays</string>
+    <string name="menu_show_substratum">Show overlays</string>
+    <string name="menu_hide_substratum">Hide overlays</string>
+    <!-- Manage applications: show substratum icon overlays -->
+    <string name="filter_substratum_icons">Substratum icon overlays</string>
+    <string name="menu_show_substratum_icons">Show icon overlays</string>
+    <string name="menu_hide_substratum_icons">Hide icon overlays</string>
     <!-- App Ops Settings -->
     <string name="app_ops_cat_location">Location</string>
     <string name="app_ops_cat_personal">Personal</string>
@@ -90,13 +89,13 @@
     <string name="app_ops_get_accounts">device accounts</string>
     <string name="app_ops_run_in_background">run in background</string>
 
-<!-- Battery Saver Settings -->
+    <!-- Battery Saver Settings -->
     <!-- Disable Battery Saver Warning Color -->
     <string name="battery_saver_color_title">Warning color</string>
     <string name="battery_saver_color_summary">Enable orange status and navigation bars when battery saver is activated</string>
-    
-<!-- Custom Settings -->    
-  <!-- Dashboard -->
+
+    <!-- Custom Settings -->
+    <!-- Dashboard -->
     <string name="header_category_custom">ROM Control</string>
     <string name="pure_settings_title">PureNexus Settings</string>
     <string name="pure_settings_summary">ROM features &amp; customization</string>
@@ -108,7 +107,7 @@
     <string name="magisk_title">Magisk manager</string>
     <string name="magisk_summary">Control modules and settings</string>
 
-<!-- Development Settings -->
+    <!-- Development Settings -->
     <!-- Dev Options Enabled by Default -->
     <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
     <!-- ADB debugging notifications -->
@@ -125,17 +124,17 @@
     <string name="force_authorize_substratum_packages_title">Force authorize every theme app</string>
     <string name="force_authorize_substratum_packages_summary">Allow theme apps from unknown sources</string>
 
-<!-- Device Info Settings -->
+    <!-- Device Info Settings -->
     <!-- Pure version -->
     <string name="pure_version">PureNexus version</string>
     <string name="pure_version_default">Unknown</string>
     <!-- Vendor version -->
     <string name="vendor_version">Vendor version</string>
     <string name="vendor_version_default">Unknown</string>
-   <!-- Phone info shortcut -->
+    <!-- Phone info shortcut -->
     <string name="device_info_title">Phone info</string>
 
-<!-- Display Settings -->
+    <!-- Display Settings -->
     <!-- Expanded desktop -->
     <string name="power_menu_expanded_desktop">Expanded desktop</string>
     <string name="expanded_hide_nothing">Hide nothing</string>
@@ -168,16 +167,16 @@
     <string name="display_rotation_180_title">180 degrees</string>
     <string name="display_rotation_270_title">270 degrees</string>
 
-<!-- Gesture Settings -->
+    <!-- Gesture Settings -->
     <!-- Summary text for double twist for camera mode  [CHAR LIMIT=160]-->
     <string name="double_twist_for_camera_mode_summary_pn">To switch in and out of selfie mode in Google Camera, double-twist when you’re in the app</string>
 
-<!-- Language & Input -->
+    <!-- Language & Input -->
     <!-- Fullscreen Keyboard -->
     <string name="disable_fullscreen_keyboard_title">Disable fullscreen keyboard</string>
     <string name="disable_fullscreen_keyboard_summary">Landscape keyboard will never take up entire screen</string>
 
-<!-- Sound & Notification Settings -->
+    <!-- Sound & Notification Settings -->
     <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Increasing ring volume</string>
     <string name="increasing_ring_min_volume_title">Start volume</string>

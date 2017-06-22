@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2012 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,29 +14,29 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:title="@string/display_settings">
+    android:title="@string/display_settings">
 
     <PreferenceCategory
         android:key="mobile"
-        android:title="@string/data_usage_metered_mobile"
-        android:persistent="false" />
+        android:persistent="false"
+        android:title="@string/data_usage_metered_mobile" />
 
     <PreferenceCategory
         android:key="wifi"
-        android:title="@string/data_usage_metered_wifi"
-        android:persistent="false">
+        android:persistent="false"
+        android:title="@string/data_usage_metered_wifi">
 
         <Preference
             android:key="wifi_disabled"
-            android:summary="@string/data_usage_metered_wifi_disabled"
             android:persistent="false"
-            android:selectable="false" />
+            android:selectable="false"
+            android:summary="@string/data_usage_metered_wifi_disabled" />
 
     </PreferenceCategory>
 
     <Preference
-        android:summary="@string/data_usage_metered_body"
         android:persistent="false"
-        android:selectable="false" />
+        android:selectable="false"
+        android:summary="@string/data_usage_metered_body" />
 
 </PreferenceScreen>

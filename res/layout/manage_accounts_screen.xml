@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /* //device/apps/common/assets/res/layout/list_content.xml
 **
 ** Copyright 2006, The Android Open Source Project
@@ -30,12 +29,13 @@
         android:clipToPadding="false"
         android:scrollbarStyle="@integer/preference_scrollbar_style" />
 
-    <TextView android:id="@+id/sync_settings_error_info"
+    <TextView
+        android:id="@+id/sync_settings_error_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dip"
-        android:text="@string/sync_is_failing"
+        android:drawableLeft="@drawable/ic_sync_error_holo"
         android:drawablePadding="8dip"
-        android:drawableLeft="@drawable/ic_sync_error_holo" />
+        android:text="@string/sync_is_failing" />
 
 </LinearLayout>

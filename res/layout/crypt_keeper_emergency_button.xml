@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 **
 ** Copyright 2014, The Android Open Source Project
 **
@@ -19,21 +18,21 @@
 
 <!-- Emergency call button.
      Text is set by CryptKeeper.updateEmergencyCallButtonState() -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
-    android:orientation="vertical"
-    android:gravity="bottom">
+    android:gravity="bottom"
+    android:orientation="vertical">
+
     <Button
         android:id="@+id/emergencyCallButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textSize="14sp"
         android:fontFamily="sans-serif"
         android:textColor="@color/emergency_call_button_text_color"
-        style="?android:attr/borderlessButtonStyle" />
+        android:textSize="14sp" />
 
 </LinearLayout>

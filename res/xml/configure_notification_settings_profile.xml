@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,16 +14,14 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:title="@string/configure_notification_settings" >
+    android:title="@string/configure_notification_settings">
 
-    <PreferenceCategory
-            android:title="@string/profile_section_header" >
+    <PreferenceCategory android:title="@string/profile_section_header">
 
         <com.android.settings.notification.RestrictedDropDownPreference
             android:key="lock_screen_notifications_profile"
-            android:title="@string/lock_screen_notifications_title"
-            android:summary="%s" />
+            android:summary="%s"
+            android:title="@string/lock_screen_notifications_title" />
 
     </PreferenceCategory>
 

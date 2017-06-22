@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,38 +13,44 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/admin_details_dialog_padding"
-        android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/admin_details_dialog_padding">
+
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingBottom="@dimen/admin_details_dialog_padding">
-        <ImageView android:id="@+id/admin_support_icon"
-                android:layout_width="@dimen/admin_details_dialog_icon_size"
-                android:layout_height="@dimen/admin_details_dialog_icon_size"
-                android:src="@drawable/ic_info"
-                android:scaleType="fitCenter"
-                android:contentDescription="@null" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/admin_details_dialog_padding">
+
+        <ImageView
+            android:id="@+id/admin_support_icon"
+            android:layout_width="@dimen/admin_details_dialog_icon_size"
+            android:layout_height="@dimen/admin_details_dialog_icon_size"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_info" />
+
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/admin_details_dialog_padding"
-                android:text="@string/disabled_by_policy_title"
-                android:textAppearance="@android:style/TextAppearance.Material.Title" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/admin_details_dialog_padding"
+            android:text="@string/disabled_by_policy_title"
+            android:textAppearance="@android:style/TextAppearance.Material.Title" />
     </LinearLayout>
 
     <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadeScrollbars="false">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fadeScrollbars="false">
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            android:orientation="vertical">
+
             <include layout="@layout/admin_support_details_content" />
         </LinearLayout>
     </ScrollView>

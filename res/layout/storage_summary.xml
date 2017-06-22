@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,43 +16,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:background="?android:attr/selectableItemBackground"
     android:gravity="center_vertical"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:paddingTop="16dip"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:orientation="vertical"
     android:paddingBottom="16dip"
-    android:background="?android:attr/selectableItemBackground">
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingTop="16dip">
 
     <TextView
         android:id="@+android:id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
         android:singleLine="true"
         android:textAlignment="viewStart"
         android:textAppearance="@android:style/TextAppearance.Material.Subhead"
         android:textColor="@color/storage_summary_title_color"
-        android:textSize="36sp"
-        android:ellipsize="marquee"
-        android:fadingEdge="horizontal" />
+        android:textSize="36sp" />
 
     <TextView
         android:id="@android:id/summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLines="10"
         android:textAlignment="viewStart"
-        android:textAppearance="@android:style/TextAppearance.Material.Body1"
-        android:maxLines="10" />
+        android:textAppearance="@android:style/TextAppearance.Material.Body1" />
 
     <ProgressBar
         android:id="@android:id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:visibility="gone"
+        android:layout_marginTop="16dp"
         android:max="100"
-        style="?android:attr/progressBarStyleHorizontal" />
+        android:visibility="gone" />
 
 </LinearLayout>

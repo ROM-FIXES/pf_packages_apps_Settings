@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
     Copyright (C) 2014 The Android Open Source Project
 
     Licensed under the Apache License, Version 2.0 (the "License")
@@ -16,8 +15,7 @@
 -->
 
 <!-- Used in phone portrait and tablet, as referenced in alias.xml. -->
-<com.android.setupwizardlib.GlifLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.setupwizardlib.GlifLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -39,15 +37,17 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView android:id="@+id/headerText"
+            <TextView
+                android:id="@+id/headerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:minLines="2"
                 android:gravity="center"
+                android:minLines="2"
                 android:textSize="18sp" />
 
-            <com.android.internal.widget.LockPatternView android:id="@+id/lockPattern"
+            <com.android.internal.widget.LockPatternView
+                android:id="@+id/lockPattern"
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="4" />
@@ -59,7 +59,8 @@
                 android:orientation="horizontal">
 
                 <!-- left : cancel, or re-try -->
-                <Button android:id="@+id/footerLeftButton"
+                <Button
+                    android:id="@+id/footerLeftButton"
                     style="@style/SetupWizardButton.Negative"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,7 +72,8 @@
                     android:layout_weight="1" />
 
                 <!-- right : confirm or ok -->
-                <Button android:id="@+id/footerRightButton"
+                <Button
+                    android:id="@+id/footerRightButton"
                     style="@style/SetupWizardButton.Positive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,13 +83,14 @@
 
         </LinearLayout>
 
-        <TextView android:id="@+id/footerText"
+        <TextView
+            android:id="@+id/footerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:minHeight="50dip"
             android:textSize="14sp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
     </com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>
 

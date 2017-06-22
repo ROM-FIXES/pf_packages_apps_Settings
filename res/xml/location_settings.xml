@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,31 +14,31 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:key="location_settings"
-        android:title="@string/location_settings_title"
-        settings:keywords="@string/keywords_location">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="location_settings"
+    android:title="@string/location_settings_title"
+    settings:keywords="@string/keywords_location">
 
-        <Preference
-            android:key="location_mode"
-            android:title="@string/location_mode_title"
-            settings:keywords="@string/keywords_location_mode"
-            android:summary="@string/location_mode_location_off_title" />
+    <Preference
+        android:key="location_mode"
+        android:summary="@string/location_mode_location_off_title"
+        android:title="@string/location_mode_title"
+        settings:keywords="@string/keywords_location_mode" />
 
-        <!-- This preference category gets removed if there is no managed profile -->
-        <com.android.settingslib.RestrictedSwitchPreference
-            android:key="managed_profile_location_switch"
-            android:title="@string/managed_profile_location_switch_title"
-            settings:useAdminDisabledSummary="true"
-            android:enabled="false"
-            android:selectable="true" />
+    <!-- This preference category gets removed if there is no managed profile -->
+    <com.android.settingslib.RestrictedSwitchPreference
+        android:enabled="false"
+        android:key="managed_profile_location_switch"
+        android:selectable="true"
+        android:title="@string/managed_profile_location_switch_title"
+        settings:useAdminDisabledSummary="true" />
 
-        <com.android.settings.DividedCategory
-            android:key="recent_location_requests"
-            android:title="@string/location_category_recent_location_requests" />
+    <com.android.settings.DividedCategory
+        android:key="recent_location_requests"
+        android:title="@string/location_category_recent_location_requests" />
 
-        <PreferenceCategory
-            android:key="location_services"
-            android:title="@string/location_category_location_services" />
+    <PreferenceCategory
+        android:key="location_services"
+        android:title="@string/location_category_location_services" />
 
 </PreferenceScreen>

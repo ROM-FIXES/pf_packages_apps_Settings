@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,22 +14,21 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:title="@string/sim_lock_settings">
+    android:title="@string/sim_lock_settings">
 
     <SwitchPreference
-            android:key="sim_toggle"
-            android:title="@string/sim_pin_toggle"
-            android:summaryOn="@string/sim_lock_on"
-            android:summaryOff="@string/sim_lock_off"/>
+        android:key="sim_toggle"
+        android:summaryOff="@string/sim_lock_off"
+        android:summaryOn="@string/sim_lock_on"
+        android:title="@string/sim_pin_toggle" />
 
     <com.android.settings.EditPinPreference
-            android:key="sim_pin"
-            android:dependency="sim_toggle"
-            android:title="@string/sim_pin_change"
-            android:dialogTitle="@string/sim_change_pin"
-            android:dialogMessage="@string/sim_enter_old"
-            android:positiveButtonText="@string/sim_enter_ok"
-            android:negativeButtonText="@string/sim_enter_cancel"/>
+        android:dependency="sim_toggle"
+        android:dialogMessage="@string/sim_enter_old"
+        android:dialogTitle="@string/sim_change_pin"
+        android:key="sim_pin"
+        android:negativeButtonText="@string/sim_enter_cancel"
+        android:positiveButtonText="@string/sim_enter_ok"
+        android:title="@string/sim_pin_change" />
 
 </PreferenceScreen>

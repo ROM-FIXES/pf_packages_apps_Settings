@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,5 +17,5 @@
     android:id="@+id/signal"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="?attr/wifi_signal"
-    android:contentDescription="@null" />
+    android:contentDescription="@null"
+    android:src="?attr/wifi_signal" />

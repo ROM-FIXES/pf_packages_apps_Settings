@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,13 +14,13 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-                  android:title="@string/security_settings_title">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/security_settings_title">
 
     <SwitchPreference
         android:key="unification"
-        android:title="@string/lock_settings_profile_unification_title"
         android:summary="@string/lock_settings_profile_unification_summary"
-        settings:keywords="@string/keywords_unification"/>
+        android:title="@string/lock_settings_profile_unification_title"
+        settings:keywords="@string/keywords_unification" />
 
 </PreferenceScreen>

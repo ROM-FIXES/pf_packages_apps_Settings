@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,59 +20,59 @@
 
     <com.android.settings.gestures.GesturePreference
         android:key="gesture_swipe_down_fingerprint"
-        android:title="@string/fingerprint_swipe_for_notifications_title"
         android:summary="@string/fingerprint_swipe_for_notifications_summary"
+        android:title="@string/fingerprint_swipe_for_notifications_title"
         settings:animation="@raw/gesture_fingerprint_swipe"
-        settings:preview="@drawable/gesture_fingerprint_swipe"/>
+        settings:preview="@drawable/gesture_fingerprint_swipe" />
 
     <com.android.settings.gestures.GesturePreference
         android:key="gesture_double_tap_power"
-        android:title="@string/double_tap_power_for_camera_title"
         android:summary="@string/double_tap_power_for_camera_summary"
+        android:title="@string/double_tap_power_for_camera_title"
         settings:animation="@raw/gesture_double_tap"
-        settings:preview="@drawable/gesture_double_tap"/>
+        settings:preview="@drawable/gesture_double_tap" />
 
     <com.android.settings.gestures.GesturePreference
         android:key="gesture_double_twist"
-        android:title="@string/double_twist_for_camera_mode_title"
         android:summary="@string/double_twist_for_camera_mode_summary_pn"
+        android:title="@string/double_twist_for_camera_mode_title"
         settings:animation="@raw/gesture_twist"
-        settings:preview="@drawable/gesture_twist"/>
+        settings:preview="@drawable/gesture_twist" />
 
     <com.android.settings.gestures.GesturePreference
         android:key="gesture_double_tap_screen"
-        android:title="@string/ambient_display_title"
         android:summary="@string/ambient_display_summary"
+        android:title="@string/ambient_display_title"
         settings:animation="@raw/gesture_ambient_tap"
-        settings:preview="@drawable/gesture_ambient_tap"/>
+        settings:preview="@drawable/gesture_ambient_tap" />
 
     <com.android.settings.gestures.GesturePreference
         android:key="gesture_pick_up"
-        android:title="@string/ambient_display_pickup_title"
         android:summary="@string/ambient_display_pickup_summary"
+        android:title="@string/ambient_display_pickup_title"
         settings:animation="@raw/gesture_ambient_lift"
-        settings:preview="@drawable/gesture_ambient_lift"/>
+        settings:preview="@drawable/gesture_ambient_lift" />
 
     <PreferenceScreen
-        android:key="device_gestures"
         android:icon="@drawable/ic_settings_gestures"
-        android:title="@string/device_gestures_title"
-        android:summary="@string/device_gestures_summary">
+        android:key="device_gestures"
+        android:summary="@string/device_gestures_summary"
+        android:title="@string/device_gestures_title">
         <intent
             android:action="com.android.settings.action.EXTRA_SETTINGS"
-            android:targetPackage="com.cyanogenmod.settings.device"
-            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
+            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings"
+            android:targetPackage="com.cyanogenmod.settings.device" />
     </PreferenceScreen>
 
     <PreferenceScreen
-        android:key="device_doze"
         android:icon="@drawable/ic_settings_doze"
-        android:title="@string/device_doze_title"
-        android:summary="@string/device_doze_summary">
+        android:key="device_doze"
+        android:summary="@string/device_doze_summary"
+        android:title="@string/device_doze_title">
         <intent
             android:action="com.android.settings.action.EXTRA_SETTINGS"
-            android:targetPackage="com.cyanogenmod.settings.doze"
-            android:targetClass="com.cyanogenmod.settings.doze.DozeSettings" />
+            android:targetClass="com.cyanogenmod.settings.doze.DozeSettings"
+            android:targetPackage="com.cyanogenmod.settings.doze" />
     </PreferenceScreen>
 
 </PreferenceScreen>

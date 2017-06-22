@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,11 +15,11 @@
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fingerprint_header_description"
+    style="@style/FingerprintHeaderStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:minHeight="56dp"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:text="@string/lock_settings_picker_fingerprint_message"
-    style="@style/FingerprintHeaderStyle" />
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:text="@string/lock_settings_picker_fingerprint_message" />

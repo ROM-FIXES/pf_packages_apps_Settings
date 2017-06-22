@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2012 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,21 +17,22 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <ImageView android:id="@+id/titleDivider"
+    <ImageView
+        android:id="@+id/titleDivider"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:scaleType="fitXY"
+        android:contentDescription="@null"
         android:gravity="fill_horizontal"
-        android:src="@android:drawable/divider_horizontal_dark"
-        android:contentDescription="@null" />
+        android:scaleType="fitXY"
+        android:src="@android:drawable/divider_horizontal_dark" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="48dp"
         android:text="@string/keyboard_layout_dialog_switch_hint"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="?android:attr/textColorAlertDialogListItem"
-        android:minHeight="48dp"
-        android:gravity="center" />
+        android:textColor="?android:attr/textColorAlertDialogListItem" />
 
 </LinearLayout>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,35 +13,35 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-<shortcuts xmlns:android="http://schemas.android.com/apk/res/android" >
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
-        android:shortcutId="manifest-shortcut-wifi"
         android:icon="@drawable/ic_shortcut_wireless"
-        android:shortcutShortLabel="@string/wifi_settings" >
+        android:shortcutId="manifest-shortcut-wifi"
+        android:shortcutShortLabel="@string/wifi_settings">
         <intent android:action="android.settings.WIFI_SETTINGS" />
     </shortcut>
     <shortcut
-        android:shortcutId="manifest-shortcut-data-usage"
         android:icon="@drawable/ic_shortcut_data_usage"
+        android:shortcutId="manifest-shortcut-data-usage"
         android:shortcutShortLabel="@string/data_usage_summary_title">
         <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.Settings$DataUsageSummaryActivity" />
+            android:targetClass="com.android.settings.Settings$DataUsageSummaryActivity"
+            android:targetPackage="com.android.settings" />
     </shortcut>
     <shortcut
-        android:shortcutId="manifest-shortcut-battery"
         android:icon="@drawable/ic_shortcut_battery"
-        android:shortcutShortLabel="@string/power_usage_summary_title" >
+        android:shortcutId="manifest-shortcut-battery"
+        android:shortcutShortLabel="@string/power_usage_summary_title">
         <intent android:action="android.intent.action.POWER_USAGE_SUMMARY" />
     </shortcut>
     <shortcut
-        android:shortcutId="manifest-shortcut-pure-settings"
         android:icon="@drawable/ic_shortcut_purenexus"
+        android:shortcutId="manifest-shortcut-pure-settings"
         android:shortcutShortLabel="@string/pure_settings_title">
         <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.Settings$PureNexusSettingsActivity" />
+            android:targetClass="com.android.settings.Settings$PureNexusSettingsActivity"
+            android:targetPackage="com.android.settings" />
     </shortcut>
 </shortcuts>

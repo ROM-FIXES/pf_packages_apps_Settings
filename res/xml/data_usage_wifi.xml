@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,8 +13,7 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.android.settings.datausage.TemplatePreferenceCategory
         android:key="wifi_category"
@@ -26,9 +24,9 @@
             android:title="@string/wifi_data_usage" />
 
         <com.android.settings.datausage.NetworkRestrictionsPreference
+            android:fragment="com.android.settings.datausage.DataUsageMeteredSettings"
             android:key="network_restrictions"
-            android:title="@string/network_restrictions"
-            android:fragment="com.android.settings.datausage.DataUsageMeteredSettings" />
+            android:title="@string/network_restrictions" />
 
     </com.android.settings.datausage.TemplatePreferenceCategory>
 

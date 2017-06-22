@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2013 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,21 +17,21 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingEnd="24dp"
     android:paddingStart="24dp"
-    android:paddingTop="16dp"
-    android:paddingEnd="24dp">
+    android:paddingTop="16dp">
 
     <GridView
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:horizontalSpacing="16dp"
-        android:verticalSpacing="16dp"
-        android:numColumns="auto_fit"
         android:columnWidth="96dp"
+        android:horizontalSpacing="16dp"
+        android:numColumns="auto_fit"
+        android:scrollIndicators="top|bottom"
         android:scrollbarStyle="insideOverlay"
         android:stretchMode="columnWidth"
-        android:scrollIndicators="top|bottom" />
+        android:verticalSpacing="16dp" />
 
     <!-- HACK: Setting minHeight has no effect within a dialog layout,
          so this view keeps the minimum height above 300dp. -->

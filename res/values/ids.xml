@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 **
 ** Copyright 2014, The Android Open Source Project
 **
@@ -17,18 +16,18 @@
 */
 -->
 <resources>
-    <item type="id" name="preference_highlight_key" />
+    <item name="preference_highlight_key" type="id" />
 
-    <item type="id" name="lock_none" />
-    <item type="id" name="lock_pin" />
-    <item type="id" name="lock_password" />
+    <item name="lock_none" type="id" />
+    <item name="lock_pin" type="id" />
+    <item name="lock_password" type="id" />
 
-    <item type="id" name="encrypt_dont_require_password" />
+    <item name="encrypt_dont_require_password" type="id" />
 
     <!-- Used for custom accessibility actions in the Drag-and-Drop locale list -->
-    <item type="id" name="action_drag_move_up" />
-    <item type="id" name="action_drag_move_down" />
-    <item type="id" name="action_drag_move_top" />
-    <item type="id" name="action_drag_move_bottom" />
-    <item type="id" name="action_drag_remove" />
+    <item name="action_drag_move_up" type="id" />
+    <item name="action_drag_move_down" type="id" />
+    <item name="action_drag_move_top" type="id" />
+    <item name="action_drag_move_bottom" type="id" />
+    <item name="action_drag_remove" type="id" />
 </resources>

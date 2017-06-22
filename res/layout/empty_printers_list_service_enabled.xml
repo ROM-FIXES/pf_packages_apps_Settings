@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2013 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -31,9 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dip"
-            android:src="@drawable/ic_grayedout_printer"
-            android:contentDescription="@string/print_searching_for_printers">
-        </ImageView>
+            android:contentDescription="@string/print_searching_for_printers"
+            android:src="@drawable/ic_grayedout_printer"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,17 +39,15 @@
             android:layout_marginLeft="32dip"
             android:layout_marginRight="32dip"
             android:gravity="center"
+            android:text="@string/print_searching_for_printers"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="?android:attr/textColorSecondary"
-            android:text="@string/print_searching_for_printers">
-        </TextView>
+            android:textColor="?android:attr/textColorSecondary"></TextView>
 
         <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
-            style="?android:attr/progressBarStyleHorizontal">
-        </ProgressBar>
+            android:indeterminate="true"></ProgressBar>
 
     </LinearLayout>
 

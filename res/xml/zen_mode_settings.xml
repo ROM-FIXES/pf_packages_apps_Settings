@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,23 +16,23 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="zen_mode_settings"
-    android:title="@string/zen_mode_settings_title" >
+    android:title="@string/zen_mode_settings_title">
 
     <!-- Priority only allows -->
     <PreferenceScreen
-            android:key="priority_settings"
-            android:title="@string/zen_mode_priority_settings_title"
-            android:fragment="com.android.settings.notification.ZenModePrioritySettings" />
+        android:fragment="com.android.settings.notification.ZenModePrioritySettings"
+        android:key="priority_settings"
+        android:title="@string/zen_mode_priority_settings_title" />
 
     <!-- Automated rules -->
     <PreferenceScreen
-            android:key="automation_settings"
-            android:title="@string/zen_mode_automation_settings_title"
-            android:fragment="com.android.settings.notification.ZenModeAutomationSettings" />
+        android:fragment="com.android.settings.notification.ZenModeAutomationSettings"
+        android:key="automation_settings"
+        android:title="@string/zen_mode_automation_settings_title" />
 
     <!-- Visual interruptions -->
     <PreferenceScreen
-            android:key="visual_interruptions_settings"
-            android:title="@string/zen_mode_visual_interruptions_settings_title"
-            android:fragment="com.android.settings.notification.ZenModeVisualInterruptionSettings" />
+        android:fragment="com.android.settings.notification.ZenModeVisualInterruptionSettings"
+        android:key="visual_interruptions_settings"
+        android:title="@string/zen_mode_visual_interruptions_settings_title" />
 </PreferenceScreen>

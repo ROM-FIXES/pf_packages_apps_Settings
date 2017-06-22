@@ -14,8 +14,7 @@
      limitations under the License.
  -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="yes" msgid="4676390750360727396">"បាទ/ចាស"</string>
     <string name="no" msgid="6731231425810196216">"ទេ"</string>
     <string name="create" msgid="3578857613172647409">"បង្កើត"</string>
@@ -72,10 +71,10 @@
     <string name="radioInfo_display_asu" msgid="1422248392727818082">"asu"</string>
     <string name="radioInfo_lac" msgid="8415219164758307156">"LAC"</string>
     <string name="radioInfo_cid" msgid="4362599198392643138">"CID"</string>
-    <string name="sdcard_unmount" product="nosdcard" msgid="6325292633327972272">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="sdcard_unmount" product="default" msgid="3364184561355611897">"ផ្ដាច់​កាត​អេសឌី"</string>
-    <string name="sdcard_format" product="nosdcard" msgid="6285310523155166716">"លុប​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="sdcard_format" product="default" msgid="6713185532039187532">"លុប​កាត​អេសឌី"</string>
+    <string name="sdcard_unmount" msgid="6325292633327972272" product="nosdcard">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="sdcard_unmount" msgid="3364184561355611897" product="default">"ផ្ដាច់​កាត​អេសឌី"</string>
+    <string name="sdcard_format" msgid="6285310523155166716" product="nosdcard">"លុប​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="sdcard_format" msgid="6713185532039187532" product="default">"លុប​កាត​អេសឌី"</string>
     <string name="preview_pager_content_description" msgid="8926235999291761243">"មើលជាមុន"</string>
     <string name="preview_page_indicator_content_description" msgid="4821343428913401264">"មើលជាមុន, ទំព័រ <xliff:g id="CURRENT_PAGE">%1$d</xliff:g> នៃ <xliff:g id="NUM_PAGES">%2$d</xliff:g>"</string>
     <string name="font_size_summary" msgid="1690992332887488183">"ធ្វើឲ្យអត្ថបទនៅលើអេក្រង់តូចជាងមុន ឬធំជាងមុន។"</string>
@@ -91,8 +90,8 @@
     <string name="font_size_preview_text_subtitle" msgid="4231671528173110093">"ជំពូកទី 11៖ ទីក្រុងមរកតដ៏អស្ចារ្យនៃទឹកដីពិសិដ្ឋ"</string>
     <string name="font_size_preview_text_body" msgid="1250552239682375643">"ដូរ៉ូធី និងមិត្តភក្តិរបស់នាងមានភាពភ្ញាក់ផ្អើលចំពោះភាពស្រស់ស្អាតនៃទីក្រុងដ៏អស្ចារ្យនេះយ៉ាងខ្លាំង បើទោះបីជាពួកគេពាក់វ៉ែនតាការពារភ្នែកដែលមានពណ៌បៃតងក៏ដោយ។ មានផ្ទះនៅតាមដងផ្លូវដ៏ស្រស់ស្អាតដែលធ្វើឡើងពីថ្មម៉ាបពណ៌បៃតង ហើយត្រូវបានលម្អដោយត្បូងមរកតដ៏ចែងចាំងនៅគ្រប់ទីកន្លែងទាំងអស់។ ពួកគេដើរនៅលើដងផ្លូវដែលធ្វើពីថ្មម៉ាបពណ៌បៃតង អមដោយអគារដែលតភ្ជាប់គ្នាដោយត្បូងមរកត ចែងចាំងយ៉ាងស្រស់ត្រកាលក្រោមពន្លឺព្រះអាទិត្យ។ ផ្ទាំងបង្អួចនៅទីនោះធ្វើឡើងពីកញ្ចក់ពណ៌បៃតង ហើយមិនថាតែផ្ទៃមេឃ និងពន្លឺព្រះអាទិត្យក៏គ្រប់ដណ្តប់ដោយស្រមោលពណ៌បៃតងដែរ។ \n\nមានមនុស្សម្នាកុះករ ក្មេងៗ ប្រុស ស្រីដើរទៅមកក្នុងសំលៀកបំពាក់ពណ៌បៃតង ពួកគេទាំងអស់សុទ្ធតែមានស្បែកពណ៌បៃតង។ ពួកគេមើលទៅកាន់ដូរ៉ូធី និងអ្នកដែលរួមដំណើរដ៏ចម្លែកៗជាមួយនាងដោយក្តីងឿងឆ្ងល់ ហើយក្មេងៗទាំងអស់ដែលឃើញអ្នករួមដំណើរជាមួយដូរ៉ូធីក៏រត់ទៅពួននៅខាងក្រោយម្តាយរបស់ពួកគេ នៅពេលដែលគេឃើញសត្វតោ ប៉ុន្តែគ្មាននរណាម្នាក់និយាយទៅកាន់ពួកគេនោះទេ។ មានហាងជាច្រើននៅតាមផ្លូវ ដូរ៉ូធីបានសង្កេតឃើញថាហាងទាំងអស់សុទ្ធតែមានពណ៌បៃតង។ ហាងទាំងនោះមានលក់ស្ករគ្រាប់ និងពោតលីងពណ៌បៃតង ក៏ដូចជាស្បែកជើង មួក និងសម្លៀកបំពាក់គ្រប់ប្រភេទទាំងអស់សុទ្ធតែពណ៌បៃតងផងដែរ។ ដូរ៉ូធីបានសង្កេតឃើញថាក្មេងម្នាក់បានប្រើកាក់ពណ៌បៃតងដើម្បីទិញទឹកក្រូចឆ្មាពណ៌បៃតងពីបុរសអ្នកលក់ម្នាក់។ \n\nនៅទីនោះហាក់បីដូចជាគ្មានសត្វសេះ ឬសត្វផ្សេងទៀតសោះ ពួកគេដឹកជញ្ជូនសម្ភារៈទាំងអស់តាមរយៈរទេះដែលមានពណ៌បៃតង ដែលរុញនៅពីមុខពួកគេ។ ពួកគេគ្រប់គ្នាហាក់បីដូចជារស់នៅប្រកបដោយភាពរីករាយ សោមនស្ស និងភាពសម្បូរសប្បាយណាស់។"</string>
     <string name="font_size_save" msgid="3450855718056759095">"យល់​ព្រម​"</string>
-    <string name="sdcard_setting" product="nosdcard" msgid="8281011784066476192">"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="sdcard_setting" product="default" msgid="5922637503871474866">"កាត​អេសឌី"</string>
+    <string name="sdcard_setting" msgid="8281011784066476192" product="nosdcard">"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="sdcard_setting" msgid="5922637503871474866" product="default">"កាត​អេសឌី"</string>
     <string name="bluetooth" msgid="5549625000628014477">"ប៊្លូធូស"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"ឧបករណ៍​ប៊្លូធូស​នៅ​ក្បែរ​អាច​មើល​ឃើញ​ទាំងអស់ (<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"ឧបករណ៍​ប៊្លូធូស​នៅ​ក្បែរ​អាច​មើល​ឃើញ​ទាំងអស់"</string>
@@ -128,17 +127,17 @@
     <string name="device_picker" msgid="4978696506172252813">"ជ្រើស​ឧបករណ៍​ប៊្លូ​ធូ​ស"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"សំណើ​សិទ្ធិ​ប៊្លូធូស"</string>
     <string name="bluetooth_ask_enablement" msgid="1712443355224737143">"កម្មវិធី​ចង់​​បើក​ប៊្លូធូស​សម្រាប់​ឧបករណ៍​នេះ។"</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"កម្មវិធី​ចង់​ឲ្យ​​ធ្វើ​ឲ្យ​ឧបករណ៍​ប៊្លូធូស​ផ្សេង​មើល​ឃើញ​​កុំព្យូទ័រ​បន្ទះ​​របស់​​អ្នក​រយៈ​ពេល <xliff:g id="TIMEOUT">%1$d</xliff:g> វិនាទី។"</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"កម្មវិធី​​ចង់​ឲ្យ​ឧបករណ៍​ប៊្លូធូស​ផ្សេង​ទៀត​អាច​មើល​ឃើញ​​ទូរស័ព្ទ​របស់​អ្នក​រយៈ​ពេល <xliff:g id="TIMEOUT">%1$d</xliff:g> វិនាទី។"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"កម្មវិធី​ចង់​ឲ្យ​ឧបករណ៍​ប៊្លូធូស​ផ្សេង​អាច​មើល​ឃើញ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"កម្មវិធី​ចង់​ឲ្យ​ឧបករណ៍​ប៊្លូធូស​ផ្សេង​​ទៀត​អាច​មើល​ទូរស័ព្ទ​របស់​អ្នក។ អ្នក​អាច​ប្ដូរ​ការ​ជូន​ដំណឹង​នេះ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
-    <string name="bluetooth_ask_start_broadcast" product="default" msgid="3535628155254187911">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​បើក​ប៊្លូធូស និង​ការប្រកាស​​ប៊្លូធូស​ ដើម្បី​ទាក់ទង​ជា​មួយ​ឧបករណ៍​ផ្សេង​ដែល​នៅ​ក្បែរ។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
-    <string name="bluetooth_ask_enablement_and_start_broadcast" product="default" msgid="8810858601242763295">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​បើក​ប៊្លូធូស និង​ការប្រកាស​​ប៊្លូធូស​ ដើម្បី​ទាក់ទង​ជា​មួយ​ឧបករណ៍​ផ្សេង​ដែល​នៅ​ក្បែរ។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
-    <string name="bluetooth_broadcasting_explaination" product="default" msgid="4249322115655011799">"នៅ​ពេល​លក្ខណៈ​នេះ​ត្រូវ​បាន​បើក ទូរស័ព្ទ​របស់​អ្នក​អាច​ទាក់ទង​ជា​មួយ​ឧបករណ៍​ផ្សេង​ដែល​នៅ​ក្បែរ។\n\nការ​ប្រកាស​ប្រើ​សញ្ញា​ប៊្លូធូស​​ដែល​ប្រើ​ថាមពល​តិច។"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"កម្មវិធី​ចង់​បើក​ប៊្លូធូស និង​ឲ្យ​ឧបករណ៍​ផ្សេង​ទៀត​មើល​ឃើញ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​រយៈ​ពេល <xliff:g id="TIMEOUT">%1$d</xliff:g> វិនាទី។"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"កម្មវិធី​ចង់​បើក​ប៊្លូធូស និ​ង​ធ្វើ​ឲ្យ​ឧបករណ៍​ផ្សេង​អាច​មើល​ឃើញ​ទូរស័ព្ទ​របស់​អ្នក​រយៈ​ពេល <xliff:g id="TIMEOUT">%1$d</xliff:g> វិនាទី។"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"កម្មវិធី​ចង់​បើក​ប៊្លូធូស និង​​ឲ្យ​ឧបករណ៍​ផ្សេង​មើល​ឃើញ​ទូរស័ព្ទ​របស់​អ្នក។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"កម្មវិធី​ចង់​បើក​ប៊្លូធូស និង​​ឲ្យ​ឧបករណ៍​ផ្សេង​មើល​ឃើញ​ទូរស័ព្ទ​របស់​អ្នក។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
+    <string name="bluetooth_ask_discovery" msgid="786921566047356213" product="tablet">"កម្មវិធី​ចង់​ឲ្យ​​ធ្វើ​ឲ្យ​ឧបករណ៍​ប៊្លូធូស​ផ្សេង​មើល​ឃើញ​​កុំព្យូទ័រ​បន្ទះ​​របស់​​អ្នក​រយៈ​ពេល <xliff:g id="TIMEOUT">%1$d</xliff:g> វិនាទី។"</string>
+    <string name="bluetooth_ask_discovery" msgid="5510358858113713272" product="default">"កម្មវិធី​​ចង់​ឲ្យ​ឧបករណ៍​ប៊្លូធូស​ផ្សេង​ទៀត​អាច​មើល​ឃើញ​​ទូរស័ព្ទ​របស់​អ្នក​រយៈ​ពេល <xliff:g id="TIMEOUT">%1$d</xliff:g> វិនាទី។"</string>
+    <string name="bluetooth_ask_lasting_discovery" msgid="8863617309580598607" product="tablet">"កម្មវិធី​ចង់​ឲ្យ​ឧបករណ៍​ប៊្លូធូស​ផ្សេង​អាច​មើល​ឃើញ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
+    <string name="bluetooth_ask_lasting_discovery" msgid="6487606808683607975" product="default">"កម្មវិធី​ចង់​ឲ្យ​ឧបករណ៍​ប៊្លូធូស​ផ្សេង​​ទៀត​អាច​មើល​ទូរស័ព្ទ​របស់​អ្នក។ អ្នក​អាច​ប្ដូរ​ការ​ជូន​ដំណឹង​នេះ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
+    <string name="bluetooth_ask_start_broadcast" msgid="3535628155254187911" product="default">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​បើក​ប៊្លូធូស និង​ការប្រកាស​​ប៊្លូធូស​ ដើម្បី​ទាក់ទង​ជា​មួយ​ឧបករណ៍​ផ្សេង​ដែល​នៅ​ក្បែរ។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
+    <string name="bluetooth_ask_enablement_and_start_broadcast" msgid="8810858601242763295" product="default">"<xliff:g id="APP_NAME">%1$s</xliff:g> ចង់​បើក​ប៊្លូធូស និង​ការប្រកាស​​ប៊្លូធូស​ ដើម្បី​ទាក់ទង​ជា​មួយ​ឧបករណ៍​ផ្សេង​ដែល​នៅ​ក្បែរ។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
+    <string name="bluetooth_broadcasting_explaination" msgid="4249322115655011799" product="default">"នៅ​ពេល​លក្ខណៈ​នេះ​ត្រូវ​បាន​បើក ទូរស័ព្ទ​របស់​អ្នក​អាច​ទាក់ទង​ជា​មួយ​ឧបករណ៍​ផ្សេង​ដែល​នៅ​ក្បែរ។\n\nការ​ប្រកាស​ប្រើ​សញ្ញា​ប៊្លូធូស​​ដែល​ប្រើ​ថាមពល​តិច។"</string>
+    <string name="bluetooth_ask_enablement_and_discovery" msgid="3346529092809011149" product="tablet">"កម្មវិធី​ចង់​បើក​ប៊្លូធូស និង​ឲ្យ​ឧបករណ៍​ផ្សេង​ទៀត​មើល​ឃើញ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​រយៈ​ពេល <xliff:g id="TIMEOUT">%1$d</xliff:g> វិនាទី។"</string>
+    <string name="bluetooth_ask_enablement_and_discovery" msgid="4724094889807196118" product="default">"កម្មវិធី​ចង់​បើក​ប៊្លូធូស និ​ង​ធ្វើ​ឲ្យ​ឧបករណ៍​ផ្សេង​អាច​មើល​ឃើញ​ទូរស័ព្ទ​របស់​អ្នក​រយៈ​ពេល <xliff:g id="TIMEOUT">%1$d</xliff:g> វិនាទី។"</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" msgid="989613204829097159" product="tablet">"កម្មវិធី​ចង់​បើក​ប៊្លូធូស និង​​ឲ្យ​ឧបករណ៍​ផ្សេង​មើល​ឃើញ​ទូរស័ព្ទ​របស់​អ្នក។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" msgid="6671615712909139801" product="default">"កម្មវិធី​ចង់​បើក​ប៊្លូធូស និង​​ឲ្យ​ឧបករណ៍​ផ្សេង​មើល​ឃើញ​ទូរស័ព្ទ​របស់​អ្នក។ អ្នក​អាច​ប្ដូរ​វា​ពេល​ក្រោយ​ក្នុង​ការ​កំណត់​ប៊្លូធូស។"</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"កំពុង​បើក​ប៊្លូធូស…"</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"កំពុង​បិទ​​ប៊្លូធូស…"</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"តភ្ជាប់​ស្វ័យ​ប្រវត្តិ"</string>
@@ -219,20 +218,20 @@
     <string name="sdcard_changes_instructions" msgid="4482324130377280131">"ប្ដូរ​ប្រសិទ្ធិ​ភាព​ពេល​ភ្ជាប់​ខ្សែ​យូអេសប៊ី។"</string>
     <string name="sdcard_settings_screen_mass_storage_text" msgid="3741220147296482474">"បើក​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
     <string name="sdcard_settings_total_bytes_label" msgid="9184160745785062144">"បៃ​សរុប៖"</string>
-    <string name="sdcard_settings_not_present_status" product="nosdcard" msgid="1636218515775929394">"មិន​បាន​ភ្ជាប់​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="sdcard_settings_not_present_status" product="default" msgid="2048419626134861599">"គ្មាន​កាត​អេសឌី។"</string>
+    <string name="sdcard_settings_not_present_status" msgid="1636218515775929394" product="nosdcard">"មិន​បាន​ភ្ជាប់​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="sdcard_settings_not_present_status" msgid="2048419626134861599" product="default">"គ្មាន​កាត​អេសឌី។"</string>
     <string name="sdcard_settings_available_bytes_label" msgid="763232429899373001">"បៃ​អាច​ប្រើ​បាន៖"</string>
-    <string name="sdcard_settings_mass_storage_status" product="nosdcard" msgid="7993410985895217054">"កំពុង​ប្រើ​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ជា​ឧបករណ៍​ផ្ទុក​ចម្រុះ។"</string>
-    <string name="sdcard_settings_mass_storage_status" product="default" msgid="2742075324087038036">"កំពុង​ប្រើ​កា​ត​អេសឌី​ជា​ឧបករណ៍​ផ្ទុក​​ចម្រុះ"</string>
-    <string name="sdcard_settings_unmounted_status" product="nosdcard" msgid="5128923500235719226">"ឥឡូវ​​អាច​ដក​ឧបករណ៍​យូអេសប៊ី​ដោយ​សុវត្ថិភាព​ហើយ។"</string>
-    <string name="sdcard_settings_unmounted_status" product="default" msgid="666233604712540408">"ឥឡូវ​វា​មាន​សុវត្ថិភាព ដើម្បី​ដក​កាត​អេសឌី។"</string>
-    <string name="sdcard_settings_bad_removal_status" product="nosdcard" msgid="7761390725880773697">"បាន​ដក​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​​ពេល​កំពុង​ប្រើ!"</string>
-    <string name="sdcard_settings_bad_removal_status" product="default" msgid="5145797653495907970">"បាន​ដក​កាត​អេសឌី ពេល​កំពុង​ប្រើ!"</string>
+    <string name="sdcard_settings_mass_storage_status" msgid="7993410985895217054" product="nosdcard">"កំពុង​ប្រើ​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ជា​ឧបករណ៍​ផ្ទុក​ចម្រុះ។"</string>
+    <string name="sdcard_settings_mass_storage_status" msgid="2742075324087038036" product="default">"កំពុង​ប្រើ​កា​ត​អេសឌី​ជា​ឧបករណ៍​ផ្ទុក​​ចម្រុះ"</string>
+    <string name="sdcard_settings_unmounted_status" msgid="5128923500235719226" product="nosdcard">"ឥឡូវ​​អាច​ដក​ឧបករណ៍​យូអេសប៊ី​ដោយ​សុវត្ថិភាព​ហើយ។"</string>
+    <string name="sdcard_settings_unmounted_status" msgid="666233604712540408" product="default">"ឥឡូវ​វា​មាន​សុវត្ថិភាព ដើម្បី​ដក​កាត​អេសឌី។"</string>
+    <string name="sdcard_settings_bad_removal_status" msgid="7761390725880773697" product="nosdcard">"បាន​ដក​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​​ពេល​កំពុង​ប្រើ!"</string>
+    <string name="sdcard_settings_bad_removal_status" msgid="5145797653495907970" product="default">"បាន​ដក​កាត​អេសឌី ពេល​កំពុង​ប្រើ!"</string>
     <string name="sdcard_settings_used_bytes_label" msgid="8820289486001170836">"បៃ​បាន​ប្រើ៖"</string>
-    <string name="sdcard_settings_scanning_status" product="nosdcard" msgid="7503429447676219564">"កំពុង​វិភាគ​រក​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​សម្រាប់​មេឌៀ…"</string>
-    <string name="sdcard_settings_scanning_status" product="default" msgid="2763464949274455656">"កំពុង​វិភាគ​រក​កាត​អេសឌី​សម្រាប់​មេឌៀ…"</string>
-    <string name="sdcard_settings_read_only_status" product="nosdcard" msgid="3624143937437417788">"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​បាន​ភ្ជាប់​បាន​តែ​អាន"</string>
-    <string name="sdcard_settings_read_only_status" product="default" msgid="4518291824764698112">"កាត​អេសឌី​​បាន​ភ្ជាប់​បាន​តែ​អាន"</string>
+    <string name="sdcard_settings_scanning_status" msgid="7503429447676219564" product="nosdcard">"កំពុង​វិភាគ​រក​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​សម្រាប់​មេឌៀ…"</string>
+    <string name="sdcard_settings_scanning_status" msgid="2763464949274455656" product="default">"កំពុង​វិភាគ​រក​កាត​អេសឌី​សម្រាប់​មេឌៀ…"</string>
+    <string name="sdcard_settings_read_only_status" msgid="3624143937437417788" product="nosdcard">"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​បាន​ភ្ជាប់​បាន​តែ​អាន"</string>
+    <string name="sdcard_settings_read_only_status" msgid="4518291824764698112" product="default">"កាត​អេសឌី​​បាន​ភ្ជាប់​បាន​តែ​អាន"</string>
     <string name="skip_label" msgid="47510779345218297">"រំលង"</string>
     <string name="next_label" msgid="4693520878012668114">"បន្ទាប់​"</string>
     <string name="language_picker_title" msgid="3596315202551687690">"ភាសា"</string>
@@ -255,10 +254,10 @@
     <string name="activity_picker_label" msgid="6295660302548177109">"ជ្រើស​សកម្មភាព"</string>
     <string name="device_info_label" msgid="6551553813651711205">"ព័ត៌មាន​ឧបករណ៍"</string>
     <string name="display_label" msgid="8074070940506840792">"អេក្រង់"</string>
-    <string name="phone_info_label" product="tablet" msgid="7820855350955963628">"ព័ត៌មាន​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="phone_info_label" product="default" msgid="2127552523124277664">"ព័ត៌មាន​ទូរស័ព្ទ"</string>
-    <string name="sd_card_settings_label" product="nosdcard" msgid="8101475181301178428">"ឧបករណ៍​ផ្ទុក​​យូអេសប៊ី"</string>
-    <string name="sd_card_settings_label" product="default" msgid="5743100901106177102">"កាត​អេសឌី"</string>
+    <string name="phone_info_label" msgid="7820855350955963628" product="tablet">"ព័ត៌មាន​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="phone_info_label" msgid="2127552523124277664" product="default">"ព័ត៌មាន​ទូរស័ព្ទ"</string>
+    <string name="sd_card_settings_label" msgid="8101475181301178428" product="nosdcard">"ឧបករណ៍​ផ្ទុក​​យូអេសប៊ី"</string>
+    <string name="sd_card_settings_label" msgid="5743100901106177102" product="default">"កាត​អេសឌី"</string>
     <string name="proxy_settings_label" msgid="3271174136184391743">"ការ​កំណត់​ប្រូកស៊ី"</string>
     <string name="cancel" msgid="6859253417269739139">"បោះ​បង់​"</string>
     <string name="okay" msgid="1997666393121016642">"យល់ព្រម"</string>
@@ -283,8 +282,8 @@
     <string name="roaming_reenable_message" msgid="9141007271031717369">"អ្នក​បាត់បង់​ការ​តភ្ជាប់​ទិន្នន័យ ព្រោះ​អ្នក​បាន​ចាកចេញ​​ពី​បណ្ដាញ​នៅ​ផ្ទះ​របស់​អ្នក​ដែល​បាន​បិទ​ការ​រ៉ូមីង​ទិន្នន័យ។"</string>
     <string name="roaming_turn_it_on_button" msgid="4387601818162120589">"បើក​វា"</string>
     <string name="roaming_warning" msgid="4275443317524544705">"អាចនាំឲ្យមានការគិតប្រាក់ច្រើនពីអ្នក"</string>
-    <string name="roaming_warning_multiuser" product="tablet" msgid="6458990250829214777">"ពេល​អ្នក​ឲ្យ​រ៉ូមីង​ទិន្នន័យ អ្នក​អាច​កាត់​លុយ​ពេល​រ៉ូមីង!\n\nការ​កំណត់​នេះ​មាន​ប្រសិទ្ធភាព​សម្រាប់​អ្នក​ប្រើ​ទាំងអស់​លើ​កុំព្យូទ័រ​បន្ទះ​នេះ។"</string>
-    <string name="roaming_warning_multiuser" product="default" msgid="6368421100292355440">"ពេល​អ្នក​អនុញ្ញាត​​រ៉ូមីង​ទិន្នន័យ អ្នក​អាច​ត្រូវ​បាន​គិត​ថ្លៃ​សេវាកម្ម​រ៉ូមីង​!\n\nការ​កំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​​លើ​ទូរស័ព្ទ​នេះ។"</string>
+    <string name="roaming_warning_multiuser" msgid="6458990250829214777" product="tablet">"ពេល​អ្នក​ឲ្យ​រ៉ូមីង​ទិន្នន័យ អ្នក​អាច​កាត់​លុយ​ពេល​រ៉ូមីង!\n\nការ​កំណត់​នេះ​មាន​ប្រសិទ្ធភាព​សម្រាប់​អ្នក​ប្រើ​ទាំងអស់​លើ​កុំព្យូទ័រ​បន្ទះ​នេះ។"</string>
+    <string name="roaming_warning_multiuser" msgid="6368421100292355440" product="default">"ពេល​អ្នក​អនុញ្ញាត​​រ៉ូមីង​ទិន្នន័យ អ្នក​អាច​ត្រូវ​បាន​គិត​ថ្លៃ​សេវាកម្ម​រ៉ូមីង​!\n\nការ​កំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​​លើ​ទូរស័ព្ទ​នេះ។"</string>
     <string name="roaming_reenable_title" msgid="6068100976707316772">"ឲ្យ​រ៉ូមីង​ទិន្នន័យ?"</string>
     <string name="networks" msgid="6333316876545927039">"ការ​ជ្រើស​ប្រតិបត្តិ​ករ"</string>
     <string name="sum_carrier_select" msgid="3616956422251879163">"ជ្រើស​ប្រតិបត្តិ​ករ​បណ្ដាញ"</string>
@@ -350,12 +349,12 @@
     <string name="security_settings_fingerprint_enroll_introduction_continue" msgid="7472492858148162530">"បន្ត"</string>
     <string name="security_settings_fingerprint_enroll_introduction_cancel_setup" msgid="5021369420474432665">"រំលង"</string>
     <string name="security_settings_fingerprint_enroll_introduction_continue_setup" msgid="8386444182056861429">"បញ្ចូល​ស្នាមម្រាមដៃ"</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="tablet" msgid="7234486440384881699">"លក្ខណៈពិសេសេការពារឧបករណ៍នឹងមិនត្រូវធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចបង្ការអ្នកផ្សេងពីការប្រើថេប្លេតនេះឡើយ ប្រសិនបើវាបាត់បង់ ត្រូវបានគេលួច ឬលុបចោល។"</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="device" msgid="3519190003101280912">"លក្ខណៈពិសេសេការពារឧបករណ៍នឹងមិនត្រូវធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចបង្ការអ្នកផ្សេងពីការប្រើឧបករណ៍នេះឡើយ ប្រសិនបើវាបាត់បង់ ត្រូវបានគេលួច ឬលុបចោល។"</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="default" msgid="417315011140961">"លក្ខណៈពិសេសេការពារឧបករណ៍នឹងមិនត្រូវបានធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចបង្ការអ្នកផ្សេងពីការប្រើទូរស័ព្ទនេះឡើយ ប្រសិនបើវាបាត់បង់ ត្រូវបានគេលួច ឬលុបចោល។"</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="tablet" msgid="8783499872534165700">"លក្ខណៈពិសេសការពារឧបករណ៍នឹងមិនត្រូវបានធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចរារាំងអ្នកដទៃក្នុងការប្រើថេប្លេតនេះនៅពេលវាបាត់បង់ ឬត្រូវបានគេលួចនោះទេ។"</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="device" msgid="3120512940873907578">"លក្ខណៈពិសេសការពារឧបករណ៍នឹងមិនត្រូវបានធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចរារាំងអ្នកដទៃពីការប្រើឧបករណ៍នេះនៅពេលវាបាត់បង់ ឬត្រូវបានគេលួចនោះទេ។"</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="default" msgid="3589945558504439395">"លក្ខណៈពិសេសការពារឧបករណ៍នឹងមិនត្រូវបានធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចរារាំងអ្នកដទៃពីការប្រើទូរស័ព្ទនេះនៅពេលវាបាត់បង់ ឬត្រូវបានគេលួចនោះទេ។"</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="7234486440384881699" product="tablet">"លក្ខណៈពិសេសេការពារឧបករណ៍នឹងមិនត្រូវធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចបង្ការអ្នកផ្សេងពីការប្រើថេប្លេតនេះឡើយ ប្រសិនបើវាបាត់បង់ ត្រូវបានគេលួច ឬលុបចោល។"</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="3519190003101280912" product="device">"លក្ខណៈពិសេសេការពារឧបករណ៍នឹងមិនត្រូវធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចបង្ការអ្នកផ្សេងពីការប្រើឧបករណ៍នេះឡើយ ប្រសិនបើវាបាត់បង់ ត្រូវបានគេលួច ឬលុបចោល។"</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="417315011140961" product="default">"លក្ខណៈពិសេសេការពារឧបករណ៍នឹងមិនត្រូវបានធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចបង្ការអ្នកផ្សេងពីការប្រើទូរស័ព្ទនេះឡើយ ប្រសិនបើវាបាត់បង់ ត្រូវបានគេលួច ឬលុបចោល។"</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="8783499872534165700" product="tablet">"លក្ខណៈពិសេសការពារឧបករណ៍នឹងមិនត្រូវបានធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចរារាំងអ្នកដទៃក្នុងការប្រើថេប្លេតនេះនៅពេលវាបាត់បង់ ឬត្រូវបានគេលួចនោះទេ។"</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="3120512940873907578" product="device">"លក្ខណៈពិសេសការពារឧបករណ៍នឹងមិនត្រូវបានធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចរារាំងអ្នកដទៃពីការប្រើឧបករណ៍នេះនៅពេលវាបាត់បង់ ឬត្រូវបានគេលួចនោះទេ។"</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="3589945558504439395" product="default">"លក្ខណៈពិសេសការពារឧបករណ៍នឹងមិនត្រូវបានធ្វើឲ្យសកម្មទេ។ អ្នកនឹងមិនអាចរារាំងអ្នកដទៃពីការប្រើទូរស័ព្ទនេះនៅពេលវាបាត់បង់ ឬត្រូវបានគេលួចនោះទេ។"</string>
     <string name="skip_anyway_button_label" msgid="2323522873558834513">"រំលងទោះបីយ៉ាងណាក៏ដោយ"</string>
     <string name="go_back_button_label" msgid="4745265266186209467">"ថយ​ក្រោយ"</string>
     <string name="security_settings_fingerprint_enroll_find_sensor_title" msgid="5877265753699187149">"ស្វែងរកឧបករណ៍ចាប់សញ្ញា"</string>
@@ -393,35 +392,35 @@
     <string name="fingerprint_last_delete_confirm" msgid="2634726361059274289">"បាទ/ចាស យកចេញ"</string>
     <string name="confirm_fingerprint_icon_content_description" msgid="5255544532157079096">"សូមប្រើស្នាមម្រាមដៃរបស់អ្នកដើម្បីបន្ត។"</string>
     <string name="crypt_keeper_settings_title" msgid="4219233835490520414">"ការ​ដាក់​លេខ​កូដ"</string>
-    <string name="crypt_keeper_encrypt_title" product="tablet" msgid="1060273569887301457">"ដាក់​លេខ​កូដ​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="crypt_keeper_encrypt_title" product="default" msgid="1878996487755806122">"ដាក់​លេខ​កូដ​ទូរស័ព្ទ"</string>
+    <string name="crypt_keeper_encrypt_title" msgid="1060273569887301457" product="tablet">"ដាក់​លេខ​កូដ​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="crypt_keeper_encrypt_title" msgid="1878996487755806122" product="default">"ដាក់​លេខ​កូដ​ទូរស័ព្ទ"</string>
     <string name="crypt_keeper_encrypted_summary" msgid="1868233637888132906">"បាន​ដាក់លេខ​កូដ"</string>
-    <string name="crypt_keeper_desc" product="tablet" msgid="503014594435731275">"អ្នក​អាច​ដាក់​លេខ​កូដ​គណនី​, ការកំណត់, កម្មវិធី​បាន​ទាញ​យក​ និង​ទិន្នន័យ​​របស់​វា, មេឌៀ ​និង​ឯកសារ​ផ្សេងៗ​ទៀត។ បន្ទាប់ពី​អ្នក​ដាក់​លេខ​កូដ​ទូរស័ព្ទ​របស់​អ្នក សន្មត​ថា​​អ្នក​បាន​រៀបចំ​ការ​ចាក់​សោ​អេក្រង់ (ដែល​​មាន លំនាំ ឬ​កូដ​ PIN ជា​លេខ​ ឬ​ពាក្យ​សម្ងាត់) អ្នក​នឹង​ត្រូវ​ដោះ​សោ​អេក្រង់​ ដើម្បី​ដោះ​លេខ​កូដ​កុំព្យូទ័រ​បន្ទះ​​រាល់​ពេល​ដែល​អ្នក​បើក​វា។ មាន​វិធី​ផ្សេង​តែ​មួយ​គត់​​គឺ​ត្រូវ​អនុវត្ត​ការ​កំណត់​ទិន្នន័យ​ដូច​ពេល​ចេញ​ពី​រោងចក្រ ដោយ​លុប​ទិន្នន័យ​របស់​អ្នក​ទាំងអស់។\n\nការ​ដាក់​លេខ​កូដ​ចំណាយ​ពេល​មួយ​ម៉ោង ឬ​ច្រើន​ជាង​នេះ។ អ្នក​ត្រូវ​តែ​ចាប់ផ្ដើម​ដោយ​​មាន​ថ្ម​ពេញ និង​ដោត​កុំព្យូទ័រ​បន្ទះ​ជាប់​ក្នុង​ពេល​ដំណើរការ។ បើ​អ្នក​ផ្អាក​វា អ្នក​នឹង​បាត់បង់​ទិន្នន័យ​របស់​អ្នក​មួយ​ចំនួន ឬ​ទាំងអស់​តែ​ម្ដង។"</string>
-    <string name="crypt_keeper_desc" product="default" msgid="2579929266645543631">"អ្នក​អាច​ដាក់​លេខ​កូដ​គណនី​, ការកំណត់, កម្មវិធី​បាន​ទាញ​យក​ និង​ទិន្នន័យ​​របស់​វា, មេឌៀ និង​ឯកសារ​ផ្សេងៗ​ទៀត។ បន្ទាប់ពី​អ្នក​ដាក់​លេខ​កូដ​ទូរស័ព្ទ​របស់​អ្នក សន្មត​ថា​​អ្នក​បាន​រៀបចំ​ការ​ចាក់​សោ​អេក្រង់ (ដែល​​មាន លំនាំ ឬ​កូដ​ PIN ជា​លេខ​ ឬ​ពាក្យ​សម្ងាត់) អ្នក​នឹង​ត្រូវ​ដោះ​សោ​អេក្រង់​ ដើម្បី​ដោះ​លេខ​កូដ​គឺ​ត្រូវ​អនុវត្ត​ការ​កំណត់​ទិន្នន័យ​ដូច​ពេល​ចេញ​ពី​រោងចក្រ ដោយ​លុប​ទិន្នន័យ​របស់​អ្នក​ទាំងអស់។\n\nការ​ដាក់​លេខ​កូដ​ចំណាយ​ពេល​មួយ​ម៉ោង ឬ​ច្រើន​ជាង​នេះ។ អ្នក​ត្រូវ​តែ​ចាប់ផ្ដើម​ដោយ​​មាន​ថ្ម​ពេញ និង​ដោត​ជាប់​ក្នុង​ពេល​ដំណើរការ។ បើ​អ្នក​ផ្អាក​វា អ្នក​នឹង​បាត់បង់​ទិន្នន័យ​របស់​អ្នក​មួយ​ចំនួន ឬ​ទាំងអស់​តែ​ម្ដង។"</string>
-    <string name="crypt_keeper_button_text" product="tablet" msgid="1189623490604750854">"ដាក់​លេខ​កូដ​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="crypt_keeper_button_text" product="default" msgid="2008346408473255519">"ដាក់​លេខ​កូដ​ទូរស័ព្ទ"</string>
+    <string name="crypt_keeper_desc" msgid="503014594435731275" product="tablet">"អ្នក​អាច​ដាក់​លេខ​កូដ​គណនី​, ការកំណត់, កម្មវិធី​បាន​ទាញ​យក​ និង​ទិន្នន័យ​​របស់​វា, មេឌៀ ​និង​ឯកសារ​ផ្សេងៗ​ទៀត។ បន្ទាប់ពី​អ្នក​ដាក់​លេខ​កូដ​ទូរស័ព្ទ​របស់​អ្នក សន្មត​ថា​​អ្នក​បាន​រៀបចំ​ការ​ចាក់​សោ​អេក្រង់ (ដែល​​មាន លំនាំ ឬ​កូដ​ PIN ជា​លេខ​ ឬ​ពាក្យ​សម្ងាត់) អ្នក​នឹង​ត្រូវ​ដោះ​សោ​អេក្រង់​ ដើម្បី​ដោះ​លេខ​កូដ​កុំព្យូទ័រ​បន្ទះ​​រាល់​ពេល​ដែល​អ្នក​បើក​វា។ មាន​វិធី​ផ្សេង​តែ​មួយ​គត់​​គឺ​ត្រូវ​អនុវត្ត​ការ​កំណត់​ទិន្នន័យ​ដូច​ពេល​ចេញ​ពី​រោងចក្រ ដោយ​លុប​ទិន្នន័យ​របស់​អ្នក​ទាំងអស់។\n\nការ​ដាក់​លេខ​កូដ​ចំណាយ​ពេល​មួយ​ម៉ោង ឬ​ច្រើន​ជាង​នេះ។ អ្នក​ត្រូវ​តែ​ចាប់ផ្ដើម​ដោយ​​មាន​ថ្ម​ពេញ និង​ដោត​កុំព្យូទ័រ​បន្ទះ​ជាប់​ក្នុង​ពេល​ដំណើរការ។ បើ​អ្នក​ផ្អាក​វា អ្នក​នឹង​បាត់បង់​ទិន្នន័យ​របស់​អ្នក​មួយ​ចំនួន ឬ​ទាំងអស់​តែ​ម្ដង។"</string>
+    <string name="crypt_keeper_desc" msgid="2579929266645543631" product="default">"អ្នក​អាច​ដាក់​លេខ​កូដ​គណនី​, ការកំណត់, កម្មវិធី​បាន​ទាញ​យក​ និង​ទិន្នន័យ​​របស់​វា, មេឌៀ និង​ឯកសារ​ផ្សេងៗ​ទៀត។ បន្ទាប់ពី​អ្នក​ដាក់​លេខ​កូដ​ទូរស័ព្ទ​របស់​អ្នក សន្មត​ថា​​អ្នក​បាន​រៀបចំ​ការ​ចាក់​សោ​អេក្រង់ (ដែល​​មាន លំនាំ ឬ​កូដ​ PIN ជា​លេខ​ ឬ​ពាក្យ​សម្ងាត់) អ្នក​នឹង​ត្រូវ​ដោះ​សោ​អេក្រង់​ ដើម្បី​ដោះ​លេខ​កូដ​គឺ​ត្រូវ​អនុវត្ត​ការ​កំណត់​ទិន្នន័យ​ដូច​ពេល​ចេញ​ពី​រោងចក្រ ដោយ​លុប​ទិន្នន័យ​របស់​អ្នក​ទាំងអស់។\n\nការ​ដាក់​លេខ​កូដ​ចំណាយ​ពេល​មួយ​ម៉ោង ឬ​ច្រើន​ជាង​នេះ។ អ្នក​ត្រូវ​តែ​ចាប់ផ្ដើម​ដោយ​​មាន​ថ្ម​ពេញ និង​ដោត​ជាប់​ក្នុង​ពេល​ដំណើរការ។ បើ​អ្នក​ផ្អាក​វា អ្នក​នឹង​បាត់បង់​ទិន្នន័យ​របស់​អ្នក​មួយ​ចំនួន ឬ​ទាំងអស់​តែ​ម្ដង។"</string>
+    <string name="crypt_keeper_button_text" msgid="1189623490604750854" product="tablet">"ដាក់​លេខ​កូដ​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="crypt_keeper_button_text" msgid="2008346408473255519" product="default">"ដាក់​លេខ​កូដ​ទូរស័ព្ទ"</string>
     <string name="crypt_keeper_low_charge_text" msgid="2029407131227814893">"បញ្ចូល​ថ្ម ហើយ​ព្យាយាម​ម្ដង​ទៀត។"</string>
     <string name="crypt_keeper_unplugged_text" msgid="4785376766063053901">"បញ្ចូល​ថ្ម ហើយ​ព្យាយាម​ម្ដង​ទៀត។"</string>
     <string name="crypt_keeper_dialog_need_password_title" msgid="4058971800557767">"គ្មាន​ពាក្យ​សម្ងាត់ ឬ​​កូដ PIN ចាក់​សោ​អេក្រង់"</string>
     <string name="crypt_keeper_dialog_need_password_message" msgid="4071395977297369642">"អ្នក​ត្រូវ​តែ​កំណត់​កូដ​ PIN ឬ​ពាក្យ​សម្ងាត់​ចាក់សោ​អេក្រង់​​ មុន​ពេល​អ្នក​ចាប់ផ្ដើម​ដាក់លេខ​កូដ។"</string>
     <string name="crypt_keeper_confirm_title" msgid="5100339496381875522">"ដាក់លេខ​កូដ?"</string>
-    <string name="crypt_keeper_final_desc" product="tablet" msgid="517662068757620756">"ប្រតិបត្តិការ​ដាក់​លេខ​កូដ​មិន​អាច​ត្រឡប់​វិញ​បានទេ ហើយ​បើ​អ្នក​ផ្អាក​វា អ្នក​នឹង​បាត់បង់​ទិន្នន័យ។ ការ​ដាក់​លេខ​កូដ​ចំណាយ​ពេល​ប្រហែល ១ ម៉ោង​ ឬ​ច្រើន​ជាង​នេះ អំឡុង​ពេល​នោះ​កុំព្យូទ័រ​បន្ទះ​នឹង​ចាប់ផ្ដើម​ឡើងវិញ​ច្រើន​ដង។"</string>
-    <string name="crypt_keeper_final_desc" product="default" msgid="287503113671320916">"ប្រតិបត្តិការ​ដាក់លេខ​កូដ​មិន​អាច​ត្រឡប់​វិញ​បាន​ទេ ហើយ​ប្រសិន​បើ​អ្នក​ផ្អាក​វា អ្នក​នឹង​បាត់បង់​ទិន្នន័យ​ទាំងអស់។ ការ​ដាក់​លេខ​កូដ​ចំណាយ​ពេល​មួយ​ម៉ោង ឬ​ច្រើន​ជាង​នេះ អំឡុង​ពេល​នោះ​ទូរស័ព្ទ​នឹង​ចាប់ផ្ដើម​ឡើងវិញ​ច្រើន​ដង។"</string>
+    <string name="crypt_keeper_final_desc" msgid="517662068757620756" product="tablet">"ប្រតិបត្តិការ​ដាក់​លេខ​កូដ​មិន​អាច​ត្រឡប់​វិញ​បានទេ ហើយ​បើ​អ្នក​ផ្អាក​វា អ្នក​នឹង​បាត់បង់​ទិន្នន័យ។ ការ​ដាក់​លេខ​កូដ​ចំណាយ​ពេល​ប្រហែល ១ ម៉ោង​ ឬ​ច្រើន​ជាង​នេះ អំឡុង​ពេល​នោះ​កុំព្យូទ័រ​បន្ទះ​នឹង​ចាប់ផ្ដើម​ឡើងវិញ​ច្រើន​ដង។"</string>
+    <string name="crypt_keeper_final_desc" msgid="287503113671320916" product="default">"ប្រតិបត្តិការ​ដាក់លេខ​កូដ​មិន​អាច​ត្រឡប់​វិញ​បាន​ទេ ហើយ​ប្រសិន​បើ​អ្នក​ផ្អាក​វា អ្នក​នឹង​បាត់បង់​ទិន្នន័យ​ទាំងអស់។ ការ​ដាក់​លេខ​កូដ​ចំណាយ​ពេល​មួយ​ម៉ោង ឬ​ច្រើន​ជាង​នេះ អំឡុង​ពេល​នោះ​ទូរស័ព្ទ​នឹង​ចាប់ផ្ដើម​ឡើងវិញ​ច្រើន​ដង។"</string>
     <string name="crypt_keeper_setup_title" msgid="1783951453124244969">"ការ​ដាក់​លេខ​កូដ"</string>
-    <string name="crypt_keeper_setup_description" product="tablet" msgid="6689952371032099350">"រង់ចាំ​ខណៈ​ដែល​កុំព្យូទ័រ​បន្ទះ​បស់​អ្នក​កំពុង​ត្រូវ​បាន​ដាក់លេខ​កូដ។ បញ្ចប់ <xliff:g id="PERCENT">^1</xliff:g>% ។"</string>
-    <string name="crypt_keeper_setup_description" product="default" msgid="951918761585534875">"រង់ចាំ​ខណៈ​ដែល​ទូរស័ព្ទ​របស់​អ្នក​កំពុង​ត្រូវ​បាន​ដាក់លេខ​កូដ។ បញ្ចប់ <xliff:g id="PERCENT">^1</xliff:g>% ។"</string>
-    <string name="crypt_keeper_setup_time_remaining" product="tablet" msgid="1655047311546745695">"រង់ចាំ​ខណៈ​ពេល​ដែល​ឧបករណ៍​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​កំពុង​​ត្រូវ​បាន​អ៊ិនគ្រីប​។ ពេលវេលា​នៅ​សល់​៖ <xliff:g id="DURATION">^1</xliff:g>"</string>
-    <string name="crypt_keeper_setup_time_remaining" product="default" msgid="1862964662304683072">"រង់ចាំ​ខណៈ​ពេល​ដែល​ទូរស័ព្ទ​របស់​អ្នក​កំពុង​ត្រូវ​បាន​អ៊ិនគ្រីប​។ ពេលវេលា​នៅ​សល់​៖ <xliff:g id="DURATION">^1</xliff:g>"</string>
-    <string name="crypt_keeper_force_power_cycle" product="tablet" msgid="556504311511212648">"ដើម្បីដោះសោថេប្លេតរបស់អ្នក ត្រូវបិទវា ហើយបើកវាវិញ។"</string>
-    <string name="crypt_keeper_force_power_cycle" product="default" msgid="1794353635603020327">"ដើម្បីដោះសោទូរស័ព្ទរបស់អ្នក ត្រូវបិទវា ហើយបើកវាវិញ។"</string>
+    <string name="crypt_keeper_setup_description" msgid="6689952371032099350" product="tablet">"រង់ចាំ​ខណៈ​ដែល​កុំព្យូទ័រ​បន្ទះ​បស់​អ្នក​កំពុង​ត្រូវ​បាន​ដាក់លេខ​កូដ។ បញ្ចប់ <xliff:g id="PERCENT">^1</xliff:g>% ។"</string>
+    <string name="crypt_keeper_setup_description" msgid="951918761585534875" product="default">"រង់ចាំ​ខណៈ​ដែល​ទូរស័ព្ទ​របស់​អ្នក​កំពុង​ត្រូវ​បាន​ដាក់លេខ​កូដ។ បញ្ចប់ <xliff:g id="PERCENT">^1</xliff:g>% ។"</string>
+    <string name="crypt_keeper_setup_time_remaining" msgid="1655047311546745695" product="tablet">"រង់ចាំ​ខណៈ​ពេល​ដែល​ឧបករណ៍​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​កំពុង​​ត្រូវ​បាន​អ៊ិនគ្រីប​។ ពេលវេលា​នៅ​សល់​៖ <xliff:g id="DURATION">^1</xliff:g>"</string>
+    <string name="crypt_keeper_setup_time_remaining" msgid="1862964662304683072" product="default">"រង់ចាំ​ខណៈ​ពេល​ដែល​ទូរស័ព្ទ​របស់​អ្នក​កំពុង​ត្រូវ​បាន​អ៊ិនគ្រីប​។ ពេលវេលា​នៅ​សល់​៖ <xliff:g id="DURATION">^1</xliff:g>"</string>
+    <string name="crypt_keeper_force_power_cycle" msgid="556504311511212648" product="tablet">"ដើម្បីដោះសោថេប្លេតរបស់អ្នក ត្រូវបិទវា ហើយបើកវាវិញ។"</string>
+    <string name="crypt_keeper_force_power_cycle" msgid="1794353635603020327" product="default">"ដើម្បីដោះសោទូរស័ព្ទរបស់អ្នក ត្រូវបិទវា ហើយបើកវាវិញ។"</string>
     <string name="crypt_keeper_warn_wipe" msgid="2738374897337991667">"ព្រមាន៖ ឧបករណ៍​របស់​អ្នក​នឹង​ត្រូវ​បាន​លុប​បន្ទាប់ពី​ការ​ព្យាយាម​ដោះ​សោ​បរាជ័យ <xliff:g id="COUNT">^1</xliff:g> ដង!"</string>
     <string name="crypt_keeper_enter_password" msgid="2223340178473871064">"បញ្ចូល​ពាក្យ​សម្ងាត់​របស់​អ្នក"</string>
     <string name="crypt_keeper_failed_title" msgid="7133499413023075961">"កា​រដាក់​លេខ​កូដ​មិន​ជោគជ័យ"</string>
-    <string name="crypt_keeper_failed_summary" product="tablet" msgid="8219375738445017266">"ការ​ដាក់លេខ​កូដ​ត្រូវ​បាន​ផ្អាក និង​មិន​អាច​បញ្ចប់​បាន​ទេ។ ជា​លទ្ធផល ទិន្នន័យ​ក្នុង​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​មិន​អាច​ចូល​ \n\n ដើម្បី​បន្ត​ប្រើ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក អ្នក​ត្រូវ​តែ​កំណត់​ដូច​ចេញ​ពី​រោងចក្រ​ឡើងវិញ។ ពេល​អ្នក​រៀបចំ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​បន្ទាប់​ពី​កំណត់​ឡើងវិញ អ្នក​មាន​ឱកាស​ដើម្បី​ស្ដារ​ទិន្នន័យ​ដែល​ត្រូវ​បាន​បម្រុង​ទុក​ក្នុង​គណនី Google របស់​អ្នក។"</string>
-    <string name="crypt_keeper_failed_summary" product="default" msgid="3270131542549577953">"ការ​ដាក់​លេខ​កូដ​ត្រូវ​បាន​ផ្អាក និង​មិន​អាច​បញ្ចប់​ទេ។ ជា​លទ្ធផល ទិន្នន័យ​ក្នុង​ទូរស័ព្ទ​របស់​អ្នក​មិន​អាច​ចូល​ដំណើរការ​បាន​ទេ។ \n\nដើម្បី​បន្ត​ប្រើ​ទូរស័ព្ទ​របស់​អ្នក អ្នក​ត្រូវ​អនុវត្ត​ការ​កំណត់​ដូច​ចេញ​ពី​រោងចក្រ។ ពេល​អ្នក​រៀបចំ​ទូរស័ព្ទ​របស់​អ្នក​បន្ទាប់​ពី​កំណត់ អ្នក​នឹង​មាន​ឱកាស​ដើម្បី​ស្ដារ​ទិន្នន័យ​ដែល​ត្រូវ​បាន​បម្រុងទុក​ក្នុង​គណនី Google របស់​​អ្នក។"</string>
+    <string name="crypt_keeper_failed_summary" msgid="8219375738445017266" product="tablet">"ការ​ដាក់លេខ​កូដ​ត្រូវ​បាន​ផ្អាក និង​មិន​អាច​បញ្ចប់​បាន​ទេ។ ជា​លទ្ធផល ទិន្នន័យ​ក្នុង​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​មិន​អាច​ចូល​ \n\n ដើម្បី​បន្ត​ប្រើ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក អ្នក​ត្រូវ​តែ​កំណត់​ដូច​ចេញ​ពី​រោងចក្រ​ឡើងវិញ។ ពេល​អ្នក​រៀបចំ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​បន្ទាប់​ពី​កំណត់​ឡើងវិញ អ្នក​មាន​ឱកាស​ដើម្បី​ស្ដារ​ទិន្នន័យ​ដែល​ត្រូវ​បាន​បម្រុង​ទុក​ក្នុង​គណនី Google របស់​អ្នក។"</string>
+    <string name="crypt_keeper_failed_summary" msgid="3270131542549577953" product="default">"ការ​ដាក់​លេខ​កូដ​ត្រូវ​បាន​ផ្អាក និង​មិន​អាច​បញ្ចប់​ទេ។ ជា​លទ្ធផល ទិន្នន័យ​ក្នុង​ទូរស័ព្ទ​របស់​អ្នក​មិន​អាច​ចូល​ដំណើរការ​បាន​ទេ។ \n\nដើម្បី​បន្ត​ប្រើ​ទូរស័ព្ទ​របស់​អ្នក អ្នក​ត្រូវ​អនុវត្ត​ការ​កំណត់​ដូច​ចេញ​ពី​រោងចក្រ។ ពេល​អ្នក​រៀបចំ​ទូរស័ព្ទ​របស់​អ្នក​បន្ទាប់​ពី​កំណត់ អ្នក​នឹង​មាន​ឱកាស​ដើម្បី​ស្ដារ​ទិន្នន័យ​ដែល​ត្រូវ​បាន​បម្រុងទុក​ក្នុង​គណនី Google របស់​​អ្នក។"</string>
     <string name="crypt_keeper_data_corrupt_title" msgid="8759119849089795751">"ការ​អ៊ិនគ្រីប​​មិន​បាន​ជោគជ័យ"</string>
-    <string name="crypt_keeper_data_corrupt_summary" product="tablet" msgid="840107296925798402">"ពាក្យសម្ងាត់ដែលអ្នកបានបញ្ចូលត្រឹមត្រូវ ប៉ុន្តែសំណាងមិនល្អទិន្នន័យរបស់អ្នកខូច។ \n\n ដើម្បីបន្តប្រើថេប្លេតរបស់អ្នក អ្នកចាំបាច់ត្រូវធ្វើការកំណត់ដូចចេញពីរោចចក្រឡើងវិញ។ នៅពេលដែលអ្នកដំឡើងថេប្លេតរបស់អ្នកបន្ទាប់ពីកំណត់ឡើងវិញនោះ អ្នកនឹងមានឱកាសដើម្បីស្តារទិន្នន័យទាំងឡាយដែលបានបម្រុងទុកទៅគណនី Google របស់អ្នក។"</string>
-    <string name="crypt_keeper_data_corrupt_summary" product="default" msgid="8843311420059663824">"ពាក្យសម្ងាត់ដែលអ្នកបានបញ្ចូលត្រឹមត្រូវ ប៉ុន្តែសំណាងមិនល្អទិន្នន័យរបស់អ្នកខូច។ \n\nដើម្បីបន្តប្រើទូរស័ព្ទរបស់អ្នក អ្នកចាំបាច់ត្រូវធ្វើការកំណត់ដូចចេញពីរោចចក្រឡើងវិញ។ នៅពេលដែលអ្នកដំឡើងទូរស័ព្ទរបស់អ្នកបន្ទាប់ពីកំណត់ឡើងវិញនោះ អ្នកនឹងមានឱកាសដើម្បីស្តារទិន្នន័យទាំងឡាយដែលបានបម្រុងទុកទៅគណនី Google របស់អ្នក។"</string>
+    <string name="crypt_keeper_data_corrupt_summary" msgid="840107296925798402" product="tablet">"ពាក្យសម្ងាត់ដែលអ្នកបានបញ្ចូលត្រឹមត្រូវ ប៉ុន្តែសំណាងមិនល្អទិន្នន័យរបស់អ្នកខូច។ \n\n ដើម្បីបន្តប្រើថេប្លេតរបស់អ្នក អ្នកចាំបាច់ត្រូវធ្វើការកំណត់ដូចចេញពីរោចចក្រឡើងវិញ។ នៅពេលដែលអ្នកដំឡើងថេប្លេតរបស់អ្នកបន្ទាប់ពីកំណត់ឡើងវិញនោះ អ្នកនឹងមានឱកាសដើម្បីស្តារទិន្នន័យទាំងឡាយដែលបានបម្រុងទុកទៅគណនី Google របស់អ្នក។"</string>
+    <string name="crypt_keeper_data_corrupt_summary" msgid="8843311420059663824" product="default">"ពាក្យសម្ងាត់ដែលអ្នកបានបញ្ចូលត្រឹមត្រូវ ប៉ុន្តែសំណាងមិនល្អទិន្នន័យរបស់អ្នកខូច។ \n\nដើម្បីបន្តប្រើទូរស័ព្ទរបស់អ្នក អ្នកចាំបាច់ត្រូវធ្វើការកំណត់ដូចចេញពីរោចចក្រឡើងវិញ។ នៅពេលដែលអ្នកដំឡើងទូរស័ព្ទរបស់អ្នកបន្ទាប់ពីកំណត់ឡើងវិញនោះ អ្នកនឹងមានឱកាសដើម្បីស្តារទិន្នន័យទាំងឡាយដែលបានបម្រុងទុកទៅគណនី Google របស់អ្នក។"</string>
     <string name="crypt_keeper_switch_input_method" msgid="4168332125223483198">"ប្ដូរ​វិធីសាស្ត្រ​បញ្ចូល"</string>
     <string name="suggested_lock_settings_title" msgid="8971630898700461034">"កំណត់ការចាក់សោអេក្រង់"</string>
     <string name="suggested_lock_settings_summary" msgid="8778462376012231110">"ការពារឧបករណ៍របស់អ្នក"</string>
@@ -429,13 +428,13 @@
     <string name="suggested_fingerprint_lock_settings_summary" msgid="2149569133725273864">"ដោះសោដោយប្រើស្នាមម្រាមដៃរបស់អ្នក"</string>
     <string name="lock_settings_picker_title" msgid="1095755849152582712">"ជ្រើស​ការ​ចាក់សោ​អេក្រង់"</string>
     <string name="lock_settings_picker_title_profile" msgid="8822511284992306796">"ជ្រើសការចាក់សោការងារ"</string>
-    <string name="setup_lock_settings_picker_title" product="tablet" msgid="90329443364067215">"ការពារថេប្លេតរបស់អ្នក"</string>
-    <string name="setup_lock_settings_picker_title" product="device" msgid="2399952075134938929">"ការពារឧបករណ៍របស់អ្នក"</string>
-    <string name="setup_lock_settings_picker_title" product="default" msgid="1572244299605153324">"ការពារទូរស័ព្ទរបស់អ្នក"</string>
+    <string name="setup_lock_settings_picker_title" msgid="90329443364067215" product="tablet">"ការពារថេប្លេតរបស់អ្នក"</string>
+    <string name="setup_lock_settings_picker_title" msgid="2399952075134938929" product="device">"ការពារឧបករណ៍របស់អ្នក"</string>
+    <string name="setup_lock_settings_picker_title" msgid="1572244299605153324" product="default">"ការពារទូរស័ព្ទរបស់អ្នក"</string>
     <string name="setup_lock_settings_picker_fingerprint_message" msgid="5585650064305600578">"ដើម្បីទទួលបានសុវត្ថិភាពបន្ថែម សូមដំឡើងការចាក់សោអេក្រង់បម្រុង។"</string>
-    <string name="setup_lock_settings_picker_message" product="tablet" msgid="8919671129189936210">"ទប់ស្កាត់អ្នកផ្សេងពីការប្រើថេប្លេតនេះដោយគ្មានការអនុញ្ញាតពីអ្នកដោយធ្វើឲ្យលក្ខណៈពិសេសការពារឧបករណ៍សកម្ម។ សូមជ្រើសការចាក់សោអេក្រង់ដែលអ្នកចង់ប្រើ។"</string>
-    <string name="setup_lock_settings_picker_message" product="device" msgid="3787276514406353777">"ទប់ស្កាត់អ្នកផ្សេងពីការប្រើឧបករណ៍នេះដោយគ្មានការអនុញ្ញាតពីអ្នកដោយធ្វើឲ្យលក្ខណៈពិសេសការពារឧបករណ៍សកម្ម។ សូមជ្រើសការចាក់សោអេក្រង់ដែលអ្នកចង់ប្រើ។"</string>
-    <string name="setup_lock_settings_picker_message" product="default" msgid="3692856437543730446">"ទប់ស្កាត់អ្នកផ្សេងពីការប្រើទូរស័ព្ទនេះដោយគ្មានការអនុញ្ញាតពីអ្នកដោយធ្វើឲ្យលក្ខណៈពិសេសការពារឧបករណ៍សកម្ម។ សូមជ្រើសការចាក់សោអេក្រង់ដែលអ្នកចង់ប្រើ។"</string>
+    <string name="setup_lock_settings_picker_message" msgid="8919671129189936210" product="tablet">"ទប់ស្កាត់អ្នកផ្សេងពីការប្រើថេប្លេតនេះដោយគ្មានការអនុញ្ញាតពីអ្នកដោយធ្វើឲ្យលក្ខណៈពិសេសការពារឧបករណ៍សកម្ម។ សូមជ្រើសការចាក់សោអេក្រង់ដែលអ្នកចង់ប្រើ។"</string>
+    <string name="setup_lock_settings_picker_message" msgid="3787276514406353777" product="device">"ទប់ស្កាត់អ្នកផ្សេងពីការប្រើឧបករណ៍នេះដោយគ្មានការអនុញ្ញាតពីអ្នកដោយធ្វើឲ្យលក្ខណៈពិសេសការពារឧបករណ៍សកម្ម។ សូមជ្រើសការចាក់សោអេក្រង់ដែលអ្នកចង់ប្រើ។"</string>
+    <string name="setup_lock_settings_picker_message" msgid="3692856437543730446" product="default">"ទប់ស្កាត់អ្នកផ្សេងពីការប្រើទូរស័ព្ទនេះដោយគ្មានការអនុញ្ញាតពីអ្នកដោយធ្វើឲ្យលក្ខណៈពិសេសការពារឧបករណ៍សកម្ម។ សូមជ្រើសការចាក់សោអេក្រង់ដែលអ្នកចង់ប្រើ។"</string>
     <string name="lock_settings_picker_fingerprint_message" msgid="4755230324778371292">"ជ្រើសរើសវិធីចាក់សោអេក្រង់បម្រុងទុក"</string>
     <string name="unlock_set_unlock_launch_picker_title" msgid="2084576942666016993">"ចាក់សោ​អេក្រង់"</string>
     <string name="unlock_set_unlock_launch_picker_title_profile" msgid="124176557311393483">"ការចាក់សោប្រវត្តិរូបការងារ"</string>
@@ -610,8 +609,8 @@
     <string name="bluetooth_disconnect_headset_profile" msgid="8635908811168780720">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> នឹង​ត្រូវ​បាន​ផ្ដាច់​ពី​អូឌីយ៉ូ​កាស។"</string>
     <string name="bluetooth_disconnect_hid_profile" msgid="3282295189719352075">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> នឹង​ត្រូវ​បាន​ផ្ដាច់​ពី​ឧបករណ៍​បញ្ចូល។"</string>
     <string name="bluetooth_disconnect_pan_user_profile" msgid="8037627994382458698">"ការ​ចូល​ប្រើ​អ៊ីនធឺណិត​តាម <xliff:g id="DEVICE_NAME">%1$s</xliff:g> នឹង​ត្រូវ​បាន​ផ្ដាច់។"</string>
-    <string name="bluetooth_disconnect_pan_nap_profile" product="tablet" msgid="1262792320446274407">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> នឹង​ត្រូវ​បាន​ផ្ដាច់​ពី​ការ​ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​កុំព្យូទ័រ​បន្ទះ​នេះ។"</string>
-    <string name="bluetooth_disconnect_pan_nap_profile" product="default" msgid="5700332050175684571">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> នឹង​ត្រូវ​បាន​ផ្ដាច់​ពី​ការ​ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​ទូរស័ព្ទ​នេះ។"</string>
+    <string name="bluetooth_disconnect_pan_nap_profile" msgid="1262792320446274407" product="tablet">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> នឹង​ត្រូវ​បាន​ផ្ដាច់​ពី​ការ​ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​កុំព្យូទ័រ​បន្ទះ​នេះ។"</string>
+    <string name="bluetooth_disconnect_pan_nap_profile" msgid="5700332050175684571" product="default">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> នឹង​ត្រូវ​បាន​ផ្ដាច់​ពី​ការ​ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​ទូរស័ព្ទ​នេះ។"</string>
     <string name="bluetooth_device_advanced_title" msgid="6066342531927499308">"ឧបករណ៍​ប៊្លូធូស​បា​ន​ផ្គូផ្គង"</string>
     <string name="bluetooth_device_advanced_online_mode_title" msgid="3689050071425683114">"តភ្ជាប់"</string>
     <string name="bluetooth_device_advanced_online_mode_summary" msgid="1204424107263248336">"តភ្ជាប់​ទៅ​ឧបករណ៍​ប៊្លូធូស"</string>
@@ -642,8 +641,8 @@
     <string name="wifi_band_5ghz" msgid="6433822023268515117">"5 GHz"</string>
     <string name="link_speed" msgid="8896664974117585555">"%1$d Mbps"</string>
     <string name="nfc_quick_toggle_title" msgid="6769159366307299004">"NFC"</string>
-    <string name="nfc_quick_toggle_summary" product="tablet" msgid="8302974395787498915">"ឲ្យ​ប្ដូរ​ទិន្នន័យ​ ពេល​កុំព្យូទ័រ​បន្ទះ​ប៉ះ​ឧបករណ៍​ផ្សេង"</string>
-    <string name="nfc_quick_toggle_summary" product="default" msgid="5237208142892767592">"ឲ្យ​ប្ដូរ​ទិន្នន័យ​ពេល​ទូរស័ព្ទ​ប៉ះ​ឧបករណ៍​ផ្សេង"</string>
+    <string name="nfc_quick_toggle_summary" msgid="8302974395787498915" product="tablet">"ឲ្យ​ប្ដូរ​ទិន្នន័យ​ ពេល​កុំព្យូទ័រ​បន្ទះ​ប៉ះ​ឧបករណ៍​ផ្សេង"</string>
+    <string name="nfc_quick_toggle_summary" msgid="5237208142892767592" product="default">"ឲ្យ​ប្ដូរ​ទិន្នន័យ​ពេល​ទូរស័ព្ទ​ប៉ះ​ឧបករណ៍​ផ្សេង"</string>
     <string name="nfc_disclaimer_title" msgid="4364003873202264039">"បើក NFC"</string>
     <string name="nfc_disclaimer_content" msgid="5566907911915158075">"NFC ផ្លាស់ប្តូរទិន្នន័យរវាងឧបករណ៍នេះ និងឧបករណ៍ដែលនៅក្បែរ ឬគោលដៅ ដូចជា៖ កន្លែងបង់ប្រាក់ អ្នកអានដែលអាចចូដំណើរការ ពាណិជ្ជកម្ម ឬស្លាកដែលមានអន្តរសកម្ម។"</string>
     <string name="android_beam_settings_title" msgid="7832812974600338649">"Android Beam"</string>
@@ -781,15 +780,15 @@
     <string name="wifi_cancel" msgid="6763568902542968964">"បោះ​បង់​"</string>
     <string name="wifi_skip_anyway" msgid="6965361454438011190">"រំលង"</string>
     <string name="wifi_dont_skip" msgid="3615535136327231588">"ថយក្រោយ"</string>
-    <string name="wifi_skipped_message" product="tablet" msgid="6761689889733331124">"ព្រមាន​៖ ប្រសិន​បើ​អ្នក​រំលង​ប្រព័ន្ធ​វ៉ាយហ្វាយ កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​នឹង​ប្រើ​តែ​​ទិន្នន័យ​ចល័ត​សម្រាប់​ការ​ធ្វើ​បច្ចុប្បន្នភាព និង​ការ​ទាញយក​ដំបូង។ ដើម្បី​ជៀសវាង​ការ​គិត​ប្រាក់​សម្រាប់​​ទិន្នន័យ, តភ្ជាប់​ទៅ​វ៉ាយហ្វាយ។"</string>
-    <string name="wifi_skipped_message" product="device" msgid="1385490367826852775">"ព្រមាន​៖ ប្រសិន​បើ​អ្នក​រំលង​វ៉ាយហ្វាយ ឧបករណ៍​របស់​អ្នក​នឹង​ប្រើ​តែ​ទិន្នន័យ​ចល័ត​សម្រាប់​ការ​ធ្វើ​បច្ចុប្បន្នភាព និង​ការ​ទាញយក​ដំបូង​។ ដើម្បី​ជៀសវាង​គិត​ប្រាក់​សម្រាប់​​​ទិន្នន័យ​, តភ្ជាប់​ទៅ​វ៉ាយហ្វាយ។"</string>
-    <string name="wifi_skipped_message" product="default" msgid="6084295135297772350">"ព្រមាន​៖ ប្រសិន​បើ​អ្នក​រំលង​វ៉ាយហ្វាយ ទូរស័ព្ទ​របស់​អ្នក​នឹង​ប្រើ​តែ​ទិន្នន័យ​ចល័ត​សម្រាប់​ការ​ធ្វើ​បច្ចុប្បន្នភាព និង​ការ​ទាញយក​ដំបូង។ ដើម្បី​ជៀសវាង​​ការ​គិត​ប្រាក់​​​សម្រាប់​​ទិន្នន័យ, តភ្ជាប់​ទៅ​វ៉ាយហាយ។"</string>
-    <string name="wifi_and_mobile_skipped_message" product="tablet" msgid="6324917391996718760">"ប្រសិនបើអ្នករំលង Wi‑Fi៖\n\n"<li>"ថេប្លេតរបស់អ្នកនឹងមិនមានការតភ្ជាប់អ៊ីនធឺណិតទេ។"</li>\n\n<li>"អ្នកនឹងមិនទទួលបានការធ្វើបច្ចុប្បន្នភាពកម្មវិធីឡើយ រហូតទាល់តែអ្នកភ្ជាប់ទៅអ៊ីនធឺណិត។"</li>\n\n<li>"អ្នកមិនអាចធ្វើសកម្មភាពលក្ខណៈពិសេសការពារឧបករណ៍នៅពេលនេះទេ។"</li></string>
-    <string name="wifi_and_mobile_skipped_message" product="device" msgid="1110629752293998468">"ប្រសិនបើអ្នករំលង Wi-Fi៖\n\n"<li>"ឧបករណ៍របស់អ្នកនឹងមិនមានការតភ្ជាប់អ៊ីនធឺណិតទេ។"</li>\n\n<li>"អ្នកនឹងមិនទទួលបានការធ្វើបច្ចុប្បន្នភាពកម្មវិធីឡើយ រហូតទាល់តែអ្នកភ្ជាប់ទៅអ៊ីនធឺណិត។"</li>\n\n<li>"អ្នកមិនអាចធ្វើសកម្មភាពលក្ខណៈពិសេសការពារឧបករណ៍នៅពេលនេះទេ។"</li></string>
-    <string name="wifi_and_mobile_skipped_message" product="default" msgid="8271524692702309267">"ប្រសិនបើអ្នករំលង Wi‑Fi៖\n\n"<li>"ទូរស័ព្ទរបស់អ្នកនឹងមិនមានការតភ្ជាប់អ៊ីនធឺណិតទេ។"</li>\n\n<li>"អ្នកនឹងមិនទទួលបានការធ្វើបច្ចុប្បន្នភាពកម្មវិធីឡើយ រហូតទាល់តែអ្នកភ្ជាប់ទៅអ៊ីនធឺណិត។"</li>\n\n<li>"អ្នកមិនអាចធ្វើសកម្មភាពលក្ខណៈពិសេសការពារឧបករណ៍នៅពេលនេះទេ។"</li></string>
-    <string name="wifi_connect_failed_message" product="tablet" msgid="4474691090681670156">"កុំព្យូទ័រ​បន្ទះ​មិន​អាច​​ភ្ជាប់​ទៅ​បណ្ដាញ​វ៉ាយហ្វាយ​នេះ​បាន​ទេ។"</string>
-    <string name="wifi_connect_failed_message" product="device" msgid="8870885845666880869">"ឧបករណ៍​មិន​អាច​តភ្ជាប់​ទៅ​បណ្ដាញ​វ៉ាយហ្វាយ​នេះ​បាន​ទេ។"</string>
-    <string name="wifi_connect_failed_message" product="default" msgid="2185803140161396572">"ទូរស័ព្ទ​មិន​អាច​តភ្ជាប់​ទៅ​បណ្ដាញ​វ៉ាយហ្វាយ​នេះ"</string>
+    <string name="wifi_skipped_message" msgid="6761689889733331124" product="tablet">"ព្រមាន​៖ ប្រសិន​បើ​អ្នក​រំលង​ប្រព័ន្ធ​វ៉ាយហ្វាយ កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​នឹង​ប្រើ​តែ​​ទិន្នន័យ​ចល័ត​សម្រាប់​ការ​ធ្វើ​បច្ចុប្បន្នភាព និង​ការ​ទាញយក​ដំបូង។ ដើម្បី​ជៀសវាង​ការ​គិត​ប្រាក់​សម្រាប់​​ទិន្នន័យ, តភ្ជាប់​ទៅ​វ៉ាយហ្វាយ។"</string>
+    <string name="wifi_skipped_message" msgid="1385490367826852775" product="device">"ព្រមាន​៖ ប្រសិន​បើ​អ្នក​រំលង​វ៉ាយហ្វាយ ឧបករណ៍​របស់​អ្នក​នឹង​ប្រើ​តែ​ទិន្នន័យ​ចល័ត​សម្រាប់​ការ​ធ្វើ​បច្ចុប្បន្នភាព និង​ការ​ទាញយក​ដំបូង​។ ដើម្បី​ជៀសវាង​គិត​ប្រាក់​សម្រាប់​​​ទិន្នន័យ​, តភ្ជាប់​ទៅ​វ៉ាយហ្វាយ។"</string>
+    <string name="wifi_skipped_message" msgid="6084295135297772350" product="default">"ព្រមាន​៖ ប្រសិន​បើ​អ្នក​រំលង​វ៉ាយហ្វាយ ទូរស័ព្ទ​របស់​អ្នក​នឹង​ប្រើ​តែ​ទិន្នន័យ​ចល័ត​សម្រាប់​ការ​ធ្វើ​បច្ចុប្បន្នភាព និង​ការ​ទាញយក​ដំបូង។ ដើម្បី​ជៀសវាង​​ការ​គិត​ប្រាក់​​​សម្រាប់​​ទិន្នន័យ, តភ្ជាប់​ទៅ​វ៉ាយហាយ។"</string>
+    <string name="wifi_and_mobile_skipped_message" msgid="6324917391996718760" product="tablet">"ប្រសិនបើអ្នករំលង Wi‑Fi៖\n\n"<li>"ថេប្លេតរបស់អ្នកនឹងមិនមានការតភ្ជាប់អ៊ីនធឺណិតទេ។"</li>\n\n<li>"អ្នកនឹងមិនទទួលបានការធ្វើបច្ចុប្បន្នភាពកម្មវិធីឡើយ រហូតទាល់តែអ្នកភ្ជាប់ទៅអ៊ីនធឺណិត។"</li>\n\n<li>"អ្នកមិនអាចធ្វើសកម្មភាពលក្ខណៈពិសេសការពារឧបករណ៍នៅពេលនេះទេ។"</li></string>
+    <string name="wifi_and_mobile_skipped_message" msgid="1110629752293998468" product="device">"ប្រសិនបើអ្នករំលង Wi-Fi៖\n\n"<li>"ឧបករណ៍របស់អ្នកនឹងមិនមានការតភ្ជាប់អ៊ីនធឺណិតទេ។"</li>\n\n<li>"អ្នកនឹងមិនទទួលបានការធ្វើបច្ចុប្បន្នភាពកម្មវិធីឡើយ រហូតទាល់តែអ្នកភ្ជាប់ទៅអ៊ីនធឺណិត។"</li>\n\n<li>"អ្នកមិនអាចធ្វើសកម្មភាពលក្ខណៈពិសេសការពារឧបករណ៍នៅពេលនេះទេ។"</li></string>
+    <string name="wifi_and_mobile_skipped_message" msgid="8271524692702309267" product="default">"ប្រសិនបើអ្នករំលង Wi‑Fi៖\n\n"<li>"ទូរស័ព្ទរបស់អ្នកនឹងមិនមានការតភ្ជាប់អ៊ីនធឺណិតទេ។"</li>\n\n<li>"អ្នកនឹងមិនទទួលបានការធ្វើបច្ចុប្បន្នភាពកម្មវិធីឡើយ រហូតទាល់តែអ្នកភ្ជាប់ទៅអ៊ីនធឺណិត។"</li>\n\n<li>"អ្នកមិនអាចធ្វើសកម្មភាពលក្ខណៈពិសេសការពារឧបករណ៍នៅពេលនេះទេ។"</li></string>
+    <string name="wifi_connect_failed_message" msgid="4474691090681670156" product="tablet">"កុំព្យូទ័រ​បន្ទះ​មិន​អាច​​ភ្ជាប់​ទៅ​បណ្ដាញ​វ៉ាយហ្វាយ​នេះ​បាន​ទេ។"</string>
+    <string name="wifi_connect_failed_message" msgid="8870885845666880869" product="device">"ឧបករណ៍​មិន​អាច​តភ្ជាប់​ទៅ​បណ្ដាញ​វ៉ាយហ្វាយ​នេះ​បាន​ទេ។"</string>
+    <string name="wifi_connect_failed_message" msgid="2185803140161396572" product="default">"ទូរស័ព្ទ​មិន​អាច​តភ្ជាប់​ទៅ​បណ្ដាញ​វ៉ាយហ្វាយ​នេះ"</string>
     <string name="wifi_saved_access_points_titlebar" msgid="2996149477240134064">"បណ្ដាញ​បាន​រក្សាទុក"</string>
     <string name="wifi_advanced_titlebar" msgid="4485841401774142908">"វ៉ាយហ្វាយ​កម្រិត​ខ្ពស់"</string>
     <string name="wifi_configure_titlebar" msgid="7977475161589303074">"កំណត់រចនាសម្ព័ន្ធ Wi‑Fi"</string>
@@ -911,17 +910,17 @@
     <string name="dock_audio_settings_title" msgid="3324750259959570305">"សំឡេង"</string>
     <string name="dock_audio_summary_desk" msgid="6487784412371139335">"កំណត់​សម្រាប់​​ការ​ភ្ជាប់​ផ្ទៃតុ​"</string>
     <string name="dock_audio_summary_car" msgid="6740897586006248450">"កំណត់​សម្រាប់​ភ្ជាប់រថយន្ត"</string>
-    <string name="dock_audio_summary_none" product="tablet" msgid="8215337394914283607">"មិន​បាន​ភ្ជាប់​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="dock_audio_summary_none" product="default" msgid="289909253741048784">"មិន​បាន​ភ្ជាប់ទូរស័ព្ទ"</string>
+    <string name="dock_audio_summary_none" msgid="8215337394914283607" product="tablet">"មិន​បាន​ភ្ជាប់​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="dock_audio_summary_none" msgid="289909253741048784" product="default">"មិន​បាន​ភ្ជាប់ទូរស័ព្ទ"</string>
     <string name="dock_audio_summary_unknown" msgid="4465059868974255693">"កំណត់​សម្រាប់​ការ​ភ្ជាប់​"</string>
     <string name="dock_not_found_title" msgid="3290961741828952424">"រក​មិន​ឃើញ​ការ​ភ្ជាប់"</string>
-    <string name="dock_not_found_text" product="tablet" msgid="8405432495282299143">"អ្នក​ត្រូវ​ភ្ជាប់​កុំព្យូទ័រ​បន្ទះ មុន​នឹង​រៀបចំ​​​សំឡេង​​ភ្ជាប់។"</string>
-    <string name="dock_not_found_text" product="default" msgid="1460497923342627801">"អ្នក​ត្រូវ​តែ​ភ្ជាប់​ទូរស័ព្ទ មុន​ពេល​កំណត់​សំឡេង​ភ្ជាប់។"</string>
+    <string name="dock_not_found_text" msgid="8405432495282299143" product="tablet">"អ្នក​ត្រូវ​ភ្ជាប់​កុំព្យូទ័រ​បន្ទះ មុន​នឹង​រៀបចំ​​​សំឡេង​​ភ្ជាប់។"</string>
+    <string name="dock_not_found_text" msgid="1460497923342627801" product="default">"អ្នក​ត្រូវ​តែ​ភ្ជាប់​ទូរស័ព្ទ មុន​ពេល​កំណត់​សំឡេង​ភ្ជាប់។"</string>
     <string name="dock_sounds_enable_title" msgid="885839627097024110">"សំឡេង​បញ្ចូល​ការ​ភ្ជាប់"</string>
-    <string name="dock_sounds_enable_summary_on" product="tablet" msgid="838102386448981339">"ចាក់​សំឡេង ពេល​បញ្ចូល​ ឬ​ដក​កុំព្យូទ័រ​បន្ទះ​ពី​ការ​ភ្ជាប់"</string>
-    <string name="dock_sounds_enable_summary_on" product="default" msgid="8491180514199743771">"បន្លឺ​សំឡេង​ពេល​បញ្ចូល ឬ​ដក​ទូរស័ព្ទ​ពី​ការ​ភ្ជាប់"</string>
-    <string name="dock_sounds_enable_summary_off" product="tablet" msgid="4308252722466813560">"កុំ​បន្លឺ​សំឡេង​ពេល​បញ្ចូល ឬ​ដក​កុំព្យូទ័រ​បន្ទះ​​ពី​ការ​ភ្ជាប់"</string>
-    <string name="dock_sounds_enable_summary_off" product="default" msgid="2034927992716667672">"កុំ​បន្លឺ​សំឡេង​ពេល​បញ្ចូល ឬ​ដក​ទូរស័ព្ទ​ពី​ការ​ភ្ជាប់"</string>
+    <string name="dock_sounds_enable_summary_on" msgid="838102386448981339" product="tablet">"ចាក់​សំឡេង ពេល​បញ្ចូល​ ឬ​ដក​កុំព្យូទ័រ​បន្ទះ​ពី​ការ​ភ្ជាប់"</string>
+    <string name="dock_sounds_enable_summary_on" msgid="8491180514199743771" product="default">"បន្លឺ​សំឡេង​ពេល​បញ្ចូល ឬ​ដក​ទូរស័ព្ទ​ពី​ការ​ភ្ជាប់"</string>
+    <string name="dock_sounds_enable_summary_off" msgid="4308252722466813560" product="tablet">"កុំ​បន្លឺ​សំឡេង​ពេល​បញ្ចូល ឬ​ដក​កុំព្យូទ័រ​បន្ទះ​​ពី​ការ​ភ្ជាប់"</string>
+    <string name="dock_sounds_enable_summary_off" msgid="2034927992716667672" product="default">"កុំ​បន្លឺ​សំឡេង​ពេល​បញ្ចូល ឬ​ដក​ទូរស័ព្ទ​ពី​ការ​ភ្ជាប់"</string>
     <string name="account_settings" msgid="6403589284618783461">"គណនី"</string>
     <string name="accessibility_category_work" msgid="4339262969083355720">"គណនីប្រវត្តិរូបការងារ៖ <xliff:g id="MANAGED_BY">%s</xliff:g>"</string>
     <string name="accessibility_category_personal" msgid="1263518850905945594">"គណនីប្រវត្តិរូបផ្ទាល់ខ្លួន"</string>
@@ -931,10 +930,10 @@
     <string name="search_settings_summary" msgid="9205656546570654169">"គ្រប់គ្រង​ប្រវត្តិ និង​ការ​កំណត់​ស្វែងរក"</string>
     <string name="display_settings" msgid="7965901687241669598">"បង្ហាញ"</string>
     <string name="accelerometer_title" msgid="7854608399547349157">"បង្វិល​អេក្រង់​ស្វ័យប្រវត្តិ"</string>
-    <string name="accelerometer_summary_on" product="tablet" msgid="429982132339828942">"ប្ដូរ​ទិស​ស្វ័យ​ប្រវត្តិ​ពេល​បង្វិល​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="accelerometer_summary_on" product="default" msgid="1133737282813048021">"ប្ដូរ​ទិស​ស្វ័យ​ប្រវត្តិ​ពេល​បង្វិល​ទូរស័ព្ទ"</string>
-    <string name="accelerometer_summary_off" product="tablet" msgid="4781734213242521682">"ប្ដូរ​ទិស​ស្វ័យប្រវត្តិ​ពេល​បង្វិល​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="accelerometer_summary_off" product="default" msgid="5485489363715740761">"ប្ដូរ​ទិស​ស្វ័យ​ប្រវត្តិ​ពេល​បង្វិល​ទូរស័ព្ទ"</string>
+    <string name="accelerometer_summary_on" msgid="429982132339828942" product="tablet">"ប្ដូរ​ទិស​ស្វ័យ​ប្រវត្តិ​ពេល​បង្វិល​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="accelerometer_summary_on" msgid="1133737282813048021" product="default">"ប្ដូរ​ទិស​ស្វ័យ​ប្រវត្តិ​ពេល​បង្វិល​ទូរស័ព្ទ"</string>
+    <string name="accelerometer_summary_off" msgid="4781734213242521682" product="tablet">"ប្ដូរ​ទិស​ស្វ័យប្រវត្តិ​ពេល​បង្វិល​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="accelerometer_summary_off" msgid="5485489363715740761" product="default">"ប្ដូរ​ទិស​ស្វ័យ​ប្រវត្តិ​ពេល​បង្វិល​ទូរស័ព្ទ"</string>
     <string name="brightness" msgid="8480105032417444275">"កម្រិត​ពន្លឺ"</string>
     <string name="brightness_title" msgid="5746272622112982836">"ពន្លឺ"</string>
     <string name="brightness_summary" msgid="838917350127550703">"កែ​ពន្លឺ​អេក្រង់"</string>
@@ -985,10 +984,10 @@
     <string name="sim_lock_settings_category" msgid="5136244267576697004">"កំណត់​ការ​ចាក់​សោ​ស៊ីម​កាត"</string>
     <string name="sim_lock_settings_title" msgid="9018585580955414596">"ចាក់សោ​ស៊ីម​កាត"</string>
     <string name="sim_pin_toggle" msgid="1742123478029451888">"ចាក់​សោ​ស៊ីម​កាត"</string>
-    <string name="sim_lock_on" product="tablet" msgid="5058355081270397764">"ទាមទារ​កូដ PIN ដើម្បី​ប្រើ​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="sim_lock_on" product="default" msgid="2503536505568814324">"ទាមទារ​កូដ PIN ដើម្បី​ប្រើ​ទូរស័ព្ទ"</string>
-    <string name="sim_lock_off" product="tablet" msgid="2813800553917012356">"ទាមទារ​កូដ PIN ដើម្បី​ប្រើ​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="sim_lock_off" product="default" msgid="258981978215428916">"ទាមទារ​​​កូដ PIN ដើម្បី​ប្រើ​ទូរស័ព្ទ"</string>
+    <string name="sim_lock_on" msgid="5058355081270397764" product="tablet">"ទាមទារ​កូដ PIN ដើម្បី​ប្រើ​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="sim_lock_on" msgid="2503536505568814324" product="default">"ទាមទារ​កូដ PIN ដើម្បី​ប្រើ​ទូរស័ព្ទ"</string>
+    <string name="sim_lock_off" msgid="2813800553917012356" product="tablet">"ទាមទារ​កូដ PIN ដើម្បី​ប្រើ​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="sim_lock_off" msgid="258981978215428916" product="default">"ទាមទារ​​​កូដ PIN ដើម្បី​ប្រើ​ទូរស័ព្ទ"</string>
     <string name="sim_pin_change" msgid="6311414184279932368">"ប្ដូរ​កូដ PIN ស៊ីម​កាត"</string>
     <string name="sim_enter_pin" msgid="6608715137008508432">"កូដ​ PIN ស៊ីម​កាត"</string>
     <string name="sim_enable_sim_lock" msgid="4517742794997166918">"ចាក់​សោ​ស៊ីម​កាត"</string>
@@ -1016,8 +1015,8 @@
       <item quantity="one">លេខកូដសម្ងាត់ស៊ីមមិនត្រឹមត្រូវ អ្នកនៅសល់ការព្យាយាម <xliff:g id="NUMBER_0">%d</xliff:g> ដងទៀត មុនពេលពេលដែលអ្នកត្រូវទាក់ទងទៅអ្នកផ្តល់សេវាកម្មរបស់អ្នកដើម្បីដោះសោឧបករណ៍របស់អ្នក។</item>
     </plurals>
     <string name="pin_failed" msgid="1848423634948587645">"បាន​បរាជ័យ​ក្នុង​ការ​ប្រតិបត្តិ​​លេខ​កូដ PIN ស៊ីម!"</string>
-    <string name="device_info_settings" product="tablet" msgid="1119755927536987178">"ស្ថានភាព​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="device_info_settings" product="default" msgid="475872867864762157">"ស្ថានភាព​ទូរស័ព្ទ"</string>
+    <string name="device_info_settings" msgid="1119755927536987178" product="tablet">"ស្ថានភាព​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="device_info_settings" msgid="475872867864762157" product="default">"ស្ថានភាព​ទូរស័ព្ទ"</string>
     <string name="system_update_settings_list_item_title" msgid="3342887311059985961">"បច្ចុប្បន្នភាព​ប្រព័ន្ធ"</string>
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"កំណែ Android"</string>
@@ -1031,15 +1030,15 @@
     <string name="device_info_not_available" msgid="8062521887156825182">"មិន​អាច​ប្រើ​បាន"</string>
     <string name="device_status_activity_title" msgid="1411201799384697904">"ស្ថានភាព"</string>
     <string name="device_status" msgid="607405385799807324">"ស្ថានភាព"</string>
-    <string name="device_status_summary" product="tablet" msgid="3292717754497039686">"ស្ថានភាព​ថ្ម បណ្ដាញ និង​ព័ត៌មាន​ផ្សេងៗ"</string>
-    <string name="device_status_summary" product="default" msgid="2599162787451519618">"លេខ​ទូរស័ព្ទ សញ្ញា ។ល។"</string>
+    <string name="device_status_summary" msgid="3292717754497039686" product="tablet">"ស្ថានភាព​ថ្ម បណ្ដាញ និង​ព័ត៌មាន​ផ្សេងៗ"</string>
+    <string name="device_status_summary" msgid="2599162787451519618" product="default">"លេខ​ទូរស័ព្ទ សញ្ញា ។ល។"</string>
     <string name="storage_settings" msgid="4211799979832404953">"ការ​ផ្ទុក"</string>
     <string name="storage_usb_settings" msgid="7293054033137078060">"ឧបករណ៍​ផ្ទុក"</string>
     <string name="storage_settings_title" msgid="8746016738388094064">"កំណត់​ការ​​ផ្ទុក"</string>
-    <string name="storage_settings_summary" product="nosdcard" msgid="3543813623294870759">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី មើល​ទំហំ​ដែល​មាន"</string>
-    <string name="storage_settings_summary" product="default" msgid="9176693537325988610">"ផ្ដាច់​​កាត​អេស​ឌី មើល​ទំហំ​ដែល​មាន"</string>
-    <string name="status_number" product="tablet" msgid="1138837891091222272">"MDN"</string>
-    <string name="status_number" product="default" msgid="5123197324870153205">"លេខ​ទូរស័ព្ទ​ខ្ញុំ"</string>
+    <string name="storage_settings_summary" msgid="3543813623294870759" product="nosdcard">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី មើល​ទំហំ​ដែល​មាន"</string>
+    <string name="storage_settings_summary" msgid="9176693537325988610" product="default">"ផ្ដាច់​​កាត​អេស​ឌី មើល​ទំហំ​ដែល​មាន"</string>
+    <string name="status_number" msgid="1138837891091222272" product="tablet">"MDN"</string>
+    <string name="status_number" msgid="5123197324870153205" product="default">"លេខ​ទូរស័ព្ទ​ខ្ញុំ"</string>
     <string name="status_min_number" msgid="3519504522179420597">"MIN"</string>
     <string name="status_msid_number" msgid="909010114445780530">"MSID"</string>
     <string name="status_prl_version" msgid="1007470446618081441">"កំណែ PRL"</string>
@@ -1059,8 +1058,8 @@
     <string name="status_up_time" msgid="7294859476816760399">"រយៈ​ពេល​បើក"</string>
     <string name="status_awake_time" msgid="2393949909051183652">"ពេលវេលា​ភ្ញាក់"</string>
     <string name="internal_memory" msgid="9129595691484260784">"ទំហំ​​ផ្ទុក​ខាង​ក្នុង"</string>
-    <string name="sd_memory" product="nosdcard" msgid="2510246194083052841">"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="sd_memory" product="default" msgid="151871913888051515">"កាត​អេសឌី"</string>
+    <string name="sd_memory" msgid="2510246194083052841" product="nosdcard">"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="sd_memory" msgid="151871913888051515" product="default">"កាត​អេសឌី"</string>
     <string name="memory_available" msgid="5052397223077021181">"ទំនេរ"</string>
     <string name="memory_available_read_only" msgid="6497534390167920206">"ទំនេរ (បាន​តែ​អាន)"</string>
     <string name="memory_size" msgid="6629067715017232195">"ទំហំ​សរុប"</string>
@@ -1072,33 +1071,33 @@
     <string name="memory_music_usage" msgid="1363785144783011606">"អូឌីយ៉ូ (តន្ត្រី សំឡេង​រោទ៍ ផតខាស់ ។ល។)"</string>
     <string name="memory_media_misc_usage" msgid="6094866738586451683">"ឯកសារផ្សេងទៀត"</string>
     <string name="memory_media_cache_usage" msgid="6704293333141177910">"បាន​ដាក់​ទិន្នន័យ​ក្នុង​ឃ្លាំង​សម្ងាត់"</string>
-    <string name="sd_eject" product="nosdcard" msgid="4988563376492400073">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​ចែករំលែក"</string>
-    <string name="sd_eject" product="default" msgid="6915293408836853020">"ផ្ដាច់​កាត​អេសឌី"</string>
-    <string name="sd_eject_summary" product="nosdcard" msgid="5009296896648072891">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ខាង​ក្នុង"</string>
-    <string name="sd_eject_summary" product="default" msgid="3300599435073550246">"ផ្ដាច់​​កាត​អេសឌី ដូច្នេះ​អ្នក​អាច​ដក​ចេញ​ដោយ​សុវត្ថិភាព"</string>
-    <string name="sd_insert_summary" product="nosdcard" msgid="5264016886409577313">"បញ្ចូល​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ ដើម្បី​ភ្ជាប់"</string>
-    <string name="sd_insert_summary" product="default" msgid="2048640010381803841">"បញ្ចូល​កាត​អេសឌី​​ ដើម្បី​​ភ្ជាប់"</string>
-    <string name="sd_mount" product="nosdcard" msgid="8966695015677343116">"ភ្ជាប់​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="sd_mount" product="default" msgid="5940523765187704135">"ភ្ជាប់​កាត​​អេសឌី"</string>
-    <string name="sd_mount_summary" product="nosdcard" msgid="4673411327373419641"></string>
-    <string name="sd_mount_summary" product="default" msgid="4673411327373419641"></string>
-    <string name="sd_format" product="nosdcard" msgid="2148179271623099054">"លុប​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="sd_format" product="default" msgid="2576054280507119870">"លុប​កាត​អេសឌី"</string>
-    <string name="sd_format_summary" product="nosdcard" msgid="6331905044907914603">"លុប​ទិន្នន័យ​ទាំងអស់​ក្នុង​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ដូច​ជា តន្ត្រី និង​រូបថត"</string>
-    <string name="sd_format_summary" product="default" msgid="212703692181793109">"លុប​ទិន្នន័យ​ទាំងអស់​លើ​កាត​អេសឌី ដូចជា​តន្ត្រី និង​រូបថត"</string>
+    <string name="sd_eject" msgid="4988563376492400073" product="nosdcard">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​ចែករំលែក"</string>
+    <string name="sd_eject" msgid="6915293408836853020" product="default">"ផ្ដាច់​កាត​អេសឌី"</string>
+    <string name="sd_eject_summary" msgid="5009296896648072891" product="nosdcard">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ខាង​ក្នុង"</string>
+    <string name="sd_eject_summary" msgid="3300599435073550246" product="default">"ផ្ដាច់​​កាត​អេសឌី ដូច្នេះ​អ្នក​អាច​ដក​ចេញ​ដោយ​សុវត្ថិភាព"</string>
+    <string name="sd_insert_summary" msgid="5264016886409577313" product="nosdcard">"បញ្ចូល​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ ដើម្បី​ភ្ជាប់"</string>
+    <string name="sd_insert_summary" msgid="2048640010381803841" product="default">"បញ្ចូល​កាត​អេសឌី​​ ដើម្បី​​ភ្ជាប់"</string>
+    <string name="sd_mount" msgid="8966695015677343116" product="nosdcard">"ភ្ជាប់​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="sd_mount" msgid="5940523765187704135" product="default">"ភ្ជាប់​កាត​​អេសឌី"</string>
+    <string name="sd_mount_summary" msgid="4673411327373419641" product="nosdcard"></string>
+    <string name="sd_mount_summary" msgid="4673411327373419641" product="default"></string>
+    <string name="sd_format" msgid="2148179271623099054" product="nosdcard">"លុប​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="sd_format" msgid="2576054280507119870" product="default">"លុប​កាត​អេសឌី"</string>
+    <string name="sd_format_summary" msgid="6331905044907914603" product="nosdcard">"លុប​ទិន្នន័យ​ទាំងអស់​ក្នុង​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ដូច​ជា តន្ត្រី និង​រូបថត"</string>
+    <string name="sd_format_summary" msgid="212703692181793109" product="default">"លុប​ទិន្នន័យ​ទាំងអស់​លើ​កាត​អេសឌី ដូចជា​តន្ត្រី និង​រូបថត"</string>
     <string name="memory_clear_cache_title" msgid="5423840272171286191">"សម្អាត​ទិន្នន័យ​ក្នុង​ឃ្លាំង​សម្ងាត់?"</string>
     <string name="memory_clear_cache_message" msgid="4550262490807415948">"វា​នឹង​សម្អាត​ទិន្នន័យ​បាន​ដាក់​ក្នុង​ឃ្លាំង​សម្ងាត់​សម្រាប់​កម្មវិធី​ទាំងអស់។"</string>
     <string name="mtp_ptp_mode_summary" msgid="3710436114807789270">"មុខងារ MTP ឬ PTP សកម្ម"</string>
-    <string name="dlg_confirm_unmount_title" product="nosdcard" msgid="3077285629197874055">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី?"</string>
-    <string name="dlg_confirm_unmount_title" product="default" msgid="3634502237262534381">"ផ្ដាច់​​កាត​អេសឌី?"</string>
-    <string name="dlg_confirm_unmount_text" product="nosdcard" msgid="4322636662873269018">"បើ​អ្នក​ផ្ដាច់​​ឧបករណ៍​ផ្ទុកយូអេសប៊ី កម្មវិធី​មួយ​ចំនួន​ដែល​អ្នក​កំពុង​ប្រើ​នឹង​​ឈប់​ដំណើរការ និង​មិន​អាច​ប្រើ​បាន​រហូត​ដល់​​ពេល​អ្នក​ភ្ជាប់​ឧករណ៍​ផ្ទុក​យូអេសប៊ី​ម្ដង​ទៀត។"</string>
-    <string name="dlg_confirm_unmount_text" product="default" msgid="6998379994779187692">"បើ​អ្នក​ផ្ដាច់​​កាត​អេសឌី កម្មវិធី​មួយ​ចំនួន​ដែល​អ្នក​កំពុង​ប្រើ​នឹង​​ឈប់​ដំណើរការ និង​មិន​អាច​ប្រើ​បាន​រហូត​ដល់​​ពេល​អ្នក​ភ្ជាប់​កាត​អេសឌី​ម្ដង​ទៀត។"</string>
-    <string name="dlg_error_unmount_title" product="nosdcard" msgid="4642742385125426529"></string>
-    <string name="dlg_error_unmount_title" product="default" msgid="4642742385125426529"></string>
-    <string name="dlg_error_unmount_text" product="nosdcard" msgid="9191518889746166147">"មិន​អាច​ផ្ដាច់​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី។ ព្យាយាម​ម្ដង​ទៀត​ពេល​ក្រោយ។"</string>
-    <string name="dlg_error_unmount_text" product="default" msgid="3500976899159848422">"មិន​អាច​ផ្ដាច់​​កាត​អេសឌី។ ព្យាយាម​ម្ដង​ទៀត​ពេល​ក្រោយ។"</string>
-    <string name="unmount_inform_text" product="nosdcard" msgid="7120241136790744265">"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​នឹង​​​ត្រូវ​បាន​ផ្ដាច់។"</string>
-    <string name="unmount_inform_text" product="default" msgid="1904212716075458402">"កាត​អេសឌី​នឹង​ត្រូវ​បាន​ផ្ដាច់។"</string>
+    <string name="dlg_confirm_unmount_title" msgid="3077285629197874055" product="nosdcard">"ផ្ដាច់​​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី?"</string>
+    <string name="dlg_confirm_unmount_title" msgid="3634502237262534381" product="default">"ផ្ដាច់​​កាត​អេសឌី?"</string>
+    <string name="dlg_confirm_unmount_text" msgid="4322636662873269018" product="nosdcard">"បើ​អ្នក​ផ្ដាច់​​ឧបករណ៍​ផ្ទុកយូអេសប៊ី កម្មវិធី​មួយ​ចំនួន​ដែល​អ្នក​កំពុង​ប្រើ​នឹង​​ឈប់​ដំណើរការ និង​មិន​អាច​ប្រើ​បាន​រហូត​ដល់​​ពេល​អ្នក​ភ្ជាប់​ឧករណ៍​ផ្ទុក​យូអេសប៊ី​ម្ដង​ទៀត។"</string>
+    <string name="dlg_confirm_unmount_text" msgid="6998379994779187692" product="default">"បើ​អ្នក​ផ្ដាច់​​កាត​អេសឌី កម្មវិធី​មួយ​ចំនួន​ដែល​អ្នក​កំពុង​ប្រើ​នឹង​​ឈប់​ដំណើរការ និង​មិន​អាច​ប្រើ​បាន​រហូត​ដល់​​ពេល​អ្នក​ភ្ជាប់​កាត​អេសឌី​ម្ដង​ទៀត។"</string>
+    <string name="dlg_error_unmount_title" msgid="4642742385125426529" product="nosdcard"></string>
+    <string name="dlg_error_unmount_title" msgid="4642742385125426529" product="default"></string>
+    <string name="dlg_error_unmount_text" msgid="9191518889746166147" product="nosdcard">"មិន​អាច​ផ្ដាច់​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី។ ព្យាយាម​ម្ដង​ទៀត​ពេល​ក្រោយ។"</string>
+    <string name="dlg_error_unmount_text" msgid="3500976899159848422" product="default">"មិន​អាច​ផ្ដាច់​​កាត​អេសឌី។ ព្យាយាម​ម្ដង​ទៀត​ពេល​ក្រោយ។"</string>
+    <string name="unmount_inform_text" msgid="7120241136790744265" product="nosdcard">"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​នឹង​​​ត្រូវ​បាន​ផ្ដាច់។"</string>
+    <string name="unmount_inform_text" msgid="1904212716075458402" product="default">"កាត​អេសឌី​នឹង​ត្រូវ​បាន​ផ្ដាច់។"</string>
     <string name="sd_ejecting_title" msgid="8824572198034365468">"ផ្ដាច់​"</string>
     <string name="sd_ejecting_summary" msgid="2028753069184908491">"ការ​ផ្ដាច់​​កំពុង​ដំណើរការ"</string>
     <string name="storage_low_title" msgid="1388569749716225155">"អស់​ទំហំផ្ទុក"</string>
@@ -1239,19 +1238,19 @@
     <string name="reset_network_complete_toast" msgid="787829973559541880">"បានកំណត់ការកំណត់បណ្តាញឡើងវិញ"</string>
     <string name="device_reset_title" msgid="2384019005638768076">"កំណត់​ឧបករណ៍​ឡើងវិញ"</string>
     <string name="master_clear_title" msgid="5907939616087039756">"កំណត់​ទិន្នន័យ​ដូច​ចេញពី​រោងចក្រ"</string>
-    <string name="master_clear_desc" product="tablet" msgid="9146059417023157222">"វា​នឹង​លុប​ទិន្នន័យ​ពី​ "<b>"ឧបករណ៍​ផ្ទុក​ខាង​ក្នុង"</b>"នៃ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក រួម​មាន៖\n\n"<li>"គណនី Google របស់​អ្នក"</li>\n<li>"ការកំណត់ និង​ទិន្នន័យ​កម្មវិធី និង​ប្រព័ន្ធ"</li>\n<li>"កម្មវិធី​បាន​ទាញ​យក"</li></string>
-    <string name="master_clear_desc" product="default" msgid="4800386183314202571">"វា​នឹង​លុប​ទិន្នន័យ​ទាំងអស់​ពី​ "<b>"ឧបករណ៍​ផ្ទុក​ខាង​ក្នុង"</b>"នៃ​ទូរស័ព្ទ​របស់​អ្នក​ រួមមាន៖\n\n"<li>"គណនី Google របស់​អ្នក"</li>\n<li>"ការ​កំណត់​ និង​ទិន្នន័យ​ប្រព័ន្ធ ព្រម​ទាំង​កម្មវិធី"</li>\n<li>"កម្មវិធី​បាន​ទាញ​យក"</li></string>
-    <string name="master_clear_accounts" product="default" msgid="6412857499147999073">\n\n"បច្ចុប្បន្ន​ អ្នក​បាន​ចូល​គណនី​ដូច​ខាង​ក្រោម៖ \n"</string>
-    <string name="master_clear_other_users_present" product="default" msgid="5161423070702470742">\n\n"មានអ្នកផ្សេងច្រើនទៀតមានវត្តមាននៅលើឧបករណ៍នេះ។\n"</string>
+    <string name="master_clear_desc" msgid="9146059417023157222" product="tablet">"វា​នឹង​លុប​ទិន្នន័យ​ពី​ "<b>"ឧបករណ៍​ផ្ទុក​ខាង​ក្នុង"</b>"នៃ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក រួម​មាន៖\n\n"<li>"គណនី Google របស់​អ្នក"</li>\n<li>"ការកំណត់ និង​ទិន្នន័យ​កម្មវិធី និង​ប្រព័ន្ធ"</li>\n<li>"កម្មវិធី​បាន​ទាញ​យក"</li></string>
+    <string name="master_clear_desc" msgid="4800386183314202571" product="default">"វា​នឹង​លុប​ទិន្នន័យ​ទាំងអស់​ពី​ "<b>"ឧបករណ៍​ផ្ទុក​ខាង​ក្នុង"</b>"នៃ​ទូរស័ព្ទ​របស់​អ្នក​ រួមមាន៖\n\n"<li>"គណនី Google របស់​អ្នក"</li>\n<li>"ការ​កំណត់​ និង​ទិន្នន័យ​ប្រព័ន្ធ ព្រម​ទាំង​កម្មវិធី"</li>\n<li>"កម្មវិធី​បាន​ទាញ​យក"</li></string>
+    <string name="master_clear_accounts" msgid="6412857499147999073" product="default">\n\n"បច្ចុប្បន្ន​ អ្នក​បាន​ចូល​គណនី​ដូច​ខាង​ក្រោម៖ \n"</string>
+    <string name="master_clear_other_users_present" msgid="5161423070702470742" product="default">\n\n"មានអ្នកផ្សេងច្រើនទៀតមានវត្តមាននៅលើឧបករណ៍នេះ។\n"</string>
     <string name="master_clear_desc_also_erases_external" msgid="1903185203791274237"><li>"តន្ត្រី"</li>\n<li>"រូបថត"</li>\n<li>"ទិន្នន័យ​អ្នក​ប្រើ​ផ្សេង​ទៀត"</li></string>
-    <string name="master_clear_desc_erase_external_storage" product="nosdcard" msgid="7744115866662613411">\n\n"ដើម្បី​សម្អាត​តន្ត្រី រូបថត និង​ទិន្នន័យ​អ្នក​ប្រើ​ផ្សេងៗ តម្រូវ​ឲ្យ​លុប"<b>"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</b>" ។"</string>
-    <string name="master_clear_desc_erase_external_storage" product="default" msgid="4801026652617377093">\n\n"ដើម្បី​សម្អាត​តន្ត្រី, រូបភាព និង​ទិន្នន័យ​អ្នកប្រើ​ផ្សេងទៀត "<b>"ចាំបាច់​ត្រូវ"</b>" លុប​កាត​អេសឌី។"</string>
-    <string name="erase_external_storage" product="nosdcard" msgid="969364037450286809">"លុប​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="erase_external_storage" product="default" msgid="1397239046334307625">"លុប​កាត​​អេសឌី"</string>
-    <string name="erase_external_storage_description" product="nosdcard" msgid="4728558173931599429">"លុប​ទិន្នន័យ​ទាំងអស់​លើ​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ខាង​ក្នុង ដូច​ជា​តន្ត្រី ឬ​​រូបថត"</string>
-    <string name="erase_external_storage_description" product="default" msgid="1737638779582964966">"លុប​ទិន្នន័យ​ទាំងអស់​លើ​កាត​អេសឌី ដូច​ជា​តន្ត្រី ឬ​រូបថត"</string>
-    <string name="master_clear_button_text" product="tablet" msgid="3130786116528304116">"កំណត់​កុំព្យូទ័រ​បន្ទះ​ឡើងវិញ"</string>
-    <string name="master_clear_button_text" product="default" msgid="7550632653343157971">"កំណត់​ទូរស័ព្ទ​ឡើងវិញ"</string>
+    <string name="master_clear_desc_erase_external_storage" msgid="7744115866662613411" product="nosdcard">\n\n"ដើម្បី​សម្អាត​តន្ត្រី រូបថត និង​ទិន្នន័យ​អ្នក​ប្រើ​ផ្សេងៗ តម្រូវ​ឲ្យ​លុប"<b>"ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</b>" ។"</string>
+    <string name="master_clear_desc_erase_external_storage" msgid="4801026652617377093" product="default">\n\n"ដើម្បី​សម្អាត​តន្ត្រី, រូបភាព និង​ទិន្នន័យ​អ្នកប្រើ​ផ្សេងទៀត "<b>"ចាំបាច់​ត្រូវ"</b>" លុប​កាត​អេសឌី។"</string>
+    <string name="erase_external_storage" msgid="969364037450286809" product="nosdcard">"លុប​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="erase_external_storage" msgid="1397239046334307625" product="default">"លុប​កាត​​អេសឌី"</string>
+    <string name="erase_external_storage_description" msgid="4728558173931599429" product="nosdcard">"លុប​ទិន្នន័យ​ទាំងអស់​លើ​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី​ខាង​ក្នុង ដូច​ជា​តន្ត្រី ឬ​​រូបថត"</string>
+    <string name="erase_external_storage_description" msgid="1737638779582964966" product="default">"លុប​ទិន្នន័យ​ទាំងអស់​លើ​កាត​អេសឌី ដូច​ជា​តន្ត្រី ឬ​រូបថត"</string>
+    <string name="master_clear_button_text" msgid="3130786116528304116" product="tablet">"កំណត់​កុំព្យូទ័រ​បន្ទះ​ឡើងវិញ"</string>
+    <string name="master_clear_button_text" msgid="7550632653343157971" product="default">"កំណត់​ទូរស័ព្ទ​ឡើងវិញ"</string>
     <string name="master_clear_final_desc" msgid="7318683914280403086">"លុបព័ត៌មានផ្ទាល់ខ្លួន និងកម្មវិធីដែលបានទាញយករបស់អ្នកទាំងអស់? អ្នកមិនអាចធ្វើសកម្មភាពនេះវិញបានទេ!"</string>
     <string name="master_clear_final_button_text" msgid="5390908019019242910">"លុប​អ្វីៗ​ទាំងអស់"</string>
     <string name="master_clear_failed" msgid="2503230016394586353">"គ្មាន​ការ​កំណត់​ឡើងវិញ​ត្រូវ​បាន​អនុវត្ត ព្រោះ​សេវាកម្ម​សម្អាត​ប្រព័ន្ធ​មិន​អាច​ប្រើ​បាន។"</string>
@@ -1276,15 +1275,15 @@
     <string name="usb_tethering_turnon_subtext" msgid="4748616058219273033">"ភ្ជាប់​ដើម្បី​បើក"</string>
     <string name="usb_tethering_errored_subtext" msgid="1377574819427841992">"កំហុស​ការ​ភ្ជាប់​យូអេសប៊ី"</string>
     <string name="bluetooth_tether_checkbox_text" msgid="2379175828878753652">"ការ​ភ្ជាប់​ប៊្លូធូស"</string>
-    <string name="bluetooth_tethering_available_subtext" product="tablet" msgid="4328374808439440517">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​កុំព្យូទ័រ​បន្ទះ​​នេះ"</string>
-    <string name="bluetooth_tethering_available_subtext" product="default" msgid="7451579908917710359">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​ទូរស័ព្ទ​នេះ"</string>
-    <string name="bluetooth_tethering_device_connected_subtext" product="tablet" msgid="7296104766087335891">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​កុំព្យូទ័រ​បន្ទះ​នេះ​ជា​មួយ​ឧបករណ៍​មួយ"</string>
-    <string name="bluetooth_tethering_device_connected_subtext" product="default" msgid="2785474869740805972">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​​ទូរស័ព្ទ​នេះ​ជា​មួយ​ឧបករណ៍​មួយ"</string>
-    <string name="bluetooth_tethering_devices_connected_subtext" product="tablet" msgid="7345108029216525495">"ចែករំលែក​​ការ​តភ្ជាប់​អ៊ីនធឺណិត​នៃ​កុំព្យូទ័រ​បន្ទះ​នេះ​ដល់​ឧបករណ៍ <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g>"</string>
-    <string name="bluetooth_tethering_devices_connected_subtext" product="default" msgid="2992288063706153665">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​នៃ​ទូរស័ព្ទ​នេះ​ដល់​ឧបករណ៍ <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g>"</string>
+    <string name="bluetooth_tethering_available_subtext" msgid="4328374808439440517" product="tablet">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​កុំព្យូទ័រ​បន្ទះ​​នេះ"</string>
+    <string name="bluetooth_tethering_available_subtext" msgid="7451579908917710359" product="default">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​ទូរស័ព្ទ​នេះ"</string>
+    <string name="bluetooth_tethering_device_connected_subtext" msgid="7296104766087335891" product="tablet">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​កុំព្យូទ័រ​បន្ទះ​នេះ​ជា​មួយ​ឧបករណ៍​មួយ"</string>
+    <string name="bluetooth_tethering_device_connected_subtext" msgid="2785474869740805972" product="default">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​​ទូរស័ព្ទ​នេះ​ជា​មួយ​ឧបករណ៍​មួយ"</string>
+    <string name="bluetooth_tethering_devices_connected_subtext" msgid="7345108029216525495" product="tablet">"ចែករំលែក​​ការ​តភ្ជាប់​អ៊ីនធឺណិត​នៃ​កុំព្យូទ័រ​បន្ទះ​នេះ​ដល់​ឧបករណ៍ <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g>"</string>
+    <string name="bluetooth_tethering_devices_connected_subtext" msgid="2992288063706153665" product="default">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​នៃ​ទូរស័ព្ទ​នេះ​ដល់​ឧបករណ៍ <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g>"</string>
     <string name="bluetooth_tethering_off_subtext_config" msgid="6630416508030836214">"ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់ <xliff:g id="DEVICE_NAME">%1$d</xliff:g> នេះ"</string>
-    <string name="bluetooth_tethering_off_subtext" product="tablet" msgid="3737828501935728137">"មិន​ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​កុំព្យូទ័រ​បន្ទះ​នេះ"</string>
-    <string name="bluetooth_tethering_off_subtext" product="default" msgid="9099562374002272901">"មិន​ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​ទូរស័ព្ទ​នេះ"</string>
+    <string name="bluetooth_tethering_off_subtext" msgid="3737828501935728137" product="tablet">"មិន​ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​កុំព្យូទ័រ​បន្ទះ​នេះ"</string>
+    <string name="bluetooth_tethering_off_subtext" msgid="9099562374002272901" product="default">"មិន​ចែករំលែក​ការ​តភ្ជាប់​អ៊ីនធឺណិត​របស់​ទូរស័ព្ទ​នេះ"</string>
     <string name="bluetooth_tethering_errored_subtext" msgid="4926566308991142264">"មិន​បាន​ភ្ជាប់"</string>
     <string name="bluetooth_tethering_overflow_error" msgid="2135590598511178690">"មិន​អាច​ភ្ជាប់​ទៅ​ឧបករណ៍​ច្រើន​ជាង <xliff:g id="MAXCONNECTION">%1$d</xliff:g> ។"</string>
     <string name="bluetooth_untether_blank" msgid="2871192409329334813">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> នឹង​ត្រូវ​បាន​ផ្ដាច់។"</string>
@@ -1328,8 +1327,8 @@
     <string name="location_neighborhood_level" msgid="5141318121229984788">"ឲ្យ​កម្មវិធី​ប្រើ​សេវាកម្ម​ទីតាំង​របស់ Google ដើម្បី​ស្មាន​ទីតាំង​របស់​អ្នក​កាន់តែ​លឿន។ ទិន្នន័យ​ទីតាំង​អនាមិក​នឹង​ត្រូវ​បាន​ប្រមូល​ រួច​ផ្ញើ​ទៅ Google ។"</string>
     <string name="location_neighborhood_level_wifi" msgid="4234820941954812210">"ទីតាំង​បាន​កំណត់​ដោយ​វ៉ាយហ្វាយ"</string>
     <string name="location_gps" msgid="8392461023569708478">"ផ្កាយរណប GPS"</string>
-    <string name="location_street_level" product="tablet" msgid="1669562198260860802">"ឲ្យ​កម្មវិធី​ប្រើ GPS លើ​កុំព្យូទ័រ​បន្ទះ​​របស់​អ្នក​ដើម្បី​ដៅ​ទីតាំង​របស់​អ្នក"</string>
-    <string name="location_street_level" product="default" msgid="4617445745492014203">"ឲ្យ​កម្មវិធី​ប្រើ GPS លើ​ទូរស័ព្ទ​របស់​អ្នក​ដើម្បី​ដៅ​ទីតាំង​របស់​អ្នក"</string>
+    <string name="location_street_level" msgid="1669562198260860802" product="tablet">"ឲ្យ​កម្មវិធី​ប្រើ GPS លើ​កុំព្យូទ័រ​បន្ទះ​​របស់​អ្នក​ដើម្បី​ដៅ​ទីតាំង​របស់​អ្នក"</string>
+    <string name="location_street_level" msgid="4617445745492014203" product="default">"ឲ្យ​កម្មវិធី​ប្រើ GPS លើ​ទូរស័ព្ទ​របស់​អ្នក​ដើម្បី​ដៅ​ទីតាំង​របស់​អ្នក"</string>
     <string name="assisted_gps" msgid="4649317129586736885">"ប្រើ GPS ជា​ជំនួយ"</string>
     <string name="assisted_gps_enabled" msgid="8751899609589792803">"ប្រើ​ម៉ាស៊ីន​មេ ដើម្បី​ជួយ GPS (ដោះ​សញ្ញា​ធីក ដើម្បី​កាត់បន្ថយ​ការ​ប្រើ​បណ្ដាញ)"</string>
     <string name="assisted_gps_disabled" msgid="6982698333968010748">"ប្រើ​ម៉ាស៊ីន​មេ​ដើម្បី​ជួយ GPS (ដោះ​ធីក ដើម្បី​បង្កើន​ការ​អនុវត្ត GPS)"</string>
@@ -1338,9 +1337,9 @@
     <string name="location_access_title" msgid="7064108942964081243">"ចូល​ទីតាំង​របស់​ខ្ញុំ"</string>
     <string name="location_access_summary" msgid="69031404093194341">"ឲ្យ​កម្មវិធី​​សួ​រ​រក​សិទ្ធិ​របស់​អ្នក​ក្នុង​ការ​ប្រើ​ព័ត៌មាន​ទីតាំង​របស់​អ្នក"</string>
     <string name="location_sources_heading" msgid="1278732419851088319">"ប្រភព​ទីតាំង"</string>
-    <string name="about_settings" product="tablet" msgid="593457295516533765">"អំពី​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="about_settings" product="default" msgid="1743378368185371685">"អំពី​ទូរស័ព្ទ"</string>
-    <string name="about_settings" product="emulator" msgid="221313099578564438">"អំពីឧបករណ៍ត្រាប់តាម"</string>
+    <string name="about_settings" msgid="593457295516533765" product="tablet">"អំពី​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="about_settings" msgid="1743378368185371685" product="default">"អំពី​ទូរស័ព្ទ"</string>
+    <string name="about_settings" msgid="221313099578564438" product="emulator">"អំពីឧបករណ៍ត្រាប់តាម"</string>
     <string name="about_settings_summary" msgid="3371517697156165959">"មើល​ព័ត៌មាន​ផ្លូវច្បាប់, ស្ថានភាព, កំណែ​កម្មវិធី"</string>
     <string name="legal_information" msgid="5769301644270604095">"ព័ត៌មាន​ផ្លូវ​ច្បាប់"</string>
     <string name="contributors_title" msgid="5917703088825286504">"អ្នក​ចូលរួម"</string>
@@ -1435,8 +1434,8 @@
     <string name="install_applications_title" msgid="4987712352256508946">"អនុញ្ញាតប្រភពកម្មវិធីទាំងអស់"</string>
     <string name="install_unknown_applications_title" msgid="663831043139080992">"អនុញ្ញាតឲ្យអ្នកដំឡើងកម្មវិធីពីប្រភពក្រៅពី Google កម្សាន្ត"</string>
     <string name="install_unknown_applications" msgid="176855644862942064">"ឲ្យ​ដំឡើង​កម្មវិធី​ពី​ប្រភព​ដែល​មិន​ស្គាល់"</string>
-    <string name="install_all_warning" product="tablet" msgid="3263360446508268880">"កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក និង​ទិន្នន័យ​ផ្ទាល់​ខ្លួន​ងាយ​រង​ការ​វាយប្រហារ​ដោយ​កម្មវិធី​ពី​ប្រភព​ដែល​មិន​ស្គាល់។ អ្នក​យល់ព្រម​ថា អ្នក​ទទួលខុសត្រូវ​រាល់​ការ​ខូចខាត​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក ឬ​បាត់បង់​ទិន្នន័យ​ដែល​បណ្ដាល​មក​ពី​ការ​ប្រើ​កម្មវិធី​ទាំង​នេះ។"</string>
-    <string name="install_all_warning" product="default" msgid="8113734576826384682">"ទូរស័ព្ទ និង​ទិន្នន័យ​ផ្ទាល់ខ្លួន​របស់​អ្នក​ងាយ​រង​​​​​ការ​វាយ​ប្រហារ​ដោយ​កម្មវិធី​ដែល​មិន​ស្គាល់​ប្រភព​ណាស់។ អ្នក​យល់ព្រម​ទទួលខុសត្រូវ​លើ​ការ​ខូច​ខាត​ទូរស័ព្ទ​របស់​អ្នក ឬ​បាត់បង់​ទិន្នន័យ​ដែល​បណ្ដាល​មក​ពី​ការ​ប្រើ​កម្មវិធី​ទាំង​នេះ។"</string>
+    <string name="install_all_warning" msgid="3263360446508268880" product="tablet">"កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក និង​ទិន្នន័យ​ផ្ទាល់​ខ្លួន​ងាយ​រង​ការ​វាយប្រហារ​ដោយ​កម្មវិធី​ពី​ប្រភព​ដែល​មិន​ស្គាល់។ អ្នក​យល់ព្រម​ថា អ្នក​ទទួលខុសត្រូវ​រាល់​ការ​ខូចខាត​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក ឬ​បាត់បង់​ទិន្នន័យ​ដែល​បណ្ដាល​មក​ពី​ការ​ប្រើ​កម្មវិធី​ទាំង​នេះ។"</string>
+    <string name="install_all_warning" msgid="8113734576826384682" product="default">"ទូរស័ព្ទ និង​ទិន្នន័យ​ផ្ទាល់ខ្លួន​របស់​អ្នក​ងាយ​រង​​​​​ការ​វាយ​ប្រហារ​ដោយ​កម្មវិធី​ដែល​មិន​ស្គាល់​ប្រភព​ណាស់។ អ្នក​យល់ព្រម​ទទួលខុសត្រូវ​លើ​ការ​ខូច​ខាត​ទូរស័ព្ទ​របស់​អ្នក ឬ​បាត់បង់​ទិន្នន័យ​ដែល​បណ្ដាល​មក​ពី​ការ​ប្រើ​កម្មវិធី​ទាំង​នេះ។"</string>
     <string name="advanced_settings" msgid="1777249286757067969">"ការ​កំណត់​កម្រិត​ខ្ពស់"</string>
     <string name="advanced_settings_summary" msgid="4016682978071086747">"បើក​ជម្រើស​កំណត់​ច្រើន​ទៀត"</string>
     <string name="application_info_label" msgid="5736524913065714880">"ព័ត៌មាន​កម្មវិធី"</string>
@@ -1459,8 +1458,8 @@
     <string name="application_size_label" msgid="8494609207373874267">"កម្មវិធី"</string>
     <string name="external_code_size_label" msgid="3459343140355961335">"កម្មវិធី​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
     <string name="data_size_label" msgid="8679376373625710107">"ទិន្នន័យ"</string>
-    <string name="external_data_size_label" product="nosdcard" msgid="7533821466482000453">"ទិន្នន័យ​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="external_data_size_label" product="default" msgid="626414192825329708">"កាត​អេសឌី"</string>
+    <string name="external_data_size_label" msgid="7533821466482000453" product="nosdcard">"ទិន្នន័យ​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="external_data_size_label" msgid="626414192825329708" product="default">"កាត​អេសឌី"</string>
     <string name="uninstall_text" msgid="3644892466144802466">"លុប"</string>
     <string name="uninstall_all_users_text" msgid="851857393177950340">"លុប​សម្រាប់​អ្នក​ប្រើ​ទាំងអស់"</string>
     <string name="install_text" msgid="884360662922471113">"ដំឡើង"</string>
@@ -1492,15 +1491,15 @@
     <string name="filter_apps_disabled" msgid="5364447573326472890">"បិទ"</string>
     <string name="filter_apps_third_party" msgid="7786348047690140979">"បាន​ទាញ​យក"</string>
     <string name="filter_apps_running" msgid="7767071454371350486">"កំពុង​ដំណើរការ"</string>
-    <string name="filter_apps_onsdcard" product="nosdcard" msgid="4843063154701023349">"ឧបករណ៍​ផ្ទុក​​យូអេសប៊ី"</string>
-    <string name="filter_apps_onsdcard" product="default" msgid="1477351142334784771">"លើ​កាត​អេសឌី"</string>
+    <string name="filter_apps_onsdcard" msgid="4843063154701023349" product="nosdcard">"ឧបករណ៍​ផ្ទុក​​យូអេសប៊ី"</string>
+    <string name="filter_apps_onsdcard" msgid="1477351142334784771" product="default">"លើ​កាត​អេសឌី"</string>
     <string name="disabled" msgid="9206776641295849915">"បិទ"</string>
     <string name="not_installed" msgid="2797554494953450291">"មិន​បាន​ដំឡើង​សម្រាប់​អ្នក​ប្រើ​នេះ"</string>
     <string name="no_applications" msgid="7336588977497084921">"គ្មាន​កម្មវិធី"</string>
     <string name="internal_storage" msgid="1584700623164275282">"ឧបករណ៍​ខាង​ក្នុង"</string>
     <string name="internal_storage_sentence" msgid="889098931914857143">"ឧបករណ៍ផ្ទុកខាងក្នុង"</string>
-    <string name="sd_card_storage" product="nosdcard" msgid="2673203150465132465">"ឧបករណ៍​ផ្ទុក​​យូអេសប៊ី"</string>
-    <string name="sd_card_storage" product="default" msgid="7623513618171928235">"ឧបករណ៍​ផ្ទុក​កាត​អេសឌី"</string>
+    <string name="sd_card_storage" msgid="2673203150465132465" product="nosdcard">"ឧបករណ៍​ផ្ទុក​​យូអេសប៊ី"</string>
+    <string name="sd_card_storage" msgid="7623513618171928235" product="default">"ឧបករណ៍​ផ្ទុក​កាត​អេសឌី"</string>
     <string name="recompute_size" msgid="7722567982831691718">"កំពុង​គណនា​ទំហំ​ឡើងវិញ…"</string>
     <string name="clear_data_dlg_title" msgid="5605258400134511197">"លុប​ទិន្នន័យ​កម្មវិធី?"</string>
     <string name="clear_data_dlg_text" msgid="3951297329833822490">"ទិន្នន័យ​របស់​កម្មវិធី​នេះ​ទាំងអស់​នឹង​ត្រូវ​បាន​លុប​ជា​អចិន្ត្រៃយ៍។ រួមមាន ឯកសារ​ទាំងអស់, ការ​កំណត់, គណនី, មូលដ្ឋាន​ទិន្នន័យ ។ល។"</string>
@@ -1511,10 +1510,10 @@
     <string name="clear_data_failed" msgid="7214074331627422248">"មិន​អាច​សម្អាត​ទិន្នន័យ​កម្មវិធី។"</string>
     <string name="clear_failed_dlg_title" msgid="2387060805294783175">"សម្អាត​ទិន្នន័យ"</string>
     <string name="clear_failed_dlg_text" msgid="5464475937929941008">"មិន​អាច​សម្អាត​ទិន្នន័យ​សម្រាប់​កម្មវិធី។"</string>
-    <string name="security_settings_desc" product="tablet" msgid="1292421279262430109">"កម្មវិធី​នេះ​អា​ច​ចូល​ដំណើរការ​ក្នុង​​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក៖"</string>
-    <string name="security_settings_desc" product="default" msgid="61749028818785244">"កម្មវិធី​នេះ​អា​ច​ចូល​ដំណើរការ​ក្នុង​ទូរស័ព្ទ​របស់​អ្នក៖"</string>
-    <string name="security_settings_desc_multi" product="tablet" msgid="7300932212437084403">"កម្មវិធី​នេះ​អាច​ចូល​ដំណើរការ​​កុំព្យូទ័រ​​របស់​អ្នក។ ដើម្បី​បង្កើន​ការ​អនុវត្ត និង​កាត់​បន្ថយ​ការ​ប្រើ​អង្គ​ចងចាំ សិទ្ធិ​មួយ​ចំនួន​ក្នុង​ចំណោម​សិទ្ធិ​ទាំង​នេះ​អាច​ប្រើ​បាន​ចំពោះ <xliff:g id="BASE_APP_NAME">%1$s</xliff:g> ព្រោះ​វា​ដំណើរការ​​ក្នុង​ដំណើរការ​តែ​មួយ​ជា <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> ៖"</string>
-    <string name="security_settings_desc_multi" product="default" msgid="6610268420793984752">"កម្មវិធី​នេះ​អាច​ចូល​ដំណើរការ​ទូរស័ព្ទ​របស់​អ្នក។ ដើម្បី​បង្កើន​ការ​អនុវត្ត និង​កាត់​បន្ថយ​ការ​ប្រើ​អង្គ​ចងចាំ សិទ្ធិ​មួយ​ចំនួន​ក្នុង​ចំណោម​សិទ្ធិ​ទាំង​នេះ​អាច​ប្រើ​បាន​ចំពោះ <xliff:g id="BASE_APP_NAME">%1$s</xliff:g> ព្រោះ​វា​ដំណើរការ​​ក្នុង​ដំណើរការ​តែ​មួយ​ជា <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> ៖"</string>
+    <string name="security_settings_desc" msgid="1292421279262430109" product="tablet">"កម្មវិធី​នេះ​អា​ច​ចូល​ដំណើរការ​ក្នុង​​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក៖"</string>
+    <string name="security_settings_desc" msgid="61749028818785244" product="default">"កម្មវិធី​នេះ​អា​ច​ចូល​ដំណើរការ​ក្នុង​ទូរស័ព្ទ​របស់​អ្នក៖"</string>
+    <string name="security_settings_desc_multi" msgid="7300932212437084403" product="tablet">"កម្មវិធី​នេះ​អាច​ចូល​ដំណើរការ​​កុំព្យូទ័រ​​របស់​អ្នក។ ដើម្បី​បង្កើន​ការ​អនុវត្ត និង​កាត់​បន្ថយ​ការ​ប្រើ​អង្គ​ចងចាំ សិទ្ធិ​មួយ​ចំនួន​ក្នុង​ចំណោម​សិទ្ធិ​ទាំង​នេះ​អាច​ប្រើ​បាន​ចំពោះ <xliff:g id="BASE_APP_NAME">%1$s</xliff:g> ព្រោះ​វា​ដំណើរការ​​ក្នុង​ដំណើរការ​តែ​មួយ​ជា <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> ៖"</string>
+    <string name="security_settings_desc_multi" msgid="6610268420793984752" product="default">"កម្មវិធី​នេះ​អាច​ចូល​ដំណើរការ​ទូរស័ព្ទ​របស់​អ្នក។ ដើម្បី​បង្កើន​ការ​អនុវត្ត និង​កាត់​បន្ថយ​ការ​ប្រើ​អង្គ​ចងចាំ សិទ្ធិ​មួយ​ចំនួន​ក្នុង​ចំណោម​សិទ្ធិ​ទាំង​នេះ​អាច​ប្រើ​បាន​ចំពោះ <xliff:g id="BASE_APP_NAME">%1$s</xliff:g> ព្រោះ​វា​ដំណើរការ​​ក្នុង​ដំណើរការ​តែ​មួយ​ជា <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> ៖"</string>
     <string name="join_two_items" msgid="1336880355987539064">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> និង <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_two_unrelated_items" msgid="1873827777191260824">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="5925635036718502724">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> និង <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
@@ -1527,10 +1526,10 @@
     <string name="empty_list_msg" msgid="3552095537348807772">"អ្នក​មិន​បាន​ដំឡើង​កម្មវិធី​ភាគី​ទី​បី​ទេ។"</string>
     <string name="version_text" msgid="9189073826278676425">"កំណែ <xliff:g id="VERSION_NUM">%1$s</xliff:g>"</string>
     <string name="move_app" msgid="5042838441401731346">"ផ្លាស់ទី"</string>
-    <string name="move_app_to_internal" product="tablet" msgid="2299714147283854957">"ផ្លាស់ទី​ទៅ​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="move_app_to_internal" product="default" msgid="3895430471913858185">"ផ្លាស់ទី​ទៅ​ទូរស័ព្ទ"</string>
-    <string name="move_app_to_sdcard" product="nosdcard" msgid="4350451696315265420">"ផ្លាស់ទី​ទៅ​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
-    <string name="move_app_to_sdcard" product="default" msgid="1143379049903056407">"ផ្លាស់ទី​ទៅ​កាត​អេសឌី"</string>
+    <string name="move_app_to_internal" msgid="2299714147283854957" product="tablet">"ផ្លាស់ទី​ទៅ​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="move_app_to_internal" msgid="3895430471913858185" product="default">"ផ្លាស់ទី​ទៅ​ទូរស័ព្ទ"</string>
+    <string name="move_app_to_sdcard" msgid="4350451696315265420" product="nosdcard">"ផ្លាស់ទី​ទៅ​ឧបករណ៍​ផ្ទុក​យូអេសប៊ី"</string>
+    <string name="move_app_to_sdcard" msgid="1143379049903056407" product="default">"ផ្លាស់ទី​ទៅ​កាត​អេសឌី"</string>
     <string name="moving" msgid="6431016143218876491">"ផ្លាស់ទី"</string>
     <string name="another_migration_already_in_progress" msgid="7817354268848365487">"ការផ្លាស់ទីផ្សេងទៀតស្ថិតក្នុងដំណើរការរួចទៅហើយ។"</string>
     <string name="insufficient_storage" msgid="481763122991093080">"ទំហំ​ផ្ទុក​មិន​គ្រប់គ្រាន់។"</string>
@@ -1600,8 +1599,8 @@
     <string name="process_service_in_use_description" msgid="8993335064403217080">"កំពុង​ប្រើ​សេវាកម្ម <xliff:g id="COMP_NAME">%1$s</xliff:g> ។"</string>
     <string name="process_provider_in_use_description" msgid="5586603325677678940">"កំពុង​ប្រើ​ក្រុមហ៊ុន​ផ្ដល់ <xliff:g id="COMP_NAME">%1$s</xliff:g> ។"</string>
     <string name="runningservicedetails_stop_dlg_title" msgid="4253292537154337233">"បញ្ឈប់​សេវាកម្ម​ប្រព័ន្ធ?"</string>
-    <string name="runningservicedetails_stop_dlg_text" product="tablet" msgid="3371302398335665793">"បើ​អ្នក​បញ្ឈប់​សេវាកម្ម​នេះ លក្ខណៈ​មួយ​ចំនួន​នៃ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​អាច​មិន​ដំណើរការ​ត្រឹមត្រូវ លុះ​ត្រា​តែ​អ្នក​បិទ ហើយ​បើក​វា​ឡើងវិញ។"</string>
-    <string name="runningservicedetails_stop_dlg_text" product="default" msgid="3920243762189484756">"បើ​អ្នក​បញ្ឈប់​សេវាកម្ម​នេះ លក្ខណៈ​មួយ​ចំនួន​នៃ​ទូរស័ព្ទ​របស់​អ្នក​អាច​លែង​ដំណើរការ​តាម​ត្រឹមត្រូវ លុះ​ត្រា​តែ​អ្នក​បិទ ហើយ​បើក​វា​ឡើងវិញ។"</string>
+    <string name="runningservicedetails_stop_dlg_text" msgid="3371302398335665793" product="tablet">"បើ​អ្នក​បញ្ឈប់​សេវាកម្ម​នេះ លក្ខណៈ​មួយ​ចំនួន​នៃ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​អាច​មិន​ដំណើរការ​ត្រឹមត្រូវ លុះ​ត្រា​តែ​អ្នក​បិទ ហើយ​បើក​វា​ឡើងវិញ។"</string>
+    <string name="runningservicedetails_stop_dlg_text" msgid="3920243762189484756" product="default">"បើ​អ្នក​បញ្ឈប់​សេវាកម្ម​នេះ លក្ខណៈ​មួយ​ចំនួន​នៃ​ទូរស័ព្ទ​របស់​អ្នក​អាច​លែង​ដំណើរការ​តាម​ត្រឹមត្រូវ លុះ​ត្រា​តែ​អ្នក​បិទ ហើយ​បើក​វា​ឡើងវិញ។"</string>
     <string name="language_settings" msgid="8758655933029560944">"ភាសា និងធាតុចូល"</string>
     <string name="language_keyboard_settings_title" msgid="3709159207482544398">"ភាសា និងធាតុចូល"</string>
     <string name="keyboard_settings_category" msgid="8275523930352487827">"ក្ដារ​ចុច &amp; វិធី​សាស្ត្រ​បញ្ចូល"</string>
@@ -1661,8 +1660,8 @@
     <string name="user_dict_settings_all_languages" msgid="6742000040975959247">"សម្រាប់​ភាសា​ទាំងអស់"</string>
     <string name="user_dict_settings_more_languages" msgid="7316375944684977910">"ភាសា​ផ្សេង​ទៀត…"</string>
     <string name="testing" msgid="6584352735303604146">"សាកល្បង"</string>
-    <string name="testing_phone_info" product="tablet" msgid="193561832258534798">"ព័ត៌មាន​កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="testing_phone_info" product="default" msgid="8656693364332840056">"ព័ត៌មាន​ទូរស័ព្ទ"</string>
+    <string name="testing_phone_info" msgid="193561832258534798" product="tablet">"ព័ត៌មាន​កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="testing_phone_info" msgid="8656693364332840056" product="default">"ព័ត៌មាន​ទូរស័ព្ទ"</string>
     <string name="input_methods_settings_title" msgid="6800066636850553887">"ការ​បញ្ចូល​អត្ថបទ"</string>
     <string name="input_method" msgid="5434026103176856164">"វិធីសាស្ត្រ​បញ្ចូល"</string>
     <string name="current_input_method" msgid="2636466029213488159">"ក្ដារចុច​បច្ចុប្បន្ន"</string>
@@ -1863,8 +1862,8 @@
     <string name="power_bluetooth" msgid="4373329044379008289">"ប៊្លូធូស"</string>
     <string name="power_cell" msgid="6596471490976003056">"រង់ចាំ​ដោយ​សកម្ម"</string>
     <string name="power_phone" msgid="5392641106474567277">"ការ​ហៅ​ជា​សំឡេង"</string>
-    <string name="power_idle" product="tablet" msgid="4612478572401640759">"កុំព្យូទ័រ​បន្ទះ​ទំនេរ"</string>
-    <string name="power_idle" product="default" msgid="9055659695602194990">"ទូរស័ព្ទ​ទំនេរ"</string>
+    <string name="power_idle" msgid="4612478572401640759" product="tablet">"កុំព្យូទ័រ​បន្ទះ​ទំនេរ"</string>
+    <string name="power_idle" msgid="9055659695602194990" product="default">"ទូរស័ព្ទ​ទំនេរ"</string>
     <string name="power_unaccounted" msgid="709925017022660740">"ផ្សេងៗ"</string>
     <string name="power_overcounted" msgid="2762354976171358445">"លើស​"</string>
     <string name="usage_type_cpu" msgid="715162150698338714">"CPU សរុប"</string>
@@ -1872,8 +1871,8 @@
     <string name="usage_type_wake_lock" msgid="5125438890233677880">"មិន​ដេក"</string>
     <string name="usage_type_gps" msgid="7989688715128160790">"GPS"</string>
     <string name="usage_type_wifi_running" msgid="3134357198266380400">"វ៉ាយហ្វាយ​កំពុង​ដំណើរការ"</string>
-    <string name="usage_type_phone" product="tablet" msgid="262638572890253393">"កុំព្យូទ័រ​បន្ទះ"</string>
-    <string name="usage_type_phone" product="default" msgid="9108247984998041853">"ទូរស័ព្ទ"</string>
+    <string name="usage_type_phone" msgid="262638572890253393" product="tablet">"កុំព្យូទ័រ​បន្ទះ"</string>
+    <string name="usage_type_phone" msgid="9108247984998041853" product="default">"ទូរស័ព្ទ"</string>
     <string name="usage_type_data_send" msgid="8971710128438365919">"​ផ្ញើ​កញ្ចប់​ព័ត៌មាន​ចល័ត"</string>
     <string name="usage_type_data_recv" msgid="5468564329333954445">"​ទទួល​កញ្ចប់​ព័ត៌មាន​ចល័ត"</string>
     <string name="usage_type_radio_active" msgid="1732647857619420121">"វិទ្យុ​ចល័ត​សកម្ម"</string>
@@ -1895,8 +1894,8 @@
     <string name="battery_action_wifi" msgid="8181553479021841207">"ការ​កំណត់​វ៉ាយហ្វាយ"</string>
     <string name="battery_action_bluetooth" msgid="8374789049507723142">"ការ​កំណត់​ប៊្លូធូស"</string>
     <string name="battery_desc_voice" msgid="8980322055722959211">"ថ្ម​បាន​ប្រើ​ដោយ​ការ​ហៅ​ជា​សំឡេង"</string>
-    <string name="battery_desc_standby" product="tablet" msgid="6284747418668280364">"ថ្ម​បាន​ប្រើ​​ពេល​កុំព្យូទ័រ​បន្ទះ​ទំនេរ"</string>
-    <string name="battery_desc_standby" product="default" msgid="3009080001948091424">"ថ្ម​បាន​ប្រើ​ពេល​ទូរស័ព្ទ​ទំនេរ"</string>
+    <string name="battery_desc_standby" msgid="6284747418668280364" product="tablet">"ថ្ម​បាន​ប្រើ​​ពេល​កុំព្យូទ័រ​បន្ទះ​ទំនេរ"</string>
+    <string name="battery_desc_standby" msgid="3009080001948091424" product="default">"ថ្ម​បាន​ប្រើ​ពេល​ទូរស័ព្ទ​ទំនេរ"</string>
     <string name="battery_desc_radio" msgid="5479196477223185367">"ថ្ម​បាន​ប្រើ​ដោយ​វិទ្យុ​ចល័ត"</string>
     <string name="battery_sugg_radio" msgid="8211336978326295047">"ប្ដូរ​ទៅ​របៀប​ពេល​ជិះ​យន្តហោះ ដើម្បី​សន្សំ​ថាមពល​ក្នុង​តំបន់​ដែល​គ្មាន​សេវា។"</string>
     <string name="battery_desc_flashlight" msgid="2908579430841025494">"ថ្ម​បាន​ប្រើ​ដោយ​ពិល"</string>
@@ -2000,10 +1999,10 @@
     <string name="gadget_brightness_state_off" msgid="946382262872753084">"បិទ"</string>
     <string name="vpn_settings_title" msgid="5662579425832406705">"VPN"</string>
     <string name="credentials_title" msgid="4446234003860769883">"ឧបករណ៍​ផ្ទុក​អត្តសញ្ញាណ"</string>
-    <string name="credentials_install" product="nosdcard" msgid="466093273825150847">"ដំឡើង​ពី​ឧបករណ៍​ផ្ទុក"</string>
-    <string name="credentials_install" product="default" msgid="953914549998062317">"ដំឡើង​ពី​កាត​អេសឌី"</string>
-    <string name="credentials_install_summary" product="nosdcard" msgid="4220422806818210676">"ដំឡើង​វិញ្ញាបនបត្រ​ពី​ឧបករណ៍​ផ្ទុក"</string>
-    <string name="credentials_install_summary" product="default" msgid="5737658257407822713">"ដំឡើង​វិញ្ញាបនបត្រ​ពី​កាត​អេសឌី"</string>
+    <string name="credentials_install" msgid="466093273825150847" product="nosdcard">"ដំឡើង​ពី​ឧបករណ៍​ផ្ទុក"</string>
+    <string name="credentials_install" msgid="953914549998062317" product="default">"ដំឡើង​ពី​កាត​អេសឌី"</string>
+    <string name="credentials_install_summary" msgid="4220422806818210676" product="nosdcard">"ដំឡើង​វិញ្ញាបនបត្រ​ពី​ឧបករណ៍​ផ្ទុក"</string>
+    <string name="credentials_install_summary" msgid="5737658257407822713" product="default">"ដំឡើង​វិញ្ញាបនបត្រ​ពី​កាត​អេសឌី"</string>
     <string name="credentials_reset" msgid="3239382277144980418">"សម្អាត​ព័ត៌មាន​សម្ងាត់"</string>
     <string name="credentials_reset_summary" msgid="3369361230171260282">"លុប​វិញ្ញាបនបត្រ​ទាំងអស់"</string>
     <string name="trusted_credentials" msgid="4266945289534242402">"​អត្តសញ្ញាណ​ដែល​ទុក​ចិត្ត"</string>
@@ -2139,8 +2138,8 @@
     <string name="header_add_an_account" msgid="756108499532023798">"បន្ថែម​គណនី"</string>
     <string name="finish_button_label" msgid="481587707657751116">"បញ្ចប់"</string>
     <string name="really_remove_account_title" msgid="8800653398717172460">"លុប​គណនី?"</string>
-    <string name="really_remove_account_message" product="tablet" msgid="1936147502815641161">"លុប​គណនី​នេះ នឹង​លុប​សារ,​ ទំនាក់ទំនង និង​ទិន្នន័យ​ផ្សេងៗ​ទៀត​ទាំងអស់​ពី​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក!"</string>
-    <string name="really_remove_account_message" product="default" msgid="3483528757922948356">"ការ​លុប​គណនី​នេះ​នឹង​លុប​សារ ទំនាក់ទំនង និង​ទិន្នន័យ​ផ្សេងៗ​របស់​គណនីនេះទាំងអស់​ពី​ទូរស័ព្ទ!"</string>
+    <string name="really_remove_account_message" msgid="1936147502815641161" product="tablet">"លុប​គណនី​នេះ នឹង​លុប​សារ,​ ទំនាក់ទំនង និង​ទិន្នន័យ​ផ្សេងៗ​ទៀត​ទាំងអស់​ពី​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក!"</string>
+    <string name="really_remove_account_message" msgid="3483528757922948356" product="default">"ការ​លុប​គណនី​នេះ​នឹង​លុប​សារ ទំនាក់ទំនង និង​ទិន្នន័យ​ផ្សេងៗ​របស់​គណនីនេះទាំងអស់​ពី​ទូរស័ព្ទ!"</string>
     <string name="remove_account_failed" msgid="6980737964448187854">"ការ​ប្ដូរ​នេះ​មិន​ត្រូវ​បាន​អនុញ្ញាត​ដោយ​អ្នក​គ្រប់គ្រង​របស់​អ្នក​ទេ"</string>
     <string name="provider_label" msgid="7724593781904508866">"ការ​ជាវ​ជា​ក្រុម"</string>
     <!-- no translation found for sync_item_title (4782834606909853006) -->
@@ -2218,8 +2217,8 @@
     <string name="data_usage_app_restrict_dialog" msgid="5871168521456832764">"លក្ខណៈ​ពិសេស​នេះ​អាច​បង្ក​ឲ្យ​​កម្មវិធី​​ផ្អែក​លើ​ទិន្នន័យ​ផ្ទៃ​ខាង​ក្រោយ​​ក្នុង​ការ​​​បញ្ឈប់​ដំណើរការ នៅ​ពេល​​តែ​​បណ្ដាញ​ចល័ត​​អាច​ប្រើ​បាន​។ \n \n អ្នក​​​អាច​ស្វែងរក​ការ​ពិនិត្យមើល​ការ​ប្រើប្រាស់​ទិន្នន័យ​ត្រឹមត្រូវ​ជា​ច្រើន​​នៅ​ក្នុង​ការ​កំណត់​ដែល​មាន​នៅ​ក្នុង​កម្មវិធី​នេះ​។"</string>
     <string name="data_usage_restrict_denied_dialog" msgid="1493134803720421674">"ការ​ដាក់​កម្រិត​​ទិន្នន័យ​ផ្ទៃ​ខាងក្រោយ​គឺ​អាច​ធ្វើ​ទៅ​បាន​តែ​នៅ​ពេល​ដែល​អ្នក​បាន​កំណត់​ដែន​ទិន្នន័យ​​ចល័ត​ប៉ុណ្ណោះ​។"</string>
     <string name="data_usage_auto_sync_on_dialog_title" msgid="2438617846762244389">"បើក​ការ​ធ្វើ​សម​កាល​កម្ម​ទិន្នន័យ​ស្វ័យ​ប្រវត្តិ?"</string>
-    <string name="data_usage_auto_sync_on_dialog" product="tablet" msgid="8581983093524041669">"ការ​ផ្លាស់ប្ដូរ​ណា​មួយ​​ដែល​អ្នក​ធ្វើ​ចំពោះ​គណនី​របស់​អ្នក​នៅ​លើ​បណ្ដាញ​នឹង​ត្រូវ​បាន​ចម្លង​ដោយ​ស្វ័យ​ប្រវត្តិ​​កុំព្យូទ័រ​បន្ទះ​​របស់​អ្នក។​\n\nគណនី​មួយ​ចំនួន​ក៏​អាច​ចម្លង​ការ​ផ្លាស់ប្ដូរ​ដោយ​ស្វ័យ​ប្រវត្តិ​ផង​ដែរ ពេល​អ្នក​ធ្វើ​លើ​​កុំព្យូទ័រ​បន្ទះ​ទៅ​បណ្ដាញ។ គណនី Google ធ្វើការ​តាម​វិធី​នេះ។"</string>
-    <string name="data_usage_auto_sync_on_dialog" product="default" msgid="8651376294887142858">"ការ​ផ្លាស់ប្ដូរ​ណា​មួយ​ដែល​អ្នក​ធ្វើ​ចំពោះ​គណនី​របស់​អ្នក​នៅ​លើ​បណ្ដាញ នឹង​ត្រូវ​បាន​ចម្លង​ដោយ​ស្វ័យ​ប្រវត្តិ​ទៅ​ទូរស័ព្ទ​របស់​អ្នក។​\n\nគណនី​មួយ​ចំនួន​ក៏​អាច​ចម្លង​ការ​ផ្លាស់ប្ដូរ​ដោយ​ស្វ័យ​ប្រវត្តិ​ផង​ដែរ ពេល​អ្នក​ធ្វើ​លើ​ទូរស័ព្ទ​ទៅ​បណ្ដាញ។ គណនី Google ធ្វើការ​តាម​វិធី​នេះ។"</string>
+    <string name="data_usage_auto_sync_on_dialog" msgid="8581983093524041669" product="tablet">"ការ​ផ្លាស់ប្ដូរ​ណា​មួយ​​ដែល​អ្នក​ធ្វើ​ចំពោះ​គណនី​របស់​អ្នក​នៅ​លើ​បណ្ដាញ​នឹង​ត្រូវ​បាន​ចម្លង​ដោយ​ស្វ័យ​ប្រវត្តិ​​កុំព្យូទ័រ​បន្ទះ​​របស់​អ្នក។​\n\nគណនី​មួយ​ចំនួន​ក៏​អាច​ចម្លង​ការ​ផ្លាស់ប្ដូរ​ដោយ​ស្វ័យ​ប្រវត្តិ​ផង​ដែរ ពេល​អ្នក​ធ្វើ​លើ​​កុំព្យូទ័រ​បន្ទះ​ទៅ​បណ្ដាញ។ គណនី Google ធ្វើការ​តាម​វិធី​នេះ។"</string>
+    <string name="data_usage_auto_sync_on_dialog" msgid="8651376294887142858" product="default">"ការ​ផ្លាស់ប្ដូរ​ណា​មួយ​ដែល​អ្នក​ធ្វើ​ចំពោះ​គណនី​របស់​អ្នក​នៅ​លើ​បណ្ដាញ នឹង​ត្រូវ​បាន​ចម្លង​ដោយ​ស្វ័យ​ប្រវត្តិ​ទៅ​ទូរស័ព្ទ​របស់​អ្នក។​\n\nគណនី​មួយ​ចំនួន​ក៏​អាច​ចម្លង​ការ​ផ្លាស់ប្ដូរ​ដោយ​ស្វ័យ​ប្រវត្តិ​ផង​ដែរ ពេល​អ្នក​ធ្វើ​លើ​ទូរស័ព្ទ​ទៅ​បណ្ដាញ។ គណនី Google ធ្វើការ​តាម​វិធី​នេះ។"</string>
     <string name="data_usage_auto_sync_off_dialog_title" msgid="9013139130490125793">"បិទ​ការ​ធ្វើ​សម​កាល​កម្ម​ទិន្នន័យ​ស្វ័យ​ប្រវត្តិ?"</string>
     <string name="data_usage_auto_sync_off_dialog" msgid="4025938250775413864">"វា​នឹង​សន្សំ​ការ​ប្រើ​ទិន្នន័យ និង​ថ្ម ប៉ុន្តែ​អ្នក​ត្រូវ​តែ​ធ្វើ​សម​កាល​កម្ម​គណនី​នីមួយៗ​ដោយ​ខ្លួនឯង ដើម្បី​ប្រមូល​​ព័ត៌មាន​ថ្មីៗ។ អ្នក​នឹង​មិន​ទទួល​ការ​ជូន​ដំណឹង​ពេល​មាន​បច្ចុប្បន្នភាព​​ទេ។"</string>
     <string name="data_usage_cycle_editor_title" msgid="1373797281540188533">"កាលបរិច្ឆេទ​កំណត់​ខួប​​ប្រើ​ឡើង​វិញ"</string>
@@ -2228,20 +2227,20 @@
     <string name="data_usage_warning_editor_title" msgid="3704136912240060339">"កំណត់​ការ​ព្រមាន​ការ​ប្រើ​ទិន្នន័យ"</string>
     <string name="data_usage_limit_editor_title" msgid="9153595142385030015">"កំណត់​ដែន​កំណត់​ប្រើទិន្នន័យ"</string>
     <string name="data_usage_limit_dialog_title" msgid="3023111643632996097">"កម្រិត​ការ​ប្រើ​ទិន្នន័យ"</string>
-    <string name="data_usage_limit_dialog_mobile" product="tablet" msgid="5788774061143636263">"កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​នឹង​បិទ​ទិន្នន័យ​ចល័ត​នៅ​ពេល​ដែល​វា​បាន​ឈាន​ដល់​​ដែន​ដែល​អ្នក​បាន​កំណត់។\n\nចាប់​តាំង​ពី​ការ​ប្រើ​ប្រាស់​ទិន្នន័យ​ត្រូវ​បាន​វាស់​​តាម​រយៈ​កុំព្យូទ័រ​បន្ទះ និង​​ក្រុមហ៊ុន​បញ្ជូន​របស់​អ្នក​អាច​មាន​ការ​ប្រើ​ប្រាស់​ខុស​គ្នា ​ពិចារណា​កំណត់​ដែន​កំណត់​អភិរក្ស។"</string>
-    <string name="data_usage_limit_dialog_mobile" product="default" msgid="3511301596446820549">"ទូរស័ព្ទ​របស់​អ្នក​នឹង​បិទ​ទិន្នន័យ​ចល័ត​នៅ​ពេល​ដែល​វា​បាន​ឈាន​ដល់​​ដែន​​ដែល​អ្នក​បាន​កំណត់។\n\nដោយការ​ប្រើ​ប្រាស់​ទិន្នន័យ​ត្រូវ​បាន​វាស់​តាម​រយៈ​ទូរស័ព្ទ​ ​រី​ឯ​ក្រុមហ៊ុន​ប្រព័ន្ធ​ទូរស័ព្ទ​របស់​អ្នក​អាច​មាន​ការ​វាស់​ខុស​គ្នា ​សូម​ពិចារណា​កំណត់​ដែន​កំណត់​ដ៏​អភិរក្ស។"</string>
+    <string name="data_usage_limit_dialog_mobile" msgid="5788774061143636263" product="tablet">"កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​នឹង​បិទ​ទិន្នន័យ​ចល័ត​នៅ​ពេល​ដែល​វា​បាន​ឈាន​ដល់​​ដែន​ដែល​អ្នក​បាន​កំណត់។\n\nចាប់​តាំង​ពី​ការ​ប្រើ​ប្រាស់​ទិន្នន័យ​ត្រូវ​បាន​វាស់​​តាម​រយៈ​កុំព្យូទ័រ​បន្ទះ និង​​ក្រុមហ៊ុន​បញ្ជូន​របស់​អ្នក​អាច​មាន​ការ​ប្រើ​ប្រាស់​ខុស​គ្នា ​ពិចារណា​កំណត់​ដែន​កំណត់​អភិរក្ស។"</string>
+    <string name="data_usage_limit_dialog_mobile" msgid="3511301596446820549" product="default">"ទូរស័ព្ទ​របស់​អ្នក​នឹង​បិទ​ទិន្នន័យ​ចល័ត​នៅ​ពេល​ដែល​វា​បាន​ឈាន​ដល់​​ដែន​​ដែល​អ្នក​បាន​កំណត់។\n\nដោយការ​ប្រើ​ប្រាស់​ទិន្នន័យ​ត្រូវ​បាន​វាស់​តាម​រយៈ​ទូរស័ព្ទ​ ​រី​ឯ​ក្រុមហ៊ុន​ប្រព័ន្ធ​ទូរស័ព្ទ​របស់​អ្នក​អាច​មាន​ការ​វាស់​ខុស​គ្នា ​សូម​ពិចារណា​កំណត់​ដែន​កំណត់​ដ៏​អភិរក្ស។"</string>
     <string name="data_usage_restrict_background_title" msgid="2201315502223035062">"ដាក់កម្រិត​ទិន្នន័យ​ផ្ទៃ​​ខាង​ក្រោយ?"</string>
     <string name="data_usage_restrict_background" msgid="6264965779074729381">"ប្រសិន​បើ​អ្នក​ដាក់​កម្រិត​ទិន្នន័យ​ចល័ត​ផ្ទៃ​ខាង​ក្រោយ​, កម្មវិធី ​និង​សេវាកម្ម​មួយ​ចំនួន​នឹង​មិន​ដំណើរការ​ទេ ​លុះត្រាតែ​​អ្នក​​ភ្ជាប់​វ៉ាយហ្វាយ។"</string>
-    <string name="data_usage_restrict_background_multiuser" product="tablet" msgid="7954930300449415764">"ប្រសិន​បើ​អ្នក​ដាក់​កម្រិត​ទិន្នន័យ​ចល័ត​ផ្ទៃ​ខាង​ក្រោយ កម្មវិធី ​និង​សេវាកម្ម​មួយ​ចំនួន​នឹង​មិន​ដំណើរការ​ទេ លុះត្រាតែ​​អ្នក​ភ្ជាប់​វ៉ាយហ្វាយ។\n\nការ​កំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​នៅ​លើ​កុំព្យូទ័រ​បន្ទះ​នេះ​។"</string>
-    <string name="data_usage_restrict_background_multiuser" product="default" msgid="259958321968870600">"ប្រសិន​បើ​អ្នក​ដាក់​កម្រិត​ទិន្នន័យ​ចល័ត​​ផ្ទៃ​ខាង​ក្រោយ​ កម្មវិធី ​និង​សេវាកម្ម​មួយ​ចំនួន​នឹង​មិន​ដំណើរការ​ទេ លុះត្រាតែ​​អ្នក​ភ្ជាប់​វ៉ាយហ្វាយ។\n\nការ​កំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​នៅ​លើ​ទូរស័ព្ទ​នេះ​។"</string>
+    <string name="data_usage_restrict_background_multiuser" msgid="7954930300449415764" product="tablet">"ប្រសិន​បើ​អ្នក​ដាក់​កម្រិត​ទិន្នន័យ​ចល័ត​ផ្ទៃ​ខាង​ក្រោយ កម្មវិធី ​និង​សេវាកម្ម​មួយ​ចំនួន​នឹង​មិន​ដំណើរការ​ទេ លុះត្រាតែ​​អ្នក​ភ្ជាប់​វ៉ាយហ្វាយ។\n\nការ​កំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​នៅ​លើ​កុំព្យូទ័រ​បន្ទះ​នេះ​។"</string>
+    <string name="data_usage_restrict_background_multiuser" msgid="259958321968870600" product="default">"ប្រសិន​បើ​អ្នក​ដាក់​កម្រិត​ទិន្នន័យ​ចល័ត​​ផ្ទៃ​ខាង​ក្រោយ​ កម្មវិធី ​និង​សេវាកម្ម​មួយ​ចំនួន​នឹង​មិន​ដំណើរការ​ទេ លុះត្រាតែ​​អ្នក​ភ្ជាប់​វ៉ាយហ្វាយ។\n\nការ​កំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​នៅ​លើ​ទូរស័ព្ទ​នេះ​។"</string>
     <string name="data_usage_sweep_warning" msgid="6387081852568846982"><font size="18">"<xliff:g id="NUMBER">^1</xliff:g>"</font>" "<font size="9">"<xliff:g id="UNIT">^2</xliff:g>"</font>\n<font size="12">"ការ​ព្រមាន"</font></string>
     <string name="data_usage_sweep_limit" msgid="860566507375933039"><font size="18">"<xliff:g id="NUMBER">^1</xliff:g>"</font>" "<font size="9">"<xliff:g id="UNIT">^2</xliff:g>"</font>\n<font size="12">"ដែន​កំណត់"</font></string>
     <string name="data_usage_uninstalled_apps" msgid="614263770923231598">"កម្មវិធី​ដែល​បាន​លុប"</string>
     <string name="data_usage_uninstalled_apps_users" msgid="7986294489899813194">"បាន​លុប​កម្មវិធី និង​អ្នកប្រើ"</string>
     <string name="data_usage_received_sent" msgid="5039699009276621757">"បាន​ទទួល <xliff:g id="RECEIVED">%1$s</xliff:g>, បាន​ផ្ញើ <xliff:g id="SENT">%2$s</xliff:g>"</string>
     <string name="data_usage_total_during_range" msgid="4091294280619255237">"<xliff:g id="RANGE">%2$s</xliff:g> ៖ បាន​ប្រើ​ប្រហែល <xliff:g id="TOTAL">%1$s</xliff:g> ។"</string>
-    <string name="data_usage_total_during_range_mobile" product="tablet" msgid="1925687342154538972">"<xliff:g id="RANGE">%2$s</xliff:g>: បាន​ប្រើ​ប្រហែល <xliff:g id="TOTAL">%1$s</xliff:g> ដូច​បាន​វាស់​ដោយ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក។ ការ​គិត​ថ្លៃ​​សេវាកម្ម​ប្រើ​ទិន្នន័យ​នៃ​ក្រុមហ៊ុន​​បញ្ជូន​របស់​អ្នក​អាច​ខុស​គ្នា។"</string>
-    <string name="data_usage_total_during_range_mobile" product="default" msgid="5063981061103812900">"<xliff:g id="RANGE">%2$s</xliff:g> ៖ បាន​ប្រើ​ប្រហែល <xliff:g id="TOTAL">%1$s</xliff:g> ដូច​បា​ន​វាស់​ដោយ​ទូរស័ព្ទ​របស់​អ្នក។ ការ​គិត​ការ​ប្រើ​ទិន្នន័យ​នៃ​ក្រុមហ៊ុន​បញ្ជូន​របស់​អ្នក​អាច​ខុស​គ្នា។"</string>
+    <string name="data_usage_total_during_range_mobile" msgid="1925687342154538972" product="tablet">"<xliff:g id="RANGE">%2$s</xliff:g>: បាន​ប្រើ​ប្រហែល <xliff:g id="TOTAL">%1$s</xliff:g> ដូច​បាន​វាស់​ដោយ​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក។ ការ​គិត​ថ្លៃ​​សេវាកម្ម​ប្រើ​ទិន្នន័យ​នៃ​ក្រុមហ៊ុន​​បញ្ជូន​របស់​អ្នក​អាច​ខុស​គ្នា។"</string>
+    <string name="data_usage_total_during_range_mobile" msgid="5063981061103812900" product="default">"<xliff:g id="RANGE">%2$s</xliff:g> ៖ បាន​ប្រើ​ប្រហែល <xliff:g id="TOTAL">%1$s</xliff:g> ដូច​បា​ន​វាស់​ដោយ​ទូរស័ព្ទ​របស់​អ្នក។ ការ​គិត​ការ​ប្រើ​ទិន្នន័យ​នៃ​ក្រុមហ៊ុន​បញ្ជូន​របស់​អ្នក​អាច​ខុស​គ្នា។"</string>
     <string name="data_usage_metered_title" msgid="7383175371006596441">"ការ​ដាក់​កម្រិត​បណ្ដាញ"</string>
     <string name="data_usage_metered_body" msgid="3262343834446126044">"បណ្ដាញដែល​វាស់ទិន្នន័យ​​ត្រូវ​បាន​ចាត់​ទុក​ដូច​បណ្ដាញ​ទូរស័ព្ទ​ដែរ ពេល​ទិន្នន័យ​ផ្ទៃ​ខាង​ក្រោយ​ត្រូវ​បាន​ដាក់កម្រិត។ កម្មវិធី​នានាអាច​ចេញការព្រមាន ​មុន​ពេល​ប្រើ​បណ្ដាញ​ទាំង​នេះ​សម្រាប់ការ​ទាញ​យក​​ធំៗ"</string>
     <string name="data_usage_metered_mobile" msgid="2326986339431119372">"បណ្ដាញ​ចល័ត"</string>
@@ -2369,8 +2368,8 @@
     <string name="user_setup_profile_dialog_message" msgid="3896568553327558731">"រៀបចំ​ប្រវត្តិរូប​ឥឡូវ?"</string>
     <string name="user_setup_button_setup_now" msgid="3391388430158437629">"រៀបចំ​ឥឡូវ"</string>
     <string name="user_setup_button_setup_later" msgid="3068729597269172401">"កុំអាល"</string>
-    <string name="user_cannot_manage_message" product="tablet" msgid="7153048188252553320">"មាន​តែ​ម្ចាស់​កុំព្យូទ័រ​បន្ទះ​ប៉ុណ្ណោះ​អាច​គ្រប់គ្រង​អ្នកប្រើ"</string>
-    <string name="user_cannot_manage_message" product="default" msgid="959315813089950649">"មាន​តែ​ម្ចាស់​ទូរស័ព្ទ​ប៉ុណ្ណោះ​អាច​គ្រប់គ្រង​អ្នកប្រើ។"</string>
+    <string name="user_cannot_manage_message" msgid="7153048188252553320" product="tablet">"មាន​តែ​ម្ចាស់​កុំព្យូទ័រ​បន្ទះ​ប៉ុណ្ណោះ​អាច​គ្រប់គ្រង​អ្នកប្រើ"</string>
+    <string name="user_cannot_manage_message" msgid="959315813089950649" product="default">"មាន​តែ​ម្ចាស់​ទូរស័ព្ទ​ប៉ុណ្ណោះ​អាច​គ្រប់គ្រង​អ្នកប្រើ។"</string>
     <string name="user_cannot_add_accounts_message" msgid="5116692653439737050">"ប្រវត្តិរូប​បាន​ដាក់កម្រិត​មិន​អាច​បន្ថែម​គណនី"</string>
     <string name="user_remove_user_menu" msgid="6897150520686691355">"លុប <xliff:g id="USER_NAME">%1$s</xliff:g> ពី​ឧបករណ៍​នេះ"</string>
     <string name="user_lockscreen_settings" msgid="4965661345247084878">"ការកំណត់អេក្រង់ចាក់សោ"</string>
@@ -2382,8 +2381,8 @@
     <string name="user_confirm_remove_title" msgid="1163721647646152032">"លុប​អ្នកប្រើ​នេះ?"</string>
     <string name="user_profile_confirm_remove_title" msgid="5573161550669867342">"លុប​ប្រវត្តិ​រូប​នេះ?"</string>
     <string name="work_profile_confirm_remove_title" msgid="2017323555783522213">"លុប​ប្រវត្តិរូប​ការងារ?"</string>
-    <string name="user_confirm_remove_self_message" product="tablet" msgid="2391372805233812410">"អ្នក​នឹង​បាត់បង់​ទំហំ​ ព្រម​ទាំង​ទិន្នន័យ​របស់​អ្នក​លើ​កុំព្យូទ័រ​បន្ទះ​នេះ​។ អ្នក​មិន​អាច​ធ្វើ​សកម្មភាព​នេះ​វិញ​បាន​ទេ។"</string>
-    <string name="user_confirm_remove_self_message" product="default" msgid="7943645442479360048">"អ្នក​នឹង​បាត់បង់​ទំហំ និង​ទិន្នន័យ​របស់​អ្នក​លើ​ទូរស័ព្ទ​នេះ។ អ្នក​មិន​អាច​ធ្វើ​សកម្មភាព​នេះ​វិញ​បាន​ទេ។"</string>
+    <string name="user_confirm_remove_self_message" msgid="2391372805233812410" product="tablet">"អ្នក​នឹង​បាត់បង់​ទំហំ​ ព្រម​ទាំង​ទិន្នន័យ​របស់​អ្នក​លើ​កុំព្យូទ័រ​បន្ទះ​នេះ​។ អ្នក​មិន​អាច​ធ្វើ​សកម្មភាព​នេះ​វិញ​បាន​ទេ។"</string>
+    <string name="user_confirm_remove_self_message" msgid="7943645442479360048" product="default">"អ្នក​នឹង​បាត់បង់​ទំហំ និង​ទិន្នន័យ​របស់​អ្នក​លើ​ទូរស័ព្ទ​នេះ។ អ្នក​មិន​អាច​ធ្វើ​សកម្មភាព​នេះ​វិញ​បាន​ទេ។"</string>
     <string name="user_confirm_remove_message" msgid="1020629390993095037">"កម្មវិធី និង​ទិន្នន័យ​ទាំងអស់​នឹង​ត្រូវ​បាន​លុប។"</string>
     <string name="work_profile_confirm_remove_message" msgid="323856589749078140">"កម្មវិធី និងទិន្នន័យទាំងអស់នៅក្នុងប្រវត្តិរូបនេះនឹងត្រូវលុប ប្រសិនបើអ្នកបន្ត។"</string>
     <string name="user_profile_confirm_remove_message" msgid="7373754145959298522">"កម្មវិធី និង​ទិន្នន័យ​ទាំងអស់​នឹង​ត្រូវ​បាន​លុប។"</string>
@@ -2408,8 +2407,8 @@
     <string name="apps_with_restrictions_settings_button" msgid="3841347287916635821">"ពង្រីក​ការ​កំណត់​សម្រាប់​កម្មវិធី"</string>
     <string name="home_app_uninstall_button" msgid="6808453012607962899">"លុប​កម្មវិធី​នេះ"</string>
     <string name="only_one_home_message" msgid="3538846733750242759">"ការ​កំណត់​ទំព័រ​ដើម​នឹង​ត្រូវ​បាន​លាក់​រហូត​ទាល់តែ​អ្នក​ដំឡើង​កម្មវិធី​​ដើម​មួយ​ផ្សេង​ទៀត​។"</string>
-    <string name="global_change_warning" product="tablet" msgid="8045013389464294039">"ការកំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​លើ​កុំព្យូទ័រ​បន្ទះ​នេះ។"</string>
-    <string name="global_change_warning" product="default" msgid="2461264421590324675">"ការ​កំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​លើ​ទូរស័ព្ទ​នេះ។"</string>
+    <string name="global_change_warning" msgid="8045013389464294039" product="tablet">"ការកំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​លើ​កុំព្យូទ័រ​បន្ទះ​នេះ។"</string>
+    <string name="global_change_warning" msgid="2461264421590324675" product="default">"ការ​កំណត់​នេះ​ប៉ះពាល់​ដល់​អ្នក​ប្រើ​ទាំងអស់​លើ​ទូរស័ព្ទ​នេះ។"</string>
     <string name="global_locale_change_title" msgid="5956281361384221451">"ប្ដូរ​ភាសា"</string>
     <string name="nfc_payment_settings_title" msgid="1807298287380821613">"ចុច &amp; បង់​ប្រាក់"</string>
     <string name="nfc_payment_how_it_works" msgid="3028822263837896720">"របៀប​ដែល​វា​​ដំណើរការ"</string>
@@ -2467,8 +2466,8 @@
     <string name="restriction_bluetooth_config_summary" msgid="8372319681287562506">"ឲ្យ​កែ​ការ​កំណត់ និង​ផ្គូផ្គង​ប៊្លូធូស"</string>
     <string name="restriction_nfc_enable_title" msgid="5888100955212267941">"NFC"</string>
     <string name="restriction_nfc_enable_summary_config" msgid="3232480757215851738">"អនុញ្ញាត​ឲ្យ​ប្ដូរ​ទិន្នន័យ នៅ​ពេល​ប៉ះ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> នេះ និង​ឧបករណ៍ NFC ផ្សេងទៀត"</string>
-    <string name="restriction_nfc_enable_summary" product="tablet" msgid="3891097373396149915">"ឲ្យ​ប្ដូរ​ទិន្នន័យ​ពេល​កុំព្យូទ័រ​បន្ទះ​ប៉ះ​ឧបករណ៍​ផ្សេង"</string>
-    <string name="restriction_nfc_enable_summary" product="default" msgid="825331120501418592">"ឲ្យ​ប្ដូរ​ទិន្នន័យ​ពេល​ទូរស័ព្ទ​ប៉ះ​ឧបករណ៍​ផ្សេង"</string>
+    <string name="restriction_nfc_enable_summary" msgid="3891097373396149915" product="tablet">"ឲ្យ​ប្ដូរ​ទិន្នន័យ​ពេល​កុំព្យូទ័រ​បន្ទះ​ប៉ះ​ឧបករណ៍​ផ្សេង"</string>
+    <string name="restriction_nfc_enable_summary" msgid="825331120501418592" product="default">"ឲ្យ​ប្ដូរ​ទិន្នន័យ​ពេល​ទូរស័ព្ទ​ប៉ះ​ឧបករណ៍​ផ្សេង"</string>
     <string name="restriction_location_enable_title" msgid="5020268888245775164">"ទី​តាំង​"</string>
     <string name="restriction_location_enable_summary" msgid="3489765572281788755">"ឲ្យ​កម្មវិធី​ប្រើ​ព័ត៌មាន​ទីតាំង​របស់​អ្នក"</string>
     <string name="wizard_back" msgid="5567007959434765743">"ថយក្រោយ"</string>
@@ -3224,27 +3223,27 @@
     <string name="deletion_helper_manual_title" msgid="7947432164411214029">"ឯកសារណែនាំ"</string>
     <string name="deletion_helper_preference_title" msgid="5271510052022285884">"បង្កើនទំហំផ្ទុកឥឡូវនេះ"</string>
     <string name="gesture_preference_title" msgid="5280023307132819052">"កាយវិការ"</string>
-    <string name="gesture_preference_summary" product="default" msgid="8627850388011956901">"ធ្វើកាយវិការរហ័សដើម្បីគ្រប់គ្រងទូរស័ព្ទរបស់អ្នក"</string>
-    <string name="gesture_preference_summary" product="tablet" msgid="4717535378272065510">"ធ្វើកាយវិការរហ័សដើម្បីគ្រប់គ្រងថេប្លេតរបស់អ្នក"</string>
-    <string name="gesture_preference_summary" product="device" msgid="4205941452664950852">"ធ្វើកាយវិការរហ័សដើម្បីគ្រប់គ្រងឧបករណ៍របស់អ្នក"</string>
+    <string name="gesture_preference_summary" msgid="8627850388011956901" product="default">"ធ្វើកាយវិការរហ័សដើម្បីគ្រប់គ្រងទូរស័ព្ទរបស់អ្នក"</string>
+    <string name="gesture_preference_summary" msgid="4717535378272065510" product="tablet">"ធ្វើកាយវិការរហ័សដើម្បីគ្រប់គ្រងថេប្លេតរបស់អ្នក"</string>
+    <string name="gesture_preference_summary" msgid="4205941452664950852" product="device">"ធ្វើកាយវិការរហ័សដើម្បីគ្រប់គ្រងឧបករណ៍របស់អ្នក"</string>
     <string name="double_tap_power_for_camera_title" msgid="2993443929413421363">"លោតទៅកាមេរ៉ា"</string>
     <string name="double_tap_power_for_camera_summary" msgid="6005086458928518432">"ដើម្បីបើកកាមេរ៉ាឲ្យបានឆាប់រហ័ស សូមចុចប៊ូតុងថាមពលពីរដង។ ដំឡើងនៅលើអេក្រង់ទាំងអស់"</string>
     <string name="double_twist_for_camera_mode_title" msgid="4877834147983530479">"ត្រឡប់កាមេរ៉ា"</string>
     <string name="double_twist_for_camera_mode_summary" msgid="122977081337563340"></string>
-    <string name="ambient_display_title" product="default" msgid="5144814600610448504">"ប៉ះពីរដងដើម្បីពិនិត្យទូរសព្ទ"</string>
-    <string name="ambient_display_title" product="tablet" msgid="8688795028609563837">"ប៉ះពីរដងដើម្បីពិនិត្យថេប្លេត"</string>
-    <string name="ambient_display_title" product="device" msgid="3423781975742145894">"ប៉ះពីរដងដើម្បីពិនិត្យឧបករណ៍"</string>
+    <string name="ambient_display_title" msgid="5144814600610448504" product="default">"ប៉ះពីរដងដើម្បីពិនិត្យទូរសព្ទ"</string>
+    <string name="ambient_display_title" msgid="8688795028609563837" product="tablet">"ប៉ះពីរដងដើម្បីពិនិត្យថេប្លេត"</string>
+    <string name="ambient_display_title" msgid="3423781975742145894" product="device">"ប៉ះពីរដងដើម្បីពិនិត្យឧបករណ៍"</string>
     <string name="ambient_display_summary" msgid="5817384104520817202">"ដើម្បីពិនិត្យការជូនដំណឹងរបស់អ្នកឲ្យបានរហ័ស សូមប៉ះអេក្រង់របស់អ្នកពីរដង"</string>
-    <string name="ambient_display_pickup_title" product="default" msgid="818688002837687268">"លើកដើម្បីពិនិត្យទូរសព្ទ"</string>
-    <string name="ambient_display_pickup_title" product="tablet" msgid="4455864282995698097">"លើកដើម្បីពិនិត្យថេប្លេត"</string>
-    <string name="ambient_display_pickup_title" product="device" msgid="5380534405773531175">"លើកដើម្បីពិនិត្យឧបករណ៍"</string>
-    <string name="ambient_display_pickup_summary" product="default" msgid="7887685543895952417">"ដើម្បីពិនិត្យការជូនដំណឹងរបស់អ្នកឲ្យបានរហ័ស សូមលើកទូរសព្ទរបស់អ្នក"</string>
-    <string name="ambient_display_pickup_summary" product="tablet" msgid="4703466494089486840">"ដើម្បីពិនិត្យការជូនដំណឹងរបស់អ្នកឲ្យបានរហ័ស សូមលើកថេប្លេតរបស់អ្នក"</string>
-    <string name="ambient_display_pickup_summary" product="device" msgid="3557276829636914807">"ដើម្បីពិនិត្យការជូនដំណឹងរបស់អ្នកឲ្យបានរហ័ស សូមលើកឧបករណ៍របស់អ្នក"</string>
+    <string name="ambient_display_pickup_title" msgid="818688002837687268" product="default">"លើកដើម្បីពិនិត្យទូរសព្ទ"</string>
+    <string name="ambient_display_pickup_title" msgid="4455864282995698097" product="tablet">"លើកដើម្បីពិនិត្យថេប្លេត"</string>
+    <string name="ambient_display_pickup_title" msgid="5380534405773531175" product="device">"លើកដើម្បីពិនិត្យឧបករណ៍"</string>
+    <string name="ambient_display_pickup_summary" msgid="7887685543895952417" product="default">"ដើម្បីពិនិត្យការជូនដំណឹងរបស់អ្នកឲ្យបានរហ័ស សូមលើកទូរសព្ទរបស់អ្នក"</string>
+    <string name="ambient_display_pickup_summary" msgid="4703466494089486840" product="tablet">"ដើម្បីពិនិត្យការជូនដំណឹងរបស់អ្នកឲ្យបានរហ័ស សូមលើកថេប្លេតរបស់អ្នក"</string>
+    <string name="ambient_display_pickup_summary" msgid="3557276829636914807" product="device">"ដើម្បីពិនិត្យការជូនដំណឹងរបស់អ្នកឲ្យបានរហ័ស សូមលើកឧបករណ៍របស់អ្នក"</string>
     <string name="fingerprint_swipe_for_notifications_title" msgid="2750203868053669600">"អូសដើម្បីមើលការជូនដំណឹង"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="default" msgid="5274050434459511239">"ដើម្បីពិនិត្យមើលការជូនដំណឹងរបស់អ្នក អូសចុះក្រោមកាត់លើឧបករណ៍ចាប់ស្នាមម្រាមដៃនៅផ្នែកខាងក្រោយទូរស័ព្ទរបស់អ្នក"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="tablet" msgid="7557602481555096698">"ដើម្បីពិនិត្យមើលការជូនដំណឹងរបស់អ្នក អូសចុះក្រោមកាត់លើឧបករណ៍ចាប់ស្នាមម្រាមដៃនៅផ្នែកខាងក្រោយថេប្លេតរបស់អ្នក"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="device" msgid="5635310946298433769">"ដើម្បីពិនិត្យមើលការជូនដំណឹងរបស់អ្នក អូសចុះក្រោមកាត់លើឧបករណ៍ចាប់ស្នាមម្រាមដៃនៅផ្នែកខាងក្រោយឧបករណ៍របស់អ្នក"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="5274050434459511239" product="default">"ដើម្បីពិនិត្យមើលការជូនដំណឹងរបស់អ្នក អូសចុះក្រោមកាត់លើឧបករណ៍ចាប់ស្នាមម្រាមដៃនៅផ្នែកខាងក្រោយទូរស័ព្ទរបស់អ្នក"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="7557602481555096698" product="tablet">"ដើម្បីពិនិត្យមើលការជូនដំណឹងរបស់អ្នក អូសចុះក្រោមកាត់លើឧបករណ៍ចាប់ស្នាមម្រាមដៃនៅផ្នែកខាងក្រោយថេប្លេតរបស់អ្នក"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="5635310946298433769" product="device">"ដើម្បីពិនិត្យមើលការជូនដំណឹងរបស់អ្នក អូសចុះក្រោមកាត់លើឧបករណ៍ចាប់ស្នាមម្រាមដៃនៅផ្នែកខាងក្រោយឧបករណ៍របស់អ្នក"</string>
     <string name="gesture_setting_on" msgid="3455094265233870280">"បើក"</string>
     <string name="gesture_setting_off" msgid="5230169535435881894">"បិទ"</string>
     <string name="oem_unlock_enable_disabled_summary_bootloader_unlocked" msgid="4265541229765635629">"Bootloader ត្រូវបានដោះសោរួចហើយ"</string>

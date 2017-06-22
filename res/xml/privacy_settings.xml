@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009-2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2009-2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -20,43 +19,42 @@
 
     <!-- Backup settings -->
     <PreferenceScreen
+        android:fragment="com.android.settings.backup.ToggleBackupSettingFragment"
         android:key="backup_data"
-        android:title="@string/backup_data_title"
         android:persistent="false"
-        android:fragment="com.android.settings.backup.ToggleBackupSettingFragment"/>
+        android:title="@string/backup_data_title" />
 
     <PreferenceScreen
         android:key="configure_account"
-        android:title="@string/backup_configure_account_title"
-        android:persistent="false">
+        android:persistent="false"
+        android:title="@string/backup_configure_account_title">
         <!-- the Intent declared here is always overwritten by a real one -->
         <intent android:action="dummy" />
     </PreferenceScreen>
 
     <PreferenceScreen
         android:key="data_management"
-        android:persistent="false">
-    </PreferenceScreen>
+        android:persistent="false"></PreferenceScreen>
 
     <SwitchPreference
         android:key="auto_restore"
-        android:title="@string/auto_restore_title"
-        android:summary="@string/auto_restore_summary" />
+        android:summary="@string/auto_restore_summary"
+        android:title="@string/auto_restore_title" />
 
     <Preference
-        android:key="backup_inactive"
-        android:title="@string/backup_inactive_title"
-        android:persistent="false"
         android:enabled="false"
-        android:selectable="false" />
+        android:key="backup_inactive"
+        android:persistent="false"
+        android:selectable="false"
+        android:title="@string/backup_inactive_title" />
 
     <!-- Factory reset -->
     <com.android.settingslib.RestrictedPreference
+        android:fragment="com.android.settings.MasterClear"
         android:key="factory_reset"
         android:title="@string/master_clear_title"
         settings:keywords="@string/keywords_factory_data_reset"
-        settings:userRestriction="no_factory_reset"
         settings:useAdminDisabledSummary="true"
-        android:fragment="com.android.settings.MasterClear" />
+        settings:userRestriction="no_factory_reset" />
 
 </PreferenceScreen>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,35 +12,33 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="?android:attr/selectableItemBackground" >
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/color_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="8dp"
-        android:paddingLeft="6dp"
-        android:paddingTop="8dp"
+        android:layout_gravity="center_vertical"
         android:paddingBottom="8dp"
-        android:layout_gravity="center_vertical" />
+        android:paddingLeft="6dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp" />
 
     <TextView
         android:id="@+id/color_text"
-        android:gravity="center_vertical"
-        android:layout_height="wrap_content"
+        style="?android:attr/textAppearanceMedium"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingTop="8dp"
+        android:gravity="center_vertical"
         android:paddingBottom="8dp"
-        android:paddingRight="8dp"
         android:paddingLeft="8dp"
-        android:textColor="@color/text_color_black"
-        style="?android:attr/textAppearanceMedium" />
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/text_color_black" />
 
 </LinearLayout>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--  Copyright (C) 2007 The Android Open Source Project
+<?xml version="1.0" encoding="UTF-8"?><!--  Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,8 +13,7 @@
      limitations under the License.
  -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="yes" msgid="4676390750360727396">"بله"</string>
     <string name="no" msgid="6731231425810196216">"نه"</string>
     <string name="create" msgid="3578857613172647409">"ایجاد"</string>
@@ -25,8 +23,8 @@
     <string name="dlg_switch" msgid="6243971420240639064">"تغییر حالت"</string>
     <string name="device_info_default" msgid="7847265875578739287">"ناشناس"</string>
     <plurals name="show_dev_countdown" formatted="false" msgid="7201398282729229649">
-      <item quantity="one">اکنون <xliff:g id="STEP_COUNT_1">%1$d</xliff:g> قدم با برنامه‌نویس شدن فاصله دارید.</item>
-      <item quantity="other">اکنون <xliff:g id="STEP_COUNT_1">%1$d</xliff:g> قدم با برنامه‌نویس شدن فاصله دارید.</item>
+        <item quantity="one">اکنون <xliff:g id="STEP_COUNT_1">%1$d</xliff:g> قدم با برنامه‌نویس شدن فاصله دارید.</item>
+        <item quantity="other">اکنون <xliff:g id="STEP_COUNT_1">%1$d</xliff:g> قدم با برنامه‌نویس شدن فاصله دارید.</item>
     </plurals>
     <string name="show_dev_on" msgid="1110711554982716293">"شما اکنون یک برنامه‌نویس هستید!"</string>
     <string name="show_dev_already" msgid="2151632240145446227">"نیازی نیست، شما در حال حاضر یک برنامه‌نویس هستید."</string>
@@ -72,10 +70,10 @@
     <string name="radioInfo_display_asu" msgid="1422248392727818082">"asu"</string>
     <string name="radioInfo_lac" msgid="8415219164758307156">"LAC"</string>
     <string name="radioInfo_cid" msgid="4362599198392643138">"CID"</string>
-    <string name="sdcard_unmount" product="nosdcard" msgid="6325292633327972272">"‏قطع اتصال حافظهٔ USB"</string>
-    <string name="sdcard_unmount" product="default" msgid="3364184561355611897">"‏جدا کردن کارت SD"</string>
-    <string name="sdcard_format" product="nosdcard" msgid="6285310523155166716">"‏پاک کردن حافظهٔ USB"</string>
-    <string name="sdcard_format" product="default" msgid="6713185532039187532">"‏پاک کردن کارت SD"</string>
+    <string name="sdcard_unmount" msgid="6325292633327972272" product="nosdcard">"‏قطع اتصال حافظهٔ USB"</string>
+    <string name="sdcard_unmount" msgid="3364184561355611897" product="default">"‏جدا کردن کارت SD"</string>
+    <string name="sdcard_format" msgid="6285310523155166716" product="nosdcard">"‏پاک کردن حافظهٔ USB"</string>
+    <string name="sdcard_format" msgid="6713185532039187532" product="default">"‏پاک کردن کارت SD"</string>
     <string name="preview_pager_content_description" msgid="8926235999291761243">"پیش‌نمایش"</string>
     <string name="preview_page_indicator_content_description" msgid="4821343428913401264">"پیش‌نمایش، صفحه <xliff:g id="CURRENT_PAGE">%1$d</xliff:g> از <xliff:g id="NUM_PAGES">%2$d</xliff:g>"</string>
     <string name="font_size_summary" msgid="1690992332887488183">"نوشتار روی صفحه‌نمایش را بزرگ‌تر یا کوچک‌تر کنید."</string>
@@ -91,8 +89,8 @@
     <string name="font_size_preview_text_subtitle" msgid="4231671528173110093">"فصل ۱۱: شهر زمردی شگفت‌انگیز اوز"</string>
     <string name="font_size_preview_text_body" msgid="1250552239682375643">"با وجود اینکه عینک‌هایی با شیشه سبز به چشم داشتند، چشمان دوروتی و دوستانش در ابتدا از درخشندگی این شهر فوق‌العاده خیره شد. خیابان‌ها با ردیف خانه‌هایی که همه از مرمر سبز ساخته شده بودند و در همه جای آن با زمردهای درخشنده تزئین شده بود می‌درخشید. آنها در پیاده‌رویی از همان مرمر سبز راه می‌رفتند و سنگفرش‌های پیاده‌رو با ردیف‌های زمردی که نزدیک به هم قرار گرفته بودند و در نور خورشید می‌درخشیدند به هم پیوسته بود. پنجره‌ها از شیشه سبز بود؛ حتی آسمان بالای شهر رنگ‌مایه سبز داشت و اشعه خورشید سبزرنگ بود. \n\nمردم زیادی از مرد و زن و بچه در اطراف راه می‌رفتند که همه لباس‌های سبزی پوشیده بودند و پوست بدنشان ته رنگ سبزی داشت. آنها به دوروتی و دوستان عجیبش با تعجب نگاه می‌کردند. بچه‌ها به‌محض دیدن شیر همه فرار کردند و پشت سر مادرانشان پنهان شدند؛ اما هیچ‌کس با آنها صحبت نکرد. تعداد زیادی مغازه در خیابان بود و دوروتی متوجه شد که همه‌چیز در این مغازه‌ها به رنگ سبز است. آبنبات سبز و پف فیل سبز برای فروش گذاشته شده بود، همین‌طور همه مدل کفش، کلاه و لباس که همه به رنگ سبز بودند. در جایی مردی لیموناد سبز می‌فروخت و وقتی بچه‌ها از او خرید می‌کردند دوروتی دید که پول آن را با سکه‌هایی سبزرنگ پرداختند. \n\nبه‌نظر می‌رسید که اسب یا حیوان دیگری در آنجا نیست؛ مردها چیزها را با گاری‌های کوچک سبزی به این طرف و آن طرف حمل می‌کردند و گاری را در جلوشان هل می‌دادند. به‌نظر می‌رسید همه شاد و راضی و مرفه بودند."</string>
     <string name="font_size_save" msgid="3450855718056759095">"تأیید"</string>
-    <string name="sdcard_setting" product="nosdcard" msgid="8281011784066476192">"‏حافظهٔ USB"</string>
-    <string name="sdcard_setting" product="default" msgid="5922637503871474866">"‏کارت SD"</string>
+    <string name="sdcard_setting" msgid="8281011784066476192" product="nosdcard">"‏حافظهٔ USB"</string>
+    <string name="sdcard_setting" msgid="5922637503871474866" product="default">"‏کارت SD"</string>
     <string name="bluetooth" msgid="5549625000628014477">"بلوتوث"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"قابل مشاهده برای تمام دستگاه‌های بلوتوث اطراف (<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"قابل مشاهده برای تمام دستگاه‌های بلوتوث اطراف"</string>
@@ -128,17 +126,17 @@
     <string name="device_picker" msgid="4978696506172252813">"انتخاب دستگاه بلوتوث"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"درخواست مجوز بلوتوث"</string>
     <string name="bluetooth_ask_enablement" msgid="1712443355224737143">"برنامه‌ای می‌خواهد بلوتوث این دستگاه را روشن کند."</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"برنامه‌ای می‌خواهد رایانه لوحی شما را برای سایر دستگاه‌های بلوتوث به مدت <xliff:g id="TIMEOUT">%1$d</xliff:g> ثانیه قابل مشاهده کند."</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"برنامه‌ای می‌خواهد تلفن شما را برای سایر دستگاه‌های بلوتوث به مدت <xliff:g id="TIMEOUT">%1$d</xliff:g> ثانیه قابل مشاهده کند."</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"برنامه‌ای می‌خواهد رایانه لوحی شما را برای سایر دستگاه‌های بلوتوث قابل مشاهده کند. شما می‌توانید این حالت را بعداً در تنظیمات بلوتوث تغییر دهید."</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"برنامه‌ای می‌خواهد تلفن شما را برای سایر دستگاه‌های بلوتوث قابل مشاهده کند. شما می‌توانید این حالت را بعداً در تنظیمات بلوتوث تغییر دهید."</string>
-    <string name="bluetooth_ask_start_broadcast" product="default" msgid="3535628155254187911">"<xliff:g id="APP_NAME">%1$s</xliff:g> می‌خواهد پخش بلوتوث را برای برقراری ارتباط با دستگاه‌های دیگر همین اطراف روشن کند. این تنظیم را می‌توانید بعداً در تنظیمات بلوتوث تغییر دهید."</string>
-    <string name="bluetooth_ask_enablement_and_start_broadcast" product="default" msgid="8810858601242763295">"<xliff:g id="APP_NAME">%1$s</xliff:g> می‌خواهد بلوتوث و پخش بلوتوث را برای برقراری ارتباط با دستگاه‌های دیگر همین اطراف روشن کند. این تنظیم را می‌توانید بعداً در تنظیمات بلوتوث تغییر دهید."</string>
-    <string name="bluetooth_broadcasting_explaination" product="default" msgid="4249322115655011799">"هنگامی که این قابلیت روشن باشد، تلفنتان می‌تواند با دستگاه‌های دیگر همین اطراف ارتباط برقرار کند.\n\nپخش از سیگنال‌های بلوتوث کم قدرت استفاده می‌کند."</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"برنامه‌ای می‌خواهد بلوتوث را روشن کند و رایانه لوحی شما را برای سایر دستگاه‌ها به مدت <xliff:g id="TIMEOUT">%1$d</xliff:g> ثانیه قابل مشاهده کند."</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"برنامه‌ای می‌خواهد بلوتوث را روشن کند و تلفن شما را برای سایر دستگاه‌های دیگر به مدت <xliff:g id="TIMEOUT">%1$d</xliff:g> ثانیه قابل مشاهده کند."</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"برنامه‌ای می‌خواهد بلوتوث را روشن کند و رایانه لوحی شما را برای سایر دستگاه‌ها قابل مشاهده کند. شما می‌توانید این حالت را بعداً در تنظیمات بلوتوث تغییر دهید."</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"برنامه‌ای می‌خواهد بلوتوث را روشن کند و تلفن شما را برای سایر دستگاه‌ها قابل مشاهده کند. شما می‌توانید این حالت را بعداً در تنظیمات بلوتوث تغییر دهید."</string>
+    <string name="bluetooth_ask_discovery" msgid="786921566047356213" product="tablet">"برنامه‌ای می‌خواهد رایانه لوحی شما را برای سایر دستگاه‌های بلوتوث به مدت <xliff:g id="TIMEOUT">%1$d</xliff:g> ثانیه قابل مشاهده کند."</string>
+    <string name="bluetooth_ask_discovery" msgid="5510358858113713272" product="default">"برنامه‌ای می‌خواهد تلفن شما را برای سایر دستگاه‌های بلوتوث به مدت <xliff:g id="TIMEOUT">%1$d</xliff:g> ثانیه قابل مشاهده کند."</string>
+    <string name="bluetooth_ask_lasting_discovery" msgid="8863617309580598607" product="tablet">"برنامه‌ای می‌خواهد رایانه لوحی شما را برای سایر دستگاه‌های بلوتوث قابل مشاهده کند. شما می‌توانید این حالت را بعداً در تنظیمات بلوتوث تغییر دهید."</string>
+    <string name="bluetooth_ask_lasting_discovery" msgid="6487606808683607975" product="default">"برنامه‌ای می‌خواهد تلفن شما را برای سایر دستگاه‌های بلوتوث قابل مشاهده کند. شما می‌توانید این حالت را بعداً در تنظیمات بلوتوث تغییر دهید."</string>
+    <string name="bluetooth_ask_start_broadcast" msgid="3535628155254187911" product="default">"<xliff:g id="APP_NAME">%1$s</xliff:g> می‌خواهد پخش بلوتوث را برای برقراری ارتباط با دستگاه‌های دیگر همین اطراف روشن کند. این تنظیم را می‌توانید بعداً در تنظیمات بلوتوث تغییر دهید."</string>
+    <string name="bluetooth_ask_enablement_and_start_broadcast" msgid="8810858601242763295" product="default">"<xliff:g id="APP_NAME">%1$s</xliff:g> می‌خواهد بلوتوث و پخش بلوتوث را برای برقراری ارتباط با دستگاه‌های دیگر همین اطراف روشن کند. این تنظیم را می‌توانید بعداً در تنظیمات بلوتوث تغییر دهید."</string>
+    <string name="bluetooth_broadcasting_explaination" msgid="4249322115655011799" product="default">"هنگامی که این قابلیت روشن باشد، تلفنتان می‌تواند با دستگاه‌های دیگر همین اطراف ارتباط برقرار کند.\n\nپخش از سیگنال‌های بلوتوث کم قدرت استفاده می‌کند."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" msgid="3346529092809011149" product="tablet">"برنامه‌ای می‌خواهد بلوتوث را روشن کند و رایانه لوحی شما را برای سایر دستگاه‌ها به مدت <xliff:g id="TIMEOUT">%1$d</xliff:g> ثانیه قابل مشاهده کند."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" msgid="4724094889807196118" product="default">"برنامه‌ای می‌خواهد بلوتوث را روشن کند و تلفن شما را برای سایر دستگاه‌های دیگر به مدت <xliff:g id="TIMEOUT">%1$d</xliff:g> ثانیه قابل مشاهده کند."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" msgid="989613204829097159" product="tablet">"برنامه‌ای می‌خواهد بلوتوث را روشن کند و رایانه لوحی شما را برای سایر دستگاه‌ها قابل مشاهده کند. شما می‌توانید این حالت را بعداً در تنظیمات بلوتوث تغییر دهید."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" msgid="6671615712909139801" product="default">"برنامه‌ای می‌خواهد بلوتوث را روشن کند و تلفن شما را برای سایر دستگاه‌ها قابل مشاهده کند. شما می‌توانید این حالت را بعداً در تنظیمات بلوتوث تغییر دهید."</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"درحال روشن کردن بلوتوث…"</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"خاموش کردن بلوتوث؟؟؟"</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"اتصال خودکار"</string>
@@ -219,20 +217,20 @@
     <string name="sdcard_changes_instructions" msgid="4482324130377280131">"‏تغییرات با اتصال مجدد کابل USB اعمال می‌شوند."</string>
     <string name="sdcard_settings_screen_mass_storage_text" msgid="3741220147296482474">"‏فعال کردن ذخیره‌سازی انبوه USB"</string>
     <string name="sdcard_settings_total_bytes_label" msgid="9184160745785062144">"مجموع بایت‌ها:"</string>
-    <string name="sdcard_settings_not_present_status" product="nosdcard" msgid="1636218515775929394">"‏حافظهٔ USB متصل نیست."</string>
-    <string name="sdcard_settings_not_present_status" product="default" msgid="2048419626134861599">"‏کارت SD موجود نیست."</string>
+    <string name="sdcard_settings_not_present_status" msgid="1636218515775929394" product="nosdcard">"‏حافظهٔ USB متصل نیست."</string>
+    <string name="sdcard_settings_not_present_status" msgid="2048419626134861599" product="default">"‏کارت SD موجود نیست."</string>
     <string name="sdcard_settings_available_bytes_label" msgid="763232429899373001">"بایت آزاد:"</string>
-    <string name="sdcard_settings_mass_storage_status" product="nosdcard" msgid="7993410985895217054">"‏حافظهٔ USB در حال استفاده به‌عنوان دستگاه حافظه انبوه است."</string>
-    <string name="sdcard_settings_mass_storage_status" product="default" msgid="2742075324087038036">"‏کارت SD در حال استفاده به‌عنوان دستگاه ذخیره‌سازی انبوه است."</string>
-    <string name="sdcard_settings_unmounted_status" product="nosdcard" msgid="5128923500235719226">"‏اکنون می‌توانید حافظهٔ USB را با امنیت کامل خارج کنید."</string>
-    <string name="sdcard_settings_unmounted_status" product="default" msgid="666233604712540408">"‏اکنون می‌توانید کارت SD را با امنیت خارج کنید."</string>
-    <string name="sdcard_settings_bad_removal_status" product="nosdcard" msgid="7761390725880773697">"‏حافظهٔ USB در حین استفاده خارج شد!"</string>
-    <string name="sdcard_settings_bad_removal_status" product="default" msgid="5145797653495907970">"‏کارت SD در حین استفاده خارج شد!"</string>
+    <string name="sdcard_settings_mass_storage_status" msgid="7993410985895217054" product="nosdcard">"‏حافظهٔ USB در حال استفاده به‌عنوان دستگاه حافظه انبوه است."</string>
+    <string name="sdcard_settings_mass_storage_status" msgid="2742075324087038036" product="default">"‏کارت SD در حال استفاده به‌عنوان دستگاه ذخیره‌سازی انبوه است."</string>
+    <string name="sdcard_settings_unmounted_status" msgid="5128923500235719226" product="nosdcard">"‏اکنون می‌توانید حافظهٔ USB را با امنیت کامل خارج کنید."</string>
+    <string name="sdcard_settings_unmounted_status" msgid="666233604712540408" product="default">"‏اکنون می‌توانید کارت SD را با امنیت خارج کنید."</string>
+    <string name="sdcard_settings_bad_removal_status" msgid="7761390725880773697" product="nosdcard">"‏حافظهٔ USB در حین استفاده خارج شد!"</string>
+    <string name="sdcard_settings_bad_removal_status" msgid="5145797653495907970" product="default">"‏کارت SD در حین استفاده خارج شد!"</string>
     <string name="sdcard_settings_used_bytes_label" msgid="8820289486001170836">"بایت استفاده‌شده:"</string>
-    <string name="sdcard_settings_scanning_status" product="nosdcard" msgid="7503429447676219564">"‏در حال اسکن حافظهٔ USB برای رسانه..."</string>
-    <string name="sdcard_settings_scanning_status" product="default" msgid="2763464949274455656">"‏اسکن کردن کارت SD برای رسانه..."</string>
-    <string name="sdcard_settings_read_only_status" product="nosdcard" msgid="3624143937437417788">"‏حافظهٔ USB به‌عنوان فقط خواندنی متصل شد."</string>
-    <string name="sdcard_settings_read_only_status" product="default" msgid="4518291824764698112">"‏کارت SD به صورت فقط خواندنی نصب شد."</string>
+    <string name="sdcard_settings_scanning_status" msgid="7503429447676219564" product="nosdcard">"‏در حال اسکن حافظهٔ USB برای رسانه..."</string>
+    <string name="sdcard_settings_scanning_status" msgid="2763464949274455656" product="default">"‏اسکن کردن کارت SD برای رسانه..."</string>
+    <string name="sdcard_settings_read_only_status" msgid="3624143937437417788" product="nosdcard">"‏حافظهٔ USB به‌عنوان فقط خواندنی متصل شد."</string>
+    <string name="sdcard_settings_read_only_status" msgid="4518291824764698112" product="default">"‏کارت SD به صورت فقط خواندنی نصب شد."</string>
     <string name="skip_label" msgid="47510779345218297">"رد شدن"</string>
     <string name="next_label" msgid="4693520878012668114">"بعدی"</string>
     <string name="language_picker_title" msgid="3596315202551687690">"زبان‌ها"</string>
@@ -240,8 +238,8 @@
     <string name="locale_remove_menu" msgid="7651301406723638854">"برداشتن"</string>
     <string name="add_a_language" msgid="2330538812283783022">"افزودن زبان"</string>
     <plurals name="dlg_remove_locales_title" formatted="false" msgid="4276642359346122396">
-      <item quantity="one">زبان‌های انتخابی حذف شوند؟</item>
-      <item quantity="other">زبان‌های انتخابی حذف شوند؟</item>
+        <item quantity="one">زبان‌های انتخابی حذف شوند؟</item>
+        <item quantity="other">زبان‌های انتخابی حذف شوند؟</item>
     </plurals>
     <string name="dlg_remove_locales_message" msgid="1361354927342876114">"نوشتار به زبان دیگری نشان داده می‌شود."</string>
     <string name="dlg_remove_locales_error_title" msgid="2653242337224911425">"همه زبان‌ها حذف نمی‌شوند"</string>
@@ -255,10 +253,10 @@
     <string name="activity_picker_label" msgid="6295660302548177109">"انتخاب فعالیت"</string>
     <string name="device_info_label" msgid="6551553813651711205">"اطلاعات دستگاه"</string>
     <string name="display_label" msgid="8074070940506840792">"صفحه‌نمایش"</string>
-    <string name="phone_info_label" product="tablet" msgid="7820855350955963628">"اطلاعات رایانهٔ لوحی"</string>
-    <string name="phone_info_label" product="default" msgid="2127552523124277664">"اطلاعات تلفن"</string>
-    <string name="sd_card_settings_label" product="nosdcard" msgid="8101475181301178428">"‏حافظهٔ USB"</string>
-    <string name="sd_card_settings_label" product="default" msgid="5743100901106177102">"‏کارت SD"</string>
+    <string name="phone_info_label" msgid="7820855350955963628" product="tablet">"اطلاعات رایانهٔ لوحی"</string>
+    <string name="phone_info_label" msgid="2127552523124277664" product="default">"اطلاعات تلفن"</string>
+    <string name="sd_card_settings_label" msgid="8101475181301178428" product="nosdcard">"‏حافظهٔ USB"</string>
+    <string name="sd_card_settings_label" msgid="5743100901106177102" product="default">"‏کارت SD"</string>
     <string name="proxy_settings_label" msgid="3271174136184391743">"تنظیمات پروکسی"</string>
     <string name="cancel" msgid="6859253417269739139">"لغو"</string>
     <string name="okay" msgid="1997666393121016642">"تأیید"</string>
@@ -283,8 +281,8 @@
     <string name="roaming_reenable_message" msgid="9141007271031717369">"شما اتصال داده خود را از دست داده‌اید زیرا رومینگ داده را در شبکه اصلی خود خاموش کرده‌اید."</string>
     <string name="roaming_turn_it_on_button" msgid="4387601818162120589">"روشن کنید"</string>
     <string name="roaming_warning" msgid="4275443317524544705">"ممکن است هزینه قابل توجهی برای شما داشته باشد."</string>
-    <string name="roaming_warning_multiuser" product="tablet" msgid="6458990250829214777">"وقتی به رومینگ داده اجازه می‌دهید، ممکن است رومینگ، هزینه‌های بسیار زیادی برای شما در پی داشته باشد!\n\nاین تنظیم روی همه کاربران موجود در این رایانه لوحی تأثیر می‌گذارد."</string>
-    <string name="roaming_warning_multiuser" product="default" msgid="6368421100292355440">"وقتی به رومینگ داده اجازه می‌دهید، ممکن است هزینه‌های بسیار زیادی برای شما در پی داشته باشد!\n\nاین تنظیم روی همه کاربران موجود در این تلفن تأثیر می‌گذارد."</string>
+    <string name="roaming_warning_multiuser" msgid="6458990250829214777" product="tablet">"وقتی به رومینگ داده اجازه می‌دهید، ممکن است رومینگ، هزینه‌های بسیار زیادی برای شما در پی داشته باشد!\n\nاین تنظیم روی همه کاربران موجود در این رایانه لوحی تأثیر می‌گذارد."</string>
+    <string name="roaming_warning_multiuser" msgid="6368421100292355440" product="default">"وقتی به رومینگ داده اجازه می‌دهید، ممکن است هزینه‌های بسیار زیادی برای شما در پی داشته باشد!\n\nاین تنظیم روی همه کاربران موجود در این تلفن تأثیر می‌گذارد."</string>
     <string name="roaming_reenable_title" msgid="6068100976707316772">"رومینگ داده مجاز است؟"</string>
     <string name="networks" msgid="6333316876545927039">"انتخاب اپراتور"</string>
     <string name="sum_carrier_select" msgid="3616956422251879163">"انتخاب یک اپراتور شبکه"</string>
@@ -337,8 +335,8 @@
     <string name="fingerprint_add_title" msgid="1926752654454033904">"افزودن اثر انگشت"</string>
     <string name="fingerprint_enable_keyguard_toggle_title" msgid="5078060939636911795">"قفل صفحه"</string>
     <plurals name="security_settings_fingerprint_preference_summary" formatted="false" msgid="624961700033979880">
-      <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> تنظیم اثر انگشت</item>
-      <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> تنظیم اثر انگشت</item>
+        <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> تنظیم اثر انگشت</item>
+        <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> تنظیم اثر انگشت</item>
     </plurals>
     <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_introduction_title" msgid="3201556857492526098">"بازکردن قفل با اثر انگشت"</string>
@@ -350,12 +348,12 @@
     <string name="security_settings_fingerprint_enroll_introduction_continue" msgid="7472492858148162530">"ادامه"</string>
     <string name="security_settings_fingerprint_enroll_introduction_cancel_setup" msgid="5021369420474432665">"رد شدن"</string>
     <string name="security_settings_fingerprint_enroll_introduction_continue_setup" msgid="8386444182056861429">"افزودن اثر انگشت"</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="tablet" msgid="7234486440384881699">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. در صورت گم شدن، سرقت یا پاک شدن اطلاعات این رایانه لوحی، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="device" msgid="3519190003101280912">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن، سرقت یا پاک شدن اطلاعات دستگاه، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
-    <string name="lock_screen_intro_skip_dialog_text_frp" product="default" msgid="417315011140961">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن، سرقت یا پاک شدن اطلاعات این تلفن، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="tablet" msgid="8783499872534165700">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن یا به‌سرقت رفتن این رایانه لوحی، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="device" msgid="3120512940873907578">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن یا به‌سرقت رفتن این دستگاه، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
-    <string name="lock_screen_intro_skip_dialog_text" product="default" msgid="3589945558504439395">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن یا به‌سرقت رفتن این تلفن، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="7234486440384881699" product="tablet">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. در صورت گم شدن، سرقت یا پاک شدن اطلاعات این رایانه لوحی، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="3519190003101280912" product="device">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن، سرقت یا پاک شدن اطلاعات دستگاه، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
+    <string name="lock_screen_intro_skip_dialog_text_frp" msgid="417315011140961" product="default">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن، سرقت یا پاک شدن اطلاعات این تلفن، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="8783499872534165700" product="tablet">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن یا به‌سرقت رفتن این رایانه لوحی، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="3120512940873907578" product="device">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن یا به‌سرقت رفتن این دستگاه، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
+    <string name="lock_screen_intro_skip_dialog_text" msgid="3589945558504439395" product="default">"قابلیت‌های حفاظتی دستگاه فعال نخواهد شد. درصورت گم شدن یا به‌سرقت رفتن این تلفن، نمی‌توانید مانع استفاده دیگران از آن شوید."</string>
     <string name="skip_anyway_button_label" msgid="2323522873558834513">"در هر حال رد شود"</string>
     <string name="go_back_button_label" msgid="4745265266186209467">"برگشت"</string>
     <string name="security_settings_fingerprint_enroll_find_sensor_title" msgid="5877265753699187149">"پیدا کردن حسگر"</string>
@@ -393,35 +391,35 @@
     <string name="fingerprint_last_delete_confirm" msgid="2634726361059274289">"بله، پاک شود"</string>
     <string name="confirm_fingerprint_icon_content_description" msgid="5255544532157079096">"برای ادامه، از اثر انگشتتان استفاده کنید."</string>
     <string name="crypt_keeper_settings_title" msgid="4219233835490520414">"رمزگذاری"</string>
-    <string name="crypt_keeper_encrypt_title" product="tablet" msgid="1060273569887301457">"رمزگذاری رایانهٔ لوحی"</string>
-    <string name="crypt_keeper_encrypt_title" product="default" msgid="1878996487755806122">"رمزگذاری تلفن"</string>
+    <string name="crypt_keeper_encrypt_title" msgid="1060273569887301457" product="tablet">"رمزگذاری رایانهٔ لوحی"</string>
+    <string name="crypt_keeper_encrypt_title" msgid="1878996487755806122" product="default">"رمزگذاری تلفن"</string>
     <string name="crypt_keeper_encrypted_summary" msgid="1868233637888132906">"رمز گذاری شده"</string>
-    <string name="crypt_keeper_desc" product="tablet" msgid="503014594435731275">"می‌توانید حساب‌ها، تنظیمات، برنامه‌های بارگیری شده به‌علاوه داده‌های آنها، رسانه‌ها و سایر فایل‌هایتان را رمزگذاری کنید. بعد از رمزگذاری رایانه لوحی‌تان، با فرض اینکه یک قفل صفحه تنظیم کرده‌اید (که می‌تواند یک الگو، پین عددی یا گذرواژه باشد)، باید هر بار که رایانه لوحی را روشن می‌کنید، قفل صفحه را برای رمزگشایی از رایانه لوحی باز کنید. تنها راه دیگر برای رمزگشایی، بازنشانی داده‌های کارخانه و پاک کردن همه داده‌هایتان می‌باشد.\n\nرمزگذاری یک ساعت یا بیشتر طول می‌کشد. باید این کار را زمانی آغاز کنید که باتری شارژ کامل باشد و در طول این مدت رایانه لوحی‌تان همچنان به برق وصل باشد. اگر وقفه‌ای در فرآیند به وجود آید، بعضی از داده‌هایتان یا همه آنها را از دست خواهید داد."</string>
-    <string name="crypt_keeper_desc" product="default" msgid="2579929266645543631">"می‌توانید حساب‌ها، تنظیمات، برنامه‌های بارگیری شده به‌علاوه داده‌های آنها، رسانه‌ها و سایر فایل‌هایتان را رمزگذاری کنید. بعد از رمزگذاری تلفنتان، با فرض اینکه یک قفل صفحه تنظیم کرده‌اید (که می‌تواند یک الگو، پین عددی یا گذرواژه باشد)، باید هر بار که تلفن را روشن می‌کنید، قفل صفحه را برای رمزگشایی از تلفن باز کنید. تنها راه دیگر برای رمزگشایی بازنشانی داده‌های کارخانه و پاک کردن همه داده‌هایتان می‌باشد.\n\nرمزگذاری یک ساعت یا بیشتر طول می‌کشد. باید این کار را زمانی آغاز کنید که باتری شارژ کامل باشد و در طول این مدت تلفنتان همچنان به برق وصل باشد. اگر وقفه‌ای در فرآیند به وجود آید، بعضی از داده‌هایتان یا همه آنها را از دست خواهید داد."</string>
-    <string name="crypt_keeper_button_text" product="tablet" msgid="1189623490604750854">"رمزگذاری رایانهٔ لوحی شخصی"</string>
-    <string name="crypt_keeper_button_text" product="default" msgid="2008346408473255519">"رمزگذاری تلفن"</string>
+    <string name="crypt_keeper_desc" msgid="503014594435731275" product="tablet">"می‌توانید حساب‌ها، تنظیمات، برنامه‌های بارگیری شده به‌علاوه داده‌های آنها، رسانه‌ها و سایر فایل‌هایتان را رمزگذاری کنید. بعد از رمزگذاری رایانه لوحی‌تان، با فرض اینکه یک قفل صفحه تنظیم کرده‌اید (که می‌تواند یک الگو، پین عددی یا گذرواژه باشد)، باید هر بار که رایانه لوحی را روشن می‌کنید، قفل صفحه را برای رمزگشایی از رایانه لوحی باز کنید. تنها راه دیگر برای رمزگشایی، بازنشانی داده‌های کارخانه و پاک کردن همه داده‌هایتان می‌باشد.\n\nرمزگذاری یک ساعت یا بیشتر طول می‌کشد. باید این کار را زمانی آغاز کنید که باتری شارژ کامل باشد و در طول این مدت رایانه لوحی‌تان همچنان به برق وصل باشد. اگر وقفه‌ای در فرآیند به وجود آید، بعضی از داده‌هایتان یا همه آنها را از دست خواهید داد."</string>
+    <string name="crypt_keeper_desc" msgid="2579929266645543631" product="default">"می‌توانید حساب‌ها، تنظیمات، برنامه‌های بارگیری شده به‌علاوه داده‌های آنها، رسانه‌ها و سایر فایل‌هایتان را رمزگذاری کنید. بعد از رمزگذاری تلفنتان، با فرض اینکه یک قفل صفحه تنظیم کرده‌اید (که می‌تواند یک الگو، پین عددی یا گذرواژه باشد)، باید هر بار که تلفن را روشن می‌کنید، قفل صفحه را برای رمزگشایی از تلفن باز کنید. تنها راه دیگر برای رمزگشایی بازنشانی داده‌های کارخانه و پاک کردن همه داده‌هایتان می‌باشد.\n\nرمزگذاری یک ساعت یا بیشتر طول می‌کشد. باید این کار را زمانی آغاز کنید که باتری شارژ کامل باشد و در طول این مدت تلفنتان همچنان به برق وصل باشد. اگر وقفه‌ای در فرآیند به وجود آید، بعضی از داده‌هایتان یا همه آنها را از دست خواهید داد."</string>
+    <string name="crypt_keeper_button_text" msgid="1189623490604750854" product="tablet">"رمزگذاری رایانهٔ لوحی شخصی"</string>
+    <string name="crypt_keeper_button_text" msgid="2008346408473255519" product="default">"رمزگذاری تلفن"</string>
     <string name="crypt_keeper_low_charge_text" msgid="2029407131227814893">"باتری خود را شارژ کرده و دوباره امتحان کنید."</string>
     <string name="crypt_keeper_unplugged_text" msgid="4785376766063053901">"شارژر خود را متصل کرده و دوباره امتحان کنید."</string>
     <string name="crypt_keeper_dialog_need_password_title" msgid="4058971800557767">"هیچ پین قفل صفحه یا گذرواژه‌ای وجود ندارد"</string>
     <string name="crypt_keeper_dialog_need_password_message" msgid="4071395977297369642">"قبل از شروع به رمزگذاری باید یک پین قفل صفحه یا گذرواژه تنظیم کنید."</string>
     <string name="crypt_keeper_confirm_title" msgid="5100339496381875522">"رمزگذاری؟"</string>
-    <string name="crypt_keeper_final_desc" product="tablet" msgid="517662068757620756">"عملیات رمزگذاری غیر قابل بازگشت است و در صورت ایجاد وقفه در آن، داده‌های خود را از دست خواهید داد. رمزگذاری یک ساعت یا بیشتر طول می‌کشد که در طول آن، رایانهٔ لوحی چندین بار راه‌اندازی مجدد می‌شود."</string>
-    <string name="crypt_keeper_final_desc" product="default" msgid="287503113671320916">"عملیات رمزگذاری غیر قابل بازگشت است و در صورت ایجاد وقفه در آن، داده‌های خود را از دست خواهید داد. رمزگذاری یک ساعت یا بیشتر طول می‌کشد که در طول آن، تلفن چندین بار راه‌اندازی مجدد می‌شود."</string>
+    <string name="crypt_keeper_final_desc" msgid="517662068757620756" product="tablet">"عملیات رمزگذاری غیر قابل بازگشت است و در صورت ایجاد وقفه در آن، داده‌های خود را از دست خواهید داد. رمزگذاری یک ساعت یا بیشتر طول می‌کشد که در طول آن، رایانهٔ لوحی چندین بار راه‌اندازی مجدد می‌شود."</string>
+    <string name="crypt_keeper_final_desc" msgid="287503113671320916" product="default">"عملیات رمزگذاری غیر قابل بازگشت است و در صورت ایجاد وقفه در آن، داده‌های خود را از دست خواهید داد. رمزگذاری یک ساعت یا بیشتر طول می‌کشد که در طول آن، تلفن چندین بار راه‌اندازی مجدد می‌شود."</string>
     <string name="crypt_keeper_setup_title" msgid="1783951453124244969">"رمزگذاری"</string>
-    <string name="crypt_keeper_setup_description" product="tablet" msgid="6689952371032099350">"هنگام رمزگذاری رایانهٔ لوحی خود، منتظر بمانید. <xliff:g id="PERCENT">^1</xliff:g> کامل شد."</string>
-    <string name="crypt_keeper_setup_description" product="default" msgid="951918761585534875">"هنگام رمزگذاری گوشی خود، منتظر بمانید. <xliff:g id="PERCENT">^1</xliff:g>% کامل شد."</string>
-    <string name="crypt_keeper_setup_time_remaining" product="tablet" msgid="1655047311546745695">"وقتی رایانه لوحی‌تان رمز‌گذاری می‌شود، منتظر بمانید. مدت زمان باقیمانده: <xliff:g id="DURATION">^1</xliff:g>"</string>
-    <string name="crypt_keeper_setup_time_remaining" product="default" msgid="1862964662304683072">"وقتی تلفنتان رمز‌گذاری می‌شود، منتظر بمانید. مدت زمان باقیمانده: <xliff:g id="DURATION">^1</xliff:g>"</string>
-    <string name="crypt_keeper_force_power_cycle" product="tablet" msgid="556504311511212648">"برای باز کردن قفل رایانه لوحی‌تان، آن را خاموش و سپس روشن کنید."</string>
-    <string name="crypt_keeper_force_power_cycle" product="default" msgid="1794353635603020327">"برای باز کردن قفل تلفنتان، آن را خاموش و سپس روشن کنید."</string>
+    <string name="crypt_keeper_setup_description" msgid="6689952371032099350" product="tablet">"هنگام رمزگذاری رایانهٔ لوحی خود، منتظر بمانید. <xliff:g id="PERCENT">^1</xliff:g> کامل شد."</string>
+    <string name="crypt_keeper_setup_description" msgid="951918761585534875" product="default">"هنگام رمزگذاری گوشی خود، منتظر بمانید. <xliff:g id="PERCENT">^1</xliff:g>% کامل شد."</string>
+    <string name="crypt_keeper_setup_time_remaining" msgid="1655047311546745695" product="tablet">"وقتی رایانه لوحی‌تان رمز‌گذاری می‌شود، منتظر بمانید. مدت زمان باقیمانده: <xliff:g id="DURATION">^1</xliff:g>"</string>
+    <string name="crypt_keeper_setup_time_remaining" msgid="1862964662304683072" product="default">"وقتی تلفنتان رمز‌گذاری می‌شود، منتظر بمانید. مدت زمان باقیمانده: <xliff:g id="DURATION">^1</xliff:g>"</string>
+    <string name="crypt_keeper_force_power_cycle" msgid="556504311511212648" product="tablet">"برای باز کردن قفل رایانه لوحی‌تان، آن را خاموش و سپس روشن کنید."</string>
+    <string name="crypt_keeper_force_power_cycle" msgid="1794353635603020327" product="default">"برای باز کردن قفل تلفنتان، آن را خاموش و سپس روشن کنید."</string>
     <string name="crypt_keeper_warn_wipe" msgid="2738374897337991667">"اخطار: دستگاهتان پس از <xliff:g id="COUNT">^1</xliff:g> تلاش ناموفق دیگر برای باز کردن قفل آن، پاک می‌شود."</string>
     <string name="crypt_keeper_enter_password" msgid="2223340178473871064">"گذرواژه‌تان را تایپ کنید"</string>
     <string name="crypt_keeper_failed_title" msgid="7133499413023075961">"رمزگذاری ناموفق"</string>
-    <string name="crypt_keeper_failed_summary" product="tablet" msgid="8219375738445017266">"‏رمزگذاری متوقف شد و امکان تکمیل کردن آن وجود ندارد. در نتیجه، داده‌های موجود در رایانهٔ لوحی شما دیگر قابل دسترسی نیستند. \n\nبرای ادامه استفاده از رایانهٔ لوحی خود، باید تنظیمات کارخانه را بازنشانی کنید. با تنظیم کردن رایانهٔ لوحی پس از بازنشانی، این فرصت را خواهید داشت تا هرگونه داده‌ای را که از آن در حساب Google نسخهٔ پشتیبان تهیه شده بازیابی کنید."</string>
-    <string name="crypt_keeper_failed_summary" product="default" msgid="3270131542549577953">"‏رمزگذاری متوقف شد و امکان تکمیل آن وجود ندارد. در نتیجه، داده‌های موجود در تلفن شما دیگر قابل دسترسی نیستند. \n\nبرای ادامه استفاده از تلفن خود، باید تنظیمات کارخانه را بازنشانی کنید. با راه‌اندازی تلفن پس از بازنشانی، این فرصت را خواهید داشت تا هرگونه داده‌ای را که از آن در حساب Google نسخهٔ پشتیبان تهیه شده بازیابی کنید."</string>
+    <string name="crypt_keeper_failed_summary" msgid="8219375738445017266" product="tablet">"‏رمزگذاری متوقف شد و امکان تکمیل کردن آن وجود ندارد. در نتیجه، داده‌های موجود در رایانهٔ لوحی شما دیگر قابل دسترسی نیستند. \n\nبرای ادامه استفاده از رایانهٔ لوحی خود، باید تنظیمات کارخانه را بازنشانی کنید. با تنظیم کردن رایانهٔ لوحی پس از بازنشانی، این فرصت را خواهید داشت تا هرگونه داده‌ای را که از آن در حساب Google نسخهٔ پشتیبان تهیه شده بازیابی کنید."</string>
+    <string name="crypt_keeper_failed_summary" msgid="3270131542549577953" product="default">"‏رمزگذاری متوقف شد و امکان تکمیل آن وجود ندارد. در نتیجه، داده‌های موجود در تلفن شما دیگر قابل دسترسی نیستند. \n\nبرای ادامه استفاده از تلفن خود، باید تنظیمات کارخانه را بازنشانی کنید. با راه‌اندازی تلفن پس از بازنشانی، این فرصت را خواهید داشت تا هرگونه داده‌ای را که از آن در حساب Google نسخهٔ پشتیبان تهیه شده بازیابی کنید."</string>
     <string name="crypt_keeper_data_corrupt_title" msgid="8759119849089795751">"رمزگشایی انجام نشد"</string>
-    <string name="crypt_keeper_data_corrupt_summary" product="tablet" msgid="840107296925798402">"‏گذروا‌ژه‌ای که وارد کردید درست است، اما متأسفانه داده‌ها مخدوش است. \n\nبرای ازسرگیری استفاده از تلفنتان، باید بازنشانی به تنظیمات کارخانه را انجام دهید. وقتی پس از بازنشانی، رایانه لوحی‌تان را راه‌اندازی می‌کنید، فرصت دارید تا هر داده‌ای را که در حساب Google شما پشتیبان گرفته شده بود، بازیابی کنید."</string>
-    <string name="crypt_keeper_data_corrupt_summary" product="default" msgid="8843311420059663824">"‏گذروا‌ژه‌ای که وارد کردید درست است، اما متأسفانه داده‌ها مخدوش است. \n\nبرای ازسرگیری استفاده از تلفنتان، باید بازنشانی به تنظیمات کارخانه را انجام دهید. وقتی پس از بازنشانی، تلفنتان را راه‌اندازی می‌کنید، فرصت دارید تا هر داده‌ای را که در حساب Google شما پشتیبان گرفته شده بود، بازیابی کنید."</string>
+    <string name="crypt_keeper_data_corrupt_summary" msgid="840107296925798402" product="tablet">"‏گذروا‌ژه‌ای که وارد کردید درست است، اما متأسفانه داده‌ها مخدوش است. \n\nبرای ازسرگیری استفاده از تلفنتان، باید بازنشانی به تنظیمات کارخانه را انجام دهید. وقتی پس از بازنشانی، رایانه لوحی‌تان را راه‌اندازی می‌کنید، فرصت دارید تا هر داده‌ای را که در حساب Google شما پشتیبان گرفته شده بود، بازیابی کنید."</string>
+    <string name="crypt_keeper_data_corrupt_summary" msgid="8843311420059663824" product="default">"‏گذروا‌ژه‌ای که وارد کردید درست است، اما متأسفانه داده‌ها مخدوش است. \n\nبرای ازسرگیری استفاده از تلفنتان، باید بازنشانی به تنظیمات کارخانه را انجام دهید. وقتی پس از بازنشانی، تلفنتان را راه‌اندازی می‌کنید، فرصت دارید تا هر داده‌ای را که در حساب Google شما پشتیبان گرفته شده بود، بازیابی کنید."</string>
     <string name="crypt_keeper_switch_input_method" msgid="4168332125223483198">"تغییر روش ورودی"</string>
     <string name="suggested_lock_settings_title" msgid="8971630898700461034">"تنظیم قفل صفحه"</string>
     <string name="suggested_lock_settings_summary" msgid="8778462376012231110">"از دستگاهتان محافظت کنید"</string>
@@ -429,13 +427,13 @@
     <string name="suggested_fingerprint_lock_settings_summary" msgid="2149569133725273864">"بازکردن قفل با اثر انگشت"</string>
     <string name="lock_settings_picker_title" msgid="1095755849152582712">"انتخاب قفل صفحه‌نمایش"</string>
     <string name="lock_settings_picker_title_profile" msgid="8822511284992306796">"انتخاب قفل کاری"</string>
-    <string name="setup_lock_settings_picker_title" product="tablet" msgid="90329443364067215">"محافظت از رایانه لوحی"</string>
-    <string name="setup_lock_settings_picker_title" product="device" msgid="2399952075134938929">"محافظت از دستگاه"</string>
-    <string name="setup_lock_settings_picker_title" product="default" msgid="1572244299605153324">"از تلفنتان محافظت کنید"</string>
+    <string name="setup_lock_settings_picker_title" msgid="90329443364067215" product="tablet">"محافظت از رایانه لوحی"</string>
+    <string name="setup_lock_settings_picker_title" msgid="2399952075134938929" product="device">"محافظت از دستگاه"</string>
+    <string name="setup_lock_settings_picker_title" msgid="1572244299605153324" product="default">"از تلفنتان محافظت کنید"</string>
     <string name="setup_lock_settings_picker_fingerprint_message" msgid="5585650064305600578">"برای امنیت بیشتر، قفل صفحه پشتیبانی تنظیم کنید."</string>
-    <string name="setup_lock_settings_picker_message" product="tablet" msgid="8919671129189936210">"با فعال کردن قابلیت‌های حفاظتی دستگاه، نگذارید دیگران بدون اجازه شما از این رایانه لوحی استفاده کنند. قفل صفحه موردنظر برای استفاده را انتخاب کنید."</string>
-    <string name="setup_lock_settings_picker_message" product="device" msgid="3787276514406353777">"با فعال کردن قابلیت‌های حفاظتی دستگاه، نگذارید دیگران بدون اجازه شما از این دستگاه استفاده کنند. قفل صفحه موردنظر برای استفاده را انتخاب کنید."</string>
-    <string name="setup_lock_settings_picker_message" product="default" msgid="3692856437543730446">"با فعال کردن قابلیت‌های حفاظتی دستگاه، نگذارید دیگران بدون اجازه شما از این تلفن استفاده کنند. قفل صفحه موردنظر برای استفاده را انتخاب کنید."</string>
+    <string name="setup_lock_settings_picker_message" msgid="8919671129189936210" product="tablet">"با فعال کردن قابلیت‌های حفاظتی دستگاه، نگذارید دیگران بدون اجازه شما از این رایانه لوحی استفاده کنند. قفل صفحه موردنظر برای استفاده را انتخاب کنید."</string>
+    <string name="setup_lock_settings_picker_message" msgid="3787276514406353777" product="device">"با فعال کردن قابلیت‌های حفاظتی دستگاه، نگذارید دیگران بدون اجازه شما از این دستگاه استفاده کنند. قفل صفحه موردنظر برای استفاده را انتخاب کنید."</string>
+    <string name="setup_lock_settings_picker_message" msgid="3692856437543730446" product="default">"با فعال کردن قابلیت‌های حفاظتی دستگاه، نگذارید دیگران بدون اجازه شما از این تلفن استفاده کنند. قفل صفحه موردنظر برای استفاده را انتخاب کنید."</string>
     <string name="lock_settings_picker_fingerprint_message" msgid="4755230324778371292">"روش پشتیبان قفل صفحه را انتخاب کنید"</string>
     <string name="unlock_set_unlock_launch_picker_title" msgid="2084576942666016993">"قفل صفحه"</string>
     <string name="unlock_set_unlock_launch_picker_title_profile" msgid="124176557311393483">"قفل نمایه کاری"</string>
@@ -524,28 +522,28 @@
     <string name="lockpassword_password_requires_digit" msgid="5140062925787058765">"باید حداقل یک عدد داشته باشد"</string>
     <string name="lockpassword_password_requires_symbol" msgid="5944350865681510893">"باید حداقل یک نماد داشته باشد"</string>
     <plurals name="lockpassword_password_requires_letters" formatted="false" msgid="3121545900151618401">
-      <item quantity="one">‏باید حداقل %d حرف داشته باشد</item>
-      <item quantity="other">‏باید حداقل %d حرف داشته باشد</item>
+        <item quantity="one">‏باید حداقل %d حرف داشته باشد</item>
+        <item quantity="other">‏باید حداقل %d حرف داشته باشد</item>
     </plurals>
     <plurals name="lockpassword_password_requires_lowercase" formatted="false" msgid="5415008859853535577">
-      <item quantity="one">‏باید حداقل %d حرف کوچک داشته باشد</item>
-      <item quantity="other">‏باید حداقل %d حرف کوچک داشته باشد</item>
+        <item quantity="one">‏باید حداقل %d حرف کوچک داشته باشد</item>
+        <item quantity="other">‏باید حداقل %d حرف کوچک داشته باشد</item>
     </plurals>
     <plurals name="lockpassword_password_requires_uppercase" formatted="false" msgid="1452012183267855761">
-      <item quantity="one">‏باید حداقل %d حرف بزرگ داشته باشد</item>
-      <item quantity="other">‏باید حداقل %d حرف بزرگ داشته باشد</item>
+        <item quantity="one">‏باید حداقل %d حرف بزرگ داشته باشد</item>
+        <item quantity="other">‏باید حداقل %d حرف بزرگ داشته باشد</item>
     </plurals>
     <plurals name="lockpassword_password_requires_numeric" formatted="false" msgid="5536275490534483515">
-      <item quantity="one">‏باید حداقل %d عدد داشته باشد</item>
-      <item quantity="other">‏باید حداقل %d عدد داشته باشد</item>
+        <item quantity="one">‏باید حداقل %d عدد داشته باشد</item>
+        <item quantity="other">‏باید حداقل %d عدد داشته باشد</item>
     </plurals>
     <plurals name="lockpassword_password_requires_symbols" formatted="false" msgid="5132998285340017795">
-      <item quantity="one">‏باید حداقل %d نماد ویژه داشته باشد</item>
-      <item quantity="other">‏باید حداقل %d نماد ویژه داشته باشد</item>
+        <item quantity="one">‏باید حداقل %d نماد ویژه داشته باشد</item>
+        <item quantity="other">‏باید حداقل %d نماد ویژه داشته باشد</item>
     </plurals>
     <plurals name="lockpassword_password_requires_nonletter" formatted="false" msgid="2778958281865593579">
-      <item quantity="one">‏باید حداقل %d نویسهٔ غیرحرف داشته باشد</item>
-      <item quantity="other">‏باید حداقل %d نویسهٔ غیرحرف داشته باشد</item>
+        <item quantity="one">‏باید حداقل %d نویسهٔ غیرحرف داشته باشد</item>
+        <item quantity="other">‏باید حداقل %d نویسهٔ غیرحرف داشته باشد</item>
     </plurals>
     <string name="lockpassword_password_recently_used" msgid="4687102591995446860">"سرپرست دستگاه اجازه استفاده از گذرواژه اخیر را نمی‌دهد."</string>
     <string name="lockpassword_pin_no_sequential_digits" msgid="6830610582179569631">"ترتیب صعودی، نزولی یا تکراری ارقام ممنوع است"</string>
@@ -610,8 +608,8 @@
     <string name="bluetooth_disconnect_headset_profile" msgid="8635908811168780720">"اتصال <xliff:g id="DEVICE_NAME">%1$s</xliff:g> از صدای هندزفری قطع می‌شود."</string>
     <string name="bluetooth_disconnect_hid_profile" msgid="3282295189719352075">"اتصال <xliff:g id="DEVICE_NAME">%1$s</xliff:g> از دستگاه ورودی قطع می‌شود."</string>
     <string name="bluetooth_disconnect_pan_user_profile" msgid="8037627994382458698">"دسترسی به اینترنت از طریق <xliff:g id="DEVICE_NAME">%1$s</xliff:g> قطع خواهد شد."</string>
-    <string name="bluetooth_disconnect_pan_nap_profile" product="tablet" msgid="1262792320446274407">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> از اشتراک‌گذاری اتصال اینترنتی این رایانهٔ لوحی قطع خواهد شد."</string>
-    <string name="bluetooth_disconnect_pan_nap_profile" product="default" msgid="5700332050175684571">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> از اشتراک‌گذاری اتصال اینترنتی این تلفن قطع خواهد شد."</string>
+    <string name="bluetooth_disconnect_pan_nap_profile" msgid="1262792320446274407" product="tablet">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> از اشتراک‌گذاری اتصال اینترنتی این رایانهٔ لوحی قطع خواهد شد."</string>
+    <string name="bluetooth_disconnect_pan_nap_profile" msgid="5700332050175684571" product="default">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> از اشتراک‌گذاری اتصال اینترنتی این تلفن قطع خواهد شد."</string>
     <string name="bluetooth_device_advanced_title" msgid="6066342531927499308">"دستگاه بلوتوث مرتبط شده"</string>
     <string name="bluetooth_device_advanced_online_mode_title" msgid="3689050071425683114">"اتصال"</string>
     <string name="bluetooth_device_advanced_online_mode_summary" msgid="1204424107263248336">"اتصال به دستگاه بلوتوث"</string>
@@ -642,8 +640,8 @@
     <string name="wifi_band_5ghz" msgid="6433822023268515117">"۵ گیگاهرتز"</string>
     <string name="link_speed" msgid="8896664974117585555">"‏%1$d مگابیت"</string>
     <string name="nfc_quick_toggle_title" msgid="6769159366307299004">"NFC"</string>
-    <string name="nfc_quick_toggle_summary" product="tablet" msgid="8302974395787498915">"تبادل داده هنگامیکه رایانهٔ لوحی در تماس با دستگاه دیگر است مجاز باشد"</string>
-    <string name="nfc_quick_toggle_summary" product="default" msgid="5237208142892767592">"اجازه برای تبادل داده‌ها هنگامی که تلفن دستگاه دیگری را لمس می‌کند"</string>
+    <string name="nfc_quick_toggle_summary" msgid="8302974395787498915" product="tablet">"تبادل داده هنگامیکه رایانهٔ لوحی در تماس با دستگاه دیگر است مجاز باشد"</string>
+    <string name="nfc_quick_toggle_summary" msgid="5237208142892767592" product="default">"اجازه برای تبادل داده‌ها هنگامی که تلفن دستگاه دیگری را لمس می‌کند"</string>
     <string name="nfc_disclaimer_title" msgid="4364003873202264039">"‏روشن کردن NFC"</string>
     <string name="nfc_disclaimer_content" msgid="5566907911915158075">"‏NFC داده‌ها را میان این دستگاه و سایر دستگا‌ه‌ها یا اهداف اطراف (مانند پایانه‌های پرداخت، کارت‌خوان‌ها و آگهی‌ها یا برچسب‌های تعاملی) مبادله می‌کند."</string>
     <string name="android_beam_settings_title" msgid="7832812974600338649">"Android Beam"</string>
@@ -781,15 +779,15 @@
     <string name="wifi_cancel" msgid="6763568902542968964">"لغو"</string>
     <string name="wifi_skip_anyway" msgid="6965361454438011190">"با این وجود، رد می‌شوید"</string>
     <string name="wifi_dont_skip" msgid="3615535136327231588">"رفتن به عقب"</string>
-    <string name="wifi_skipped_message" product="tablet" msgid="6761689889733331124">"‏هشدار: اگر از اتصال Wi‑Fi صرف نظر کنید، رایانه لوحی‌تان فقط از داده‌های شبکه تلفن همراه برای بارگیری‌ها و به‌روزرسانی‌های اولیه استفاده خواهد کرد. برای اجتناب از هزینه‌های احتمالی داده‌های شبکه تلفن همراه، به Wi‑Fi وصل شوید."</string>
-    <string name="wifi_skipped_message" product="device" msgid="1385490367826852775">"‏هشدار: اگر از اتصال Wi‑Fi صرف نظر کنید، دستگاهتان فقط از داده‌های شبکه تلفن همراه برای بارگیری‌ها و به‌روزرسانی‌های اولیه استفاده خواهد کرد. برای اجتناب از هزینه‌های احتمالی داده‌های شبکه تلفن همراه، به Wi‑Fi وصل شوید."</string>
-    <string name="wifi_skipped_message" product="default" msgid="6084295135297772350">"‏هشدار: اگر از اتصال Wi‑Fi صرف نظر کنید، تلفنتان فقط از داده‌های شبکه تلفن همراه برای بارگیری‌ها و به‌روزرسانی‌های اولیه استفاده خواهد کرد. برای اجتناب از هزینه‌های احتمالی داده‌های شبکه تلفن همراه، به Wi‑Fi وصل شوید."</string>
-    <string name="wifi_and_mobile_skipped_message" product="tablet" msgid="6324917391996718760">"‏اگر از Wi‑Fi رد شوید:\n\n"<li>"رایانه لوحی‌تان اتصال اینترنت نخواهد داشت."</li>\n\n<li>"به‌روزرسانی نرم‌افزار دریافت نمی‌کنید مگراین‌که به اینترنت وصل شوید."</li>\n\n<li>"درحال‌حاضر نمی‌توانید قابلیت‌های حفاظتی دستگاه را فعال کنید."</li></string>
-    <string name="wifi_and_mobile_skipped_message" product="device" msgid="1110629752293998468">"‏اگر از Wi‑Fi رد شوید:\n\n"<li>"دستگاهتان اتصال اینترنت نخواهد داشت."</li>\n\n<li>"به‌روزرسانی نرم‌افزار دریافت نمی‌کنید مگراین‌که به اینترنت وصل شوید."</li>\n\n<li>"درحال‌حاضر نمی‌توانید قابلیت‌های حفاظتی دستگاه را فعال کنید."</li></string>
-    <string name="wifi_and_mobile_skipped_message" product="default" msgid="8271524692702309267">"‏اگر از Wi‑Fi رد شوید:\n\n"<li>"تلفنتان اتصال اینترنت نخواهد داشت."</li>\n\n<li>"به‌روزرسانی نرم‌افزار دریافت نمی‌کنید مگراین‌که به اینترنت وصل شوید."</li>\n\n<li>"درحال‌حاضر نمی‌توانید قابلیت‌های حفاظتی دستگاه را فعال کنید."</li></string>
-    <string name="wifi_connect_failed_message" product="tablet" msgid="4474691090681670156">"‏رایانه لوحی قادر به اتصال به این شبکه Wi-Fi نیست."</string>
-    <string name="wifi_connect_failed_message" product="device" msgid="8870885845666880869">"‏دستگاه نتوانست به این شبکه Wi‑Fi وصل شود."</string>
-    <string name="wifi_connect_failed_message" product="default" msgid="2185803140161396572">"‏تلفن قادر به اتصال به این شبکه Wi-Fi نیست."</string>
+    <string name="wifi_skipped_message" msgid="6761689889733331124" product="tablet">"‏هشدار: اگر از اتصال Wi‑Fi صرف نظر کنید، رایانه لوحی‌تان فقط از داده‌های شبکه تلفن همراه برای بارگیری‌ها و به‌روزرسانی‌های اولیه استفاده خواهد کرد. برای اجتناب از هزینه‌های احتمالی داده‌های شبکه تلفن همراه، به Wi‑Fi وصل شوید."</string>
+    <string name="wifi_skipped_message" msgid="1385490367826852775" product="device">"‏هشدار: اگر از اتصال Wi‑Fi صرف نظر کنید، دستگاهتان فقط از داده‌های شبکه تلفن همراه برای بارگیری‌ها و به‌روزرسانی‌های اولیه استفاده خواهد کرد. برای اجتناب از هزینه‌های احتمالی داده‌های شبکه تلفن همراه، به Wi‑Fi وصل شوید."</string>
+    <string name="wifi_skipped_message" msgid="6084295135297772350" product="default">"‏هشدار: اگر از اتصال Wi‑Fi صرف نظر کنید، تلفنتان فقط از داده‌های شبکه تلفن همراه برای بارگیری‌ها و به‌روزرسانی‌های اولیه استفاده خواهد کرد. برای اجتناب از هزینه‌های احتمالی داده‌های شبکه تلفن همراه، به Wi‑Fi وصل شوید."</string>
+    <string name="wifi_and_mobile_skipped_message" msgid="6324917391996718760" product="tablet">"‏اگر از Wi‑Fi رد شوید:\n\n"<li>"رایانه لوحی‌تان اتصال اینترنت نخواهد داشت."</li>\n\n<li>"به‌روزرسانی نرم‌افزار دریافت نمی‌کنید مگراین‌که به اینترنت وصل شوید."</li>\n\n<li>"درحال‌حاضر نمی‌توانید قابلیت‌های حفاظتی دستگاه را فعال کنید."</li></string>
+    <string name="wifi_and_mobile_skipped_message" msgid="1110629752293998468" product="device">"‏اگر از Wi‑Fi رد شوید:\n\n"<li>"دستگاهتان اتصال اینترنت نخواهد داشت."</li>\n\n<li>"به‌روزرسانی نرم‌افزار دریافت نمی‌کنید مگراین‌که به اینترنت وصل شوید."</li>\n\n<li>"درحال‌حاضر نمی‌توانید قابلیت‌های حفاظتی دستگاه را فعال کنید."</li></string>
+    <string name="wifi_and_mobile_skipped_message" msgid="8271524692702309267" product="default">"‏اگر از Wi‑Fi رد شوید:\n\n"<li>"تلفنتان اتصال اینترنت نخواهد داشت."</li>\n\n<li>"به‌روزرسانی نرم‌افزار دریافت نمی‌کنید مگراین‌که به اینترنت وصل شوید."</li>\n\n<li>"درحال‌حاضر نمی‌توانید قابلیت‌های حفاظتی دستگاه را فعال کنید."</li></string>
+    <string name="wifi_connect_failed_message" msgid="4474691090681670156" product="tablet">"‏رایانه لوحی قادر به اتصال به این شبکه Wi-Fi نیست."</string>
+    <string name="wifi_connect_failed_message" msgid="8870885845666880869" product="device">"‏دستگاه نتوانست به این شبکه Wi‑Fi وصل شود."</string>
+    <string name="wifi_connect_failed_message" msgid="2185803140161396572" product="default">"‏تلفن قادر به اتصال به این شبکه Wi-Fi نیست."</string>
     <string name="wifi_saved_access_points_titlebar" msgid="2996149477240134064">"شبکه‌های ذخیره شده"</string>
     <string name="wifi_advanced_titlebar" msgid="4485841401774142908">"‏Wi-Fi پیشرفته"</string>
     <string name="wifi_configure_titlebar" msgid="7977475161589303074">"‏پیکربندی Wi-Fi"</string>
@@ -845,33 +843,33 @@
     <!-- no translation found for wifi_calling_roaming_mode_summary (8642014873060687717) -->
     <skip />
     <string name="wifi_calling_roaming_mode_dialog_title" msgid="7800926602662078576">"تنظیم برگزیده رومینگ"</string>
-  <string-array name="wifi_calling_mode_choices">
-    <item msgid="2124257075906188844">"‏Wi-Fi ترجیحی"</item>
-    <item msgid="5267397515594230396">"شبکه همراه ترجیحی"</item>
-    <item msgid="3132912693346866895">"‏فقط Wi-Fi"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_choices_v2">
-    <item msgid="742988808283756263">"Wi-Fi"</item>
-    <item msgid="122823150092396518">"شبکه همراه"</item>
-    <item msgid="2838022395783120596">"‏فقط Wi-Fi"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_values">
-    <item msgid="4799585830102342375">"۲"</item>
-    <item msgid="1171822231056612021">"۱"</item>
-    <item msgid="3194458950573886239">"۰"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_choices_without_wifi_only">
-    <item msgid="5782108782860004851">"‏Wi-Fi ترجیحی"</item>
-    <item msgid="9006785365352731433">"شبکه تلفن همراه ترجیحی"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_choices_v2_without_wifi_only">
-    <item msgid="6132150507201243768">"Wi-Fi"</item>
-    <item msgid="2749029835484916851">"شبکه همراه"</item>
-  </string-array>
-  <string-array name="wifi_calling_mode_values_without_wifi_only">
-    <item msgid="2339246858001475047">"۲"</item>
-    <item msgid="6200207341126893791">"۱"</item>
-  </string-array>
+    <string-array name="wifi_calling_mode_choices">
+        <item msgid="2124257075906188844">"‏Wi-Fi ترجیحی"</item>
+        <item msgid="5267397515594230396">"شبکه همراه ترجیحی"</item>
+        <item msgid="3132912693346866895">"‏فقط Wi-Fi"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_choices_v2">
+        <item msgid="742988808283756263">"Wi-Fi"</item>
+        <item msgid="122823150092396518">"شبکه همراه"</item>
+        <item msgid="2838022395783120596">"‏فقط Wi-Fi"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_values">
+        <item msgid="4799585830102342375">"۲"</item>
+        <item msgid="1171822231056612021">"۱"</item>
+        <item msgid="3194458950573886239">"۰"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_choices_without_wifi_only">
+        <item msgid="5782108782860004851">"‏Wi-Fi ترجیحی"</item>
+        <item msgid="9006785365352731433">"شبکه تلفن همراه ترجیحی"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_choices_v2_without_wifi_only">
+        <item msgid="6132150507201243768">"Wi-Fi"</item>
+        <item msgid="2749029835484916851">"شبکه همراه"</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_values_without_wifi_only">
+        <item msgid="2339246858001475047">"۲"</item>
+        <item msgid="6200207341126893791">"۱"</item>
+    </string-array>
     <string name="wifi_calling_off_explanation" msgid="2597566001655908391">"‏وقتی تماس Wi-Fi روشن است، تلفن شما می‌تواند بنابر تنظیمات ترجیحی‌تان و اینکه چه سیگنالی قدرتمندتر است، تماس‌ها را از طریق شبکه‌های Wi-Fi یا شبکه شرکت مخابراتی‌تان هدایت کند. قبل از روشن کردن این قابلیت، هزینه‌ها و سایر جزئیات را با شرکت مخابراتی‌تان بررسی کنید."</string>
     <string name="emergency_address_title" msgid="3571902448699714454">"به‌روزرسانی نشانی اضطراری"</string>
     <string name="emergency_address_summary" msgid="306028701568728126">"‏نشانی‌ای که اگر از طریق Wi-Fi با ۹۱۱ تماس بگیرید، توسط خدمات اضطراری به‌عنوان مکان شما استفاده می‌شود"</string>
@@ -911,17 +909,17 @@
     <string name="dock_audio_settings_title" msgid="3324750259959570305">"صوتی"</string>
     <string name="dock_audio_summary_desk" msgid="6487784412371139335">"تنظیمات برای جایگاه دستگاه رومیزی وصل‌شده"</string>
     <string name="dock_audio_summary_car" msgid="6740897586006248450">"تنظیمات برای جایگاه خودرو وصل شده"</string>
-    <string name="dock_audio_summary_none" product="tablet" msgid="8215337394914283607">"رایانهٔ لوحی متصل نیست"</string>
-    <string name="dock_audio_summary_none" product="default" msgid="289909253741048784">"تلفن در جایگاه نیست"</string>
+    <string name="dock_audio_summary_none" msgid="8215337394914283607" product="tablet">"رایانهٔ لوحی متصل نیست"</string>
+    <string name="dock_audio_summary_none" msgid="289909253741048784" product="default">"تلفن در جایگاه نیست"</string>
     <string name="dock_audio_summary_unknown" msgid="4465059868974255693">"تنظیمات برای جایگاه وصل‌شده"</string>
     <string name="dock_not_found_title" msgid="3290961741828952424">"جایگاه یافت نشد"</string>
-    <string name="dock_not_found_text" product="tablet" msgid="8405432495282299143">"قبل از تنظیم صدای جایگاه اتصال، باید رایانهٔ لوحی را به آن وصل کنید."</string>
-    <string name="dock_not_found_text" product="default" msgid="1460497923342627801">"قبل از تنظیم صدای جایگاه اتصال، باید گوشی را به آن وصل کنید."</string>
+    <string name="dock_not_found_text" msgid="8405432495282299143" product="tablet">"قبل از تنظیم صدای جایگاه اتصال، باید رایانهٔ لوحی را به آن وصل کنید."</string>
+    <string name="dock_not_found_text" msgid="1460497923342627801" product="default">"قبل از تنظیم صدای جایگاه اتصال، باید گوشی را به آن وصل کنید."</string>
     <string name="dock_sounds_enable_title" msgid="885839627097024110">"صدای اتصال جایگاه"</string>
-    <string name="dock_sounds_enable_summary_on" product="tablet" msgid="838102386448981339">"هنگام اتصال یا جدا کردن رایانهٔ لوحی از جایگاه، صدا پخش شود"</string>
-    <string name="dock_sounds_enable_summary_on" product="default" msgid="8491180514199743771">"هنگام اتصال یا جدا کردن تلفن از جایگاه، صدا پخش شود"</string>
-    <string name="dock_sounds_enable_summary_off" product="tablet" msgid="4308252722466813560">"هنگام اتصال یا جدا کردن رایانهٔ لوحی از جایگاه، صدا پخش نشود"</string>
-    <string name="dock_sounds_enable_summary_off" product="default" msgid="2034927992716667672">"هنگام اتصال یا جدا کردن گوشی از دستگاه، صدا پخش نشود"</string>
+    <string name="dock_sounds_enable_summary_on" msgid="838102386448981339" product="tablet">"هنگام اتصال یا جدا کردن رایانهٔ لوحی از جایگاه، صدا پخش شود"</string>
+    <string name="dock_sounds_enable_summary_on" msgid="8491180514199743771" product="default">"هنگام اتصال یا جدا کردن تلفن از جایگاه، صدا پخش شود"</string>
+    <string name="dock_sounds_enable_summary_off" msgid="4308252722466813560" product="tablet">"هنگام اتصال یا جدا کردن رایانهٔ لوحی از جایگاه، صدا پخش نشود"</string>
+    <string name="dock_sounds_enable_summary_off" msgid="2034927992716667672" product="default">"هنگام اتصال یا جدا کردن گوشی از دستگاه، صدا پخش نشود"</string>
     <string name="account_settings" msgid="6403589284618783461">"حساب‌ها"</string>
     <string name="accessibility_category_work" msgid="4339262969083355720">"حساب‌های نمایه کاری - <xliff:g id="MANAGED_BY">%s</xliff:g>"</string>
     <string name="accessibility_category_personal" msgid="1263518850905945594">"حساب‌های نمایه شخصی"</string>
@@ -931,10 +929,10 @@
     <string name="search_settings_summary" msgid="9205656546570654169">"مدیریت تنظیمات جستجو و سابقه"</string>
     <string name="display_settings" msgid="7965901687241669598">"صفحه‌نمایش"</string>
     <string name="accelerometer_title" msgid="7854608399547349157">"چرخش خودکار صفحه"</string>
-    <string name="accelerometer_summary_on" product="tablet" msgid="429982132339828942">"هنگام چرخاندن رایانهٔ لوحی، جهت به‌طور خودکار تغییر می‌کند"</string>
-    <string name="accelerometer_summary_on" product="default" msgid="1133737282813048021">"هنگام چرخاندن تلفن، جهت به‌طور خودکار تغییر می‌کند"</string>
-    <string name="accelerometer_summary_off" product="tablet" msgid="4781734213242521682">"هنگام چرخاندن رایانهٔ لوحی، جهت به‌طور خودکار تغییر می‌کند"</string>
-    <string name="accelerometer_summary_off" product="default" msgid="5485489363715740761">"هنگام چرخاندن تلفن، جهت به‌طور خودکار تغییر می‌کند"</string>
+    <string name="accelerometer_summary_on" msgid="429982132339828942" product="tablet">"هنگام چرخاندن رایانهٔ لوحی، جهت به‌طور خودکار تغییر می‌کند"</string>
+    <string name="accelerometer_summary_on" msgid="1133737282813048021" product="default">"هنگام چرخاندن تلفن، جهت به‌طور خودکار تغییر می‌کند"</string>
+    <string name="accelerometer_summary_off" msgid="4781734213242521682" product="tablet">"هنگام چرخاندن رایانهٔ لوحی، جهت به‌طور خودکار تغییر می‌کند"</string>
+    <string name="accelerometer_summary_off" msgid="5485489363715740761" product="default">"هنگام چرخاندن تلفن، جهت به‌طور خودکار تغییر می‌کند"</string>
     <string name="brightness" msgid="8480105032417444275">"سطح روشنایی"</string>
     <string name="brightness_title" msgid="5746272622112982836">"روشنایی"</string>
     <string name="brightness_summary" msgid="838917350127550703">"تنظیم روشنایی صفحه"</string>
@@ -985,10 +983,10 @@
     <string name="sim_lock_settings_category" msgid="5136244267576697004">"تنظیم قفل سیم کارت"</string>
     <string name="sim_lock_settings_title" msgid="9018585580955414596">"قفل سیم کارت"</string>
     <string name="sim_pin_toggle" msgid="1742123478029451888">"قفل کردن سیم کارت"</string>
-    <string name="sim_lock_on" product="tablet" msgid="5058355081270397764">"درخواست پین برای استفاده از رایانهٔ لوحی"</string>
-    <string name="sim_lock_on" product="default" msgid="2503536505568814324">"درخواست پین برای استفاده از تلفن"</string>
-    <string name="sim_lock_off" product="tablet" msgid="2813800553917012356">"درخواست پین برای استفاده از رایانهٔ لوحی"</string>
-    <string name="sim_lock_off" product="default" msgid="258981978215428916">"درخواست پین برای استفاده از تلفن"</string>
+    <string name="sim_lock_on" msgid="5058355081270397764" product="tablet">"درخواست پین برای استفاده از رایانهٔ لوحی"</string>
+    <string name="sim_lock_on" msgid="2503536505568814324" product="default">"درخواست پین برای استفاده از تلفن"</string>
+    <string name="sim_lock_off" msgid="2813800553917012356" product="tablet">"درخواست پین برای استفاده از رایانهٔ لوحی"</string>
+    <string name="sim_lock_off" msgid="258981978215428916" product="default">"درخواست پین برای استفاده از تلفن"</string>
     <string name="sim_pin_change" msgid="6311414184279932368">"تغییر پین سیم کارت"</string>
     <string name="sim_enter_pin" msgid="6608715137008508432">"پین سیم کارت"</string>
     <string name="sim_enable_sim_lock" msgid="4517742794997166918">"قفل کردن سیم کارت"</string>
@@ -1012,12 +1010,12 @@
     <string name="sim_preferred_message" msgid="301251431163650167">"<xliff:g id="NEW_SIM">%1$s</xliff:g> تنها سیم‌کارت روی دستگاه شماست. می‌خواهید از این سیم‌کارت برای داده‌های شبکه تلفن همراه، تماس‌ها و پیامک استفاده کنید؟"</string>
     <string name="wrong_pin_code_pukked" msgid="4003655226832658066">"کد پین سیم کارت اشتباه است، اکنون برای گشودن قفل دستگاهتان باید با شرکت مخابراتی تماس بگیرید."</string>
     <plurals name="wrong_pin_code" formatted="false" msgid="1582398808893048097">
-      <item quantity="one">کد پین سیم‌کارت اشتباه است، <xliff:g id="NUMBER_1">%d</xliff:g> بار دیگر می‌توانید تلاش کنید.</item>
-      <item quantity="other">کد پین سیم‌کارت اشتباه است، <xliff:g id="NUMBER_1">%d</xliff:g> بار دیگر می‌توانید تلاش کنید.</item>
+        <item quantity="one">کد پین سیم‌کارت اشتباه است، <xliff:g id="NUMBER_1">%d</xliff:g> بار دیگر می‌توانید تلاش کنید.</item>
+        <item quantity="other">کد پین سیم‌کارت اشتباه است، <xliff:g id="NUMBER_1">%d</xliff:g> بار دیگر می‌توانید تلاش کنید.</item>
     </plurals>
     <string name="pin_failed" msgid="1848423634948587645">"عملیات پین سیم کارت ناموفق بود!"</string>
-    <string name="device_info_settings" product="tablet" msgid="1119755927536987178">"وضعیت رایانهٔ لوحی"</string>
-    <string name="device_info_settings" product="default" msgid="475872867864762157">"وضعیت تلفن"</string>
+    <string name="device_info_settings" msgid="1119755927536987178" product="tablet">"وضعیت رایانهٔ لوحی"</string>
+    <string name="device_info_settings" msgid="475872867864762157" product="default">"وضعیت تلفن"</string>
     <string name="system_update_settings_list_item_title" msgid="3342887311059985961">"به‌روزرسانی‌های سیستم"</string>
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"‏نسخهٔ Android"</string>
@@ -1031,15 +1029,15 @@
     <string name="device_info_not_available" msgid="8062521887156825182">"موجود نیست"</string>
     <string name="device_status_activity_title" msgid="1411201799384697904">"وضعیت"</string>
     <string name="device_status" msgid="607405385799807324">"وضعیت"</string>
-    <string name="device_status_summary" product="tablet" msgid="3292717754497039686">"وضعیت باتری، شبکه و اطلاعات دیگر"</string>
-    <string name="device_status_summary" product="default" msgid="2599162787451519618">"شماره تلفن، سیگنال و سایر موارد"</string>
+    <string name="device_status_summary" msgid="3292717754497039686" product="tablet">"وضعیت باتری، شبکه و اطلاعات دیگر"</string>
+    <string name="device_status_summary" msgid="2599162787451519618" product="default">"شماره تلفن، سیگنال و سایر موارد"</string>
     <string name="storage_settings" msgid="4211799979832404953">"حافظه"</string>
     <string name="storage_usb_settings" msgid="7293054033137078060">"فضای ذخیره‌سازی"</string>
     <string name="storage_settings_title" msgid="8746016738388094064">"تنظیمات ذخیره‌سازی"</string>
-    <string name="storage_settings_summary" product="nosdcard" msgid="3543813623294870759">"‏قطع اتصال حافظهٔ USB، مشاهده حافظه موجود"</string>
-    <string name="storage_settings_summary" product="default" msgid="9176693537325988610">"‏جدا کردن کارت SD، مشاهده محل ذخیره موجود"</string>
-    <string name="status_number" product="tablet" msgid="1138837891091222272">"MDN"</string>
-    <string name="status_number" product="default" msgid="5123197324870153205">"شماره تلفن من"</string>
+    <string name="storage_settings_summary" msgid="3543813623294870759" product="nosdcard">"‏قطع اتصال حافظهٔ USB، مشاهده حافظه موجود"</string>
+    <string name="storage_settings_summary" msgid="9176693537325988610" product="default">"‏جدا کردن کارت SD، مشاهده محل ذخیره موجود"</string>
+    <string name="status_number" msgid="1138837891091222272" product="tablet">"MDN"</string>
+    <string name="status_number" msgid="5123197324870153205" product="default">"شماره تلفن من"</string>
     <string name="status_min_number" msgid="3519504522179420597">"MIN"</string>
     <string name="status_msid_number" msgid="909010114445780530">"MSID"</string>
     <string name="status_prl_version" msgid="1007470446618081441">"‏نسخه PRL"</string>
@@ -1059,8 +1057,8 @@
     <string name="status_up_time" msgid="7294859476816760399">"زمان فعالیت"</string>
     <string name="status_awake_time" msgid="2393949909051183652">"زمان بیداری"</string>
     <string name="internal_memory" msgid="9129595691484260784">"حافظهٔ داخلی"</string>
-    <string name="sd_memory" product="nosdcard" msgid="2510246194083052841">"‏حافظهٔ USB"</string>
-    <string name="sd_memory" product="default" msgid="151871913888051515">"‏کارت SD"</string>
+    <string name="sd_memory" msgid="2510246194083052841" product="nosdcard">"‏حافظهٔ USB"</string>
+    <string name="sd_memory" msgid="151871913888051515" product="default">"‏کارت SD"</string>
     <string name="memory_available" msgid="5052397223077021181">"آزاد"</string>
     <string name="memory_available_read_only" msgid="6497534390167920206">"موجود (فقط خواندنی)"</string>
     <string name="memory_size" msgid="6629067715017232195">"کل فضا"</string>
@@ -1072,33 +1070,33 @@
     <string name="memory_music_usage" msgid="1363785144783011606">"صوتی (موسیقی، آهنگ‌های زنگ، پادکست‌ها و موارد دیگر)"</string>
     <string name="memory_media_misc_usage" msgid="6094866738586451683">"سایر فایل‌ها"</string>
     <string name="memory_media_cache_usage" msgid="6704293333141177910">"داده‌های موجود در حافظه پنهان"</string>
-    <string name="sd_eject" product="nosdcard" msgid="4988563376492400073">"قطع اتصال حافظه مشترک"</string>
-    <string name="sd_eject" product="default" msgid="6915293408836853020">"‏جدا کردن کارت SD"</string>
-    <string name="sd_eject_summary" product="nosdcard" msgid="5009296896648072891">"‏قطع اتصال حافظهٔ USB داخلی"</string>
-    <string name="sd_eject_summary" product="default" msgid="3300599435073550246">"‏اتصال کارت SD را قطع کنید تا بتوانید آنرا با ایمنی کامل از دستگاه جدا کنید"</string>
-    <string name="sd_insert_summary" product="nosdcard" msgid="5264016886409577313">"‏قرار دادن حافظهٔ USB برای اتصال"</string>
-    <string name="sd_insert_summary" product="default" msgid="2048640010381803841">"‏کارت SD را برای اتصال وارد کنید"</string>
-    <string name="sd_mount" product="nosdcard" msgid="8966695015677343116">"‏اتصال حافظهٔ USB"</string>
-    <string name="sd_mount" product="default" msgid="5940523765187704135">"‏اتصال کارت SD"</string>
-    <string name="sd_mount_summary" product="nosdcard" msgid="4673411327373419641"></string>
-    <string name="sd_mount_summary" product="default" msgid="4673411327373419641"></string>
-    <string name="sd_format" product="nosdcard" msgid="2148179271623099054">"‏پاک کردن حافظهٔ USB"</string>
-    <string name="sd_format" product="default" msgid="2576054280507119870">"‏پاک کردن کارت SD"</string>
-    <string name="sd_format_summary" product="nosdcard" msgid="6331905044907914603">"‏پاک کردن همه داده‌های موجود در حافظهٔ USB داخلی مانند موسیقی و عکس"</string>
-    <string name="sd_format_summary" product="default" msgid="212703692181793109">"‏همه داده‌های موجود در کارت SD مانند موسیقی و عکس‌ها را پاک می‌کند"</string>
+    <string name="sd_eject" msgid="4988563376492400073" product="nosdcard">"قطع اتصال حافظه مشترک"</string>
+    <string name="sd_eject" msgid="6915293408836853020" product="default">"‏جدا کردن کارت SD"</string>
+    <string name="sd_eject_summary" msgid="5009296896648072891" product="nosdcard">"‏قطع اتصال حافظهٔ USB داخلی"</string>
+    <string name="sd_eject_summary" msgid="3300599435073550246" product="default">"‏اتصال کارت SD را قطع کنید تا بتوانید آنرا با ایمنی کامل از دستگاه جدا کنید"</string>
+    <string name="sd_insert_summary" msgid="5264016886409577313" product="nosdcard">"‏قرار دادن حافظهٔ USB برای اتصال"</string>
+    <string name="sd_insert_summary" msgid="2048640010381803841" product="default">"‏کارت SD را برای اتصال وارد کنید"</string>
+    <string name="sd_mount" msgid="8966695015677343116" product="nosdcard">"‏اتصال حافظهٔ USB"</string>
+    <string name="sd_mount" msgid="5940523765187704135" product="default">"‏اتصال کارت SD"</string>
+    <string name="sd_mount_summary" msgid="4673411327373419641" product="nosdcard"></string>
+    <string name="sd_mount_summary" msgid="4673411327373419641" product="default"></string>
+    <string name="sd_format" msgid="2148179271623099054" product="nosdcard">"‏پاک کردن حافظهٔ USB"</string>
+    <string name="sd_format" msgid="2576054280507119870" product="default">"‏پاک کردن کارت SD"</string>
+    <string name="sd_format_summary" msgid="6331905044907914603" product="nosdcard">"‏پاک کردن همه داده‌های موجود در حافظهٔ USB داخلی مانند موسیقی و عکس"</string>
+    <string name="sd_format_summary" msgid="212703692181793109" product="default">"‏همه داده‌های موجود در کارت SD مانند موسیقی و عکس‌ها را پاک می‌کند"</string>
     <string name="memory_clear_cache_title" msgid="5423840272171286191">"داده‌های موجود در حافظه پنهان پاک شود؟"</string>
     <string name="memory_clear_cache_message" msgid="4550262490807415948">"با این کار داده‌های موجود در حافظه پنهان همه برنامه‌ها پاک می‌شود."</string>
     <string name="mtp_ptp_mode_summary" msgid="3710436114807789270">"‏عملکرد MTP یا PTP فعال است"</string>
-    <string name="dlg_confirm_unmount_title" product="nosdcard" msgid="3077285629197874055">"‏حافظهٔ USB جدا شود؟"</string>
-    <string name="dlg_confirm_unmount_title" product="default" msgid="3634502237262534381">"‏کارت SD جدا شود؟"</string>
-    <string name="dlg_confirm_unmount_text" product="nosdcard" msgid="4322636662873269018">"‏در صورت جدا کردن حافظهٔ USB، برخی از برنامه‌هایی که از آن‌ها استفاده می‌کنید متوقف می‌شوند و ممکن است تا زمانی که حافظهٔ USB را دوباره نصب کنید، دیگر نتوانید از آن‌ها استفاده کنید."</string>
-    <string name="dlg_confirm_unmount_text" product="default" msgid="6998379994779187692">"‏در صورت جدا کردن کارت SD، برخی از برنامه‌هایی که از آن‌ها استفاده می‌کنید متوقف می‌شوند و ممکن است تا زمانی که کارت SD را دوباره نصب کنید، دیگر نتوانید از آن‌ها استفاده کنید."</string>
-    <string name="dlg_error_unmount_title" product="nosdcard" msgid="4642742385125426529"></string>
-    <string name="dlg_error_unmount_title" product="default" msgid="4642742385125426529"></string>
-    <string name="dlg_error_unmount_text" product="nosdcard" msgid="9191518889746166147">"‏نمی‌توانید حافظهٔ USB را جدا کنید. در فرصتی دیگر دوباره امتحان کنید."</string>
-    <string name="dlg_error_unmount_text" product="default" msgid="3500976899159848422">"‏نمی‌توان کارت SD را جدا کرد. بعداً دوباره امتحان کنید."</string>
-    <string name="unmount_inform_text" product="nosdcard" msgid="7120241136790744265">"‏اتصال حافظهٔ USB قطع می‌شود."</string>
-    <string name="unmount_inform_text" product="default" msgid="1904212716075458402">"‏کارت SD جدا می‌شود."</string>
+    <string name="dlg_confirm_unmount_title" msgid="3077285629197874055" product="nosdcard">"‏حافظهٔ USB جدا شود؟"</string>
+    <string name="dlg_confirm_unmount_title" msgid="3634502237262534381" product="default">"‏کارت SD جدا شود؟"</string>
+    <string name="dlg_confirm_unmount_text" msgid="4322636662873269018" product="nosdcard">"‏در صورت جدا کردن حافظهٔ USB، برخی از برنامه‌هایی که از آن‌ها استفاده می‌کنید متوقف می‌شوند و ممکن است تا زمانی که حافظهٔ USB را دوباره نصب کنید، دیگر نتوانید از آن‌ها استفاده کنید."</string>
+    <string name="dlg_confirm_unmount_text" msgid="6998379994779187692" product="default">"‏در صورت جدا کردن کارت SD، برخی از برنامه‌هایی که از آن‌ها استفاده می‌کنید متوقف می‌شوند و ممکن است تا زمانی که کارت SD را دوباره نصب کنید، دیگر نتوانید از آن‌ها استفاده کنید."</string>
+    <string name="dlg_error_unmount_title" msgid="4642742385125426529" product="nosdcard"></string>
+    <string name="dlg_error_unmount_title" msgid="4642742385125426529" product="default"></string>
+    <string name="dlg_error_unmount_text" msgid="9191518889746166147" product="nosdcard">"‏نمی‌توانید حافظهٔ USB را جدا کنید. در فرصتی دیگر دوباره امتحان کنید."</string>
+    <string name="dlg_error_unmount_text" msgid="3500976899159848422" product="default">"‏نمی‌توان کارت SD را جدا کرد. بعداً دوباره امتحان کنید."</string>
+    <string name="unmount_inform_text" msgid="7120241136790744265" product="nosdcard">"‏اتصال حافظهٔ USB قطع می‌شود."</string>
+    <string name="unmount_inform_text" msgid="1904212716075458402" product="default">"‏کارت SD جدا می‌شود."</string>
     <string name="sd_ejecting_title" msgid="8824572198034365468">"جدا کردن"</string>
     <string name="sd_ejecting_summary" msgid="2028753069184908491">"جدا کردن در حال انجام است"</string>
     <string name="storage_low_title" msgid="1388569749716225155">"فضای ذخیره‌سازی رو به اتمام است"</string>
@@ -1239,19 +1237,19 @@
     <string name="reset_network_complete_toast" msgid="787829973559541880">"تنظیمات شبکه بازنشانی شد"</string>
     <string name="device_reset_title" msgid="2384019005638768076">"بازنشانی دستگاه"</string>
     <string name="master_clear_title" msgid="5907939616087039756">"بازنشانی داده‌های کارخانه"</string>
-    <string name="master_clear_desc" product="tablet" msgid="9146059417023157222">"‏با این کار همه داده‌های "<b>"حافظهٔ داخلی"</b>" رایانهٔ لوحی شما پاک می‌شود، از جمله:\n\n"<li>"حساب Google شما"<li>\n</li>"داده‌ها و تنظیمات برنامه و سیستم"<li>\n</li>"برنامه‌های بارگیری شده"</li></string>
-    <string name="master_clear_desc" product="default" msgid="4800386183314202571">"‏با این کار همه داده‌های "<b>"حافظه داخلی"</b>" گوشی شما پاک می‌شود، از جمله:\n\n"<li>"حساب Google شما"</li>\n<li>"تنیمات و داده‌های برنامه و سیستم"</li>\n<li>"برنامه‌های بارگیری شده"</li></string>
-    <string name="master_clear_accounts" product="default" msgid="6412857499147999073">\n\n"شما در حال حاضر به حساب‌های زیر وارد شده‌اید:\n"</string>
-    <string name="master_clear_other_users_present" product="default" msgid="5161423070702470742">\n\n"کاربران دیگری در این دستگاه وجود دارند.\n"</string>
+    <string name="master_clear_desc" msgid="9146059417023157222" product="tablet">"‏با این کار همه داده‌های "<b>"حافظهٔ داخلی"</b>" رایانهٔ لوحی شما پاک می‌شود، از جمله:\n\n"<li>"حساب Google شما"<li>\n</li>"داده‌ها و تنظیمات برنامه و سیستم"<li>\n</li>"برنامه‌های بارگیری شده"</li></string>
+    <string name="master_clear_desc" msgid="4800386183314202571" product="default">"‏با این کار همه داده‌های "<b>"حافظه داخلی"</b>" گوشی شما پاک می‌شود، از جمله:\n\n"<li>"حساب Google شما"</li>\n<li>"تنیمات و داده‌های برنامه و سیستم"</li>\n<li>"برنامه‌های بارگیری شده"</li></string>
+    <string name="master_clear_accounts" msgid="6412857499147999073" product="default">\n\n"شما در حال حاضر به حساب‌های زیر وارد شده‌اید:\n"</string>
+    <string name="master_clear_other_users_present" msgid="5161423070702470742" product="default">\n\n"کاربران دیگری در این دستگاه وجود دارند.\n"</string>
     <string name="master_clear_desc_also_erases_external" msgid="1903185203791274237"><li>"موسیقی"</li>\n<li>"عکس ها"</li>\n<li>"سایر اطلاعات کاربر"</li></string>
-    <string name="master_clear_desc_erase_external_storage" product="nosdcard" msgid="7744115866662613411">"‏\n\nبرای پاک کردن موسیقی، عکس‌ها و سایر داده‌های کاربر، "<b>"حافظهٔ USB"</b>" باید پاک شود."</string>
-    <string name="master_clear_desc_erase_external_storage" product="default" msgid="4801026652617377093">"‏\n\nبرای پاک کردن موسیقی، عکس‌ها و سایر داده‌های کاربر، "<b>"کارت SD"</b>" باید پاک شود."</string>
-    <string name="erase_external_storage" product="nosdcard" msgid="969364037450286809">"‏پاک کردن حافظهٔ USB"</string>
-    <string name="erase_external_storage" product="default" msgid="1397239046334307625">"‏پاک کردن کارت SD"</string>
-    <string name="erase_external_storage_description" product="nosdcard" msgid="4728558173931599429">"‏همه داده‌های موجود در حافظهٔ USB داخلی مانند موسیقی یا عکس‌ها را پاک کنید"</string>
-    <string name="erase_external_storage_description" product="default" msgid="1737638779582964966">"‏همه داده‌های موجود در کارت SD از جمله موسیقی یا عکس‌ها حذف می‌شوند"</string>
-    <string name="master_clear_button_text" product="tablet" msgid="3130786116528304116">"بازنشانی رایانهٔ لوحی"</string>
-    <string name="master_clear_button_text" product="default" msgid="7550632653343157971">"بازنشانی تلفن"</string>
+    <string name="master_clear_desc_erase_external_storage" msgid="7744115866662613411" product="nosdcard">"‏\n\nبرای پاک کردن موسیقی، عکس‌ها و سایر داده‌های کاربر، "<b>"حافظهٔ USB"</b>" باید پاک شود."</string>
+    <string name="master_clear_desc_erase_external_storage" msgid="4801026652617377093" product="default">"‏\n\nبرای پاک کردن موسیقی، عکس‌ها و سایر داده‌های کاربر، "<b>"کارت SD"</b>" باید پاک شود."</string>
+    <string name="erase_external_storage" msgid="969364037450286809" product="nosdcard">"‏پاک کردن حافظهٔ USB"</string>
+    <string name="erase_external_storage" msgid="1397239046334307625" product="default">"‏پاک کردن کارت SD"</string>
+    <string name="erase_external_storage_description" msgid="4728558173931599429" product="nosdcard">"‏همه داده‌های موجود در حافظهٔ USB داخلی مانند موسیقی یا عکس‌ها را پاک کنید"</string>
+    <string name="erase_external_storage_description" msgid="1737638779582964966" product="default">"‏همه داده‌های موجود در کارت SD از جمله موسیقی یا عکس‌ها حذف می‌شوند"</string>
+    <string name="master_clear_button_text" msgid="3130786116528304116" product="tablet">"بازنشانی رایانهٔ لوحی"</string>
+    <string name="master_clear_button_text" msgid="7550632653343157971" product="default">"بازنشانی تلفن"</string>
     <string name="master_clear_final_desc" msgid="7318683914280403086">"همه اطلاعات شخصی و برنامه‌های دانلودشده پاک شود؟ امکان واگرد این کار وجود ندارد!"</string>
     <string name="master_clear_final_button_text" msgid="5390908019019242910">"پاک کردن همه موارد"</string>
     <string name="master_clear_failed" msgid="2503230016394586353">"هیچ بازنشانی انجام نشد زیرا سرویس پاکسازی سیستم در دسترس نیست."</string>
@@ -1276,15 +1274,15 @@
     <string name="usb_tethering_turnon_subtext" msgid="4748616058219273033">"برای روشن شدن، آن را متصل کنید"</string>
     <string name="usb_tethering_errored_subtext" msgid="1377574819427841992">"‏خطای اتصال داده با سیم USB"</string>
     <string name="bluetooth_tether_checkbox_text" msgid="2379175828878753652">"تترینگ با بلوتوث"</string>
-    <string name="bluetooth_tethering_available_subtext" product="tablet" msgid="4328374808439440517">"اشتراک‌گذاری اتصال اینترنتی این رایانهٔ لوحی"</string>
-    <string name="bluetooth_tethering_available_subtext" product="default" msgid="7451579908917710359">"اشتراک‌گذاری اتصال اینترنتی این تلفن"</string>
-    <string name="bluetooth_tethering_device_connected_subtext" product="tablet" msgid="7296104766087335891">"اشتراک‌گذاری اتصال اینترنتی این رایانهٔ لوحی با 1 دستگاه"</string>
-    <string name="bluetooth_tethering_device_connected_subtext" product="default" msgid="2785474869740805972">"اشتراک‌گذاری اتصال اینترنتی این تلفن با 1 دستگاه"</string>
-    <string name="bluetooth_tethering_devices_connected_subtext" product="tablet" msgid="7345108029216525495">"اشتراک‌گذاری اتصال اینترنتی این رایانهٔ لوحی با <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g> دستگاه"</string>
-    <string name="bluetooth_tethering_devices_connected_subtext" product="default" msgid="2992288063706153665">"اشتراک‌گذاری اتصال اینترنتی این تلفن با <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g> دستگاه"</string>
+    <string name="bluetooth_tethering_available_subtext" msgid="4328374808439440517" product="tablet">"اشتراک‌گذاری اتصال اینترنتی این رایانهٔ لوحی"</string>
+    <string name="bluetooth_tethering_available_subtext" msgid="7451579908917710359" product="default">"اشتراک‌گذاری اتصال اینترنتی این تلفن"</string>
+    <string name="bluetooth_tethering_device_connected_subtext" msgid="7296104766087335891" product="tablet">"اشتراک‌گذاری اتصال اینترنتی این رایانهٔ لوحی با 1 دستگاه"</string>
+    <string name="bluetooth_tethering_device_connected_subtext" msgid="2785474869740805972" product="default">"اشتراک‌گذاری اتصال اینترنتی این تلفن با 1 دستگاه"</string>
+    <string name="bluetooth_tethering_devices_connected_subtext" msgid="7345108029216525495" product="tablet">"اشتراک‌گذاری اتصال اینترنتی این رایانهٔ لوحی با <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g> دستگاه"</string>
+    <string name="bluetooth_tethering_devices_connected_subtext" msgid="2992288063706153665" product="default">"اشتراک‌گذاری اتصال اینترنتی این تلفن با <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g> دستگاه"</string>
     <string name="bluetooth_tethering_off_subtext_config" msgid="6630416508030836214">"اشتراک‌گذاری اتصال اینترنتی این دستگاه <xliff:g id="DEVICE_NAME">%1$d</xliff:g>"</string>
-    <string name="bluetooth_tethering_off_subtext" product="tablet" msgid="3737828501935728137">"اتصال اینترنتی این رایانهٔ لوحی پشتیبانی نمی‌شود"</string>
-    <string name="bluetooth_tethering_off_subtext" product="default" msgid="9099562374002272901">"اتصال اینترنتی این تلفن اشتراک‌گذاری نمی‌شود"</string>
+    <string name="bluetooth_tethering_off_subtext" msgid="3737828501935728137" product="tablet">"اتصال اینترنتی این رایانهٔ لوحی پشتیبانی نمی‌شود"</string>
+    <string name="bluetooth_tethering_off_subtext" msgid="9099562374002272901" product="default">"اتصال اینترنتی این تلفن اشتراک‌گذاری نمی‌شود"</string>
     <string name="bluetooth_tethering_errored_subtext" msgid="4926566308991142264">"اتصال به اینترنت با تلفن همراه برقرار نشد"</string>
     <string name="bluetooth_tethering_overflow_error" msgid="2135590598511178690">"اتصال اینترنتی با تلفن همراه به بیش از <xliff:g id="MAXCONNECTION">%1$d</xliff:g> دستگاه امکان‌پذیر نیست."</string>
     <string name="bluetooth_untether_blank" msgid="2871192409329334813">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> از اتصال اینترنتی با تلفن همراه قطع می‌شود."</string>
@@ -1328,8 +1326,8 @@
     <string name="location_neighborhood_level" msgid="5141318121229984788">"‏به برنامه‌ها اجازه داده شود با استفاده از خدمات مکانی Google مکان شما را سریع‌تر تخمین بزنند. داده‌های مکان به‌طور ناشناس جمع‌آوری شده و به Google ارسال خواهد شد."</string>
     <string name="location_neighborhood_level_wifi" msgid="4234820941954812210">"‏موقعیت مکانی تعیین شده توسط Wi-Fi"</string>
     <string name="location_gps" msgid="8392461023569708478">"‏ماهواره‌های GPS"</string>
-    <string name="location_street_level" product="tablet" msgid="1669562198260860802">"‏به برنامه‌های کاربردی اجازه داده شود برای مشخص کردن دقیق مکان شما از GPS رایانه لوحیتان استفاده کنند"</string>
-    <string name="location_street_level" product="default" msgid="4617445745492014203">"‏به برنامه‌های کاربردی اجازه داده شود برای مشخص کردن دقیق مکان شما از GPS تلفن همراه شما استفاده کنند"</string>
+    <string name="location_street_level" msgid="1669562198260860802" product="tablet">"‏به برنامه‌های کاربردی اجازه داده شود برای مشخص کردن دقیق مکان شما از GPS رایانه لوحیتان استفاده کنند"</string>
+    <string name="location_street_level" msgid="4617445745492014203" product="default">"‏به برنامه‌های کاربردی اجازه داده شود برای مشخص کردن دقیق مکان شما از GPS تلفن همراه شما استفاده کنند"</string>
     <string name="assisted_gps" msgid="4649317129586736885">"‏استفاده از GPS کمکی"</string>
     <string name="assisted_gps_enabled" msgid="8751899609589792803">"‏استفاده از سرور برای کمک به GPS (برای کاهش میزان استفاده از شبکه، علامت آن را حذف کنید)"</string>
     <string name="assisted_gps_disabled" msgid="6982698333968010748">"‏استفاده از سرور برای کمک به GPS (برای ارتقای عملکرد GPS، علامت آن را حذف کنید)"</string>
@@ -1338,9 +1336,9 @@
     <string name="location_access_title" msgid="7064108942964081243">"دسترسی به موقعیت مکانی شما"</string>
     <string name="location_access_summary" msgid="69031404093194341">"به برنامه‌هایی که از شما اجازه گرفته‌اند اجازه داده شود از اطلاعات مکانی شما استفاده کنند"</string>
     <string name="location_sources_heading" msgid="1278732419851088319">"منابع موقعیت مکانی"</string>
-    <string name="about_settings" product="tablet" msgid="593457295516533765">"دربارهٔ رایانهٔ لوحی"</string>
-    <string name="about_settings" product="default" msgid="1743378368185371685">"دربارهٔ گوشی"</string>
-    <string name="about_settings" product="emulator" msgid="221313099578564438">"درباره دستگاه شبیه‌سازی"</string>
+    <string name="about_settings" msgid="593457295516533765" product="tablet">"دربارهٔ رایانهٔ لوحی"</string>
+    <string name="about_settings" msgid="1743378368185371685" product="default">"دربارهٔ گوشی"</string>
+    <string name="about_settings" msgid="221313099578564438" product="emulator">"درباره دستگاه شبیه‌سازی"</string>
     <string name="about_settings_summary" msgid="3371517697156165959">"مشاهدهٔ اطلاعات حقوقی، وضعیت، نسخه نرم‌افزار"</string>
     <string name="legal_information" msgid="5769301644270604095">"اطلاعات حقوقی"</string>
     <string name="contributors_title" msgid="5917703088825286504">"شرکت کنندگان"</string>
@@ -1435,8 +1433,8 @@
     <string name="install_applications_title" msgid="4987712352256508946">"همه منابع برنامه مجاز است"</string>
     <string name="install_unknown_applications_title" msgid="663831043139080992">"‏نصب برنامه‌ها از منابعی جز Google Play را برایتان امکان‌پذیر می‌کند"</string>
     <string name="install_unknown_applications" msgid="176855644862942064">"اجازه نصب برنامه‌ها از منابع ناشناس"</string>
-    <string name="install_all_warning" product="tablet" msgid="3263360446508268880">"رایانهٔ لوحی و داده‌های شخصی شما بیشتر در معرض خطر حمله برنامه‌های منابع ناشناس هستند. شما موافقت می‌کنید که در قبال هر گونه آسیب وارده به رایانهٔ لوحی خود یا از دست دادن داده که در نتیجه استفاده از این برنامه‌ها روی دهد تنها خودتان مسئول هستید."</string>
-    <string name="install_all_warning" product="default" msgid="8113734576826384682">"گوشی و داده‌های شخصی شما بیشتر در معرض خطر حمله برنامه‌هایی با منابع ناشناس است. شما موافقت می‌کنید که درقبال هرگونه آسیبی که در نتیجه استفاده از این برنامه‌ها به گوشی شما وارد شود فقط خودتان مسئول هستید."</string>
+    <string name="install_all_warning" msgid="3263360446508268880" product="tablet">"رایانهٔ لوحی و داده‌های شخصی شما بیشتر در معرض خطر حمله برنامه‌های منابع ناشناس هستند. شما موافقت می‌کنید که در قبال هر گونه آسیب وارده به رایانهٔ لوحی خود یا از دست دادن داده که در نتیجه استفاده از این برنامه‌ها روی دهد تنها خودتان مسئول هستید."</string>
+    <string name="install_all_warning" msgid="8113734576826384682" product="default">"گوشی و داده‌های شخصی شما بیشتر در معرض خطر حمله برنامه‌هایی با منابع ناشناس است. شما موافقت می‌کنید که درقبال هرگونه آسیبی که در نتیجه استفاده از این برنامه‌ها به گوشی شما وارد شود فقط خودتان مسئول هستید."</string>
     <string name="advanced_settings" msgid="1777249286757067969">"تنظیمات پیشرفته"</string>
     <string name="advanced_settings_summary" msgid="4016682978071086747">"گزینه‌های تنظیمات بیشتری فعال شود"</string>
     <string name="application_info_label" msgid="5736524913065714880">"اطلاعات برنامه"</string>
@@ -1449,8 +1447,8 @@
     <string name="clear_cache_btn_text" msgid="5756314834291116325">"پاک کردن حافظهٔ پنهان"</string>
     <string name="cache_size_label" msgid="7505481393108282913">"حافظهٔ پنهان"</string>
     <plurals name="uri_permissions_text" formatted="false" msgid="3983110543017963732">
-      <item quantity="one">‏%d مورد</item>
-      <item quantity="other">‏%d مورد</item>
+        <item quantity="one">‏%d مورد</item>
+        <item quantity="other">‏%d مورد</item>
     </plurals>
     <string name="clear_uri_btn_text" msgid="8575655132961012158">"پاک کردن دسترسی"</string>
     <string name="controls_label" msgid="7611113077086853799">"کنترل ها"</string>
@@ -1459,8 +1457,8 @@
     <string name="application_size_label" msgid="8494609207373874267">"برنامه"</string>
     <string name="external_code_size_label" msgid="3459343140355961335">"‏برنامه ذخیره‌سازی USB"</string>
     <string name="data_size_label" msgid="8679376373625710107">"داده"</string>
-    <string name="external_data_size_label" product="nosdcard" msgid="7533821466482000453">"‏داده‌های ذخیره‌سازی USB"</string>
-    <string name="external_data_size_label" product="default" msgid="626414192825329708">"‏کارت SD"</string>
+    <string name="external_data_size_label" msgid="7533821466482000453" product="nosdcard">"‏داده‌های ذخیره‌سازی USB"</string>
+    <string name="external_data_size_label" msgid="626414192825329708" product="default">"‏کارت SD"</string>
     <string name="uninstall_text" msgid="3644892466144802466">"حذف نصب"</string>
     <string name="uninstall_all_users_text" msgid="851857393177950340">"حذف نصب برای همه کاربران"</string>
     <string name="install_text" msgid="884360662922471113">"نصب"</string>
@@ -1492,15 +1490,15 @@
     <string name="filter_apps_disabled" msgid="5364447573326472890">"غیرفعال شد"</string>
     <string name="filter_apps_third_party" msgid="7786348047690140979">"دانلودشده"</string>
     <string name="filter_apps_running" msgid="7767071454371350486">"در حال اجرا"</string>
-    <string name="filter_apps_onsdcard" product="nosdcard" msgid="4843063154701023349">"‏حافظهٔ USB"</string>
-    <string name="filter_apps_onsdcard" product="default" msgid="1477351142334784771">"‏در کارت SD"</string>
+    <string name="filter_apps_onsdcard" msgid="4843063154701023349" product="nosdcard">"‏حافظهٔ USB"</string>
+    <string name="filter_apps_onsdcard" msgid="1477351142334784771" product="default">"‏در کارت SD"</string>
     <string name="disabled" msgid="9206776641295849915">"غیر فعال شد"</string>
     <string name="not_installed" msgid="2797554494953450291">"برای این کاربر نصب نشده است"</string>
     <string name="no_applications" msgid="7336588977497084921">"برنامه‌ای موجود نیست."</string>
     <string name="internal_storage" msgid="1584700623164275282">"حافظهٔ داخلی"</string>
     <string name="internal_storage_sentence" msgid="889098931914857143">"حافظه داخلی"</string>
-    <string name="sd_card_storage" product="nosdcard" msgid="2673203150465132465">"‏حافظهٔ USB"</string>
-    <string name="sd_card_storage" product="default" msgid="7623513618171928235">"‏حافظه کارت SD"</string>
+    <string name="sd_card_storage" msgid="2673203150465132465" product="nosdcard">"‏حافظهٔ USB"</string>
+    <string name="sd_card_storage" msgid="7623513618171928235" product="default">"‏حافظه کارت SD"</string>
     <string name="recompute_size" msgid="7722567982831691718">"محاسبه مجدد اندازه…"</string>
     <string name="clear_data_dlg_title" msgid="5605258400134511197">"داده‌های برنامه حذف شود؟"</string>
     <string name="clear_data_dlg_text" msgid="3951297329833822490">"همه داده‌های این برنامه به صورت دائمی حذف می‌شود. این شامل تمام فایل‌ها، تنظیمات، حساب‌ها، پایگاه‌های داده و دیگر موارد می‌شود."</string>
@@ -1511,10 +1509,10 @@
     <string name="clear_data_failed" msgid="7214074331627422248">"داده‌های برنامه پاک نشد."</string>
     <string name="clear_failed_dlg_title" msgid="2387060805294783175">"پاک کردن داده‌ها"</string>
     <string name="clear_failed_dlg_text" msgid="5464475937929941008">"پاک کردن داده‌های برنامه ممکن نیست."</string>
-    <string name="security_settings_desc" product="tablet" msgid="1292421279262430109">"این برنامه می‌تواند به موارد زیر در رایانهٔ لوحی شما دسترسی داشته باشد:"</string>
-    <string name="security_settings_desc" product="default" msgid="61749028818785244">"این برنامه می‌تواند به موارد زیر در گوشی شما دسترسی داشته باشد:"</string>
-    <string name="security_settings_desc_multi" product="tablet" msgid="7300932212437084403">"این برنامه می‌تواند به موارد زیر در رایانهٔ لوحی شما دسترسی داشته باشد. به منظور بهبود عملکرد و کاهش استفاده از حافظه، برخی از این مجوزها در<xliff:g id="BASE_APP_NAME">%1$s</xliff:g>  در دسترس هستند چون پردازش آن مانند <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> است:"</string>
-    <string name="security_settings_desc_multi" product="default" msgid="6610268420793984752">"این برنامه می‌تواند به موارد زیر در تلفن شما دسترسی داشته باشد. به منظور بهبود عملکرد و کاهش استفاده از حافظه، برخی از این مجوزها در<xliff:g id="BASE_APP_NAME">%1$s</xliff:g>  در دسترس هستند چون پردازش آن مانند <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> است:"</string>
+    <string name="security_settings_desc" msgid="1292421279262430109" product="tablet">"این برنامه می‌تواند به موارد زیر در رایانهٔ لوحی شما دسترسی داشته باشد:"</string>
+    <string name="security_settings_desc" msgid="61749028818785244" product="default">"این برنامه می‌تواند به موارد زیر در گوشی شما دسترسی داشته باشد:"</string>
+    <string name="security_settings_desc_multi" msgid="7300932212437084403" product="tablet">"این برنامه می‌تواند به موارد زیر در رایانهٔ لوحی شما دسترسی داشته باشد. به منظور بهبود عملکرد و کاهش استفاده از حافظه، برخی از این مجوزها در<xliff:g id="BASE_APP_NAME">%1$s</xliff:g>  در دسترس هستند چون پردازش آن مانند <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> است:"</string>
+    <string name="security_settings_desc_multi" msgid="6610268420793984752" product="default">"این برنامه می‌تواند به موارد زیر در تلفن شما دسترسی داشته باشد. به منظور بهبود عملکرد و کاهش استفاده از حافظه، برخی از این مجوزها در<xliff:g id="BASE_APP_NAME">%1$s</xliff:g>  در دسترس هستند چون پردازش آن مانند <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> است:"</string>
     <string name="join_two_items" msgid="1336880355987539064">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> و <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_two_unrelated_items" msgid="1873827777191260824">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>، <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="5925635036718502724">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> و <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
@@ -1527,10 +1525,10 @@
     <string name="empty_list_msg" msgid="3552095537348807772">"شما هیچ برنامه شخص ثالثی را نصب نکرده‌اید."</string>
     <string name="version_text" msgid="9189073826278676425">"نسخه <xliff:g id="VERSION_NUM">%1$s</xliff:g>"</string>
     <string name="move_app" msgid="5042838441401731346">"انتقال"</string>
-    <string name="move_app_to_internal" product="tablet" msgid="2299714147283854957">"انتقال به رایانهٔ لوحی"</string>
-    <string name="move_app_to_internal" product="default" msgid="3895430471913858185">"انتقال به تلفن"</string>
-    <string name="move_app_to_sdcard" product="nosdcard" msgid="4350451696315265420">"‏انتقال به حافظهٔ USB"</string>
-    <string name="move_app_to_sdcard" product="default" msgid="1143379049903056407">"‏انتقال به کارت SD"</string>
+    <string name="move_app_to_internal" msgid="2299714147283854957" product="tablet">"انتقال به رایانهٔ لوحی"</string>
+    <string name="move_app_to_internal" msgid="3895430471913858185" product="default">"انتقال به تلفن"</string>
+    <string name="move_app_to_sdcard" msgid="4350451696315265420" product="nosdcard">"‏انتقال به حافظهٔ USB"</string>
+    <string name="move_app_to_sdcard" msgid="1143379049903056407" product="default">"‏انتقال به کارت SD"</string>
     <string name="moving" msgid="6431016143218876491">"انتقال دادن"</string>
     <string name="another_migration_already_in_progress" msgid="7817354268848365487">"انتقال دیگری اکنون درحال انجام است."</string>
     <string name="insufficient_storage" msgid="481763122991093080">"حافظه کافی موجود نیست."</string>
@@ -1600,8 +1598,8 @@
     <string name="process_service_in_use_description" msgid="8993335064403217080">"سرویس <xliff:g id="COMP_NAME">%1$s</xliff:g> در حال استفاده است."</string>
     <string name="process_provider_in_use_description" msgid="5586603325677678940">"ارائه دهنده <xliff:g id="COMP_NAME">%1$s</xliff:g> در حال استفاده است."</string>
     <string name="runningservicedetails_stop_dlg_title" msgid="4253292537154337233">"توقف سرویس سیستم؟"</string>
-    <string name="runningservicedetails_stop_dlg_text" product="tablet" msgid="3371302398335665793">"اگر این سرویس را متوقف کنید، برخی از قابلیت‌های رایانهٔ لوحی شما ممکن است تا زمانی که گوشی را خاموش و سپس دوباره روشن کنید، به درستی کار نکنند."</string>
-    <string name="runningservicedetails_stop_dlg_text" product="default" msgid="3920243762189484756">"اگر این سرویس را متوقف کنید، برخی از قابلیت‌های گوشی شما ممکن است تا زمانی که گوشی را خاموش و سپس دوباره روشن کنید، به‌درستی کار نکنند."</string>
+    <string name="runningservicedetails_stop_dlg_text" msgid="3371302398335665793" product="tablet">"اگر این سرویس را متوقف کنید، برخی از قابلیت‌های رایانهٔ لوحی شما ممکن است تا زمانی که گوشی را خاموش و سپس دوباره روشن کنید، به درستی کار نکنند."</string>
+    <string name="runningservicedetails_stop_dlg_text" msgid="3920243762189484756" product="default">"اگر این سرویس را متوقف کنید، برخی از قابلیت‌های گوشی شما ممکن است تا زمانی که گوشی را خاموش و سپس دوباره روشن کنید، به‌درستی کار نکنند."</string>
     <string name="language_settings" msgid="8758655933029560944">"زبان‌ها و ورودی"</string>
     <string name="language_keyboard_settings_title" msgid="3709159207482544398">"زبان‌ها و ورودی"</string>
     <string name="keyboard_settings_category" msgid="8275523930352487827">"صفحه‌کلید و روش‌های ورودی"</string>
@@ -1661,8 +1659,8 @@
     <string name="user_dict_settings_all_languages" msgid="6742000040975959247">"برای همه زبان‌ها"</string>
     <string name="user_dict_settings_more_languages" msgid="7316375944684977910">"زبان‌های بیشتر…"</string>
     <string name="testing" msgid="6584352735303604146">"تست کردن"</string>
-    <string name="testing_phone_info" product="tablet" msgid="193561832258534798">"اطلاعات رایانهٔ لوحی"</string>
-    <string name="testing_phone_info" product="default" msgid="8656693364332840056">"اطلاعات تلفن"</string>
+    <string name="testing_phone_info" msgid="193561832258534798" product="tablet">"اطلاعات رایانهٔ لوحی"</string>
+    <string name="testing_phone_info" msgid="8656693364332840056" product="default">"اطلاعات تلفن"</string>
     <string name="input_methods_settings_title" msgid="6800066636850553887">"ووردی متن"</string>
     <string name="input_method" msgid="5434026103176856164">"روش ورودی"</string>
     <string name="current_input_method" msgid="2636466029213488159">"صفحه‌کلید کنونی"</string>
@@ -1731,24 +1729,24 @@
     <string name="enable_quick_setting" msgid="2366999897816894536">"نمایش در تنظیمات سریع"</string>
     <string name="daltonizer_type" msgid="1124178250809091080">"حالت تصحیح"</string>
     <plurals name="accessibilty_autoclick_preference_subtitle_extremely_short_delay" formatted="false" msgid="7340347830562315800">
-      <item quantity="one">تأخیر فوق‌العاده کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
-      <item quantity="other">تأخیر فوق‌العاده کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="one">تأخیر فوق‌العاده کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="other">تأخیر فوق‌العاده کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
     </plurals>
     <plurals name="accessibilty_autoclick_preference_subtitle_very_short_delay" formatted="false" msgid="5589565607652364932">
-      <item quantity="one">تأخیر بسیار کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
-      <item quantity="other">تأخیر بسیار کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="one">تأخیر بسیار کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="other">تأخیر بسیار کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
     </plurals>
     <plurals name="accessibilty_autoclick_preference_subtitle_short_delay" formatted="false" msgid="5887754135102768400">
-      <item quantity="one">تأخیر کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
-      <item quantity="other">تأخیر کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="one">تأخیر کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="other">تأخیر کوتاه (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
     </plurals>
     <plurals name="accessibilty_autoclick_preference_subtitle_long_delay" formatted="false" msgid="6340683412750219405">
-      <item quantity="one">تأخیر طولانی (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
-      <item quantity="other">تأخیر طولانی (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="one">تأخیر طولانی (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="other">تأخیر طولانی (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
     </plurals>
     <plurals name="accessibilty_autoclick_preference_subtitle_very_long_delay" formatted="false" msgid="3503199424330634970">
-      <item quantity="one">تأخیر بسیار طولانی (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
-      <item quantity="other">تأخیر بسیار طولانی (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="one">تأخیر بسیار طولانی (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
+        <item quantity="other">تأخیر بسیار طولانی (<xliff:g id="CLICK_DELAY_LABEL_1">%1$d</xliff:g> میلی‌ثانیه)</item>
     </plurals>
     <string name="accessibility_menu_item_settings" msgid="3344942964710773365">"تنظیمات"</string>
     <string name="accessibility_feature_state_on" msgid="2864292320042673806">"فعال"</string>
@@ -1800,8 +1798,8 @@
     <string name="settings_button" msgid="3006713718908152930">"تنظیمات"</string>
     <string name="print_settings" msgid="4742428530112487843">"چاپ کردن"</string>
     <plurals name="print_settings_title" formatted="false" msgid="6994238166067938432">
-      <item quantity="one">‏%d کار چاپ</item>
-      <item quantity="other">‏%d کار چاپ</item>
+        <item quantity="one">‏%d کار چاپ</item>
+        <item quantity="other">‏%d کار چاپ</item>
     </plurals>
     <string name="print_settings_title" msgid="3685449667822217816">"خدمات چاپ"</string>
     <string name="print_no_services_installed" msgid="8443039625463872294">"سرویسی نصب نشده است"</string>
@@ -1863,8 +1861,8 @@
     <string name="power_bluetooth" msgid="4373329044379008289">"بلوتوث"</string>
     <string name="power_cell" msgid="6596471490976003056">"حالت آماده به کار تماس"</string>
     <string name="power_phone" msgid="5392641106474567277">"تماس‌های صوتی"</string>
-    <string name="power_idle" product="tablet" msgid="4612478572401640759">"رایانهٔ لوحی آماده به کار"</string>
-    <string name="power_idle" product="default" msgid="9055659695602194990">"حالت بلااستفاده تلفن"</string>
+    <string name="power_idle" msgid="4612478572401640759" product="tablet">"رایانهٔ لوحی آماده به کار"</string>
+    <string name="power_idle" msgid="9055659695602194990" product="default">"حالت بلااستفاده تلفن"</string>
     <string name="power_unaccounted" msgid="709925017022660740">"موارد دیگر"</string>
     <string name="power_overcounted" msgid="2762354976171358445">"بیش از حد محاسبه شده"</string>
     <string name="usage_type_cpu" msgid="715162150698338714">"‏مقدار کل CPU"</string>
@@ -1872,8 +1870,8 @@
     <string name="usage_type_wake_lock" msgid="5125438890233677880">"بیدار باش"</string>
     <string name="usage_type_gps" msgid="7989688715128160790">"GPS"</string>
     <string name="usage_type_wifi_running" msgid="3134357198266380400">"‏Wi-Fi در حال اجرا"</string>
-    <string name="usage_type_phone" product="tablet" msgid="262638572890253393">"رایانهٔ لوحی"</string>
-    <string name="usage_type_phone" product="default" msgid="9108247984998041853">"تلفن"</string>
+    <string name="usage_type_phone" msgid="262638572890253393" product="tablet">"رایانهٔ لوحی"</string>
+    <string name="usage_type_phone" msgid="9108247984998041853" product="default">"تلفن"</string>
     <string name="usage_type_data_send" msgid="8971710128438365919">"بسته‌‌های تلفن همراه ارسال شد"</string>
     <string name="usage_type_data_recv" msgid="5468564329333954445">"بسته‌های تلفن همراه دریافت شد"</string>
     <string name="usage_type_radio_active" msgid="1732647857619420121">"رادیو سلولی فعال"</string>
@@ -1895,8 +1893,8 @@
     <string name="battery_action_wifi" msgid="8181553479021841207">"‏تنظیمات Wi-Fi"</string>
     <string name="battery_action_bluetooth" msgid="8374789049507723142">"تنظیمات بلوتوث"</string>
     <string name="battery_desc_voice" msgid="8980322055722959211">"باتری استفاده شده توسط تماس‌های صوتی"</string>
-    <string name="battery_desc_standby" product="tablet" msgid="6284747418668280364">"باتری استفاده شده در حالت آماده به کار رایانهٔ لوحی"</string>
-    <string name="battery_desc_standby" product="default" msgid="3009080001948091424">"باتری استفاده شده در حالت آماده به کار تلفن"</string>
+    <string name="battery_desc_standby" msgid="6284747418668280364" product="tablet">"باتری استفاده شده در حالت آماده به کار رایانهٔ لوحی"</string>
+    <string name="battery_desc_standby" msgid="3009080001948091424" product="default">"باتری استفاده شده در حالت آماده به کار تلفن"</string>
     <string name="battery_desc_radio" msgid="5479196477223185367">"باتری استفاده شده توسط رادیوی سلولی"</string>
     <string name="battery_sugg_radio" msgid="8211336978326295047">"در مکان‌هایی که هیچ پوشش تلفن همراه وجود نداد، به حالت هواپیما جابجا می‌شود"</string>
     <string name="battery_desc_flashlight" msgid="2908579430841025494">"باتری استفاده‌شده توسط چراغ‌قوه"</string>
@@ -2000,10 +1998,10 @@
     <string name="gadget_brightness_state_off" msgid="946382262872753084">"غیرفعال"</string>
     <string name="vpn_settings_title" msgid="5662579425832406705">"VPN"</string>
     <string name="credentials_title" msgid="4446234003860769883">"حافظه اطلاعات کاربری"</string>
-    <string name="credentials_install" product="nosdcard" msgid="466093273825150847">"نصب از حافظه"</string>
-    <string name="credentials_install" product="default" msgid="953914549998062317">"‏نصب از کارت SD"</string>
-    <string name="credentials_install_summary" product="nosdcard" msgid="4220422806818210676">"نصب گواهی‌ها از حافظه"</string>
-    <string name="credentials_install_summary" product="default" msgid="5737658257407822713">"‏نصب گواهی‌ها از کارت SD"</string>
+    <string name="credentials_install" msgid="466093273825150847" product="nosdcard">"نصب از حافظه"</string>
+    <string name="credentials_install" msgid="953914549998062317" product="default">"‏نصب از کارت SD"</string>
+    <string name="credentials_install_summary" msgid="4220422806818210676" product="nosdcard">"نصب گواهی‌ها از حافظه"</string>
+    <string name="credentials_install_summary" msgid="5737658257407822713" product="default">"‏نصب گواهی‌ها از کارت SD"</string>
     <string name="credentials_reset" msgid="3239382277144980418">"پاک کردن اطلاعات کاربری"</string>
     <string name="credentials_reset_summary" msgid="3369361230171260282">"حذف تمام گواهی‌ها"</string>
     <string name="trusted_credentials" msgid="4266945289534242402">"اطلاعات کاربری مطمئن"</string>
@@ -2139,8 +2137,8 @@
     <string name="header_add_an_account" msgid="756108499532023798">"افزودن حساب"</string>
     <string name="finish_button_label" msgid="481587707657751116">"پایان"</string>
     <string name="really_remove_account_title" msgid="8800653398717172460">"حساب حذف شود؟"</string>
-    <string name="really_remove_account_message" product="tablet" msgid="1936147502815641161">"با حذف این حساب تمام پیام‌ها، مخاطبین و دیگر داده‌ها از رایانهٔ لوحی نیز حذف می‌شود!"</string>
-    <string name="really_remove_account_message" product="default" msgid="3483528757922948356">"با حذف این حساب همه پیام‌ها، مخاطبین و دیگر داده‌ها از تلفن همراه حذف خواهد شد."</string>
+    <string name="really_remove_account_message" msgid="1936147502815641161" product="tablet">"با حذف این حساب تمام پیام‌ها، مخاطبین و دیگر داده‌ها از رایانهٔ لوحی نیز حذف می‌شود!"</string>
+    <string name="really_remove_account_message" msgid="3483528757922948356" product="default">"با حذف این حساب همه پیام‌ها، مخاطبین و دیگر داده‌ها از تلفن همراه حذف خواهد شد."</string>
     <string name="remove_account_failed" msgid="6980737964448187854">"این تغییر از طرف سرپرستتان مجاز دانسته نشده است"</string>
     <string name="provider_label" msgid="7724593781904508866">"اشتراک در پیام‌های سرویس"</string>
     <!-- no translation found for sync_item_title (4782834606909853006) -->
@@ -2218,8 +2216,8 @@
     <string name="data_usage_app_restrict_dialog" msgid="5871168521456832764">"ممکن است این ویژگی باعث شود زمانی که فقط شبکه‌های تلفن همراه در دسترس هستند، برنامه‌ای که به داده‌های پس‌زمینه وابسته است کار نکند.\n\nمی‌توانید در تنظیمات موجود در برنامه، کنترل‌های مناسب‌تری برای مصرف داده پیدا کنید."</string>
     <string name="data_usage_restrict_denied_dialog" msgid="1493134803720421674">"محدود کردن مصرف داده در پس‌زمینه تنها زمانی امکان‌پذیر است که محدودیتی برای داده‌های شبکه تلفن همراه تنظیم کنید."</string>
     <string name="data_usage_auto_sync_on_dialog_title" msgid="2438617846762244389">"همگام‌سازی خودکار داده فعال شود؟"</string>
-    <string name="data_usage_auto_sync_on_dialog" product="tablet" msgid="8581983093524041669">"‏هر تغییری که در حساب‌هایتان در وب انجام بدهید به‌صورت خودکار در رایانه لوحی‌تان کپی می‌شود.\n\nبعضی از حساب‌ها هم ممکن است به‌صورت خودکار هر تغییری را که در رایانه لوحی‌تان می‌دهید در وب کپی کنند. حساب Google به‌این صورت کار می‌کند."</string>
-    <string name="data_usage_auto_sync_on_dialog" product="default" msgid="8651376294887142858">"‏هر تغییری که در حساب‌هایتان در وب بدهید به‌صورت خودکار در تلفنتان کپی می‌شود.\n\nبعضی از حساب‌ها هم ممکن است به‌صورت خودکار هر تغییری را که در تلفنتان می‌دهید در وب کپی کنند. حساب Google به‌این‌صورت کار می‌کند."</string>
+    <string name="data_usage_auto_sync_on_dialog" msgid="8581983093524041669" product="tablet">"‏هر تغییری که در حساب‌هایتان در وب انجام بدهید به‌صورت خودکار در رایانه لوحی‌تان کپی می‌شود.\n\nبعضی از حساب‌ها هم ممکن است به‌صورت خودکار هر تغییری را که در رایانه لوحی‌تان می‌دهید در وب کپی کنند. حساب Google به‌این صورت کار می‌کند."</string>
+    <string name="data_usage_auto_sync_on_dialog" msgid="8651376294887142858" product="default">"‏هر تغییری که در حساب‌هایتان در وب بدهید به‌صورت خودکار در تلفنتان کپی می‌شود.\n\nبعضی از حساب‌ها هم ممکن است به‌صورت خودکار هر تغییری را که در تلفنتان می‌دهید در وب کپی کنند. حساب Google به‌این‌صورت کار می‌کند."</string>
     <string name="data_usage_auto_sync_off_dialog_title" msgid="9013139130490125793">"همگام‌سازی خودکار داده غیرفعال شود؟"</string>
     <string name="data_usage_auto_sync_off_dialog" msgid="4025938250775413864">"با این کار، در مصرف باتری و استفاده از داده‌ها صرفه‌جویی می‌شود؛ اما برای جمع‌آوری اطلاعات اخیر باید هر حساب را به صورت دستی همگام‌سازی کنید. به‌علاوه در حین به‌روزرسانی‌ها هم اعلان دریافت نمی‌کنید."</string>
     <string name="data_usage_cycle_editor_title" msgid="1373797281540188533">"تاریخ تنظیم مجدد چرخهٔ استفاده"</string>
@@ -2228,20 +2226,20 @@
     <string name="data_usage_warning_editor_title" msgid="3704136912240060339">"تنظیم هشدار میزان استفاده از داده"</string>
     <string name="data_usage_limit_editor_title" msgid="9153595142385030015">"تنظیم محدوده استفاده از داده"</string>
     <string name="data_usage_limit_dialog_title" msgid="3023111643632996097">"محدود کردن استفاده از داده"</string>
-    <string name="data_usage_limit_dialog_mobile" product="tablet" msgid="5788774061143636263">"زمانی که رایانه لوحی شما به محدودیتی که تنظیم کرده‌اید رسید، داده‌های شبکه تلفن همراه را خاموش می‌کند.\n\nاز آنجا که رایانه لوحی شما میزان مصرف داد‌ه را محاسبه می‌کند و شرکت مخابراتی‌تان ممکن است میزان مصرف را به صورت دیگری محاسبه کند، سعی کنید یک محدودیت محافظه‌کارانه را تنظیم کنید."</string>
-    <string name="data_usage_limit_dialog_mobile" product="default" msgid="3511301596446820549">"زمانی که تلفنتان به محدودیتی که تنظیم کرده‌اید رسید، داده‌های شبکه تلفن همراه را خاموش می‌کند.\n\nاز آنجا که تلفن شما میزان مصرف داد‌ه را محاسبه می‌کند و شرکت مخابراتی‌تان ممکن است میزان مصرف را به صورت دیگری محاسبه کند، سعی کنید یک محدودیت محافظه‌کارانه را تنظیم کنید."</string>
+    <string name="data_usage_limit_dialog_mobile" msgid="5788774061143636263" product="tablet">"زمانی که رایانه لوحی شما به محدودیتی که تنظیم کرده‌اید رسید، داده‌های شبکه تلفن همراه را خاموش می‌کند.\n\nاز آنجا که رایانه لوحی شما میزان مصرف داد‌ه را محاسبه می‌کند و شرکت مخابراتی‌تان ممکن است میزان مصرف را به صورت دیگری محاسبه کند، سعی کنید یک محدودیت محافظه‌کارانه را تنظیم کنید."</string>
+    <string name="data_usage_limit_dialog_mobile" msgid="3511301596446820549" product="default">"زمانی که تلفنتان به محدودیتی که تنظیم کرده‌اید رسید، داده‌های شبکه تلفن همراه را خاموش می‌کند.\n\nاز آنجا که تلفن شما میزان مصرف داد‌ه را محاسبه می‌کند و شرکت مخابراتی‌تان ممکن است میزان مصرف را به صورت دیگری محاسبه کند، سعی کنید یک محدودیت محافظه‌کارانه را تنظیم کنید."</string>
     <string name="data_usage_restrict_background_title" msgid="2201315502223035062">"محدود کردن داده‌های پس‌زمینه؟"</string>
     <string name="data_usage_restrict_background" msgid="6264965779074729381">"‏اگر مصرف داده شبکه تلفن همراه را در پس‌زمینه محدود کنید، برخی از برنامه‌ها و سرویس‌ها تنها در صورتی کار می‌کنند که به یک شبکه Wi-Fi متصل شوید."</string>
-    <string name="data_usage_restrict_background_multiuser" product="tablet" msgid="7954930300449415764">"‏اگر مصرف داده شبکه تلفن همراه را در پس‌زمینه محدود کنید، برخی از برنامه‌ها و سرویس‌ها تنها در صورتی کار می‌کنند که به یک شبکه Wi-Fi متصل شوید.\n\nاین تنظیم برای همه کاربران این رایانه لوحی اعمال می‌شود."</string>
-    <string name="data_usage_restrict_background_multiuser" product="default" msgid="259958321968870600">"‏اگر مصرف داده شبکه تلفن همراه را در پس‌زمینه محدود کنید، برخی از برنامه‌ها و سرویس‌ها تنها در صورتی کار می‌کنند که به یک شبکه Wi-Fi متصل شوید.\n\nاین تنظیم برای همه کاربران این تلفن اعمال می‌شود."</string>
+    <string name="data_usage_restrict_background_multiuser" msgid="7954930300449415764" product="tablet">"‏اگر مصرف داده شبکه تلفن همراه را در پس‌زمینه محدود کنید، برخی از برنامه‌ها و سرویس‌ها تنها در صورتی کار می‌کنند که به یک شبکه Wi-Fi متصل شوید.\n\nاین تنظیم برای همه کاربران این رایانه لوحی اعمال می‌شود."</string>
+    <string name="data_usage_restrict_background_multiuser" msgid="259958321968870600" product="default">"‏اگر مصرف داده شبکه تلفن همراه را در پس‌زمینه محدود کنید، برخی از برنامه‌ها و سرویس‌ها تنها در صورتی کار می‌کنند که به یک شبکه Wi-Fi متصل شوید.\n\nاین تنظیم برای همه کاربران این تلفن اعمال می‌شود."</string>
     <string name="data_usage_sweep_warning" msgid="6387081852568846982"><font size="18">"<xliff:g id="NUMBER">^1</xliff:g>"</font><font size="9">"<xliff:g id="UNIT">^2</xliff:g>"</font>\n<font size="12">"هشدار"</font></string>
     <string name="data_usage_sweep_limit" msgid="860566507375933039"><font size="18">"<xliff:g id="NUMBER">^1</xliff:g>"</font><font size="9">"<xliff:g id="UNIT">^2</xliff:g>"</font>\n<font size="12">"محدودیت"</font></string>
     <string name="data_usage_uninstalled_apps" msgid="614263770923231598">"برنامه‌های حذف شده"</string>
     <string name="data_usage_uninstalled_apps_users" msgid="7986294489899813194">"برنامه‌ها و کاربران حذف شده"</string>
     <string name="data_usage_received_sent" msgid="5039699009276621757">"<xliff:g id="RECEIVED">%1$s</xliff:g> دریافت شد، <xliff:g id="SENT">%2$s</xliff:g> فرستاده شد"</string>
     <string name="data_usage_total_during_range" msgid="4091294280619255237">"<xliff:g id="RANGE">%2$s</xliff:g>: در حدود <xliff:g id="TOTAL">%1$s</xliff:g> استفاده شده است."</string>
-    <string name="data_usage_total_during_range_mobile" product="tablet" msgid="1925687342154538972">"<xliff:g id="RANGE">%2$s</xliff:g>: در حدود <xliff:g id="TOTAL">%1$s</xliff:g>، براساس محاسبه رایانهٔ لوحی شما، استفاده شده است. ممکن است روش محاسبهٔ مقدار استفاده از داده توسط شرکت مخابراتی شما متفاوت باشد."</string>
-    <string name="data_usage_total_during_range_mobile" product="default" msgid="5063981061103812900">"<xliff:g id="RANGE">%2$s</xliff:g>: در حدود <xliff:g id="TOTAL">%1$s</xliff:g>، براساس محاسبه گوشی شما، استفاده شده است. ممکن است روش محاسبهٔ مقدار استفاده از داده توسط شرکت مخابراتی شما متفاوت باشد."</string>
+    <string name="data_usage_total_during_range_mobile" msgid="1925687342154538972" product="tablet">"<xliff:g id="RANGE">%2$s</xliff:g>: در حدود <xliff:g id="TOTAL">%1$s</xliff:g>، براساس محاسبه رایانهٔ لوحی شما، استفاده شده است. ممکن است روش محاسبهٔ مقدار استفاده از داده توسط شرکت مخابراتی شما متفاوت باشد."</string>
+    <string name="data_usage_total_during_range_mobile" msgid="5063981061103812900" product="default">"<xliff:g id="RANGE">%2$s</xliff:g>: در حدود <xliff:g id="TOTAL">%1$s</xliff:g>، براساس محاسبه گوشی شما، استفاده شده است. ممکن است روش محاسبهٔ مقدار استفاده از داده توسط شرکت مخابراتی شما متفاوت باشد."</string>
     <string name="data_usage_metered_title" msgid="7383175371006596441">"محدودیت‌های شبکه"</string>
     <string name="data_usage_metered_body" msgid="3262343834446126044">"زمانی‌که مصرف داده پس‌زمینه محدود شده باشد، شبکه‌های اندازه‌گیری‌شده مانند شبکه تلفن همراه عمل می‌کنند. ممکن است برنامه‌ها قبل از استفاده از این شبکه‌ها برای بارگیری‌های بزرگ هشدار دهند."</string>
     <string name="data_usage_metered_mobile" msgid="2326986339431119372">"شبکه‌های تلفن همراه"</string>
@@ -2326,21 +2324,21 @@
     <string name="ssl_ca_cert_warning" msgid="2045866713601984673">"ممکن است شبکه پایش شود"</string>
     <string name="done_button" msgid="1991471253042622230">"تمام"</string>
     <plurals name="ssl_ca_cert_dialog_title" formatted="false" msgid="7145092748045794650">
-      <item quantity="one">اعتماد یا حذف گواهی</item>
-      <item quantity="other">اعتماد یا حذف گواهی‌ها</item>
+        <item quantity="one">اعتماد یا حذف گواهی</item>
+        <item quantity="other">اعتماد یا حذف گواهی‌ها</item>
     </plurals>
     <plurals name="ssl_ca_cert_info_message_device_owner" formatted="false" msgid="1489335297837656666">
-      <item quantity="one"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> مرجع‌های صدور گواهی در دستگاهتان نصب کرده است که ممکن است به او اجازه دهند فعالیت‌های کاری دستگاه، از جمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن را کنترل کند.\n\nبرای کسب اطلاعات بیشتر درباره این گواهی‌ها، با سرپرستتان تماس بگیرید.</item>
-      <item quantity="other"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> مرجع‌های صدور گواهی در دستگاهتان نصب کرده است که ممکن است به او اجازه دهند فعالیت‌های کاری دستگاه، از جمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن را کنترل کند.\n\nبرای کسب اطلاعات بیشتر درباره این گواهی‌ها، با سرپرستتان تماس بگیرید.</item>
+        <item quantity="one"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> مرجع‌های صدور گواهی در دستگاهتان نصب کرده است که ممکن است به او اجازه دهند فعالیت‌های کاری دستگاه، از جمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن را کنترل کند.\n\nبرای کسب اطلاعات بیشتر درباره این گواهی‌ها، با سرپرستتان تماس بگیرید.</item>
+        <item quantity="other"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> مرجع‌های صدور گواهی در دستگاهتان نصب کرده است که ممکن است به او اجازه دهند فعالیت‌های کاری دستگاه، از جمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن را کنترل کند.\n\nبرای کسب اطلاعات بیشتر درباره این گواهی‌ها، با سرپرستتان تماس بگیرید.</item>
     </plurals>
     <plurals name="ssl_ca_cert_info_message" formatted="false" msgid="30645643499556573">
-      <item quantity="one"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> مرجع صدور گواهی‌ای برای نمایه کاری شما نصب کرده است که ممکن است به او اجازه دهد فعالیت‌های کاری شبکه، از جمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن را کنترل کند.\n\nبرای کسب اطلاعات بیشتر درباره این گواهی‌ها، با سرپرستتان تماس بگیرید.</item>
-      <item quantity="other"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> مرجع صدور گواهی‌ای برای نمایه کاری شما نصب کرده است که ممکن است به او اجازه دهد فعالیت‌های کاری شبکه، از جمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن را کنترل کند.\n\nبرای کسب اطلاعات بیشتر درباره این گواهی‌ها، با سرپرستتان تماس بگیرید.</item>
+        <item quantity="one"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> مرجع صدور گواهی‌ای برای نمایه کاری شما نصب کرده است که ممکن است به او اجازه دهد فعالیت‌های کاری شبکه، از جمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن را کنترل کند.\n\nبرای کسب اطلاعات بیشتر درباره این گواهی‌ها، با سرپرستتان تماس بگیرید.</item>
+        <item quantity="other"><xliff:g id="MANAGING_DOMAIN_1">%s</xliff:g> مرجع صدور گواهی‌ای برای نمایه کاری شما نصب کرده است که ممکن است به او اجازه دهد فعالیت‌های کاری شبکه، از جمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن را کنترل کند.\n\nبرای کسب اطلاعات بیشتر درباره این گواهی‌ها، با سرپرستتان تماس بگیرید.</item>
     </plurals>
     <string name="ssl_ca_cert_warning_message" msgid="8216218659139190498">"شخص ثالتی می‌تواند روی فعالیت‌های شبکه شما ازجمله رایانامه‌ها، برنامه‌ها و وب‌سایت‌های ایمن نظارت داشته باشد.\n\nاعتبارنامه مطمئن نصب‌شده در دستگاهتان این کار را شدنی می‌کند."</string>
     <plurals name="ssl_ca_cert_settings_button" formatted="false" msgid="2426799352517325228">
-      <item quantity="one">بررسی گواهی</item>
-      <item quantity="other">بررسی گواهی‌ها</item>
+        <item quantity="one">بررسی گواهی</item>
+        <item quantity="other">بررسی گواهی‌ها</item>
     </plurals>
     <string name="user_settings_title" msgid="6151874007858148344">"کاربران"</string>
     <string name="user_list_title" msgid="7937158411137563543">"کاربران و نمایه‌ها"</string>
@@ -2369,8 +2367,8 @@
     <string name="user_setup_profile_dialog_message" msgid="3896568553327558731">"اکنون نمایه را تنظیم می‌کنید؟"</string>
     <string name="user_setup_button_setup_now" msgid="3391388430158437629">"اکنون تنظیم شود"</string>
     <string name="user_setup_button_setup_later" msgid="3068729597269172401">"اکنون نه"</string>
-    <string name="user_cannot_manage_message" product="tablet" msgid="7153048188252553320">"فقط صاحب رایانه لوحی می‌تواند کاربران را مدیریت کند."</string>
-    <string name="user_cannot_manage_message" product="default" msgid="959315813089950649">"فقط صاحب گوشی می‌تواند کاربران را مدیریت کند."</string>
+    <string name="user_cannot_manage_message" msgid="7153048188252553320" product="tablet">"فقط صاحب رایانه لوحی می‌تواند کاربران را مدیریت کند."</string>
+    <string name="user_cannot_manage_message" msgid="959315813089950649" product="default">"فقط صاحب گوشی می‌تواند کاربران را مدیریت کند."</string>
     <string name="user_cannot_add_accounts_message" msgid="5116692653439737050">"نمایه‌های محدود نمی‌توانند حسابی را اضافه کنند"</string>
     <string name="user_remove_user_menu" msgid="6897150520686691355">"حذف <xliff:g id="USER_NAME">%1$s</xliff:g> از این دستگاه"</string>
     <string name="user_lockscreen_settings" msgid="4965661345247084878">"تنظیمات قفل صفحه"</string>
@@ -2382,8 +2380,8 @@
     <string name="user_confirm_remove_title" msgid="1163721647646152032">"این کاربر حذف شود؟"</string>
     <string name="user_profile_confirm_remove_title" msgid="5573161550669867342">"این نمایه حذف شود؟"</string>
     <string name="work_profile_confirm_remove_title" msgid="2017323555783522213">"نمایه کاری حذف شود؟"</string>
-    <string name="user_confirm_remove_self_message" product="tablet" msgid="2391372805233812410">"داده‌ها و فضای خود را در این رایانه لوحی از دست می‌دهید. امکان واگرد این کار وجود ندارد."</string>
-    <string name="user_confirm_remove_self_message" product="default" msgid="7943645442479360048">"داده‌ها و فضای خود را در این تلفن از دست می‌دهید. امکان واگرد این کار وجود ندارد."</string>
+    <string name="user_confirm_remove_self_message" msgid="2391372805233812410" product="tablet">"داده‌ها و فضای خود را در این رایانه لوحی از دست می‌دهید. امکان واگرد این کار وجود ندارد."</string>
+    <string name="user_confirm_remove_self_message" msgid="7943645442479360048" product="default">"داده‌ها و فضای خود را در این تلفن از دست می‌دهید. امکان واگرد این کار وجود ندارد."</string>
     <string name="user_confirm_remove_message" msgid="1020629390993095037">"همه برنامه‌ها و اطلاعات حذف خواهند شد."</string>
     <string name="work_profile_confirm_remove_message" msgid="323856589749078140">"اگر ادامه دهید، همه برنامه‌ها و اطلاعات در این نمایه حذف می‌شوند."</string>
     <string name="user_profile_confirm_remove_message" msgid="7373754145959298522">"همه برنامه‌ها و اطلاعات حذف خواهند شد."</string>
@@ -2408,8 +2406,8 @@
     <string name="apps_with_restrictions_settings_button" msgid="3841347287916635821">"توسعه تنظیمات برای برنامه"</string>
     <string name="home_app_uninstall_button" msgid="6808453012607962899">"حذف نصب این برنامه"</string>
     <string name="only_one_home_message" msgid="3538846733750242759">"تا زمانی که برنامه صفحه اصلی دیگری نصب کنید، تنظیمات صفحه اصلی پنهان خواهند بود."</string>
-    <string name="global_change_warning" product="tablet" msgid="8045013389464294039">"این تنظیم روی همه کاربران موجود در این رایانه لوحی تأثیر می‌گذارد."</string>
-    <string name="global_change_warning" product="default" msgid="2461264421590324675">"این تنظیم روی همه کاربران موجود در این تلفن تأثیر می‌گذارد."</string>
+    <string name="global_change_warning" msgid="8045013389464294039" product="tablet">"این تنظیم روی همه کاربران موجود در این رایانه لوحی تأثیر می‌گذارد."</string>
+    <string name="global_change_warning" msgid="2461264421590324675" product="default">"این تنظیم روی همه کاربران موجود در این تلفن تأثیر می‌گذارد."</string>
     <string name="global_locale_change_title" msgid="5956281361384221451">"تغییر زبان"</string>
     <string name="nfc_payment_settings_title" msgid="1807298287380821613">"ضربه و پرداخت"</string>
     <string name="nfc_payment_how_it_works" msgid="3028822263837896720">"چطور کار می‌کند"</string>
@@ -2467,8 +2465,8 @@
     <string name="restriction_bluetooth_config_summary" msgid="8372319681287562506">"تغییرات در تنظیمات و مرتبط‌سازی بلوتوث مجاز است"</string>
     <string name="restriction_nfc_enable_title" msgid="5888100955212267941">"NFC"</string>
     <string name="restriction_nfc_enable_summary_config" msgid="3232480757215851738">"‏برای هنگامی که این دستگاه <xliff:g id="DEVICE_NAME">%1$s</xliff:g>، دستگاه NFC دیگری را لمس می‌کند، تبادل داده‌ها را امکان‌پذیر می‌کند"</string>
-    <string name="restriction_nfc_enable_summary" product="tablet" msgid="3891097373396149915">"اجازه برای تبادل داده‌ها هنگامی که رایانه لوحی دستگاه دیگری را لمس می‌کند"</string>
-    <string name="restriction_nfc_enable_summary" product="default" msgid="825331120501418592">"اجازه برای تبادل داده‌ها هنگامی که تلفن دستگاه دیگری را لمس می‌کند"</string>
+    <string name="restriction_nfc_enable_summary" msgid="3891097373396149915" product="tablet">"اجازه برای تبادل داده‌ها هنگامی که رایانه لوحی دستگاه دیگری را لمس می‌کند"</string>
+    <string name="restriction_nfc_enable_summary" msgid="825331120501418592" product="default">"اجازه برای تبادل داده‌ها هنگامی که تلفن دستگاه دیگری را لمس می‌کند"</string>
     <string name="restriction_location_enable_title" msgid="5020268888245775164">"مکان"</string>
     <string name="restriction_location_enable_summary" msgid="3489765572281788755">"اجازه به برنامه‌ها برای استفاده از اطلاعات موقعیت مکانی شما"</string>
     <string name="wizard_back" msgid="5567007959434765743">"برگشت"</string>
@@ -2518,8 +2516,8 @@
     <string name="sim_selection_required_pref" msgid="3446721423206414652">"انتخاب مورد نیاز است"</string>
     <string name="dashboard_title" msgid="5453710313046681820">"تنظیمات"</string>
     <plurals name="settings_suggestion_header_summary_hidden_items" formatted="false" msgid="5597356221942118048">
-      <item quantity="one">‏نمایش %d مورد پنهان</item>
-      <item quantity="other">‏نمایش %d مورد پنهان</item>
+        <item quantity="one">‏نمایش %d مورد پنهان</item>
+        <item quantity="other">‏نمایش %d مورد پنهان</item>
     </plurals>
     <string name="search_results_title" msgid="1796252422574886932">"تنظیمات"</string>
     <string name="search_menu" msgid="6283419262313758339">"تنظیمات جستجو"</string>
@@ -2643,8 +2641,8 @@
     <string name="manage_notification_access_title" msgid="7510080164564944891">"دسترسی به اعلان"</string>
     <string name="manage_notification_access_summary_zero" msgid="2409912785614953348">"برنامه‌ها نمی‌توانند اعلان‌ها را بخوانند"</string>
     <plurals name="manage_notification_access_summary_nonzero" formatted="false" msgid="7930130030691218387">
-      <item quantity="one">‏%d برنامه می‌تواند اعلان‌ها را بخواند</item>
-      <item quantity="other">‏%d برنامه می‌تواند اعلان‌ها را بخواند</item>
+        <item quantity="one">‏%d برنامه می‌تواند اعلان‌ها را بخواند</item>
+        <item quantity="other">‏%d برنامه می‌تواند اعلان‌ها را بخواند</item>
     </plurals>
     <string name="no_notification_listeners" msgid="3487091564454192821">"هیچ برنامه نصب‌شده‌ای دسترسی به اعلان را درخواست نکرده است."</string>
     <string name="notification_listener_security_warning_title" msgid="5522924135145843279">"به دسترسی به اعلان برای <xliff:g id="SERVICE">%1$s</xliff:g> اجازه می‌دهید؟"</string>
@@ -2731,12 +2729,12 @@
     <string name="zen_mode_end_time_next_day_summary_format" msgid="4201521691238728701">"<xliff:g id="FORMATTED_TIME">%s</xliff:g> روز بعد"</string>
     <string name="zen_mode_summary_alarms_only_indefinite" msgid="2061973221027570123">"تغییر به «فقط هشدارها» به‌صورت نامحدود"</string>
     <plurals name="zen_mode_summary_alarms_only_by_minute" formatted="false" msgid="6122003583875424601">
-      <item quantity="one">تغییر در هشدارها تنها به مدت <xliff:g id="DURATION">%1$d</xliff:g> دقیقه (تا <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
-      <item quantity="other">تغییر در هشدارها تنها به مدت <xliff:g id="DURATION">%1$d</xliff:g> دقیقه (تا <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
+        <item quantity="one">تغییر در هشدارها تنها به مدت <xliff:g id="DURATION">%1$d</xliff:g> دقیقه (تا <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
+        <item quantity="other">تغییر در هشدارها تنها به مدت <xliff:g id="DURATION">%1$d</xliff:g> دقیقه (تا <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
     </plurals>
     <plurals name="zen_mode_summary_alarms_only_by_hour" formatted="false" msgid="2407703455581767748">
-      <item quantity="one">تغییر در هشدارها تنها به مدت <xliff:g id="DURATION">%1$d</xliff:g> ساعت تا <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g></item>
-      <item quantity="other">تغییر در هشدارها تنها به مدت <xliff:g id="DURATION">%1$d</xliff:g> ساعت تا <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g></item>
+        <item quantity="one">تغییر در هشدارها تنها به مدت <xliff:g id="DURATION">%1$d</xliff:g> ساعت تا <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g></item>
+        <item quantity="other">تغییر در هشدارها تنها به مدت <xliff:g id="DURATION">%1$d</xliff:g> ساعت تا <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g></item>
     </plurals>
     <string name="zen_mode_summary_alarms_only_by_time" msgid="7465525754879341907">"تغییر به «فقط هشدارها» تا <xliff:g id="FORMATTEDTIME">%1$s</xliff:g>"</string>
     <string name="zen_mode_summary_always" msgid="6172985102689237703">"تغییر در «همیشه وقفه»"</string>
@@ -2820,16 +2818,16 @@
     <string name="notifications_summary_divider" msgid="9013807608804041387">" / "</string>
     <string name="notification_summary_level" msgid="2726571692704140826">"‏سطح %d"</string>
     <plurals name="permissions_summary" formatted="false" msgid="6402730318075959117">
-      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> مجوز اعطا شده</item>
-      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> مجوز اعطا شده</item>
+        <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> مجوز اعطا شده</item>
+        <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> مجوز اعطا شده</item>
     </plurals>
     <plurals name="runtime_permissions_summary" formatted="false" msgid="1564663886246010959">
-      <item quantity="one">‏<xliff:g id="COUNT_2">%d</xliff:g> از <xliff:g id="COUNT_3">%d</xliff:g> اجازه اعطا شد</item>
-      <item quantity="other">‏<xliff:g id="COUNT_2">%d</xliff:g> از <xliff:g id="COUNT_3">%d</xliff:g> اجازه اعطا شد</item>
+        <item quantity="one">‏<xliff:g id="COUNT_2">%d</xliff:g> از <xliff:g id="COUNT_3">%d</xliff:g> اجازه اعطا شد</item>
+        <item quantity="other">‏<xliff:g id="COUNT_2">%d</xliff:g> از <xliff:g id="COUNT_3">%d</xliff:g> اجازه اعطا شد</item>
     </plurals>
     <plurals name="runtime_permissions_additional_count" formatted="false" msgid="931276038884210752">
-      <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> مجوز اضافی</item>
-      <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> مجوز اضافی</item>
+        <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> مجوز اضافی</item>
+        <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> مجوز اضافی</item>
     </plurals>
     <string name="runtime_permissions_summary_no_permissions_granted" msgid="1679758182657005375">"اجازه‌ای داده نشده"</string>
     <string name="runtime_permissions_summary_no_permissions_requested" msgid="7655100570513818534">"اجازه‌ای درخواست نشده"</string>
@@ -2856,8 +2854,8 @@
     <string name="domain_urls_summary_one" msgid="3704934031930978405">"باز کردن <xliff:g id="DOMAIN">%s</xliff:g>"</string>
     <string name="domain_urls_summary_some" msgid="3950089361819428455">"باز کردن <xliff:g id="DOMAIN">%s</xliff:g> و نشانی‌های وب دیگر"</string>
     <plurals name="domain_urls_apps_summary" formatted="false" msgid="4322996467951692661">
-      <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> برنامه می‌توانند پیوندهای پشتیبانی شده خود را باز کنند</item>
-      <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> برنامه می‌توانند پیوندهای پشتیبانی شده خود را باز کنند</item>
+        <item quantity="one"><xliff:g id="COUNT">%d</xliff:g> برنامه می‌توانند پیوندهای پشتیبانی شده خود را باز کنند</item>
+        <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> برنامه می‌توانند پیوندهای پشتیبانی شده خود را باز کنند</item>
     </plurals>
     <string name="app_link_open_always" msgid="2474058700623948148">"در این برنامه باز شود"</string>
     <string name="app_link_open_ask" msgid="7800878430190575991">"هر بار پرسیده شود"</string>
@@ -2904,8 +2902,8 @@
     <string name="high_power_system" msgid="7362862974428225301">"بهینه‌سازی مصرف باتری در دسترس نیست"</string>
     <string name="high_power_desc" msgid="6283926163708585760">"شامل بهینه‌سازی مصرف باتری نمی‌شود. ممکن است باتری را سریع‌تر خالی کند."</string>
     <plurals name="high_power_count" formatted="false" msgid="2464701722383894640">
-      <item quantity="one">به <xliff:g id="COUNT">%d</xliff:g> برنامه اجازه داده شد بهینه‌سازی مصرف باتری را نادیده بگیرد</item>
-      <item quantity="other">به <xliff:g id="COUNT">%d</xliff:g> برنامه اجازه داده شد بهینه‌سازی مصرف باتری را نادیده بگیرند</item>
+        <item quantity="one">به <xliff:g id="COUNT">%d</xliff:g> برنامه اجازه داده شد بهینه‌سازی مصرف باتری را نادیده بگیرد</item>
+        <item quantity="other">به <xliff:g id="COUNT">%d</xliff:g> برنامه اجازه داده شد بهینه‌سازی مصرف باتری را نادیده بگیرند</item>
     </plurals>
     <string name="high_power_prompt_title" msgid="4257734526819699048">"بهینه‌سازی‌های مصرف باتری نادیده گرفته شوند؟"</string>
     <string name="high_power_prompt_body" msgid="4072587909486730876">"به برنامه <xliff:g id="APP_NAME">%1$s</xliff:g> اجازه داده شود در پس‌زمینه متصل بماند؟ این کار می‌تواند شارژ باتری بیشتری مصرف کند."</string>
@@ -2956,8 +2954,8 @@
     <string name="free_memory" msgid="4003936141603549746">"آزاد"</string>
     <string name="memory_usage_apps" msgid="5650192998273294098">"حافظه مصرف شده توسط برنامه‌ها"</string>
     <plurals name="memory_usage_apps_summary" formatted="false" msgid="6089210945574265774">
-      <item quantity="one"><xliff:g id="COUNT">%1$d</xliff:g> برنامه در <xliff:g id="DURATION_1">%2$s</xliff:g> گذشته از حافظه استفاده کرده‌اند</item>
-      <item quantity="other"><xliff:g id="COUNT">%1$d</xliff:g> برنامه در <xliff:g id="DURATION_1">%2$s</xliff:g> گذشته از حافظه استفاده کرده‌اند</item>
+        <item quantity="one"><xliff:g id="COUNT">%1$d</xliff:g> برنامه در <xliff:g id="DURATION_1">%2$s</xliff:g> گذشته از حافظه استفاده کرده‌اند</item>
+        <item quantity="other"><xliff:g id="COUNT">%1$d</xliff:g> برنامه در <xliff:g id="DURATION_1">%2$s</xliff:g> گذشته از حافظه استفاده کرده‌اند</item>
     </plurals>
     <string name="running_frequency" msgid="6622624669948277693">"تعداد دفعات اجرا"</string>
     <string name="memory_maximum_usage" msgid="6513785462055278341">"حداکثر مصرف"</string>
@@ -3027,8 +3025,8 @@
     <string name="disconnected" msgid="5787956818111197212">"قطع ارتباط"</string>
     <string name="data_usage_summary_format" msgid="7507047900192160585">"<xliff:g id="AMOUNT">%1$s</xliff:g> داده استفاده‌شده"</string>
     <plurals name="notification_summary" formatted="false" msgid="4019451362120557382">
-      <item quantity="one">ارسال <xliff:g id="COUNT_1">%d</xliff:g> برنامه مسدود شد</item>
-      <item quantity="other">ارسال <xliff:g id="COUNT_1">%d</xliff:g> برنامه مسدود شد</item>
+        <item quantity="one">ارسال <xliff:g id="COUNT_1">%d</xliff:g> برنامه مسدود شد</item>
+        <item quantity="other">ارسال <xliff:g id="COUNT_1">%d</xliff:g> برنامه مسدود شد</item>
     </plurals>
     <string name="notification_summary_none" msgid="3440195312233351409">"ارسال همه برنامه‌ها مجاز است"</string>
     <string name="apps_summary" msgid="193158055537070092">"<xliff:g id="COUNT">%1$d</xliff:g> برنامه نصب‌شده"</string>
@@ -3100,8 +3098,8 @@
     <string name="configure" msgid="1029654422228677273">"پیکربندی"</string>
     <string name="data_usage_other_apps" msgid="3272872663517382050">"برنامه‌های دیگری که در استفاده گنجانده شده"</string>
     <plurals name="data_saver_unrestricted_summary" formatted="false" msgid="2635267833484232703">
-      <item quantity="one">هنگام روشن بودن «صرفه‌جویی داده»، <xliff:g id="COUNT">%1$d</xliff:g> برنامه می‌توانند بدون محدودیت از داده‌ها استفاده کند</item>
-      <item quantity="other">هنگام روشن بودن «صرفه‌جویی داده»، <xliff:g id="COUNT">%1$d</xliff:g> برنامه می‌توانند بدون محدودیت از داده‌ها استفاده کند</item>
+        <item quantity="one">هنگام روشن بودن «صرفه‌جویی داده»، <xliff:g id="COUNT">%1$d</xliff:g> برنامه می‌توانند بدون محدودیت از داده‌ها استفاده کند</item>
+        <item quantity="other">هنگام روشن بودن «صرفه‌جویی داده»، <xliff:g id="COUNT">%1$d</xliff:g> برنامه می‌توانند بدون محدودیت از داده‌ها استفاده کند</item>
     </plurals>
     <string name="data_saver_title" msgid="398458827917495765">"صرفه‌جویی داده"</string>
     <string name="unrestricted_data_saver" msgid="7019858887510062789">"دسترسی نامحدود به داده"</string>
@@ -3197,16 +3195,16 @@
     <string name="managed_profile_contact_search_title" msgid="6034734926815544221">"جستجوی مخاطب"</string>
     <string name="managed_profile_contact_search_summary" msgid="5431253552272970512">"جستجوهای مخاطب توسط سازمانتان برای شناسایی تماس‌گیرندگان و مخاطبین مجاز است"</string>
     <plurals name="hours" formatted="false" msgid="7020844602875333472">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ساعت</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ساعت</item>
+        <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> ساعت</item>
+        <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> ساعت</item>
     </plurals>
     <plurals name="minutes" formatted="false" msgid="4666832442068789413">
-      <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> دقیقه</item>
-      <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> دقیقه</item>
+        <item quantity="one"><xliff:g id="NUMBER">%s</xliff:g> دقیقه</item>
+        <item quantity="other"><xliff:g id="NUMBER">%s</xliff:g> دقیقه</item>
     </plurals>
     <plurals name="seconds" formatted="false" msgid="3876307354560025025">
-      <item quantity="one">‏<xliff:g id="NUMBER">%s</xliff:g> ثانیه</item>
-      <item quantity="other">‏<xliff:g id="NUMBER">%s</xliff:g> ثانیه</item>
+        <item quantity="one">‏<xliff:g id="NUMBER">%s</xliff:g> ثانیه</item>
+        <item quantity="other">‏<xliff:g id="NUMBER">%s</xliff:g> ثانیه</item>
     </plurals>
     <string name="support_estimated_wait_time" msgid="6523081420029378051">"~<xliff:g id="ESTIMATE">%1$s</xliff:g> انتظار"</string>
     <string name="bluetooth_talkback_computer" msgid="4875089335641234463">"رایانه"</string>
@@ -3224,27 +3222,27 @@
     <string name="deletion_helper_manual_title" msgid="7947432164411214029">"دستی"</string>
     <string name="deletion_helper_preference_title" msgid="5271510052022285884">"هم‌اکنون فضا را خالی کنید"</string>
     <string name="gesture_preference_title" msgid="5280023307132819052">"اشاره‌ها"</string>
-    <string name="gesture_preference_summary" product="default" msgid="8627850388011956901">"اشاره‌های سریع برای کنترل تلفن"</string>
-    <string name="gesture_preference_summary" product="tablet" msgid="4717535378272065510">"اشاره‌های سریع برای کنترل رایانه لوحی"</string>
-    <string name="gesture_preference_summary" product="device" msgid="4205941452664950852">"اشاره‌های سریع برای کنترل دستگاه"</string>
+    <string name="gesture_preference_summary" msgid="8627850388011956901" product="default">"اشاره‌های سریع برای کنترل تلفن"</string>
+    <string name="gesture_preference_summary" msgid="4717535378272065510" product="tablet">"اشاره‌های سریع برای کنترل رایانه لوحی"</string>
+    <string name="gesture_preference_summary" msgid="4205941452664950852" product="device">"اشاره‌های سریع برای کنترل دستگاه"</string>
     <string name="double_tap_power_for_camera_title" msgid="2993443929413421363">"رفتن به دوربین"</string>
     <string name="double_tap_power_for_camera_summary" msgid="6005086458928518432">"برای بازکردن سریع دوربین، دکمه روشن/خاموش را دو بار فشار دهید. در همه صفحه‌ها کار می‌کند"</string>
     <string name="double_twist_for_camera_mode_title" msgid="4877834147983530479">"چرخش دوربین"</string>
     <string name="double_twist_for_camera_mode_summary" msgid="122977081337563340"></string>
-    <string name="ambient_display_title" product="default" msgid="5144814600610448504">"برای بررسی تلفن، دو ضربه سریع بزنید"</string>
-    <string name="ambient_display_title" product="tablet" msgid="8688795028609563837">"برای بررسی رایانه لوحی، دو ضربه سریع بزنید"</string>
-    <string name="ambient_display_title" product="device" msgid="3423781975742145894">"برای بررسی دستگاه، دو ضربه سریع بزنید"</string>
+    <string name="ambient_display_title" msgid="5144814600610448504" product="default">"برای بررسی تلفن، دو ضربه سریع بزنید"</string>
+    <string name="ambient_display_title" msgid="8688795028609563837" product="tablet">"برای بررسی رایانه لوحی، دو ضربه سریع بزنید"</string>
+    <string name="ambient_display_title" msgid="3423781975742145894" product="device">"برای بررسی دستگاه، دو ضربه سریع بزنید"</string>
     <string name="ambient_display_summary" msgid="5817384104520817202">"برای بررسی سریع اعلان‌ها، روی صفحه‌نمایش دو ضربه سریع بزنید"</string>
-    <string name="ambient_display_pickup_title" product="default" msgid="818688002837687268">"برای بررسی تلفن، آن را بردارید"</string>
-    <string name="ambient_display_pickup_title" product="tablet" msgid="4455864282995698097">"برای بررسی رایانه لوحی، آن را بردارید"</string>
-    <string name="ambient_display_pickup_title" product="device" msgid="5380534405773531175">"برای بررسی دستگاه، آن را بردارید"</string>
-    <string name="ambient_display_pickup_summary" product="default" msgid="7887685543895952417">"برای بررسی سریع اعلان‌ها، تلفنتان را بردارید"</string>
-    <string name="ambient_display_pickup_summary" product="tablet" msgid="4703466494089486840">"برای بررسی سریع اعلان‌ها، رایانه لوحی‌تان را بردارید"</string>
-    <string name="ambient_display_pickup_summary" product="device" msgid="3557276829636914807">"برای بررسی سریع اعلان‌ها، دستگاهتان را بردارید"</string>
+    <string name="ambient_display_pickup_title" msgid="818688002837687268" product="default">"برای بررسی تلفن، آن را بردارید"</string>
+    <string name="ambient_display_pickup_title" msgid="4455864282995698097" product="tablet">"برای بررسی رایانه لوحی، آن را بردارید"</string>
+    <string name="ambient_display_pickup_title" msgid="5380534405773531175" product="device">"برای بررسی دستگاه، آن را بردارید"</string>
+    <string name="ambient_display_pickup_summary" msgid="7887685543895952417" product="default">"برای بررسی سریع اعلان‌ها، تلفنتان را بردارید"</string>
+    <string name="ambient_display_pickup_summary" msgid="4703466494089486840" product="tablet">"برای بررسی سریع اعلان‌ها، رایانه لوحی‌تان را بردارید"</string>
+    <string name="ambient_display_pickup_summary" msgid="3557276829636914807" product="device">"برای بررسی سریع اعلان‌ها، دستگاهتان را بردارید"</string>
     <string name="fingerprint_swipe_for_notifications_title" msgid="2750203868053669600">"تند کشیدن انگشت برای اعلان‌ها"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="default" msgid="5274050434459511239">"برای بررسی اعلان‌هایتان، روی حسگر اثرانگشت (واقع در پشت تلفن) انگشتتان را تند به پایین بکشید"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="tablet" msgid="7557602481555096698">"برای بررسی اعلان‌هایتان، انگشتتان را روی حسگر اثرانگشت (واقع در پشت رایانه لوحی) تند به پایین بکشید"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" product="device" msgid="5635310946298433769">"برای بررسی اعلان‌هایتان، انگشتتان را روی حسگر اثرانگشت (واقع در پشت دستگاه) تند به پایین بکشید"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="5274050434459511239" product="default">"برای بررسی اعلان‌هایتان، روی حسگر اثرانگشت (واقع در پشت تلفن) انگشتتان را تند به پایین بکشید"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="7557602481555096698" product="tablet">"برای بررسی اعلان‌هایتان، انگشتتان را روی حسگر اثرانگشت (واقع در پشت رایانه لوحی) تند به پایین بکشید"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" msgid="5635310946298433769" product="device">"برای بررسی اعلان‌هایتان، انگشتتان را روی حسگر اثرانگشت (واقع در پشت دستگاه) تند به پایین بکشید"</string>
     <string name="gesture_setting_on" msgid="3455094265233870280">"روشن"</string>
     <string name="gesture_setting_off" msgid="5230169535435881894">"خاموش"</string>
     <string name="oem_unlock_enable_disabled_summary_bootloader_unlocked" msgid="4265541229765635629">"‏قفل Bootloader قبلاً باز شده است"</string>

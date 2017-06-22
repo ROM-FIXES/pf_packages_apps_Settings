@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,52 +15,56 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            style="@style/wifi_section">
+    style="@style/wifi_section">
 
-    <LinearLayout android:id="@+id/password_layout"
-                  style="@style/wifi_item"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:padding="8dip"
-                  android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/password_layout"
+        style="@style/wifi_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dip">
 
         <TextView
-                android:id="@+id/password_label"
-                style="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dip"
-                android:text="@string/wifi_password" />
+            android:id="@+id/password_label"
+            style="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dip"
+            android:text="@string/wifi_password" />
 
-        <EditText android:id="@+id/password"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:singleLine="true"
-                  android:password="true"
-                  android:maxLength="63"
-                  android:imeOptions="flagForceAscii" />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="flagForceAscii"
+            android:maxLength="63"
+            android:password="true"
+            android:singleLine="true" />
+
         <TextView
-                style="@style/wifi_item_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            style="@style/wifi_item_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <CheckBox android:id="@+id/show_password"
-                  style="@style/wifi_item_content"
-                  android:textSize="14sp"
-                  android:text="@string/wifi_show_password"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/show_password"
+            style="@style/wifi_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wifi_show_password"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
 
     <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:padding="8dip"
-            android:visibility="gone"
-            style="@android:style/Widget.ProgressBar.Large" />
+        android:id="@+id/progress_bar"
+        style="@android:style/Widget.ProgressBar.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:padding="8dip"
+        android:visibility="gone" />
 
 </LinearLayout>

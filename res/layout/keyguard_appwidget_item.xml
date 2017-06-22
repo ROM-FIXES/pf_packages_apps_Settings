@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2012 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,33 +14,36 @@
 -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content" >
-  <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@drawable/appwidget_item_bg"
-    android:layout_marginTop="2dip"
-    android:layout_marginBottom="2dip"
-    android:layout_marginLeft="2dip"
-    android:layout_marginRight="2dip"
-    android:paddingLeft="16dip"
-    android:paddingRight="16dip"
-    android:paddingTop="16dip"
-    android:paddingBottom="16dip" >
-      <ImageView
-       android:id="@+id/icon"
-       android:layout_width="@dimen/appwidget_preview_width"
-       android:layout_height="@dimen/appwidget_preview_height"
-       android:scaleType="center" />
-      <TextView
-       android:id="@+id/label"
-       style="@style/KeyguardAppWidgetItem"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:paddingLeft="24dip"
-       android:paddingBottom="8dip"
-       android:gravity="left|bottom" />
-  </LinearLayout>
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dip"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="2dip"
+        android:layout_marginTop="2dip"
+        android:background="@drawable/appwidget_item_bg"
+        android:orientation="horizontal"
+        android:paddingBottom="16dip"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:paddingTop="16dip">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/appwidget_preview_width"
+            android:layout_height="@dimen/appwidget_preview_height"
+            android:scaleType="center" />
+
+        <TextView
+            android:id="@+id/label"
+            style="@style/KeyguardAppWidgetItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left|bottom"
+            android:paddingBottom="8dip"
+            android:paddingLeft="24dip" />
+    </LinearLayout>
 </FrameLayout>

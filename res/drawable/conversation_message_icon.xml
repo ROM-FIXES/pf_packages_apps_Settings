@@ -13,14 +13,12 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<shape
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
 
-   <solid
-       android:color="#FF0000"/>
+    <solid android:color="#FF0000" />
 
-   <size
-       android:width="42dp"
-        android:height="42dp"/>
+    <size
+        android:width="42dp"
+        android:height="42dp" />
 </shape>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,21 +12,19 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <include layout="@layout/confirm_lock_background_base" />
 
-    <com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/topLayout"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false"
-        android:clipToPadding="false">
+        android:clipToPadding="false"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -37,47 +34,47 @@
             android:orientation="vertical">
 
             <TextView
-                style="@android:style/TextAppearance.Material.Headline"
                 android:id="@+id/headerText"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
+                style="@android:style/TextAppearance.Material.Headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="?android:attr/colorAccent"/>
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:textColor="?android:attr/colorAccent" />
 
             <TextView
-                style="@android:style/TextAppearance.Material.Body1"
                 android:id="@+id/detailsText"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                style="@android:style/Widget.Material.Button.Borderless"
-                android:id="@+id/cancelButton"
+                style="@android:style/TextAppearance.Material.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cancel"
-                android:layout_marginStart="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                style="@android:style/Widget.Material.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/cancel" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal"
             android:clipChildren="false"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            android:orientation="horizontal">
 
             <View
                 android:id="@+id/leftSpacer"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.4"/>
+                android:layout_weight="0.4" />
 
             <FrameLayout
                 android:layout_width="wrap_content"
@@ -89,33 +86,33 @@
                     android:id="@+id/lockPattern"
                     android:layout_width="288dp"
                     android:layout_height="288dp"
-                    android:layout_marginStart="-42dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginEnd="-42dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_marginStart="-42dp" />
 
                 <TextView
-                    style="@style/TextAppearance.ConfirmDeviceCredentialsErrorText"
-                    android:accessibilityLiveRegion="polite"
                     android:id="@+id/errorText"
+                    style="@style/TextAppearance.ConfirmDeviceCredentialsErrorText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="24dp"/>
+                    android:layout_marginBottom="24dp"
+                    android:accessibilityLiveRegion="polite" />
             </FrameLayout>
 
             <View
                 android:id="@+id/rightSpacer"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/fingerprintIcon"
-                android:layout_gravity="center_vertical"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:visibility="gone"/>
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:visibility="gone" />
         </LinearLayout>
 
     </com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

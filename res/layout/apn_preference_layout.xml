@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,23 +13,22 @@
      limitations under the License.
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:gravity="center_vertical">
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart">
 
     <RelativeLayout
         android:id="@+id/text_layout"
         android:layout_width="0dip"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
         android:layout_weight="1"
+        android:background="?android:attr/selectableItemBackground"
         android:focusable="true"
-        android:background="?android:attr/selectableItemBackground">
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+android:id/title"
@@ -44,11 +42,11 @@
             android:id="@+android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@android:id/title"
             android:layout_alignStart="@android:id/title"
+            android:layout_below="@android:id/title"
+            android:maxLines="2"
             android:textAppearance="?android:attr/textAppearanceListItemSecondary"
-            android:textColor="?android:attr/textColorSecondary"
-            android:maxLines="2" />
+            android:textColor="?android:attr/textColorSecondary" />
 
     </RelativeLayout>
 
@@ -56,9 +54,9 @@
         android:id="@+id/apn_radiobutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dip"
-        android:layout_marginEnd="8dip"
         android:layout_gravity="center_vertical"
+        android:layout_marginEnd="8dip"
+        android:layout_marginStart="8dip"
         android:clickable="true" />
 
 </LinearLayout>

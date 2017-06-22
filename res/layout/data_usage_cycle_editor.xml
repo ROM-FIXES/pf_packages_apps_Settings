@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,25 +14,25 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:gravity="center"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/data_usage_cycle_editor_subtitle" />
+        android:text="@string/data_usage_cycle_editor_subtitle"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <NumberPicker
         android:id="@+id/cycle_day"
         android:layout_width="48dip"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="16dip"
         android:layout_marginEnd="16dip"
+        android:layout_marginStart="16dip"
         android:focusable="true"
         android:focusableInTouchMode="true" />
 

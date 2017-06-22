@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,31 +14,34 @@
      limitations under the License.
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/SupportEscalationCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/tile_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textAppearance="@style/TextAppearance.SupportTitle"/>
+        android:textAppearance="@style/TextAppearance.SupportTitle" />
+
     <TextView
         android:id="@+id/tile_summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:paddingTop="8dp"
         android:paddingBottom="10dp"
+        android:paddingTop="8dp"
         android:textAppearance="@style/TextAppearance.Small"
-        android:textColor="?android:attr/textColorSecondary"/>
+        android:textColor="?android:attr/textColorSecondary" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:id="@+id/support_text"
             android:layout_width="wrap_content"
@@ -47,25 +49,28 @@
             android:paddingEnd="8dp"
             android:text="@string/support_country_list_title"
             android:textAppearance="@style/TextAppearance.Small"
-            android:textColor="?android:attr/textColorSecondary"/>
+            android:textColor="?android:attr/textColorSecondary" />
+
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:dropDownWidth="196dp"/>
+            android:dropDownWidth="196dp" />
     </LinearLayout>
+
     <Button
         android:id="@android:id/text1"
         style="@style/SupportPrimaryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:layoutDirection="ltr"/>
+        android:layoutDirection="ltr" />
+
     <Button
         android:id="@android:id/text2"
         style="@style/SupportSecondaryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 </LinearLayout>

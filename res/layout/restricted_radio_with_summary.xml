@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,48 +14,50 @@
      limitations under the License.
 -->
 
-<com.android.settings.CheckableLinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.settings.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="?android:attr/selectableItemBackground"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall">
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:orientation="vertical">
 
     <com.android.settings.CheckableLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="20dp"
-        android:paddingEnd="?android:attr/dialogPreferredPadding">
+        android:paddingEnd="?android:attr/dialogPreferredPadding"
+        android:paddingStart="20dp">
+
         <CheckedTextView
             android:id="@android:id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorAlertDialogListItem"
-            android:gravity="center_vertical"
             android:drawableStart="?android:attr/listChoiceIndicatorSingle"
-            android:ellipsize="marquee" />
+            android:ellipsize="marquee"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?android:attr/textColorAlertDialogListItem" />
+
         <ImageView
             android:id="@+id/restricted_icon"
             android:layout_width="@dimen/restricted_icon_size"
             android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/restricted_icon_padding"
             android:scaleType="centerInside"
             android:src="@drawable/ic_info"
-            android:layout_marginLeft="@dimen/restricted_icon_padding"
             android:visibility="gone" />
     </com.android.settings.CheckableLinearLayout>
 
 
-    <TextView android:id="@android:id/summary"
+    <TextView
+        android:id="@android:id/summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="10"
         android:paddingBottom="8dp"
         android:paddingStart="52dp"
         android:textAppearance="?android:attr/textAppearanceListItemSecondary"
-        android:textColor="?android:attr/textColorSecondary"
-        android:maxLines="10" />
+        android:textColor="?android:attr/textColorSecondary" />
 
 </com.android.settings.CheckableLinearLayout>

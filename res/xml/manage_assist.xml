@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,41 +14,37 @@
   ~ limitations under the License
   -->
 
-<PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res-auto"
-        android:key="manage_assist">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="manage_assist">
 
     <com.android.settings.applications.DefaultAssistPreference
-            android:key="default_assist"
-            android:title="@string/default_assist_title"
-            android:summary="@string/default_assist_none"
-            />
+        android:key="default_assist"
+        android:summary="@string/default_assist_none"
+        android:title="@string/default_assist_title" />
 
     <SwitchPreference
         android:key="context"
-        android:title="@string/assist_access_context_title"
-        android:summary="@string/assist_access_context_summary"/>
+        android:summary="@string/assist_access_context_summary"
+        android:title="@string/assist_access_context_title" />
 
     <SwitchPreference
         android:key="screenshot"
-        android:title="@string/assist_access_screenshot_title"
-        android:summary="@string/assist_access_screenshot_summary"/>
+        android:summary="@string/assist_access_screenshot_summary"
+        android:title="@string/assist_access_screenshot_title" />
 
     <SwitchPreference
-            android:key="flash"
-            android:title="@string/assist_flash_title"
-            android:summary="@string/assist_flash_summary"
-    />
+        android:key="flash"
+        android:summary="@string/assist_flash_summary"
+        android:title="@string/assist_flash_title" />
 
     <com.android.settings.voice.VoiceInputListPreference
-            android:key="voice_input_settings"
-            android:title="@string/voice_input_settings_title"
-            />
+        android:key="voice_input_settings"
+        android:title="@string/voice_input_settings_title" />
 
     <com.android.settings.DividerPreference
-        android:summary="@string/assist_footer"
         android:selectable="false"
+        android:summary="@string/assist_footer"
         settings:allowDividerAbove="true" />
 
 </PreferenceScreen>

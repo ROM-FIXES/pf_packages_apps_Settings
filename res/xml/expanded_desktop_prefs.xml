@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The CyanogenMod Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,12 +14,11 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-            android:title="@string/expanded_desktop_title" >
+    <PreferenceCategory android:title="@string/expanded_desktop_title">
         <ListPreference
-                android:key="expanded_desktop_style"
-                android:title="@string/expanded_desktop_style"
-                android:entries="@array/expanded_desktop_entries"
-                android:entryValues="@array/expanded_desktop_values"/>
+            android:entries="@array/expanded_desktop_entries"
+            android:entryValues="@array/expanded_desktop_values"
+            android:key="expanded_desktop_style"
+            android:title="@string/expanded_desktop_style" />
     </PreferenceCategory>
 </PreferenceScreen>

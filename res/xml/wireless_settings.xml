@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,24 +14,24 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:title="@string/radio_controls_title">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/radio_controls_title">
 
     <SwitchPreference
+        android:disableDependentsState="true"
         android:key="toggle_airplane"
-        android:title="@string/airplane_mode"
-        android:disableDependentsState="true" />
+        android:title="@string/airplane_mode" />
 
     <SwitchPreference
         android:key="toggle_nfc"
-        android:title="@string/nfc_quick_toggle_title"
-        android:summary="@string/nfc_quick_toggle_summary" />
+        android:summary="@string/nfc_quick_toggle_summary"
+        android:title="@string/nfc_quick_toggle_title" />
 
     <PreferenceScreen
+        android:fragment="com.android.settings.WifiCallingSettings"
         android:key="wifi_calling_settings"
         android:title="@string/wifi_calling_settings_title"
-        settings:keywords="@string/keywords_wifi_calling"
-        android:fragment="com.android.settings.WifiCallingSettings" />
+        settings:keywords="@string/keywords_wifi_calling" />
 
     <com.android.settingslib.RestrictedPreference
         android:fragment="com.android.settings.nfc.AndroidBeam"
@@ -43,45 +42,45 @@
         android:fragment="com.android.settings.TetherSettings"
         android:key="tether_settings"
         android:title="@string/tether_settings_title_all"
-        settings:userRestriction="no_config_tethering"
-        settings:useAdminDisabledSummary="true" />
+        settings:useAdminDisabledSummary="true"
+        settings:userRestriction="no_config_tethering" />
 
     <com.android.settingslib.RestrictedPreference
         android:fragment="com.android.settings.vpn2.VpnSettings"
         android:key="vpn_settings"
         android:title="@string/vpn_settings_title"
-        settings:userRestriction="no_config_vpn"
-        settings:useAdminDisabledSummary="true" />
+        settings:useAdminDisabledSummary="true"
+        settings:userRestriction="no_config_vpn" />
 
     <com.android.settingslib.RestrictedPreference
+        android:dependency="toggle_airplane"
         android:key="mobile_network_settings"
         android:title="@string/network_settings_title"
         settings:keywords="@string/keywords_more_mobile_networks"
-        settings:userRestriction="no_config_mobile_networks"
         settings:useAdminDisabledSummary="true"
-        android:dependency="toggle_airplane">
+        settings:userRestriction="no_config_mobile_networks">
         <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.phone"
-            android:targetClass="com.android.phone.MobileNetworkSettings" />
+            android:targetClass="com.android.phone.MobileNetworkSettings"
+            android:targetPackage="com.android.phone" />
     </com.android.settingslib.RestrictedPreference>
 
     <com.android.settingslib.RestrictedPreference
         android:key="manage_mobile_plan"
-        android:title="@string/manage_mobile_plan_title"
         android:persistent="false"
-        settings:userRestriction="no_config_mobile_networks"
-        settings:useAdminDisabledSummary="true" />
+        android:title="@string/manage_mobile_plan_title"
+        settings:useAdminDisabledSummary="true"
+        settings:userRestriction="no_config_mobile_networks" />
 
     <com.android.settingslib.RestrictedPreference
         android:key="wimax_settings"
         android:title="@string/wimax_settings"
-        settings:userRestriction="no_config_mobile_networks"
-        settings:useAdminDisabledSummary="true">
+        settings:useAdminDisabledSummary="true"
+        settings:userRestriction="no_config_mobile_networks">
         <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings.wimax"
-            android:targetClass="com.android.settings.wimax.WimaxSettings" />
+            android:targetClass="com.android.settings.wimax.WimaxSettings"
+            android:targetPackage="com.android.settings.wimax" />
     </com.android.settingslib.RestrictedPreference>
 
     <PreferenceScreen
@@ -91,11 +90,11 @@
 
     <!-- Network reset -->
     <com.android.settingslib.RestrictedPreference
+        android:fragment="com.android.settings.ResetNetwork"
         android:key="network_reset"
         android:title="@string/reset_network_title"
         settings:keywords="@string/keywords_network_reset"
-        settings:userRestriction="no_network_reset"
         settings:useAdminDisabledSummary="true"
-        android:fragment="com.android.settings.ResetNetwork" />
+        settings:userRestriction="no_network_reset" />
 
 </PreferenceScreen>

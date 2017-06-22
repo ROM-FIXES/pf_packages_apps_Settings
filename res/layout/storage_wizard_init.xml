@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,8 +13,7 @@
      limitations under the License.
 -->
 
-<com.android.setupwizardlib.SetupWizardLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.setupwizardlib.SetupWizardLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
@@ -34,17 +32,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/suw_description_margin_top"
             android:lineSpacingExtra="@dimen/suw_description_line_spacing_extra"
+            android:text="@string/storage_wizard_init_external_title"
             android:textAppearance="@android:style/TextAppearance.Material.Subhead"
-            android:textColor="?android:attr/textColorPrimary"
-            android:text="@string/storage_wizard_init_external_title" />
+            android:textColor="?android:attr/textColorPrimary" />
+
         <TextView
             android:id="@+id/storage_wizard_init_external_summary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="@dimen/suw_description_line_spacing_extra"
+            android:text="@string/storage_wizard_init_external_summary"
             android:textAppearance="@android:style/TextAppearance.Material.Body1"
-            android:textColor="?android:attr/textColorSecondary"
-            android:text="@string/storage_wizard_init_external_summary" />
+            android:textColor="?android:attr/textColorSecondary" />
 
         <RadioButton
             android:id="@+id/storage_wizard_init_internal_title"
@@ -52,17 +51,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/suw_description_margin_top"
             android:lineSpacingExtra="@dimen/suw_description_line_spacing_extra"
+            android:text="@string/storage_wizard_init_internal_title"
             android:textAppearance="@android:style/TextAppearance.Material.Subhead"
-            android:textColor="?android:attr/textColorPrimary"
-            android:text="@string/storage_wizard_init_internal_title" />
+            android:textColor="?android:attr/textColorPrimary" />
+
         <TextView
             android:id="@+id/storage_wizard_init_internal_summary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="@dimen/suw_description_line_spacing_extra"
+            android:text="@string/storage_wizard_init_internal_summary"
             android:textAppearance="@android:style/TextAppearance.Material.Body1"
-            android:textColor="?android:attr/textColorSecondary"
-            android:text="@string/storage_wizard_init_internal_summary" />
+            android:textColor="?android:attr/textColorSecondary" />
 
     </LinearLayout>
 

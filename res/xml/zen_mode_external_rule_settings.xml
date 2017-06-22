@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,25 +15,25 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="zen_mode_external_rule_settings" >
+    android:key="zen_mode_external_rule_settings">
 
     <!-- Rule name -->
     <Preference
         android:key="rule_name"
-        android:title="@string/zen_mode_rule_name"
-        android:persistent="false" />
+        android:persistent="false"
+        android:title="@string/zen_mode_rule_name" />
 
     <!-- Rule type -->
     <Preference
         android:key="type"
-        android:title="@string/zen_mode_rule_type"
-        android:persistent="false" />
+        android:persistent="false"
+        android:title="@string/zen_mode_rule_type" />
 
     <!-- Configure -->
     <Preference
         android:key="configure"
-        android:title="@string/zen_mode_configure_rule"
-        android:persistent="false" />
+        android:persistent="false"
+        android:title="@string/zen_mode_configure_rule" />
 
     <!-- Zen mode -->
     <DropDownPreference

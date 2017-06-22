@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,27 +14,26 @@
   ~ limitations under the License
   -->
 
-<com.android.setupwizardlib.GlifLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.setupwizardlib.GlifLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/setup_wizard_layout"
+    style="?attr/fingerprint_layout_theme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout="@layout/suw_glif_blank_template"
-    style="?attr/fingerprint_layout_theme">
+    android:layout="@layout/suw_glif_blank_template">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:clipChildren="false"
         android:clipToPadding="false"
-        android:clipChildren="false">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:layout_marginStart="?attr/suwMarginSides"
             android:layout_marginBottom="@dimen/suw_content_frame_padding_bottom"
+            android:layout_marginStart="?attr/suwMarginSides"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -48,8 +46,8 @@
                     style="@style/SuwGlifIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
                     android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
                     android:src="@drawable/ic_lock" />
 
                 <TextView
@@ -57,18 +55,18 @@
                     style="@style/SuwGlifHeaderTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginEnd="0dp" />
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp" />
 
                 <TextView
                     style="@style/TextAppearance.FingerprintMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/security_settings_fingerprint_enroll_find_sensor_message"/>
+                    android:text="@string/security_settings_fingerprint_enroll_find_sensor_message" />
 
                 <Button
-                    style="@style/SetupWizardButton.Positive"
                     android:id="@+id/next_button"
+                    style="@style/SetupWizardButton.Positive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -80,14 +78,14 @@
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <include
                 layout="@layout/fingerprint_enroll_find_sensor_graphic"
                 android:layout_width="@dimen/fingerprint_find_sensor_graphic_size"
                 android:layout_height="@dimen/fingerprint_find_sensor_graphic_size"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
         </FrameLayout>
 

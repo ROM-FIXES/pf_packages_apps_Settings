@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,143 +14,122 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:title="@string/apn_edit">
+    android:title="@string/apn_edit">
     <EditTextPreference
-        android:title="@string/apn_name"
         android:dialogTitle="@string/apn_name"
+        android:inputType="text"
         android:key="apn_name"
         android:singleLine="true"
-        android:inputType="text"
-        />
+        android:title="@string/apn_name" />
     <EditTextPreference
-        android:title="@string/apn_apn"
         android:dialogTitle="@string/apn_apn"
+        android:inputType="textEmailAddress"
         android:key="apn_apn"
         android:singleLine="true"
-        android:inputType="textEmailAddress"
-        />
+        android:title="@string/apn_apn" />
     <EditTextPreference
-        android:title="@string/apn_http_proxy"
         android:dialogTitle="@string/apn_http_proxy"
+        android:inputType="textUri"
         android:key="apn_http_proxy"
         android:singleLine="true"
-        android:inputType="textUri"
-        />
+        android:title="@string/apn_http_proxy" />
     <EditTextPreference
-        android:title="@string/apn_http_port"
         android:dialogTitle="@string/apn_http_port"
+        android:inputType="number"
         android:key="apn_http_port"
         android:singleLine="true"
-        android:inputType="number"
-        />
+        android:title="@string/apn_http_port" />
     <EditTextPreference
-        android:title="@string/apn_user"
         android:dialogTitle="@string/apn_user"
+        android:inputType="textEmailAddress"
         android:key="apn_user"
         android:singleLine="true"
-        android:inputType="textEmailAddress"
-        />
+        android:title="@string/apn_user" />
     <EditTextPreference
-        android:title="@string/apn_password"
         android:dialogTitle="@string/apn_password"
+        android:inputType="textPassword"
         android:key="apn_password"
         android:singleLine="true"
-        android:inputType="textPassword"
-        />
+        android:title="@string/apn_password" />
     <EditTextPreference
-        android:title="@string/apn_server"
         android:dialogTitle="@string/apn_server"
+        android:inputType="textUri"
         android:key="apn_server"
         android:singleLine="true"
-        android:inputType="textUri"
-        />
+        android:title="@string/apn_server" />
     <EditTextPreference
-        android:title="@string/apn_mmsc"
         android:dialogTitle="@string/apn_mmsc"
+        android:inputType="textUri"
         android:key="apn_mmsc"
         android:singleLine="true"
-        android:inputType="textUri"
-        />
+        android:title="@string/apn_mmsc" />
     <EditTextPreference
-        android:title="@string/apn_mms_proxy"
         android:dialogTitle="@string/apn_mms_proxy"
+        android:inputType="textUri"
         android:key="apn_mms_proxy"
         android:singleLine="true"
-        android:inputType="textUri"
-        />
+        android:title="@string/apn_mms_proxy" />
     <EditTextPreference
-        android:title="@string/apn_mms_port"
         android:dialogTitle="@string/apn_mms_port"
+        android:inputType="number"
         android:key="apn_mms_port"
         android:singleLine="true"
-        android:inputType="number"
-        />
+        android:title="@string/apn_mms_port" />
     <EditTextPreference
-        android:title="@string/apn_mcc"
         android:dialogTitle="@string/apn_mcc"
+        android:inputType="number"
         android:key="apn_mcc"
         android:singleLine="true"
-        android:inputType="number"
-        />
+        android:title="@string/apn_mcc" />
     <EditTextPreference
-        android:title="@string/apn_mnc"
         android:dialogTitle="@string/apn_mnc"
+        android:inputType="number"
         android:key="apn_mnc"
         android:singleLine="true"
-        android:inputType="number"
-        />
+        android:title="@string/apn_mnc" />
     <ListPreference
-        android:title="@string/apn_auth_type"
-        android:key="auth_type"
         android:entries="@array/apn_auth_entries"
         android:entryValues="@array/apn_auth_values"
-        />
+        android:key="auth_type"
+        android:title="@string/apn_auth_type" />
     <EditTextPreference
-        android:title="@string/apn_type"
         android:dialogTitle="@string/apn_type"
+        android:inputType="textNoSuggestions"
         android:key="apn_type"
         android:singleLine="true"
-        android:inputType="textNoSuggestions"
-        />
+        android:title="@string/apn_type" />
     <ListPreference
-        android:title="@string/apn_protocol"
         android:dialogTitle="@string/apn_protocol"
+        android:entries="@array/apn_protocol_entries"
+        android:entryValues="@array/apn_protocol_values"
         android:key="apn_protocol"
-        android:entries="@array/apn_protocol_entries"
-        android:entryValues="@array/apn_protocol_values"
-        />
+        android:title="@string/apn_protocol" />
     <ListPreference
-        android:title="@string/apn_roaming_protocol"
         android:dialogTitle="@string/apn_roaming_protocol"
-        android:key="apn_roaming_protocol"
         android:entries="@array/apn_protocol_entries"
         android:entryValues="@array/apn_protocol_values"
-        />
+        android:key="apn_roaming_protocol"
+        android:title="@string/apn_roaming_protocol" />
     <SwitchPreference
-        android:title="@string/carrier_enabled"
-        android:key="carrier_enabled"
         android:enabled="false"
-        android:summaryOn="@string/carrier_enabled_summaryOn"
+        android:key="carrier_enabled"
         android:summaryOff="@@string/carrier_enabled_summaryOff"
-        />
+        android:summaryOn="@string/carrier_enabled_summaryOn"
+        android:title="@string/carrier_enabled" />
     <MultiSelectListPreference
-        android:title="@string/bearer"
-        android:key="bearer_multi"
         android:entries="@array/bearer_entries"
         android:entryValues="@array/bearer_values"
-        />
+        android:key="bearer_multi"
+        android:title="@string/bearer" />
     <ListPreference
-        android:title="@string/mvno_type"
-        android:key="mvno_type"
         android:entries="@array/mvno_type_entries"
         android:entryValues="@array/mvno_type_values"
-        />
+        android:key="mvno_type"
+        android:title="@string/mvno_type" />
     <EditTextPreference
-        android:title="@string/mvno_match_data"
         android:dialogTitle="@string/mvno_match_data"
+        android:inputType="text"
         android:key="mvno_match_data"
         android:singleLine="true"
-        android:inputType="text"
-        />
+        android:title="@string/mvno_match_data" />
 </PreferenceScreen>

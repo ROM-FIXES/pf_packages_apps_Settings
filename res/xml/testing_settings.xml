@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,29 +14,29 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/testing" >
-            
-    <PreferenceScreen
-            android:title="@string/testing_phone_info"
-            android:key="radio_info_settings">
-        <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.RadioInfo" />
-    </PreferenceScreen>
+    android:title="@string/testing">
 
     <PreferenceScreen
-            android:title="@string/testing_usage_stats">
-        <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.UsageStatsActivity" />
-    </PreferenceScreen>
-
-    <PreferenceScreen
-            android:title="@string/testing_wifi_info" >
+        android:key="radio_info_settings"
+        android:title="@string/testing_phone_info">
         <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.Settings$WifiInfoActivity" />
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.RadioInfo"
+            android:targetPackage="com.android.settings" />
+    </PreferenceScreen>
+
+    <PreferenceScreen android:title="@string/testing_usage_stats">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.UsageStatsActivity"
+            android:targetPackage="com.android.settings" />
+    </PreferenceScreen>
+
+    <PreferenceScreen android:title="@string/testing_wifi_info">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.settings.Settings$WifiInfoActivity"
+            android:targetPackage="com.android.settings" />
     </PreferenceScreen>
 
     <!--    

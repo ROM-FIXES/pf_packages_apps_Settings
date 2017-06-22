@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,16 +18,19 @@
     android:title="@string/sim_settings_title">
 
     <PreferenceCategory
-            android:key="sim_activities"
-            android:title="@string/sim_pref_divider" >
+        android:key="sim_activities"
+        android:title="@string/sim_pref_divider">
 
-        <Preference android:key="sim_cellular_data"
+        <Preference
+            android:key="sim_cellular_data"
             android:title="@string/cellular_data_title" />
 
-        <Preference android:key="sim_calls"
+        <Preference
+            android:key="sim_calls"
             android:title="@string/calls_title" />
 
-        <Preference android:key="sim_sms"
+        <Preference
+            android:key="sim_sms"
             android:title="@string/sms_messages_title" />
 
     </PreferenceCategory>

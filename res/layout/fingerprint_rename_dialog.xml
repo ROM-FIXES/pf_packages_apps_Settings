@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,31 +13,30 @@
      limitations under the License.
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:paddingTop="24dp"
+    android:orientation="vertical"
     android:paddingBottom="17dp"
     android:paddingEnd="20dp"
-    android:paddingStart="20dp">
+    android:paddingStart="20dp"
+    android:paddingTop="24dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
-        android:text="@string/security_settings_fingerprint_enroll_dialog_name_label"
         android:layout_marginBottom="-8dp"
         android:layout_marginStart="4dp"
         android:clipChildren="false"
-        android:clipToPadding="false" />
+        android:clipToPadding="false"
+        android:text="@string/security_settings_fingerprint_enroll_dialog_name_label" />
 
     <EditText
         android:id="@+id/fingerprint_rename_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textCapWords"/>
+        android:inputType="textCapWords" />
 
 </LinearLayout>

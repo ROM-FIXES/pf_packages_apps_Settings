@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,14 +20,14 @@
         android:key="keyboard_assistance_category"
         android:title="@string/keyboard_assistance_category">
         <SwitchPreference
+            android:defaultValue="false"
             android:key="show_virtual_keyboard_switch"
-            android:title="@string/show_ime"
             android:summary="@string/show_ime_summary"
-            android:defaultValue="false" />
+            android:title="@string/show_ime" />
 
         <Preference
             android:key="keyboard_shortcuts_helper"
-            android:title="@string/keyboard_shortcuts_helper"
-            android:summary="@string/keyboard_shortcuts_helper_summary" />
+            android:summary="@string/keyboard_shortcuts_helper_summary"
+            android:title="@string/keyboard_shortcuts_helper" />
     </PreferenceCategory>
 </PreferenceScreen>

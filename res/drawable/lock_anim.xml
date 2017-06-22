@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /* 
 ** Copyright 2008, The Android Open Source Project
 **
@@ -16,22 +15,51 @@
 ** limitations under the License.
 */
 -->
-<animation-list
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:oneshot="false">
-    <item android:drawable="@drawable/lock_anim_0" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_1" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_2" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_3" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_4" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_5" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_6" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_7" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_8" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_9" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_10" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_11" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_12" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_13" android:duration="200" />
-    <item android:drawable="@drawable/lock_anim_14" android:duration="200" />
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item
+        android:drawable="@drawable/lock_anim_0"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_1"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_2"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_3"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_4"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_5"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_6"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_7"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_8"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_9"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_10"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_11"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_12"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_13"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/lock_anim_14"
+        android:duration="200" />
 </animation-list>

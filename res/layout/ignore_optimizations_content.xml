@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,16 +17,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp"
+    android:orientation="vertical"
     android:paddingBottom="4dp"
-    android:orientation="vertical">
+    android:paddingTop="8dp">
 
     <include
-        layout="@layout/radio_with_summary"
-        android:id="@+id/ignore_off" />
+        android:id="@+id/ignore_off"
+        layout="@layout/radio_with_summary" />
 
     <include
-        layout="@layout/radio_with_summary"
-        android:id="@+id/ignore_on" />
+        android:id="@+id/ignore_on"
+        layout="@layout/radio_with_summary" />
 
 </LinearLayout>

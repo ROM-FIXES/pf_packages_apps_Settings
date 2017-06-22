@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,30 +14,29 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:title="@string/application_info_label">
+    android:title="@string/application_info_label">
 
-    <PreferenceCategory android:key="app_launch_domain_links"
-                        android:title="@string/app_launch_domain_links_title">
+    <PreferenceCategory
+        android:key="app_launch_domain_links"
+        android:title="@string/app_launch_domain_links_title">
 
         <DropDownPreference
-                android:key="app_link_state"
-                android:summary="%s"
-                android:title="@string/app_launch_open_domain_urls_title" />
+            android:key="app_link_state"
+            android:summary="%s"
+            android:title="@string/app_launch_open_domain_urls_title" />
 
         <com.android.settings.applications.AppDomainsPreference
-                android:key="app_launch_supported_domain_urls"
-                android:title="@string/app_launch_supported_domain_urls_title"
-                android:dependency="app_link_state"
-                />
+            android:dependency="app_link_state"
+            android:key="app_launch_supported_domain_urls"
+            android:title="@string/app_launch_supported_domain_urls_title" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:key="app_launch_other_defaults"
-                        android:title="@string/app_launch_other_defaults_title">
+    <PreferenceCategory
+        android:key="app_launch_other_defaults"
+        android:title="@string/app_launch_other_defaults_title">
 
-        <com.android.settings.applications.ClearDefaultsPreference
-                android:key="app_launch_clear_defaults"
-                />
+        <com.android.settings.applications.ClearDefaultsPreference android:key="app_launch_clear_defaults" />
 
     </PreferenceCategory>
 

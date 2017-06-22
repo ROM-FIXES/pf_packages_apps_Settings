@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2006 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2006 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -57,8 +56,7 @@
     </style>
 
 
-    <style name="TextAppearance" parent="android:TextAppearance.Material">
-    </style>
+    <style name="TextAppearance" parent="android:TextAppearance.Material"></style>
 
     <style name="TextAppearance.info_label">
         <item name="android:textSize">14sp</item>
@@ -140,11 +138,9 @@
         <item name="android:scrollbarStyle">outsideOverlay</item>
     </style>
 
-    <style name="SettingsPreferenceHeaderPanel" parent="@*android:style/PreferenceHeaderPanel">
-    </style>
+    <style name="SettingsPreferenceHeaderPanel" parent="@*android:style/PreferenceHeaderPanel"></style>
 
-    <style name="SettingsPreferenceHeaderList" parent="@*android:style/PreferenceHeaderList">
-    </style>
+    <style name="SettingsPreferenceHeaderList" parent="@*android:style/PreferenceHeaderList"></style>
 
     <style name="TrustedCredentialsList">
         <item name="android:layout_width">fill_parent</item>
@@ -164,11 +160,12 @@
         <item name="android:clickable">false</item>
     </style>
 
-    <style name="TextAppearance.SetupWizardDescription" parent="@android:style/TextAppearance.Material.Subhead">
-    </style>
+    <style name="TextAppearance.SetupWizardDescription" parent="@android:style/TextAppearance.Material.Subhead"></style>
 
     <style name="TrimmedHorizontalProgressBar" parent="android:Widget.Material.ProgressBar.Horizontal">
-        <item name="android:indeterminateDrawable">@drawable/progress_indeterminate_horizontal_material_trimmed</item>
+        <item name="android:indeterminateDrawable">
+            @drawable/progress_indeterminate_horizontal_material_trimmed
+        </item>
         <item name="android:minHeight">3dip</item>
         <item name="android:maxHeight">3dip</item>
     </style>
@@ -329,7 +326,9 @@
     </style>
 
     <style name="TextAppearance.Medium" parent="@android:style/TextAppearance.Material.Medium" />
+
     <style name="TextAppearance.Small" parent="@android:style/TextAppearance.Material.Small" />
+
     <style name="TextAppearance.Switch" parent="@android:style/TextAppearance.Material.Title" />
 
     <style name="TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.Material.Body2">
@@ -337,49 +336,45 @@
     </style>
 
     <style name="TextAppearance.TileTitle" parent="@android:style/TextAppearance.Material.Subhead" />
+
     <style name="TextAppearance.TileSubTitle" parent="@android:style/TextAppearance.Material.Body1" />
+
     <style name="TextAppearance.RecentsTitle" parent="TextAppearance.CategoryTitle" />
+
     <style name="TextAppearance.ResultTitle" parent="TextAppearance.CategoryTitle" />
 
-    <style name="TextAppearance.SuggestionTitle"
-           parent="@android:style/TextAppearance.Material.Subhead">
+    <style name="TextAppearance.SuggestionTitle" parent="@android:style/TextAppearance.Material.Subhead">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="TextAppearance.FingerprintMessage"
-        parent="android:TextAppearance.Material.Subhead">
+    <style name="TextAppearance.FingerprintMessage" parent="android:TextAppearance.Material.Subhead">
         <item name="android:lineSpacingExtra">@dimen/suw_description_line_spacing_extra</item>
     </style>
 
-    <style name="Button.FingerprintButton"
-        parent="android:Widget.Material.Button.Borderless">
+    <style name="Button.FingerprintButton" parent="android:Widget.Material.Button.Borderless">
         <item name="android:lineSpacingExtra">@dimen/suw_description_line_spacing_extra</item>
         <item name="android:textColor">?android:attr/colorAccent</item>
     </style>
 
-    <style name="TextAppearance.FingerprintLink"
-           parent="TextAppearance.FingerprintMessage">
+    <style name="TextAppearance.FingerprintLink" parent="TextAppearance.FingerprintMessage">
         <item name="android:textColor">?android:attr/colorAccent</item>
     </style>
 
-    <style name="TextAppearance.FingerprintErrorText"
-        parent="android:TextAppearance.Material.Body1">
+    <style name="TextAppearance.FingerprintErrorText" parent="android:TextAppearance.Material.Body1">
         <item name="android:textColor">@*android:color/system_error</item>
     </style>
 
-    <style name="TextAppearance.SupportTitle"
-           parent="@android:style/TextAppearance.Material.Subhead">
+    <style name="TextAppearance.SupportTitle" parent="@android:style/TextAppearance.Material.Subhead">
         <item name="android:textColor">?android:attr/colorAccent</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="TextAppearance.SupportSummary" parent="TextAppearance.CategoryTitle"/>
+    <style name="TextAppearance.SupportSummary" parent="TextAppearance.CategoryTitle" />
 
-    <style name="SupportPrimaryButton" parent="android:Widget.Material.Button.Colored"/>
+    <style name="SupportPrimaryButton" parent="android:Widget.Material.Button.Colored" />
 
-    <style name="SupportSecondaryButton"
-           parent="android:Widget.Material.Button.Borderless.Colored">
+    <style name="SupportSecondaryButton" parent="android:Widget.Material.Button.Borderless.Colored">
         <item name="android:textSize">12sp</item>
     </style>
 
@@ -387,8 +382,7 @@
         <item name="android:icon">@drawable/ic_fingerprint_header</item>
     </style>
 
-    <style name="TextAppearance.ConfirmDeviceCredentialsErrorText"
-        parent="android:TextAppearance.Material.Body1">
+    <style name="TextAppearance.ConfirmDeviceCredentialsErrorText" parent="android:TextAppearance.Material.Body1">
         <item name="android:textColor">@*android:color/system_error</item>
     </style>
 

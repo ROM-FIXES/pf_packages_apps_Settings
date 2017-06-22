@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,21 +13,25 @@
      limitations under the License.
 -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:id="@+id/admin_support_msg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Material.Subhead"
-            android:text="@string/default_admin_support_msg"
-            android:maxLength="200"
-            android:autoLink="email|phone|web"
-            android:textColor="?android:attr/textColorSecondary" />
-    <TextView android:id="@+id/admins_policies_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/admin_details_dialog_link_padding_top"
-            android:text="@string/admin_support_more_info"
-            android:textAppearance="@android:style/TextAppearance.Material.Subhead"
-            android:textColor="?android:attr/colorAccent"
-            android:clickable="true"
-            android:background="?android:attr/selectableItemBackground" />
+
+    <TextView
+        android:id="@+id/admin_support_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="email|phone|web"
+        android:maxLength="200"
+        android:text="@string/default_admin_support_msg"
+        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+        android:textColor="?android:attr/textColorSecondary" />
+
+    <TextView
+        android:id="@+id/admins_policies_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:paddingTop="@dimen/admin_details_dialog_link_padding_top"
+        android:text="@string/admin_support_more_info"
+        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+        android:textColor="?android:attr/colorAccent" />
 </merge>

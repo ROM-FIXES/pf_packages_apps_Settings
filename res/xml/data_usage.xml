@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,8 +18,8 @@
     android:title="@string/data_usage_summary_title">
 
     <PreferenceCategory
-        android:title="@string/usage"
-        android:layout="@layout/preference_category_short">
+        android:layout="@layout/preference_category_short"
+        android:title="@string/usage">
 
         <com.android.settings.SummaryPreference
             android:key="status_header"
@@ -32,9 +31,9 @@
             settings:allowDividerBelow="true" />
 
         <com.android.settings.datausage.DataSaverPreference
+            android:fragment="com.android.settings.datausage.DataSaverSummary"
             android:key="restrict_background"
-            android:title="@string/data_saver_title"
-            android:fragment="com.android.settings.datausage.DataSaverSummary" />
+            android:title="@string/data_saver_title" />
 
     </PreferenceCategory>
 

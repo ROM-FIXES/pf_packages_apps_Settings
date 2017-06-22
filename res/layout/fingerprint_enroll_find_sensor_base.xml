@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,53 +14,52 @@
   ~ limitations under the License
   -->
 
-<com.android.setupwizardlib.GlifLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.setupwizardlib.GlifLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/setup_wizard_layout"
+    style="?attr/fingerprint_layout_theme"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="?attr/fingerprint_layout_theme">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:clipChildren="false"
         android:clipToPadding="false"
-        android:clipChildren="false">
+        android:orientation="vertical">
 
         <include
             layout="@layout/fingerprint_enroll_find_sensor_graphic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal|bottom"/>
+            android:layout_gravity="center_horizontal|bottom" />
 
         <LinearLayout
             style="@style/SuwContentFrame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:clipChildren="false"
             android:clipToPadding="false"
-            android:clipChildren="false">
+            android:orientation="vertical">
 
             <TextView
                 style="@style/TextAppearance.FingerprintMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/suw_description_glif_margin_top"
-                android:text="@string/security_settings_fingerprint_enroll_find_sensor_message"/>
+                android:text="@string/security_settings_fingerprint_enroll_find_sensor_message" />
 
             <View
-                android:layout_height="0dp"
                 android:layout_width="match_parent"
-                android:layout_weight="1"/>
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
             <Button
-                style="@style/SetupWizardButton.Positive"
                 android:id="@+id/next_button"
+                style="@style/SetupWizardButton.Positive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
                 android:layout_gravity="end"
+                android:layout_marginBottom="4dp"
                 android:text="@string/fingerprint_enroll_button_next" />
 
         </LinearLayout>

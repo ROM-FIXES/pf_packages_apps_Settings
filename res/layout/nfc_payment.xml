@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,48 +14,52 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/nfc_payment_tap_image"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:visibility="gone"
-                android:src="@drawable/tapandpay_emptystate"/>
+                android:src="@drawable/tapandpay_emptystate"
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/nfc_payment_empty_text"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="24sp"
-                android:visibility="gone"
                 android:paddingTop="32dp"
-                android:text="@string/nfc_payment_no_apps"/>
+                android:text="@string/nfc_payment_no_apps"
+                android:textSize="24sp"
+                android:visibility="gone" />
         </LinearLayout>
-        <ListView android:id="@android:id/list"
-            android:drawSelectorOnTop="false"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:scrollbarStyle="@integer/preference_scrollbar_style" />
-<!--
+
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
+            android:drawSelectorOnTop="false"
             android:scrollbarStyle="@integer/preference_scrollbar_style" />
--->
+        <!--
+                <ListView
+                    android:id="@android:id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:scrollbarStyle="@integer/preference_scrollbar_style" />
+        -->
     </FrameLayout>
 </LinearLayout>

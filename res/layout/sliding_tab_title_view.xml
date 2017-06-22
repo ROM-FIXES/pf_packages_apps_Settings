@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2016 Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,16 +14,15 @@
      limitations under the License.
 -->
 
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="0dp"
-    android:layout_weight="1"
     android:layout_height="wrap_content"
+    android:layout_weight="1"
     android:background="?android:attr/selectableItemBackground"
     android:ellipsize="end"
     android:fontFamily="sans-serif-medium"
     android:gravity="center"
     android:maxLines="1"
     android:padding="@dimen/pager_tabs_title_padding"
-    android:textColor="@color/sliding_tab_title_text_color"
-    android:textAllCaps="true"/>
+    android:textAllCaps="true"
+    android:textColor="@color/sliding_tab_title_text_color" />

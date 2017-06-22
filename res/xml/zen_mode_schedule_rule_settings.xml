@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,34 +15,34 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="zen_mode_schedule_rule_settings" >
+    android:key="zen_mode_schedule_rule_settings">
 
     <!-- Rule name -->
     <Preference
         android:key="rule_name"
-        android:title="@string/zen_mode_rule_name"
-        android:persistent="false" />
+        android:persistent="false"
+        android:title="@string/zen_mode_rule_name" />
 
     <!-- Days -->
     <Preference
         android:key="days"
-        android:title="@string/zen_mode_schedule_rule_days"
-        android:persistent="false" />
+        android:persistent="false"
+        android:title="@string/zen_mode_schedule_rule_days" />
 
     <!-- Start time/End time added and removed here! :-) -->
 
     <!-- Exit DND mode with alarm -->
     <SwitchPreference
         android:key="exit_at_alarm"
-        android:title="@string/zen_mode_schedule_alarm_title"
+        android:order="99"
         android:summary="@string/zen_mode_schedule_alarm_summary"
-        android:order="99" />
+        android:title="@string/zen_mode_schedule_alarm_title" />
 
     <!-- Zen mode -->
     <DropDownPreference
-            android:key="zen_mode"
-            android:title="@string/zen_mode_settings_title"
-            android:order="100"
-            android:summary="%s" />
+        android:key="zen_mode"
+        android:order="100"
+        android:summary="%s"
+        android:title="@string/zen_mode_settings_title" />
 
 </PreferenceScreen>

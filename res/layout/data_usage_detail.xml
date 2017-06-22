@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,16 +17,16 @@
     android:id="@+id/app_detail"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="4dp"
     android:orientation="vertical"
+    android:paddingTop="4dp"
     android:visibility="gone">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
-        android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd"
         android:layout_marginBottom="16dip"
+        android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
         android:orientation="horizontal">
 
         <ImageView
@@ -35,14 +34,14 @@
             android:layout_width="@android:dimen/app_icon_size"
             android:layout_height="@android:dimen/app_icon_size"
             android:layout_marginEnd="8dip"
-            android:scaleType="centerInside"
-            android:contentDescription="@null" />
+            android:contentDescription="@null"
+            android:scaleType="centerInside" />
 
         <LinearLayout
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginTop="8dip"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -56,47 +55,51 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/app_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:singleLine="true"
                     android:ellipsize="marquee"
+                    android:singleLine="true"
                     android:text="@string/data_usage_label_foreground"
+                    android:textAlignment="viewStart"
                     android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textAlignment="viewStart" />
+                    android:textColor="?android:attr/textColorSecondary" />
+
                 <TextView
                     android:id="@+id/app_foreground"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAlignment="viewEnd"
                     android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textAlignment="viewEnd" />
+                    android:textColor="?android:attr/textColorSecondary" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/app_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:singleLine="true"
                     android:ellipsize="marquee"
+                    android:singleLine="true"
                     android:text="@string/data_usage_label_background"
+                    android:textAlignment="viewStart"
                     android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textAlignment="viewStart" />
+                    android:textColor="?android:attr/textColorSecondary" />
+
                 <TextView
                     android:id="@+id/app_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAlignment="viewEnd"
                     android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textAlignment="viewEnd" />
+                    android:textColor="?android:attr/textColorSecondary" />
             </LinearLayout>
 
         </LinearLayout>
@@ -106,14 +109,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
-        android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd"
         android:layout_marginBottom="16dip"
+        android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
         android:orientation="horizontal">
+
         <Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="0.5" />
+
         <Button
             android:id="@+id/app_settings"
             android:layout_width="wrap_content"
@@ -126,8 +131,8 @@
         android:id="@+id/app_switches"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:divider="?android:attr/listDivider"
         android:orientation="vertical"
-        android:showDividers="beginning|middle"
-        android:divider="?android:attr/listDivider" />
+        android:showDividers="beginning|middle" />
 
 </LinearLayout>

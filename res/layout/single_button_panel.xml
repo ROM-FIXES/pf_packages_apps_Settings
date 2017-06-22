@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2015 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,29 +17,31 @@
   Defines a panel with one button in the same layout as the two button layout.
 -->
 
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom"
+    android:orientation="horizontal"
+    android:paddingBottom="8dip"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingTop="8dip">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="120dip"
         android:layout_height="wrap_content"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:gravity="bottom"
-        android:paddingTop="8dip"
-        android:paddingBottom="8dip"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/button"
-            android:layout_width="120dip"
-            android:layout_weight="0.4"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical" />
-        <Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2" />
-        <Space
-            android:layout_width="120dip"
-            android:layout_weight="0.4"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"/>
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.4" />
+
+    <Space
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2" />
+
+    <Space
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.4" />
 </LinearLayout>

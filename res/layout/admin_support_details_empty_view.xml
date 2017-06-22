@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,15 +11,15 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
--->
-<!-- Layout used for displaying admin support details in empty preference fragments. -->
+--><!-- Layout used for displaying admin support details in empty preference fragments. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/admin_support_details"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@*android:dimen/preference_fragment_padding_side"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:visibility="gone">
+    android:id="@+id/admin_support_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="@*android:dimen/preference_fragment_padding_side"
+    android:visibility="gone">
+
     <include layout="@layout/admin_support_details_content" />
 </LinearLayout>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,16 +14,16 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/wifi_settings_category">
+    android:title="@string/wifi_settings_category">
 
     <com.android.settings.bluetooth.BluetoothProgressCategory
-            android:key="access_points"
-            android:title="@string/wifi_access_points"
-            android:persistent="false" />
+        android:key="access_points"
+        android:persistent="false"
+        android:title="@string/wifi_access_points" />
 
     <Preference
-            android:key="add_network"
-            android:title="@string/wifi_add_network"
-            android:persistent="false" />
+        android:key="add_network"
+        android:persistent="false"
+        android:title="@string/wifi_add_network" />
 
 </PreferenceScreen>

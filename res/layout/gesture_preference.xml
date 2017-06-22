@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,40 +12,39 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    android:gravity="center_vertical"
     android:background="?android:attr/activatedBackgroundIndicator"
     android:clipToPadding="false"
+    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/gestures_switchbar_color"
         android:orientation="horizontal"
-        android:paddingTop="24dp"
         android:paddingBottom="16dp"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
         android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:background="@color/gestures_switchbar_color">
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingTop="24dp">
 
         <TextView
             android:id="@android:id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ellipsize="marquee"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceListItem"
-            android:ellipsize="marquee"/>
+            android:textAppearance="?android:attr/textAppearanceListItem" />
 
         <Switch
             android:id="@android:id/switch_widget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end|center_vertical"/>
+            android:gravity="end|center_vertical" />
 
     </LinearLayout>
 
@@ -55,8 +53,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gestures_setting_background_color"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
 
         <com.android.settings.widget.AspectRatioFrameLayout
             android:layout_width="0dp"
@@ -68,22 +66,22 @@
                 android:id="@+id/gesture_video"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/gesture_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:background="@color/gestures_setting_background_color"/>
+                android:background="@color/gestures_setting_background_color"
+                android:scaleType="fitXY" />
 
             <ImageView
                 android:id="@+id/gesture_play_button"
                 android:layout_width="@dimen/gestures_play_button_size"
                 android:layout_height="@dimen/gestures_play_button_size"
-                android:src="@drawable/ic_gesture_play_button"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_gravity="center"/>
+                android:src="@drawable/ic_gesture_play_button" />
 
         </com.android.settings.widget.AspectRatioFrameLayout>
 
@@ -92,12 +90,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="@dimen/gestures_settings_padding_top_bottom"
-            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-            android:textAppearance="?android:attr/textAppearanceListItemSecondary"
-            android:textColor="?android:attr/textColorSecondary"
+            android:ellipsize="end"
             android:maxLines="10"
-            android:ellipsize="end"/>
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingTop="@dimen/gestures_settings_padding_top_bottom"
+            android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+            android:textColor="?android:attr/textColorSecondary" />
 
     </LinearLayout>
 

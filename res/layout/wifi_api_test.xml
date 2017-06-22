@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,32 +14,32 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/wifi_settings_category">
+    android:title="@string/wifi_settings_category">
 
     <Preference
-            android:key="disable_network"
-            android:title="@string/disableNetwork"
-            android:persistent="false" />
+        android:key="disable_network"
+        android:persistent="false"
+        android:title="@string/disableNetwork" />
 
     <Preference
-            android:key="disconnect"
-            android:title="@string/disconnect"
-            android:persistent="false" />
+        android:key="disconnect"
+        android:persistent="false"
+        android:title="@string/disconnect" />
 
     <Preference
-            android:key="enable_network"
-            android:title="@string/enableNetwork"
-            android:persistent="false" />
+        android:key="enable_network"
+        android:persistent="false"
+        android:title="@string/enableNetwork" />
 
     <Preference
-            android:key="getConfiguredNetworks"
-            android:title="@string/getConfiguredNetworks"
-            android:persistent="false" />
+        android:key="getConfiguredNetworks"
+        android:persistent="false"
+        android:title="@string/getConfiguredNetworks" />
 
     <Preference
-            android:key="getConnectionInfo"
-            android:title="@string/getConnectionInfo"
-            android:persistent="false" />
+        android:key="getConnectionInfo"
+        android:persistent="false"
+        android:title="@string/getConnectionInfo" />
 
 
 </PreferenceScreen>

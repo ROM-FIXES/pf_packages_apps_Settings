@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
 ** Copyright 2010, The Android Open Source Project
 **
@@ -27,28 +26,29 @@
         android:layout_height="wrap_content"
         android:src="?android:attr/listDivider"/>
     -->
-        
+
     <!-- Icon and label of the service. -->
     <include
-        layout="@layout/running_processes_item"
-        android:id="@+id/service"/>
+        android:id="@+id/service"
+        layout="@layout/running_processes_item" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:orientation="vertical"
         android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:orientation="vertical">
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart">
 
-        <TextView android:id="@+id/comp_description"
+        <TextView
+            android:id="@+id/comp_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <include
-            layout="@layout/two_buttons_panel"
-            android:id="@+id/control_buttons_panel" />
+            android:id="@+id/control_buttons_panel"
+            layout="@layout/two_buttons_panel" />
 
     </LinearLayout>
 

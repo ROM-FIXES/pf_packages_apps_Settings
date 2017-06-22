@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,45 +15,51 @@
 
 <!-- Used by UserPreference to show the trash icon -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
+
     <include layout="@layout/restricted_icon" />
 
-    <LinearLayout android:id="@+id/user_delete_widget"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:id="@+id/user_delete_widget"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
         <View
             android:id="@+id/divider_manage"
             android:layout_width="2dip"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dip"
             android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
             android:background="@android:drawable/divider_horizontal_dark" />
+
         <ImageView
             android:id="@+id/manage_user"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:paddingStart="16dip"
-            android:paddingEnd="16dip"
-            android:src="@drawable/ic_settings"
-            android:contentDescription="@string/settings_label"
             android:layout_gravity="center"
-            android:background="?android:attr/selectableItemBackground" />
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/settings_label"
+            android:paddingEnd="16dip"
+            android:paddingStart="16dip"
+            android:src="@drawable/ic_settings" />
+
         <View
             android:id="@+id/divider_delete"
             android:layout_width="2dip"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dip"
             android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
             android:background="@android:drawable/divider_horizontal_dark" />
+
         <ImageView
             android:id="@+id/trash_user"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:paddingStart="16dip"
-            android:paddingEnd="16dip"
-            android:src="@drawable/ic_menu_delete"
-            android:contentDescription="@string/user_delete_user_description"
             android:layout_gravity="center"
-            android:background="?android:attr/selectableItemBackground" />
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/user_delete_user_description"
+            android:paddingEnd="16dip"
+            android:paddingStart="16dip"
+            android:src="@drawable/ic_menu_delete" />
     </LinearLayout>
 </merge>

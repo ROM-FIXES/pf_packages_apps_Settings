@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
 ** Copyright 2013, The Android Open Source Project
 **
@@ -16,8 +15,7 @@
 ** limitations under the License.
 */
 -->
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
@@ -27,22 +25,22 @@
         android:id="@+id/all_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="5dip"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="5dip">
 
         <!-- App snippet -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:orientation="vertical"
             android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-            android:orientation="vertical">
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart">
 
             <!-- Application snippet label, version and icon -->
             <include
-                layout="@layout/app_item"
-                android:id="@+id/app_snippet" />
+                android:id="@+id/app_snippet"
+                layout="@layout/app_item" />
 
         </LinearLayout>
 
@@ -51,7 +49,6 @@
             android:id="@+id/operations_section"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
     </LinearLayout>
 </ScrollView>

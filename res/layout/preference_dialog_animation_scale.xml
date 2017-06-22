@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The CyanogenMod Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,34 +14,37 @@
 -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp">
+
+    <!-- Static height enough to accommodate the text views in their biggest possible size,
+    without having the dialog resize itself at any point. -->
+    <LinearLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="12dp">
+        android:layout_height="64dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
 
-        <!-- Static height enough to accommodate the text views in their biggest possible size,
-        without having the dialog resize itself at any point. -->
-        <LinearLayout android:id="@+id/container"
-                 android:orientation="vertical"
-                 android:layout_width="match_parent"
-                 android:layout_height="64dp"
-                 android:gravity="center_horizontal|center_vertical">
+        <TextView
+            android:id="@+id/scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceLarge" />
 
-                <TextView android:id="@+id/scale"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:textAppearanceLarge" />
+    </LinearLayout>
 
-        </LinearLayout>
-
-        <com.android.settings.IntervalSeekBar android:id="@+id/scale_seekbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_below="@+id/container"
-                settings:minI="0"
-                settings:maxI="10"
-                settings:defaultValue="1.0"
-                settings:digits="1" />
+    <com.android.settings.IntervalSeekBar
+        android:id="@+id/scale_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/container"
+        android:padding="8dp"
+        settings:defaultValue="1.0"
+        settings:digits="1"
+        settings:maxI="10"
+        settings:minI="0" />
 
 </RelativeLayout>

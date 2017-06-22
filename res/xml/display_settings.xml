@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,105 +14,105 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:title="@string/display_settings"
-        settings:keywords="@string/keywords_display">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/display_settings"
+    settings:keywords="@string/keywords_display">
 
-        <PreferenceScreen
-                android:key="brightness"
-                android:title="@string/brightness"
-                settings:keywords="@string/keywords_display_brightness_level">
-            <intent android:action="android.intent.action.SHOW_BRIGHTNESS_DIALOG" />
-        </PreferenceScreen>
+    <PreferenceScreen
+        android:key="brightness"
+        android:title="@string/brightness"
+        settings:keywords="@string/keywords_display_brightness_level">
+        <intent android:action="android.intent.action.SHOW_BRIGHTNESS_DIALOG" />
+    </PreferenceScreen>
 
-        <SwitchPreference
-                android:key="auto_brightness"
-                android:title="@string/auto_brightness_title"
-                settings:keywords="@string/keywords_display_auto_brightness"
-                android:summary="@string/auto_brightness_summary" />
+    <SwitchPreference
+        android:key="auto_brightness"
+        android:summary="@string/auto_brightness_summary"
+        android:title="@string/auto_brightness_title"
+        settings:keywords="@string/keywords_display_auto_brightness" />
 
-        <com.android.settings.display.NightDisplayPreference
-                android:key="night_display"
-                android:title="@string/night_display_title"
-                android:fragment="com.android.settings.display.NightDisplaySettings"
-                android:widgetLayout="@null"
-                settings:keywords="@string/keywords_display_night_display" />
+    <com.android.settings.display.NightDisplayPreference
+        android:fragment="com.android.settings.display.NightDisplaySettings"
+        android:key="night_display"
+        android:title="@string/night_display_title"
+        android:widgetLayout="@null"
+        settings:keywords="@string/keywords_display_night_display" />
 
-        <!-- Hide night mode for now
-        <ListPreference
-            android:key="night_mode"
-            android:title="@string/night_mode_title"
-            settings:keywords="@string/keywords_display_night_mode"
-            android:summary="@string/night_mode_summary"
-            android:entries="@array/night_mode_entries"
-            android:entryValues="@array/night_mode_values" /> -->
+    <!-- Hide night mode for now
+    <ListPreference
+        android:key="night_mode"
+        android:title="@string/night_mode_title"
+        settings:keywords="@string/keywords_display_night_mode"
+        android:summary="@string/night_mode_summary"
+        android:entries="@array/night_mode_entries"
+        android:entryValues="@array/night_mode_values" /> -->
 
-        <com.android.settingslib.RestrictedPreference
-                android:key="wallpaper"
-                android:title="@string/wallpaper_settings_title"
-                settings:keywords="@string/keywords_display_wallpaper"
-                settings:useAdminDisabledSummary="true" >
-                <intent
-                        android:targetPackage="@string/config_wallpaper_picker_package"
-                        android:targetClass="@string/config_wallpaper_picker_class" />
-        </com.android.settingslib.RestrictedPreference>
+    <com.android.settingslib.RestrictedPreference
+        android:key="wallpaper"
+        android:title="@string/wallpaper_settings_title"
+        settings:keywords="@string/keywords_display_wallpaper"
+        settings:useAdminDisabledSummary="true">
+        <intent
+            android:targetClass="@string/config_wallpaper_picker_class"
+            android:targetPackage="@string/config_wallpaper_picker_package" />
+    </com.android.settingslib.RestrictedPreference>
 
-        <PreferenceScreen
-                android:key="display_rotation"
-                android:title="@string/display_rotation_title"
-                android:fragment="com.android.settings.nexus.DisplayRotation" />
+    <PreferenceScreen
+        android:fragment="com.android.settings.nexus.DisplayRotation"
+        android:key="display_rotation"
+        android:title="@string/display_rotation_title" />
 
-        <com.android.settings.TimeoutListPreference
-                android:key="screen_timeout"
-                android:title="@string/screen_timeout"
-                android:summary="@string/screen_timeout_summary"
-                android:entries="@array/screen_timeout_entries"
-                android:entryValues="@array/screen_timeout_values" />
+    <com.android.settings.TimeoutListPreference
+        android:entries="@array/screen_timeout_entries"
+        android:entryValues="@array/screen_timeout_values"
+        android:key="screen_timeout"
+        android:summary="@string/screen_timeout_summary"
+        android:title="@string/screen_timeout" />
 
-        <SwitchPreference
-                android:key="camera_gesture"
-                android:title="@string/camera_gesture_title"
-                android:summary="@string/camera_gesture_desc" />
+    <SwitchPreference
+        android:key="camera_gesture"
+        android:summary="@string/camera_gesture_desc"
+        android:title="@string/camera_gesture_title" />
 
-        <PreferenceScreen
-                android:key="screensaver"
-                android:title="@string/screensaver_settings_title"
-                android:fragment="com.android.settings.DreamSettings" />
+    <PreferenceScreen
+        android:fragment="com.android.settings.DreamSettings"
+        android:key="screensaver"
+        android:title="@string/screensaver_settings_title" />
 
-        <SwitchPreference
-                android:key="lift_to_wake"
-                android:title="@string/lift_to_wake_title" />
+    <SwitchPreference
+        android:key="lift_to_wake"
+        android:title="@string/lift_to_wake_title" />
 
-        <PreferenceScreen
-                android:key="doze_fragment"
-                android:title="@string/doze_title"
-                android:fragment="com.android.settings.nexus.AmbientSettings" />
+    <PreferenceScreen
+        android:fragment="com.android.settings.nexus.AmbientSettings"
+        android:key="doze_fragment"
+        android:title="@string/doze_title" />
 
-        <SwitchPreference
-                android:key="tap_to_wake"
-                android:title="@string/tap_to_wake"
-                android:summary="@string/tap_to_wake_summary" />
+    <SwitchPreference
+        android:key="tap_to_wake"
+        android:summary="@string/tap_to_wake_summary"
+        android:title="@string/tap_to_wake" />
 
-        <PreferenceScreen
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
-                settings:keywords="@string/keywords_display_font_size" />
+    <PreferenceScreen
+        android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
+        android:key="font_size"
+        android:title="@string/title_font_size"
+        settings:keywords="@string/keywords_display_font_size" />
 
-        <com.android.settings.display.ScreenZoomPreference
-                android:key="screen_zoom"
-                android:title="@string/screen_zoom_title"
-                settings:keywords="@string/screen_zoom_keywords" />
+    <com.android.settings.display.ScreenZoomPreference
+        android:key="screen_zoom"
+        android:title="@string/screen_zoom_title"
+        settings:keywords="@string/screen_zoom_keywords" />
 
-        <PreferenceScreen
-                android:key="wifi_display"
-                android:title="@string/wifi_display_settings_title"
-                settings:keywords="@string/keywords_display_cast_screen"
-                android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+    <PreferenceScreen
+        android:fragment="com.android.settings.wfd.WifiDisplaySettings"
+        android:key="wifi_display"
+        android:title="@string/wifi_display_settings_title"
+        settings:keywords="@string/keywords_display_cast_screen" />
 
-        <DropDownPreference
-                android:key="vr_display_pref"
-                android:summary="%s"
-                android:title="@string/display_vr_pref_title" />
+    <DropDownPreference
+        android:key="vr_display_pref"
+        android:summary="%s"
+        android:title="@string/display_vr_pref_title" />
 
 </PreferenceScreen>

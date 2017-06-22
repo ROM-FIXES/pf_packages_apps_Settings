@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,16 +13,15 @@
      limitations under the License.
 -->
 
-<com.android.settings.dashboard.conditional.FocusRecyclerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.settings.dashboard.conditional.FocusRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dashboard_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:focusable="false"
-    android:paddingStart="@dimen/dashboard_padding_start"
-    android:paddingEnd="@dimen/dashboard_padding_end"
-    android:paddingTop="@dimen/dashboard_padding_top"
     android:paddingBottom="@dimen/dashboard_padding_bottom"
-    android:scrollbars="vertical"/>
+    android:paddingEnd="@dimen/dashboard_padding_end"
+    android:paddingStart="@dimen/dashboard_padding_start"
+    android:paddingTop="@dimen/dashboard_padding_top"
+    android:scrollbars="vertical" />

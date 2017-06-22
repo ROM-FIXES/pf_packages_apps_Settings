@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
     Copyright (C) 2016 The Android Open Source Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,17 +15,17 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/lock_settings_picker_title"
-    android:key="lock_settings_picker">
+    android:key="lock_settings_picker"
+    android:title="@string/lock_settings_picker_title">
 
     <com.android.settings.MultiLinePreference
         android:icon="@drawable/ic_lock_list_icon"
         android:key="encrypt_require_password"
-        android:persistent="false"/>
+        android:persistent="false" />
 
     <Preference
         android:icon="@drawable/ic_skip"
         android:key="encrypt_dont_require_password"
-        android:persistent="false"/>
+        android:persistent="false" />
 
 </PreferenceScreen>

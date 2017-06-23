@@ -20,23 +20,21 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Point;
-import android.os.Bundle;
-import android.provider.Settings;
-
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
+import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.view.Display;
-import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.VideoView;
+
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.widget.ToggleSwitch;
@@ -44,74 +42,15 @@ import com.android.settings.widget.ToggleSwitch.OnBeforeCheckedChangeListener;
 
 public class ToggleScreenMagnificationPreferenceFragment extends ToggleFeaturePreferenceFragment {
 
-    protected class VideoPreference extends Preference {
-        private ImageView mVideoBackgroundView;
-        private OnGlobalLayoutListener mLayoutListener;
-
-        public VideoPreference(Context context) {
-            super(context);
-        }
-
-        @Override
-        public void onBindViewHolder(PreferenceViewHolder view) {
-            super.onBindViewHolder(view);
-            Resources res = getPrefContext().getResources();
-            final int backgroundAssetWidth = res.getDimensionPixelSize(
-                    R.dimen.screen_magnification_video_background_width);
-            final int videoAssetWidth = res
-                    .getDimensionPixelSize(R.dimen.screen_magnification_video_width);
-            final int videoAssetHeight = res
-                    .getDimensionPixelSize(R.dimen.screen_magnification_video_height);
-            final int videoAssetMarginTop = res.getDimensionPixelSize(
-                    R.dimen.screen_magnification_video_margin_top);
-            view.setDividerAllowedAbove(false);
-            view.setDividerAllowedBelow(false);
-            mVideoBackgroundView = (ImageView) view.findViewById(R.id.video_background);
-            final VideoView videoView = (VideoView) view.findViewById(R.id.video);
-
-            // Loop the video.
-            videoView.setOnPreparedListener(new OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
-                    mediaPlayer.setLooping(true);
-                }
-            });
-
-            videoView.setVideoURI(Uri.parse(String.format("%s://%s/%s",
-                    ContentResolver.SCHEME_ANDROID_RESOURCE,
-                    getPrefContext().getPackageName(),
-                    R.raw.accessibility_screen_magnification)));
-            // Make sure video controls (e.g. for pausing) are not displayed.
-            videoView.setMediaController(null);
-
-            // LayoutListener for adjusting the position of the VideoView on the background image.
-            mLayoutListener = new OnGlobalLayoutListener() {
-                @Override
-                public void onGlobalLayout() {
-                    final int backgroundViewWidth = mVideoBackgroundView.getWidth();
-
-                    LayoutParams videoLp = (LayoutParams) videoView.getLayoutParams();
-                    videoLp.width = videoAssetWidth * backgroundViewWidth / backgroundAssetWidth;
-                    videoLp.height = videoAssetHeight * backgroundViewWidth / backgroundAssetWidth;
-                    videoLp.setMargins(0,
-                            videoAssetMarginTop * backgroundViewWidth / backgroundAssetWidth, 0, 0);
-                    videoView.setLayoutParams(videoLp);
-                    videoView.invalidate();
-                    videoView.start();
-                }
-            };
-
-            mVideoBackgroundView.getViewTreeObserver().addOnGlobalLayoutListener(mLayoutListener);
-        }
-
-        @Override
-        protected void onPrepareForRemoval() {
-            mVideoBackgroundView.getViewTreeObserver()
-                    .removeOnGlobalLayoutListener(mLayoutListener);
-        }
-    }
-
     protected VideoPreference mVideoPreference;
+
+    private static int getScreenWidth(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size.x;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -182,11 +121,70 @@ public class ToggleScreenMagnificationPreferenceFragment extends ToggleFeaturePr
         return MetricsEvent.ACCESSIBILITY_TOGGLE_SCREEN_MAGNIFICATION;
     }
 
-    private static int getScreenWidth(Context context) {
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        return size.x;
+    protected class VideoPreference extends Preference {
+        private ImageView mVideoBackgroundView;
+        private OnGlobalLayoutListener mLayoutListener;
+
+        public VideoPreference(Context context) {
+            super(context);
+        }
+
+        @Override
+        public void onBindViewHolder(PreferenceViewHolder view) {
+            super.onBindViewHolder(view);
+            Resources res = getPrefContext().getResources();
+            final int backgroundAssetWidth = res.getDimensionPixelSize(
+                    R.dimen.screen_magnification_video_background_width);
+            final int videoAssetWidth = res
+                    .getDimensionPixelSize(R.dimen.screen_magnification_video_width);
+            final int videoAssetHeight = res
+                    .getDimensionPixelSize(R.dimen.screen_magnification_video_height);
+            final int videoAssetMarginTop = res.getDimensionPixelSize(
+                    R.dimen.screen_magnification_video_margin_top);
+            view.setDividerAllowedAbove(false);
+            view.setDividerAllowedBelow(false);
+            mVideoBackgroundView = (ImageView) view.findViewById(R.id.video_background);
+            final VideoView videoView = (VideoView) view.findViewById(R.id.video);
+
+            // Loop the video.
+            videoView.setOnPreparedListener(new OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mediaPlayer) {
+                    mediaPlayer.setLooping(true);
+                }
+            });
+
+            videoView.setVideoURI(Uri.parse(String.format("%s://%s/%s",
+                    ContentResolver.SCHEME_ANDROID_RESOURCE,
+                    getPrefContext().getPackageName(),
+                    R.raw.accessibility_screen_magnification)));
+            // Make sure video controls (e.g. for pausing) are not displayed.
+            videoView.setMediaController(null);
+
+            // LayoutListener for adjusting the position of the VideoView on the background image.
+            mLayoutListener = new OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    final int backgroundViewWidth = mVideoBackgroundView.getWidth();
+
+                    LayoutParams videoLp = (LayoutParams) videoView.getLayoutParams();
+                    videoLp.width = videoAssetWidth * backgroundViewWidth / backgroundAssetWidth;
+                    videoLp.height = videoAssetHeight * backgroundViewWidth / backgroundAssetWidth;
+                    videoLp.setMargins(0,
+                            videoAssetMarginTop * backgroundViewWidth / backgroundAssetWidth, 0, 0);
+                    videoView.setLayoutParams(videoLp);
+                    videoView.invalidate();
+                    videoView.start();
+                }
+            };
+
+            mVideoBackgroundView.getViewTreeObserver().addOnGlobalLayoutListener(mLayoutListener);
+        }
+
+        @Override
+        protected void onPrepareForRemoval() {
+            mVideoBackgroundView.getViewTreeObserver()
+                    .removeOnGlobalLayoutListener(mLayoutListener);
+        }
     }
 }

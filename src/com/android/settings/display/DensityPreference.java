@@ -23,6 +23,7 @@ import android.util.Slog;
 import android.view.Display;
 import android.view.View;
 import android.widget.EditText;
+
 import com.android.settings.CustomEditTextPreference;
 import com.android.settings.R;
 import com.android.settingslib.display.DisplayDensityUtils;

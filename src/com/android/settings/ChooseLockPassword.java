@@ -34,12 +34,12 @@ import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.inputmethod.EditorInfo;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -75,16 +75,9 @@ public class ChooseLockPassword extends SettingsActivity {
 
     private static final String TAG = "ChooseLockPassword";
 
-    @Override
-    public Intent getIntent() {
-        Intent modIntent = new Intent(super.getIntent());
-        modIntent.putExtra(EXTRA_SHOW_FRAGMENT, getFragmentClass().getName());
-        return modIntent;
-    }
-
     public static Intent createIntent(Context context, int quality,
-            int minLength, final int maxLength, boolean requirePasswordToDecrypt,
-            boolean confirmCredentials) {
+                                      int minLength, final int maxLength, boolean requirePasswordToDecrypt,
+                                      boolean confirmCredentials) {
         Intent intent = new Intent().setClass(context, ChooseLockPassword.class);
         intent.putExtra(LockPatternUtils.PASSWORD_TYPE_KEY, quality);
         intent.putExtra(PASSWORD_MIN_KEY, minLength);
@@ -95,8 +88,8 @@ public class ChooseLockPassword extends SettingsActivity {
     }
 
     public static Intent createIntent(Context context, int quality,
-            int minLength, final int maxLength, boolean requirePasswordToDecrypt,
-            boolean confirmCredentials, int userId) {
+                                      int minLength, final int maxLength, boolean requirePasswordToDecrypt,
+                                      boolean confirmCredentials, int userId) {
         Intent intent = createIntent(context, quality, minLength, maxLength,
                 requirePasswordToDecrypt, confirmCredentials);
         intent.putExtra(Intent.EXTRA_USER_ID, userId);
@@ -104,7 +97,7 @@ public class ChooseLockPassword extends SettingsActivity {
     }
 
     public static Intent createIntent(Context context, int quality,
-            int minLength, final int maxLength, boolean requirePasswordToDecrypt, String password) {
+                                      int minLength, final int maxLength, boolean requirePasswordToDecrypt, String password) {
         Intent intent = createIntent(context, quality, minLength, maxLength,
                 requirePasswordToDecrypt, false);
         intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD, password);
@@ -112,7 +105,7 @@ public class ChooseLockPassword extends SettingsActivity {
     }
 
     public static Intent createIntent(Context context, int quality, int minLength,
-            int maxLength, boolean requirePasswordToDecrypt, String password, int userId) {
+                                      int maxLength, boolean requirePasswordToDecrypt, String password, int userId) {
         Intent intent = createIntent(context, quality, minLength, maxLength,
                 requirePasswordToDecrypt, password);
         intent.putExtra(Intent.EXTRA_USER_ID, userId);
@@ -120,7 +113,7 @@ public class ChooseLockPassword extends SettingsActivity {
     }
 
     public static Intent createIntent(Context context, int quality,
-            int minLength, final int maxLength, boolean requirePasswordToDecrypt, long challenge) {
+                                      int minLength, final int maxLength, boolean requirePasswordToDecrypt, long challenge) {
         Intent intent = createIntent(context, quality, minLength, maxLength,
                 requirePasswordToDecrypt, false);
         intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_HAS_CHALLENGE, true);
@@ -129,11 +122,18 @@ public class ChooseLockPassword extends SettingsActivity {
     }
 
     public static Intent createIntent(Context context, int quality, int minLength,
-            int maxLength, boolean requirePasswordToDecrypt, long challenge, int userId) {
+                                      int maxLength, boolean requirePasswordToDecrypt, long challenge, int userId) {
         Intent intent = createIntent(context, quality, minLength, maxLength,
                 requirePasswordToDecrypt, challenge);
         intent.putExtra(Intent.EXTRA_USER_ID, userId);
         return intent;
+    }
+
+    @Override
+    public Intent getIntent() {
+        Intent modIntent = new Intent(super.getIntent());
+        modIntent.putExtra(EXTRA_SHOW_FRAGMENT, getFragmentClass().getName());
+        return modIntent;
     }
 
     @Override
@@ -158,11 +158,32 @@ public class ChooseLockPassword extends SettingsActivity {
     public static class ChooseLockPasswordFragment extends InstrumentedFragment
             implements OnClickListener, OnEditorActionListener, TextWatcher,
             SaveAndFinishWorker.Listener {
+        static final int RESULT_FINISHED = RESULT_FIRST_USER;
         private static final String KEY_FIRST_PIN = "first_pin";
         private static final String KEY_UI_STAGE = "ui_stage";
         private static final String KEY_CURRENT_PASSWORD = "current_password";
         private static final String FRAGMENT_TAG_SAVE_AND_FINISH = "save_and_finish_worker";
-
+        private static final int CONFIRM_EXISTING_REQUEST = 58;
+        private static final int MIN_LETTER_IN_PASSWORD = 0;
+        private static final int MIN_UPPER_LETTERS_IN_PASSWORD = 1;
+        private static final int MIN_LOWER_LETTERS_IN_PASSWORD = 2;
+        private static final int MIN_SYMBOLS_IN_PASSWORD = 3;
+        private static final int MIN_NUMBER_IN_PASSWORD = 4;
+        private static final int MIN_NON_LETTER_IN_PASSWORD = 5;
+        // Error code returned from {@link #validatePassword(String)}.
+        private static final int NO_ERROR = 0;
+        private static final int CONTAIN_INVALID_CHARACTERS = 1 << 0;
+        private static final int TOO_SHORT = 1 << 1;
+        private static final int TOO_LONG = 1 << 2;
+        private static final int CONTAIN_NON_DIGITS = 1 << 3;
+        private static final int CONTAIN_SEQUENTIAL_DIGITS = 1 << 4;
+        private static final int RECENTLY_USED = 1 << 5;
+        private static final int NOT_ENOUGH_LETTER = 1 << 6;
+        private static final int NOT_ENOUGH_UPPER_CASE = 1 << 7;
+        private static final int NOT_ENOUGH_LOWER_CASE = 1 << 8;
+        private static final int NOT_ENOUGH_DIGITS = 1 << 9;
+        private static final int NOT_ENOUGH_SYMBOLS = 1 << 10;
+        private static final int NOT_ENOUGH_NON_LETTER = 1 << 11;
         private String mCurrentPassword;
         private String mChosenPassword;
         private boolean mHasChallenge;
@@ -184,75 +205,19 @@ public class ChooseLockPassword extends SettingsActivity {
          * Password requirements that we need to verify.
          */
         private int[] mPasswordRequirements;
-
         private LockPatternUtils mLockPatternUtils;
         private SaveAndFinishWorker mSaveAndFinishWorker;
         private int mRequestedQuality = DevicePolicyManager.PASSWORD_QUALITY_NUMERIC;
         private ChooseLockSettingsHelper mChooseLockSettingsHelper;
         private Stage mUiStage = Stage.Introduction;
         private PasswordRequirementAdapter mPasswordRequirementAdapter;
-
         private TextView mHeaderText;
         private String mFirstPin;
         private RecyclerView mPasswordRestrictionView;
         private boolean mIsAlphaMode;
         private Button mCancelButton;
         private Button mNextButton;
-
         private TextChangedHandler mTextChangedHandler;
-
-        private static final int CONFIRM_EXISTING_REQUEST = 58;
-        static final int RESULT_FINISHED = RESULT_FIRST_USER;
-
-        private static final int MIN_LETTER_IN_PASSWORD = 0;
-        private static final int MIN_UPPER_LETTERS_IN_PASSWORD = 1;
-        private static final int MIN_LOWER_LETTERS_IN_PASSWORD = 2;
-        private static final int MIN_SYMBOLS_IN_PASSWORD = 3;
-        private static final int MIN_NUMBER_IN_PASSWORD = 4;
-        private static final int MIN_NON_LETTER_IN_PASSWORD = 5;
-
-        // Error code returned from {@link #validatePassword(String)}.
-        private static final int NO_ERROR = 0;
-        private static final int CONTAIN_INVALID_CHARACTERS = 1 << 0;
-        private static final int TOO_SHORT = 1 << 1;
-        private static final int TOO_LONG = 1 << 2;
-        private static final int CONTAIN_NON_DIGITS = 1 << 3;
-        private static final int CONTAIN_SEQUENTIAL_DIGITS = 1 << 4;
-        private static final int RECENTLY_USED = 1 << 5;
-        private static final int NOT_ENOUGH_LETTER = 1 << 6;
-        private static final int NOT_ENOUGH_UPPER_CASE = 1 << 7;
-        private static final int NOT_ENOUGH_LOWER_CASE = 1 << 8;
-        private static final int NOT_ENOUGH_DIGITS = 1 << 9;
-        private static final int NOT_ENOUGH_SYMBOLS = 1 << 10;
-        private static final int NOT_ENOUGH_NON_LETTER = 1 << 11;
-
-        /**
-         * Keep track internally of where the user is in choosing a pattern.
-         */
-        protected enum Stage {
-
-            Introduction(R.string.lockpassword_choose_your_password_header,
-                    R.string.lockpassword_choose_your_pin_header,
-                    R.string.lockpassword_continue_label),
-
-            NeedToConfirm(R.string.lockpassword_confirm_your_password_header,
-                    R.string.lockpassword_confirm_your_pin_header,
-                    R.string.lockpassword_ok_label),
-
-            ConfirmWrong(R.string.lockpassword_confirm_passwords_dont_match,
-                    R.string.lockpassword_confirm_pins_dont_match,
-                    R.string.lockpassword_continue_label);
-
-            Stage(int hintInAlpha, int hintInNumeric, int nextButtonText) {
-                this.alphaHint = hintInAlpha;
-                this.numericHint = hintInNumeric;
-                this.buttonText = nextButtonText;
-            }
-
-            public final int alphaHint;
-            public final int numericHint;
-            public final int buttonText;
-        }
 
         // required constructor for fragments
         public ChooseLockPasswordFragment() {
@@ -290,7 +255,7 @@ public class ChooseLockPassword extends SettingsActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             return inflater.inflate(R.layout.choose_lock_password, container, false);
         }
 
@@ -362,10 +327,10 @@ public class ChooseLockPassword extends SettingsActivity {
             // position.
             final int visibleVerticalSpaceBelowPassword =
                     getResources().getDimensionPixelOffset(
-                        R.dimen.visible_vertical_space_below_password);
+                            R.dimen.visible_vertical_space_below_password);
             InsetDrawable drawable =
                     new InsetDrawable(
-                    mPasswordEntry.getBackground(), 0, 0, 0, visibleVerticalSpaceBelowPassword);
+                            mPasswordEntry.getBackground(), 0, 0, 0, visibleVerticalSpaceBelowPassword);
             mPasswordEntry.setBackgroundDrawable(drawable);
             LinearLayout bottomContainer = (LinearLayout) view.findViewById(R.id.bottom_container);
             LinearLayout.LayoutParams bottomContainerLp =
@@ -470,7 +435,7 @@ public class ChooseLockPassword extends SettingsActivity {
 
         @Override
         public void onActivityResult(int requestCode, int resultCode,
-                Intent data) {
+                                     Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             switch (requestCode) {
                 case CONFIRM_EXISTING_REQUEST:
@@ -884,6 +849,33 @@ public class ChooseLockPassword extends SettingsActivity {
             getActivity().finish();
         }
 
+        /**
+         * Keep track internally of where the user is in choosing a pattern.
+         */
+        protected enum Stage {
+
+            Introduction(R.string.lockpassword_choose_your_password_header,
+                    R.string.lockpassword_choose_your_pin_header,
+                    R.string.lockpassword_continue_label),
+
+            NeedToConfirm(R.string.lockpassword_confirm_your_password_header,
+                    R.string.lockpassword_confirm_your_pin_header,
+                    R.string.lockpassword_ok_label),
+
+            ConfirmWrong(R.string.lockpassword_confirm_passwords_dont_match,
+                    R.string.lockpassword_confirm_pins_dont_match,
+                    R.string.lockpassword_continue_label);
+
+            public final int alphaHint;
+            public final int numericHint;
+            public final int buttonText;
+            Stage(int hintInAlpha, int hintInNumeric, int nextButtonText) {
+                this.alphaHint = hintInAlpha;
+                this.numericHint = hintInNumeric;
+                this.buttonText = nextButtonText;
+            }
+        }
+
         class TextChangedHandler extends Handler {
             private static final int ON_TEXT_CHANGED = 1;
             private static final int DELAY_IN_MILLISECOND = 100;
@@ -916,8 +908,8 @@ public class ChooseLockPassword extends SettingsActivity {
         private int mRequestedQuality;
 
         public void start(LockPatternUtils utils, boolean required,
-                boolean hasChallenge, long challenge,
-                String chosenPassword, String currentPassword, int requestedQuality, int userId) {
+                          boolean hasChallenge, long challenge,
+                          String chosenPassword, String currentPassword, int requestedQuality, int userId) {
             prepare(utils, required, hasChallenge, challenge, userId);
 
             mChosenPassword = chosenPassword;

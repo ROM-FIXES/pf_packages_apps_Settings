@@ -40,6 +40,7 @@ public abstract class ProgressCategoryBase extends PreferenceCategory {
 
     /**
      * Turn on/off the progress indicator and text on the right.
+     *
      * @param progressOn whether or not the progress should be displayed
      */
     public abstract void setProgress(boolean progressOn);

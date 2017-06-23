@@ -32,7 +32,7 @@ import com.android.internal.app.AlertController;
 
 /**
  * Dialog to allow a user to select a new network scorer.
- *
+ * <p>
  * <p>Finishes with {@link #RESULT_CANCELED} in all circumstances unless the scorer is successfully
  * changed or was already set to the new value (in which case it finishes with {@link #RESULT_OK}).
  */
@@ -59,7 +59,7 @@ public final class ActiveNetworkScorerDialog extends AlertActivity implements
         switch (which) {
             case BUTTON_POSITIVE:
                 NetworkScoreManager nsm =
-                    (NetworkScoreManager) getSystemService(Context.NETWORK_SCORE_SERVICE);
+                        (NetworkScoreManager) getSystemService(Context.NETWORK_SCORE_SERVICE);
                 if (nsm.setActiveScorer(mNewPackageName)) {
                     setResult(RESULT_OK);
                 }

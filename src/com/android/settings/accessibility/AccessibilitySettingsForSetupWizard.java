@@ -18,8 +18,6 @@ package com.android.settings.accessibility;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.ComponentName;
-import android.content.ContentResolver;
-import android.content.Context;
 import android.content.pm.ServiceInfo;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -93,7 +91,7 @@ public class AccessibilitySettingsForSetupWizard extends SettingsPreferenceFragm
                     getText(R.string.accessibility_screen_magnification_summary));
             extras.putBoolean(AccessibilitySettings.EXTRA_CHECKED,
                     Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.ACCESSIBILITY_DISPLAY_MAGNIFICATION_ENABLED, 0) == 1);
+                            Settings.Secure.ACCESSIBILITY_DISPLAY_MAGNIFICATION_ENABLED, 0) == 1);
         }
 
         return super.onPreferenceTreeClick(preference);

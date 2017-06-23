@@ -23,5 +23,6 @@ import android.widget.Button;
  */
 public interface ButtonBarHandler {
     public boolean hasNextButton();
+
     public Button getNextButton();
 }

@@ -65,10 +65,8 @@ public abstract class ConfirmDeviceCredentialBaseFragment extends OptionsMenuFra
             PACKAGE + ".ConfirmCredentials.showCancelButton";
     public static final String SHOW_WHEN_LOCKED =
             PACKAGE + ".ConfirmCredentials.showWhenLocked";
-
-    private FingerprintUiHelper mFingerprintHelper;
+    protected final Handler mHandler = new Handler();
     protected boolean mIsStrongAuthRequired;
-    private boolean mAllowFpAuthentication;
     protected boolean mReturnCredentials = false;
     protected Button mCancelButton;
     protected ImageView mFingerprintIcon;
@@ -76,7 +74,14 @@ public abstract class ConfirmDeviceCredentialBaseFragment extends OptionsMenuFra
     protected int mUserId;
     protected LockPatternUtils mLockPatternUtils;
     protected TextView mErrorTextView;
-    protected final Handler mHandler = new Handler();
+    private final Runnable mResetErrorRunnable = new Runnable() {
+        @Override
+        public void run() {
+            mErrorTextView.setText("");
+        }
+    };
+    private FingerprintUiHelper mFingerprintHelper;
+    private boolean mAllowFpAuthentication;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -186,7 +191,7 @@ public abstract class ConfirmDeviceCredentialBaseFragment extends OptionsMenuFra
         // Check whether we are still active.
         if (getActivity() != null && getActivity().isResumed()) {
             TrustManager trustManager =
-                (TrustManager) getActivity().getSystemService(Context.TRUST_SERVICE);
+                    (TrustManager) getActivity().getSystemService(Context.TRUST_SERVICE);
             trustManager.setDeviceLockedForUser(mEffectiveUserId, false);
             authenticationSucceeded();
             checkForPendingIntent();
@@ -302,13 +307,6 @@ public abstract class ConfirmDeviceCredentialBaseFragment extends OptionsMenuFra
 
     protected abstract int getLastTryErrorMessage();
 
-    private final Runnable mResetErrorRunnable = new Runnable() {
-        @Override
-        public void run() {
-            mErrorTextView.setText("");
-        }
-    };
-
     protected void showError(CharSequence msg, long timeout) {
         mErrorTextView.setText(msg);
         onShowError();
@@ -326,17 +324,17 @@ public abstract class ConfirmDeviceCredentialBaseFragment extends OptionsMenuFra
 
     private void showDialog(String title, String message, int buttonString, final boolean dismiss) {
         final AlertDialog dialog = new AlertDialog.Builder(getActivity())
-            .setTitle(title)
-            .setMessage(message)
-            .setPositiveButton(buttonString, new OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if (dismiss) {
-                        getActivity().finish();
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(buttonString, new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (dismiss) {
+                            getActivity().finish();
+                        }
                     }
-                }
-            })
-            .create();
+                })
+                .create();
         dialog.show();
     }
 }

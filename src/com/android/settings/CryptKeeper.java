@@ -71,7 +71,7 @@ import java.util.List;
 
 /**
  * Settings screens to show the UI flows for encrypting/decrypting the device.
- *
+ * <p>
  * This may be started via adb for debugging the UI layout, without having to go through
  * encryption flows everytime. It should be noted that starting the activity in this manner
  * is only useful for verifying UI-correctness - the behavior will not be identical.
@@ -84,58 +84,127 @@ import java.util.List;
  */
 public class CryptKeeper extends Activity implements TextView.OnEditorActionListener,
         OnKeyListener, OnTouchListener, TextWatcher {
+    protected static final int MIN_LENGTH_BEFORE_REPORT = LockPatternUtils.MIN_LOCK_PATTERN_SIZE;
+    // Intent action for launching the Emergency Dialer activity.
+    static final String ACTION_EMERGENCY_DIAL = "com.android.phone.EmergencyDialer.DIAL";
     private static final String TAG = "CryptKeeper";
-
     private static final String DECRYPT_STATE = "trigger_restart_framework";
-
-    /** Message sent to us to indicate encryption update progress. */
+    /**
+     * Message sent to us to indicate encryption update progress.
+     */
     private static final int MESSAGE_UPDATE_PROGRESS = 1;
-    /** Message sent to us to indicate alerting the user that we are waiting for password entry */
+    /**
+     * Message sent to us to indicate alerting the user that we are waiting for password entry
+     */
     private static final int MESSAGE_NOTIFY = 2;
-
     // Constants used to control policy.
     private static final int MAX_FAILED_ATTEMPTS = 30;
     private static final int COOL_DOWN_ATTEMPTS = 10;
-
-    // Intent action for launching the Emergency Dialer activity.
-    static final String ACTION_EMERGENCY_DIAL = "com.android.phone.EmergencyDialer.DIAL";
-
     // Debug Intent extras so that this Activity may be started via adb for debugging UI layouts
     private static final String EXTRA_FORCE_VIEW =
             "com.android.settings.CryptKeeper.DEBUG_FORCE_VIEW";
     private static final String FORCE_VIEW_PROGRESS = "progress";
     private static final String FORCE_VIEW_ERROR = "error";
     private static final String FORCE_VIEW_PASSWORD = "password";
-
     private static final String STATE_COOLDOWN = "cooldown";
-
-    /** When encryption is detected, this flag indicates whether or not we've checked for errors. */
-    private boolean mValidationComplete;
-    private boolean mValidationRequested;
-    /** A flag to indicate that the volume is in a bad state (e.g. partially encrypted). */
-    private boolean mEncryptionGoneBad;
-    /** If gone bad, should we show encryption failed (false) or corrupt (true)*/
-    private boolean mCorrupt;
-    /** A flag to indicate when the back event should be ignored */
-    /** When set, blocks unlocking. Set every COOL_DOWN_ATTEMPTS attempts, only cleared
-        by power cycling phone. */
-    private boolean mCooldown = false;
-
-    PowerManager.WakeLock mWakeLock;
-    private EditText mPasswordEntry;
-    private LockPatternView mLockPatternView;
-    /** Number of calls to {@link #notifyUser()} to ignore before notifying. */
-    private int mNotificationCountdown = 0;
-    /** Number of calls to {@link #notifyUser()} before we release the wakelock */
-    private int mReleaseWakeLockCountdown = 0;
-    private int mStatusString = R.string.enter_password;
-
     // how long we wait to clear a wrong pattern
     private static final int WRONG_PATTERN_CLEAR_TIMEOUT_MS = 1500;
-
     // how long we wait to clear a right pattern
     private static final int RIGHT_PATTERN_CLEAR_TIMEOUT_MS = 500;
+    // TODO: this should be tuned to match minimum decryption timeout
+    private static final int FAKE_ATTEMPT_DELAY = 1000;
+    /** A flag to indicate when the back event should be ignored */
+    /**
+     * All the widgets to disable in the status bar
+     */
+    final private static int sWidgetsToDisable = StatusBarManager.DISABLE_EXPAND
+            | StatusBarManager.DISABLE_NOTIFICATION_ICONS
+            | StatusBarManager.DISABLE_NOTIFICATION_ALERTS
+            | StatusBarManager.DISABLE_HOME
+            | StatusBarManager.DISABLE_SEARCH
+            | StatusBarManager.DISABLE_RECENT;
+    PowerManager.WakeLock mWakeLock;
+    /**
+     * When encryption is detected, this flag indicates whether or not we've checked for errors.
+     */
+    private boolean mValidationComplete;
+    private boolean mValidationRequested;
+    /**
+     * A flag to indicate that the volume is in a bad state (e.g. partially encrypted).
+     */
+    private boolean mEncryptionGoneBad;
+    /**
+     * If gone bad, should we show encryption failed (false) or corrupt (true)
+     */
+    private boolean mCorrupt;
+    /**
+     * When set, blocks unlocking. Set every COOL_DOWN_ATTEMPTS attempts, only cleared
+     * by power cycling phone.
+     */
+    private boolean mCooldown = false;
+    private EditText mPasswordEntry;
+    private LockPatternView mLockPatternView;
+    private final Runnable mClearPatternRunnable = new Runnable() {
+        @Override
+        public void run() {
+            mLockPatternView.clearPattern();
+        }
+    };
+    protected LockPatternView.OnPatternListener mChooseNewLockPatternListener =
+            new LockPatternView.OnPatternListener() {
 
+                @Override
+                public void onPatternStart() {
+                    mLockPatternView.removeCallbacks(mClearPatternRunnable);
+                }
+
+                @Override
+                public void onPatternCleared() {
+                }
+
+                @Override
+                public void onPatternDetected(List<LockPatternView.Cell> pattern) {
+                    mLockPatternView.setEnabled(false);
+                    if (pattern.size() >= MIN_LENGTH_BEFORE_REPORT) {
+                        new DecryptTask().execute(LockPatternUtils.patternToString(pattern));
+                    } else {
+                        // Allow user to make as many of these as they want.
+                        fakeUnlockAttempt(mLockPatternView);
+                    }
+                }
+
+                @Override
+                public void onPatternCellAdded(List<Cell> pattern) {
+                }
+            };
+    /**
+     * Number of calls to {@link #notifyUser()} to ignore before notifying.
+     */
+    private int mNotificationCountdown = 0;
+    /**
+     * Number of calls to {@link #notifyUser()} before we release the wakelock
+     */
+    private int mReleaseWakeLockCountdown = 0;
+    private int mStatusString = R.string.enter_password;
+    private AudioManager mAudioManager;
+    private final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MESSAGE_UPDATE_PROGRESS:
+                    updateProgress();
+                    break;
+
+                case MESSAGE_NOTIFY:
+                    notifyUser();
+                    break;
+            }
+        }
+    };
+    /**
+     * The status bar where back/home/recent buttons are shown.
+     */
+    private StatusBarManager mStatusBar;
     // When the user enters a short pin/password, run this to show an error,
     // but don't count it against attempts.
     private final Runnable mFakeUnlockAttemptRunnable = new Runnable() {
@@ -145,83 +214,12 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         }
     };
 
-    // TODO: this should be tuned to match minimum decryption timeout
-    private static final int FAKE_ATTEMPT_DELAY = 1000;
-
-    private final Runnable mClearPatternRunnable = new Runnable() {
-        @Override
-        public void run() {
-            mLockPatternView.clearPattern();
-        }
-    };
-
-    /**
-     * Used to propagate state through configuration changes (e.g. screen rotation)
-     */
-    private static class NonConfigurationInstanceState {
-        final PowerManager.WakeLock wakelock;
-
-        NonConfigurationInstanceState(PowerManager.WakeLock _wakelock) {
-            wakelock = _wakelock;
-        }
-    }
-
-    private class DecryptTask extends AsyncTask<String, Void, Integer> {
-        private void hide(int id) {
-            View view = findViewById(id);
-            if (view != null) {
-                view.setVisibility(View.GONE);
-            }
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            beginAttempt();
-        }
-
-        @Override
-        protected Integer doInBackground(String... params) {
-            final IMountService service = getMountService();
-            try {
-                return service.decryptStorage(params[0]);
-            } catch (Exception e) {
-                Log.e(TAG, "Error while decrypting...", e);
-                return -1;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Integer failedAttempts) {
-            if (failedAttempts == 0) {
-                // The password was entered successfully. Simply do nothing
-                // and wait for the service restart to switch to surfacefligner
-                if (mLockPatternView != null) {
-                    mLockPatternView.removeCallbacks(mClearPatternRunnable);
-                    mLockPatternView.postDelayed(mClearPatternRunnable, RIGHT_PATTERN_CLEAR_TIMEOUT_MS);
-                }
-                final TextView status = (TextView) findViewById(R.id.status);
-                status.setText(R.string.starting_android);
-                hide(R.id.passwordEntry);
-                hide(R.id.switch_ime_button);
-                hide(R.id.lockPattern);
-                hide(R.id.owner_info);
-                hide(R.id.emergencyCallButton);
-            } else if (failedAttempts == MAX_FAILED_ATTEMPTS) {
-                // Factory reset the device.
-                Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
-                intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-                intent.putExtra(Intent.EXTRA_REASON, "CryptKeeper.MAX_FAILED_ATTEMPTS");
-                sendBroadcast(intent);
-            } else if (failedAttempts == -1) {
-                // Right password, but decryption failed. Tell user bad news ...
-                setContentView(R.layout.crypt_keeper_progress);
-                showFactoryReset(true);
-                return;
-            } else {
-                handleBadAttempt(failedAttempts);
-            }
-        }
+    private static void disableCryptKeeperComponent(Context context) {
+        PackageManager pm = context.getPackageManager();
+        ComponentName name = new ComponentName(context, CryptKeeper.class);
+        Log.d(TAG, "Disabling component " + name);
+        pm.setComponentEnabledSetting(name, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
     }
 
     private void beginAttempt() {
@@ -284,75 +282,16 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         }
     }
 
-    private class ValidationTask extends AsyncTask<Void, Void, Boolean> {
-        int state;
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            final IMountService service = getMountService();
-            try {
-                Log.d(TAG, "Validating encryption state.");
-                state = service.getEncryptionState();
-                if (state == IMountService.ENCRYPTION_STATE_NONE) {
-                    Log.w(TAG, "Unexpectedly in CryptKeeper even though there is no encryption.");
-                    return true; // Unexpected, but fine, I guess...
-                }
-                return state == IMountService.ENCRYPTION_STATE_OK;
-            } catch (RemoteException e) {
-                Log.w(TAG, "Unable to get encryption state properly");
-                return true;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Boolean result) {
-            mValidationComplete = true;
-            if (Boolean.FALSE.equals(result)) {
-                Log.w(TAG, "Incomplete, or corrupted encryption detected. Prompting user to wipe.");
-                mEncryptionGoneBad = true;
-                mCorrupt = state == IMountService.ENCRYPTION_STATE_ERROR_CORRUPT;
-            } else {
-                Log.d(TAG, "Encryption state validated. Proceeding to configure UI");
-            }
-            setupUi();
-        }
-    }
-
-    private final Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case MESSAGE_UPDATE_PROGRESS:
-                updateProgress();
-                break;
-
-            case MESSAGE_NOTIFY:
-                notifyUser();
-                break;
-            }
-        }
-    };
-
-    private AudioManager mAudioManager;
-    /** The status bar where back/home/recent buttons are shown. */
-    private StatusBarManager mStatusBar;
-
-    /** All the widgets to disable in the status bar */
-    final private static int sWidgetsToDisable = StatusBarManager.DISABLE_EXPAND
-            | StatusBarManager.DISABLE_NOTIFICATION_ICONS
-            | StatusBarManager.DISABLE_NOTIFICATION_ALERTS
-            | StatusBarManager.DISABLE_HOME
-            | StatusBarManager.DISABLE_SEARCH
-            | StatusBarManager.DISABLE_RECENT;
-
-    protected static final int MIN_LENGTH_BEFORE_REPORT = LockPatternUtils.MIN_LOCK_PATTERN_SIZE;
-
-    /** @return whether or not this Activity was started for debugging the UI only. */
+    /**
+     * @return whether or not this Activity was started for debugging the UI only.
+     */
     private boolean isDebugView() {
         return getIntent().hasExtra(EXTRA_FORCE_VIEW);
     }
 
-    /** @return whether or not this Activity was started for debugging the specific UI view only. */
+    /**
+     * @return whether or not this Activity was started for debugging the specific UI view only.
+     */
     private boolean isDebugView(String viewType /* non-nullable */) {
         return viewType.equals(getIntent().getStringExtra(EXTRA_FORCE_VIEW));
     }
@@ -443,7 +382,7 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
     }
 
     @Override
-    public void  onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putBoolean(STATE_COOLDOWN, mCooldown);
     }
 
@@ -498,7 +437,7 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
                 @Override
                 public void onPostExecute(java.lang.Void v) {
                     Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
-                                  password_visible ? 1 : 0);
+                            password_visible ? 1 : 0);
 
                     if (passwordType == StorageManager.CRYPT_TYPE_PIN) {
                         setContentView(R.layout.crypt_keeper_pin_entry);
@@ -597,8 +536,9 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
     /**
      * Show factory reset screen allowing the user to reset their phone when
      * there is nothing else we can do
+     *
      * @param corrupt true if userdata is corrupt, false if encryption failed
-     *        partway through
+     *                partway through
      */
     private void showFactoryReset(final boolean corrupt) {
         // Hide the encryption-bot to make room for the "factory reset" button
@@ -608,7 +548,7 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         final Button button = (Button) findViewById(R.id.factory_reset);
         button.setVisibility(View.VISIBLE);
         button.setOnClickListener(new OnClickListener() {
-                @Override
+            @Override
             public void onClick(View v) {
                 // Factory reset the device.
                 Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
@@ -679,9 +619,11 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         mHandler.sendEmptyMessageDelayed(MESSAGE_UPDATE_PROGRESS, 1000);
     }
 
-    /** Insist on a power cycle to force the user to waste time between retries.
-     *
-     * Call setBackFunctionality(false) before calling this. */
+    /**
+     * Insist on a power cycle to force the user to waste time between retries.
+     * <p>
+     * Call setBackFunctionality(false) before calling this.
+     */
     private void cooldown() {
         // Disable the password entry.
         if (mPasswordEntry != null) {
@@ -697,6 +639,7 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
 
     /**
      * Sets the back status: enabled or disabled according to the parameter.
+     *
      * @param isEnabled true if back is enabled, false otherwise.
      */
     private final void setBackFunctionality(boolean isEnabled) {
@@ -712,38 +655,10 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         postingView.postDelayed(mFakeUnlockAttemptRunnable, FAKE_ATTEMPT_DELAY);
     }
 
-    protected LockPatternView.OnPatternListener mChooseNewLockPatternListener =
-        new LockPatternView.OnPatternListener() {
-
-        @Override
-        public void onPatternStart() {
-            mLockPatternView.removeCallbacks(mClearPatternRunnable);
-        }
-
-        @Override
-        public void onPatternCleared() {
-        }
-
-        @Override
-        public void onPatternDetected(List<LockPatternView.Cell> pattern) {
-            mLockPatternView.setEnabled(false);
-            if (pattern.size() >= MIN_LENGTH_BEFORE_REPORT) {
-                new DecryptTask().execute(LockPatternUtils.patternToString(pattern));
-            } else {
-                // Allow user to make as many of these as they want.
-                fakeUnlockAttempt(mLockPatternView);
-            }
-        }
-
-        @Override
-        public void onPatternCellAdded(List<Cell> pattern) {
-        }
-     };
-
-     private void passwordEntryInit() {
+    private void passwordEntryInit() {
         // Password/pin case
         mPasswordEntry = (EditText) findViewById(R.id.passwordEntry);
-        if (mPasswordEntry != null){
+        if (mPasswordEntry != null) {
             mPasswordEntry.setOnEditorActionListener(this);
             mPasswordEntry.requestFocus();
             // Become quiet when the user interacts with the Edit text screen.
@@ -773,7 +688,7 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         if (imeSwitcher != null && hasMultipleEnabledIMEsOrSubtypes(imm, false)) {
             imeSwitcher.setVisibility(View.VISIBLE);
             imeSwitcher.setOnClickListener(new OnClickListener() {
-                    @Override
+                @Override
                 public void onClick(View v) {
                     imm.showInputMethodPicker(false /* showAuxiliarySubtypes */);
                 }
@@ -799,9 +714,10 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         // immediately.
         if (mLockPatternView == null && !mCooldown) {
             getWindow().setSoftInputMode(
-                                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
             mHandler.postDelayed(new Runnable() {
-                @Override public void run() {
+                @Override
+                public void run() {
                     imm.showSoftInputUnchecked(0, null);
                 }
             }, 0);
@@ -820,12 +736,12 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
     /**
      * Method adapted from com.android.inputmethod.latin.Utils
      *
-     * @param imm The input method manager
+     * @param imm                            The input method manager
      * @param shouldIncludeAuxiliarySubtypes
      * @return true if we have multiple IMEs to choose from
      */
     private boolean hasMultipleEnabledIMEsOrSubtypes(InputMethodManager imm,
-            final boolean shouldIncludeAuxiliarySubtypes) {
+                                                     final boolean shouldIncludeAuxiliarySubtypes) {
         final List<InputMethodInfo> enabledImis = imm.getEnabledInputMethodList();
 
         // Number of the filtered IMEs
@@ -860,8 +776,8 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         }
 
         return filteredImisCount > 1
-        // imm.getEnabledInputMethodSubtypeList(null, false) will return the current IME's enabled
-        // input method subtype (The current IME should be LatinIME.)
+                // imm.getEnabledInputMethodSubtypeList(null, false) will return the current IME's enabled
+                // input method subtype (The current IME should be LatinIME.)
                 || imm.getEnabledInputMethodSubtypeList(null, false).size() > 1;
     }
 
@@ -913,10 +829,10 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
      * running so the latency of an E911 call is short.
      * The behavior after this is:
      * 1. Emergency dialing: the emergency dialer has logic to force the device out of
-     *    airplane mode and restart the radio.
+     * airplane mode and restart the radio.
      * 2. Full boot: we read the persistent settings from the previous boot and restore the
-     *    radio to whatever it was before it restarted. This also happens when rebooting a
-     *    phone that has no encryption.
+     * radio to whatever it was before it restarted. This also happens when rebooting a
+     * phone that has no encryption.
      */
     private final void setAirplaneModeIfNecessary() {
         final boolean isLteDevice =
@@ -932,7 +848,7 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
 
     /**
      * Code to update the state of, and handle clicks from, the "Emergency call" button.
-     *
+     * <p>
      * This code is mostly duplicated from the corresponding code in
      * LockPatternUtils and LockPatternKeyguardView under frameworks/base.
      */
@@ -945,12 +861,12 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         if (isEmergencyCallCapable()) {
             emergencyCall.setVisibility(View.VISIBLE);
             emergencyCall.setOnClickListener(new View.OnClickListener() {
-                    @Override
+                @Override
 
-                    public void onClick(View v) {
-                        takeEmergencyCallAction();
-                    }
-                });
+                public void onClick(View v) {
+                    takeEmergencyCallAction();
+                }
+            });
         } else {
             emergencyCall.setVisibility(View.GONE);
             return;
@@ -979,11 +895,10 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         }
     }
 
-
     private void launchEmergencyDialer() {
         final Intent intent = new Intent(ACTION_EMERGENCY_DIAL);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                        | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         setBackFunctionality(true);
         startActivity(intent);
     }
@@ -1030,11 +945,106 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         return;
     }
 
-    private static void disableCryptKeeperComponent(Context context) {
-        PackageManager pm = context.getPackageManager();
-        ComponentName name = new ComponentName(context, CryptKeeper.class);
-        Log.d(TAG, "Disabling component " + name);
-        pm.setComponentEnabledSetting(name, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP);
+    /**
+     * Used to propagate state through configuration changes (e.g. screen rotation)
+     */
+    private static class NonConfigurationInstanceState {
+        final PowerManager.WakeLock wakelock;
+
+        NonConfigurationInstanceState(PowerManager.WakeLock _wakelock) {
+            wakelock = _wakelock;
+        }
+    }
+
+    private class DecryptTask extends AsyncTask<String, Void, Integer> {
+        private void hide(int id) {
+            View view = findViewById(id);
+            if (view != null) {
+                view.setVisibility(View.GONE);
+            }
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            beginAttempt();
+        }
+
+        @Override
+        protected Integer doInBackground(String... params) {
+            final IMountService service = getMountService();
+            try {
+                return service.decryptStorage(params[0]);
+            } catch (Exception e) {
+                Log.e(TAG, "Error while decrypting...", e);
+                return -1;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Integer failedAttempts) {
+            if (failedAttempts == 0) {
+                // The password was entered successfully. Simply do nothing
+                // and wait for the service restart to switch to surfacefligner
+                if (mLockPatternView != null) {
+                    mLockPatternView.removeCallbacks(mClearPatternRunnable);
+                    mLockPatternView.postDelayed(mClearPatternRunnable, RIGHT_PATTERN_CLEAR_TIMEOUT_MS);
+                }
+                final TextView status = (TextView) findViewById(R.id.status);
+                status.setText(R.string.starting_android);
+                hide(R.id.passwordEntry);
+                hide(R.id.switch_ime_button);
+                hide(R.id.lockPattern);
+                hide(R.id.owner_info);
+                hide(R.id.emergencyCallButton);
+            } else if (failedAttempts == MAX_FAILED_ATTEMPTS) {
+                // Factory reset the device.
+                Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
+                intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+                intent.putExtra(Intent.EXTRA_REASON, "CryptKeeper.MAX_FAILED_ATTEMPTS");
+                sendBroadcast(intent);
+            } else if (failedAttempts == -1) {
+                // Right password, but decryption failed. Tell user bad news ...
+                setContentView(R.layout.crypt_keeper_progress);
+                showFactoryReset(true);
+                return;
+            } else {
+                handleBadAttempt(failedAttempts);
+            }
+        }
+    }
+
+    private class ValidationTask extends AsyncTask<Void, Void, Boolean> {
+        int state;
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            final IMountService service = getMountService();
+            try {
+                Log.d(TAG, "Validating encryption state.");
+                state = service.getEncryptionState();
+                if (state == IMountService.ENCRYPTION_STATE_NONE) {
+                    Log.w(TAG, "Unexpectedly in CryptKeeper even though there is no encryption.");
+                    return true; // Unexpected, but fine, I guess...
+                }
+                return state == IMountService.ENCRYPTION_STATE_OK;
+            } catch (RemoteException e) {
+                Log.w(TAG, "Unable to get encryption state properly");
+                return true;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            mValidationComplete = true;
+            if (Boolean.FALSE.equals(result)) {
+                Log.w(TAG, "Incomplete, or corrupted encryption detected. Prompting user to wipe.");
+                mEncryptionGoneBad = true;
+                mCorrupt = state == IMountService.ENCRYPTION_STATE_ERROR_CORRUPT;
+            } else {
+                Log.d(TAG, "Encryption state validated. Proceeding to configure UI");
+            }
+            setupUi();
+        }
     }
 }

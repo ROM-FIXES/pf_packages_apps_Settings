@@ -60,7 +60,7 @@ public class CustomEditTextPreference extends EditTextPreference {
     }
 
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder,
-            DialogInterface.OnClickListener listener) {
+                                          DialogInterface.OnClickListener listener) {
     }
 
     protected void onDialogClosed(boolean positiveResult) {

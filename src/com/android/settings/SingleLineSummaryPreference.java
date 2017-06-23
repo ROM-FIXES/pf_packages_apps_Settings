@@ -16,7 +16,6 @@
 package com.android.settings;
 
 import android.content.Context;
-import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;

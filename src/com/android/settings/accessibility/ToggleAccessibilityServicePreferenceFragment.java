@@ -58,23 +58,18 @@ import java.util.List;
 public class ToggleAccessibilityServicePreferenceFragment
         extends ToggleFeaturePreferenceFragment implements DialogInterface.OnClickListener {
 
+    public static final int ACTIVITY_REQUEST_CONFIRM_CREDENTIAL_FOR_WEAKER_ENCRYPTION = 1;
     private static final int DIALOG_ID_ENABLE_WARNING = 1;
     private static final int DIALOG_ID_DISABLE_WARNING = 2;
-
-    public static final int ACTIVITY_REQUEST_CONFIRM_CREDENTIAL_FOR_WEAKER_ENCRYPTION = 1;
-
     private LockPatternUtils mLockPatternUtils;
-
+    private ComponentName mComponentName;
     private final SettingsContentObserver mSettingsContentObserver =
             new SettingsContentObserver(new Handler()) {
-            @Override
+                @Override
                 public void onChange(boolean selfChange, Uri uri) {
                     updateSwitchBarToggleSwitch();
                 }
             };
-
-    private ComponentName mComponentName;
-
     private int mShownDialogId;
 
     @Override
@@ -349,11 +344,13 @@ public class ToggleAccessibilityServicePreferenceFragment
         switch (mLockPatternUtils.getKeyguardStoredPasswordQuality(UserHandle.myUserId())) {
             case DevicePolicyManager.PASSWORD_QUALITY_SOMETHING: {
                 resId = R.string.enable_service_pattern_reason;
-            } break;
+            }
+            break;
             case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC:
             case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC_COMPLEX: {
                 resId = R.string.enable_service_pin_reason;
-            } break;
+            }
+            break;
         }
         return getString(resId, getAccessibilityServiceInfo().getResolveInfo()
                 .loadLabel(getPackageManager()));
@@ -363,7 +360,7 @@ public class ToggleAccessibilityServicePreferenceFragment
     protected void onInstallSwitchBarToggleSwitch() {
         super.onInstallSwitchBarToggleSwitch();
         mToggleSwitch.setOnBeforeCheckedChangeListener(new OnBeforeCheckedChangeListener() {
-                @Override
+            @Override
             public boolean onBeforeCheckedChanged(ToggleSwitch toggleSwitch, boolean checked) {
                 if (checked) {
                     mSwitchBar.setCheckedInternal(false);

@@ -24,7 +24,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.provider.Settings;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +43,7 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
  * has defined one, followed by a final strongly-worded "THIS WILL ERASE EVERYTHING
  * ON THE PHONE" prompt.  If at any time the phone is allowed to go to sleep, is
  * locked, et cetera, then the confirmation sequence is abandoned.
- *
+ * <p>
  * This is the confirmation screen.
  */
 public class MasterClearConfirm extends OptionsMenuFragment {
@@ -138,7 +137,7 @@ public class MasterClearConfirm extends OptionsMenuFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         final EnforcedAdmin admin = RestrictedLockUtils.checkIfRestrictionEnforced(
                 getActivity(), UserManager.DISALLOW_FACTORY_RESET, UserHandle.myUserId());
         if (RestrictedLockUtils.hasBaseUserRestriction(getActivity(),

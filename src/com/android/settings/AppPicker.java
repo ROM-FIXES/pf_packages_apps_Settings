@@ -40,12 +40,19 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AppPicker extends ListActivity {
-    private AppListAdapter mAdapter;
-
     public static final String EXTRA_REQUESTIING_PERMISSION
             = "com.android.settings.extra.REQUESTIING_PERMISSION";
     public static final String EXTRA_DEBUGGABLE = "com.android.settings.extra.DEBUGGABLE";
+    private final static Comparator<MyApplicationInfo> sDisplayNameComparator
+            = new Comparator<MyApplicationInfo>() {
+        private final Collator collator = Collator.getInstance();
 
+        public final int
+        compare(MyApplicationInfo a, MyApplicationInfo b) {
+            return collator.compare(a.label, b.label);
+        }
+    };
+    private AppListAdapter mAdapter;
     private String mPermissionName;
     private boolean mDebuggableOnly;
 
@@ -94,9 +101,9 @@ public class AppPicker extends ListActivity {
 
         public AppListAdapter(Context context) {
             super(context, 0);
-            mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             List<ApplicationInfo> pkgs = context.getPackageManager().getInstalledApplications(0);
-            for (int i=0; i<pkgs.size(); i++) {
+            for (int i = 0; i < pkgs.size(); i++) {
                 ApplicationInfo ai = pkgs.get(i);
                 if (ai.uid == Process.SYSTEM_UID) {
                     continue;
@@ -107,7 +114,7 @@ public class AppPicker extends ListActivity {
                     // On a user build, we only allow debugging of apps that
                     // are marked as debuggable.  Otherwise (for platform development)
                     // we allow all apps.
-                    if ((ai.flags&ApplicationInfo.FLAG_DEBUGGABLE) == 0
+                    if ((ai.flags & ApplicationInfo.FLAG_DEBUGGABLE) == 0
                             && "user".equals(Build.TYPE)) {
                         continue;
                     }
@@ -167,14 +174,4 @@ public class AppPicker extends ListActivity {
             return convertView;
         }
     }
-
-    private final static Comparator<MyApplicationInfo> sDisplayNameComparator
-            = new Comparator<MyApplicationInfo>() {
-        public final int
-        compare(MyApplicationInfo a, MyApplicationInfo b) {
-            return collator.compare(a.label, b.label);
-        }
-
-        private final Collator collator = Collator.getInstance();
-    };
 }

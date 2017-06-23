@@ -17,7 +17,6 @@
 package com.android.settings;
 
 import android.app.Activity;
-import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +26,6 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -42,7 +40,7 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
  * locked by.  If {@link RestrictionsManager.hasRestrictionsProvider()} and
  * {@link UserManager.hasUserRestriction()}, then the user will have to enter the restrictions
  * pin before seeing the Settings screen.
- *
+ * <p>
  * If this settings screen should be pin protected whenever
  * {@link RestrictionsManager.hasRestrictionsProvider()} returns true, pass in
  * {@link RESTRICT_IF_OVERRIDABLE} to the constructor instead of a restrictions key.
@@ -56,15 +54,12 @@ public abstract class RestrictedSettingsFragment extends SettingsPreferenceFragm
 
     private static final String KEY_CHALLENGE_SUCCEEDED = "chsc";
     private static final String KEY_CHALLENGE_REQUESTED = "chrq";
-
+    private final String mRestrictionKey;
     // If the restriction PIN is entered correctly.
     private boolean mChallengeSucceeded;
     private boolean mChallengeRequested;
-
     private UserManager mUserManager;
     private RestrictionsManager mRestrictionsManager;
-
-    private final String mRestrictionKey;
     private View mAdminSupportDetails;
     private EnforcedAdmin mEnforcedAdmin;
     private TextView mEmptyTextView;
@@ -85,9 +80,9 @@ public abstract class RestrictedSettingsFragment extends SettingsPreferenceFragm
 
     /**
      * @param restrictionKey The restriction key to check before pin protecting
-     *            this settings page. Pass in {@link RESTRICT_IF_OVERRIDABLE} if it should
-     *            be protected whenever a restrictions provider is set. Pass in
-     *            null if it should never be protected.
+     *                       this settings page. Pass in {@link RESTRICT_IF_OVERRIDABLE} if it should
+     *                       be protected whenever a restrictions provider is set. Pass in
+     *                       null if it should never be protected.
      */
     public RestrictedSettingsFragment(String restrictionKey) {
         mRestrictionKey = restrictionKey;

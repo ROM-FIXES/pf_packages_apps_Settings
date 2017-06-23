@@ -24,9 +24,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.Log;
-import android.widget.LinearLayout;
-
-import com.android.settings.R;
 
 /**
  * UI for the remote bugreport dialog. Shows one of 3 possible dialogs:
@@ -66,11 +63,11 @@ public class RemoteBugreportActivity extends Activity {
             dialog.show();
         } else if (notificationType == DevicePolicyManager.NOTIFICATION_BUGREPORT_STARTED
                 || notificationType
-                        == DevicePolicyManager.NOTIFICATION_BUGREPORT_FINISHED_NOT_ACCEPTED) {
+                == DevicePolicyManager.NOTIFICATION_BUGREPORT_FINISHED_NOT_ACCEPTED) {
             AlertDialog dialog = new AlertDialog.Builder(this)
                     .setTitle(R.string.share_remote_bugreport_dialog_title)
                     .setMessage(notificationType
-                                    == DevicePolicyManager.NOTIFICATION_BUGREPORT_STARTED
+                            == DevicePolicyManager.NOTIFICATION_BUGREPORT_STARTED
                             ? R.string.share_remote_bugreport_dialog_message
                             : R.string.share_remote_bugreport_dialog_message_finished)
                     .setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -81,26 +78,26 @@ public class RemoteBugreportActivity extends Activity {
                     })
                     .setNegativeButton(R.string.decline_remote_bugreport_action,
                             new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(
-                                    DevicePolicyManager.ACTION_BUGREPORT_SHARING_DECLINED);
-                            RemoteBugreportActivity.this.sendBroadcastAsUser(intent,
-                                    UserHandle.SYSTEM, android.Manifest.permission.DUMP);
-                            finish();
-                        }
-                    })
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(
+                                            DevicePolicyManager.ACTION_BUGREPORT_SHARING_DECLINED);
+                                    RemoteBugreportActivity.this.sendBroadcastAsUser(intent,
+                                            UserHandle.SYSTEM, android.Manifest.permission.DUMP);
+                                    finish();
+                                }
+                            })
                     .setPositiveButton(R.string.share_remote_bugreport_action,
                             new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(
-                                    DevicePolicyManager.ACTION_BUGREPORT_SHARING_ACCEPTED);
-                            RemoteBugreportActivity.this.sendBroadcastAsUser(intent,
-                                    UserHandle.SYSTEM, android.Manifest.permission.DUMP);
-                            finish();
-                        }
-                    })
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(
+                                            DevicePolicyManager.ACTION_BUGREPORT_SHARING_ACCEPTED);
+                                    RemoteBugreportActivity.this.sendBroadcastAsUser(intent,
+                                            UserHandle.SYSTEM, android.Manifest.permission.DUMP);
+                                    finish();
+                                }
+                            })
                     .create();
             dialog.show();
         } else {

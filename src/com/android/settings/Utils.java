@@ -1,12 +1,12 @@
 /**
  * Copyright (C) 2007 Google Inc.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy
  * of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -88,6 +88,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.TabWidget;
+
 import com.android.internal.app.UnlaunchableAppActivity;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.UserIcons;
@@ -108,35 +109,31 @@ import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 
 public final class Utils extends com.android.settingslib.Utils {
 
-    private static final String TAG = "Settings";
-
     /**
      * Set the preference's title to the matching activity's label.
      */
     public static final int UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY = 1;
-
     /**
      * The opacity level of a disabled icon.
      */
     public static final float DISABLED_ALPHA = 0.4f;
-
     /**
      * Color spectrum to use to indicate badness.  0 is completely transparent (no data),
      * 1 is most bad (red), the last value is least bad (green).
      */
-    public static final int[] BADNESS_COLORS = new int[] {
+    public static final int[] BADNESS_COLORS = new int[]{
             0x00000000, 0xffc43828, 0xffe54918, 0xfff47b00,
             0xfffabf2c, 0xff679e37, 0xff0a7f42
     };
-
+    public static final String OS_PKG = "os";
+    private static final String TAG = "Settings";
     private static final String SETTINGS_PACKAGE_NAME = "com.android.settings";
-
     private static final int SECONDS_PER_MINUTE = 60;
     private static final int SECONDS_PER_HOUR = 60 * 60;
     private static final int SECONDS_PER_DAY = 24 * 60 * 60;
-
-    public static final String OS_PKG = "os";
-
+    private static final StringBuilder sBuilder = new StringBuilder(50);
+    private static final java.util.Formatter sFormatter = new java.util.Formatter(
+            sBuilder, Locale.getDefault());
     private static SparseArray<Bitmap> sDarkDefaultUserBitmapCache = new SparseArray<Bitmap>();
 
     /**
@@ -155,7 +152,7 @@ public final class Utils extends com.android.settingslib.Utils {
      *         removed.
      */
     public static boolean updatePreferenceToSpecificActivityOrRemove(Context context,
-            PreferenceGroup parentPreferenceGroup, String preferenceKey, int flags) {
+                                                                     PreferenceGroup parentPreferenceGroup, String preferenceKey, int flags) {
 
         Preference preference = parentPreferenceGroup.findPreference(preferenceKey);
         if (preference == null) {
@@ -224,7 +221,7 @@ public final class Utils extends com.android.settingslib.Utils {
     }
 
     public static boolean isWifiOnly(Context context) {
-        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(
                 Context.CONNECTIVITY_SERVICE);
         return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
     }
@@ -345,8 +342,8 @@ public final class Utils extends com.android.settingslib.Utils {
         int userId = user != null ? user.id : UserHandle.myUserId();
 
         InputStream avatarDataStream = Contacts.openContactPhotoInputStream(
-                    context.getContentResolver(),
-                    contactUri, true);
+                context.getContentResolver(),
+                contactUri, true);
         // If there's no profile photo, assign a default avatar
         if (avatarDataStream == null) {
             assignDefaultPhoto(context, userId);
@@ -358,7 +355,8 @@ public final class Utils extends com.android.settingslib.Utils {
         um.setUserIcon(userId, icon);
         try {
             avatarDataStream.close();
-        } catch (IOException ioe) { }
+        } catch (IOException ioe) {
+        }
     }
 
     public static void assignDefaultPhoto(Context context, int userId) {
@@ -387,7 +385,7 @@ public final class Utils extends com.android.settingslib.Utils {
         final long localRowProfileId;
         final Cursor localRawProfile = cr.query(
                 Profile.CONTENT_RAW_CONTACTS_URI,
-                new String[] {RawContacts._ID},
+                new String[]{RawContacts._ID},
                 RawContacts.ACCOUNT_TYPE + " IS NULL AND " +
                         RawContacts.ACCOUNT_NAME + " IS NULL",
                 null, null);
@@ -405,8 +403,8 @@ public final class Utils extends com.android.settingslib.Utils {
         // Find the structured name for the raw contact.
         final Cursor structuredName = cr.query(
                 Profile.CONTENT_URI.buildUpon().appendPath(Contacts.Data.CONTENT_DIRECTORY).build(),
-                new String[] {CommonDataKinds.StructuredName.GIVEN_NAME,
-                    CommonDataKinds.StructuredName.FAMILY_NAME},
+                new String[]{CommonDataKinds.StructuredName.GIVEN_NAME,
+                        CommonDataKinds.StructuredName.FAMILY_NAME},
                 Data.RAW_CONTACT_ID + "=" + localRowProfileId,
                 null, null);
         if (structuredName == null) return null;
@@ -428,7 +426,7 @@ public final class Utils extends com.android.settingslib.Utils {
     private static final String getProfileDisplayName(Context context) {
         final ContentResolver cr = context.getContentResolver();
         final Cursor profile = cr.query(Profile.CONTENT_URI,
-                new String[] {Profile.DISPLAY_NAME}, null, null, null);
+                new String[]{Profile.DISPLAY_NAME}, null, null, null);
         if (profile == null) return null;
 
         try {
@@ -443,7 +441,7 @@ public final class Utils extends com.android.settingslib.Utils {
 
     /** Not global warming, it's global change warning. */
     public static Dialog buildGlobalChangeWarningDialog(final Context context, int titleResId,
-            final Runnable positiveAction) {
+                                                        final Runnable positiveAction) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(titleResId);
         builder.setMessage(R.string.global_change_warning);
@@ -479,8 +477,8 @@ public final class Utils extends com.android.settingslib.Utils {
      * @param title String to display for the title of this set of preferences.
      */
     public static void startWithFragment(Context context, String fragmentName, Bundle args,
-            Fragment resultTo, int resultRequestCode, int titleResId,
-            CharSequence title) {
+                                         Fragment resultTo, int resultRequestCode, int titleResId,
+                                         CharSequence title) {
         startWithFragment(context, fragmentName, args, resultTo, resultRequestCode,
                 null /* titleResPackageName */, titleResId, title, false /* not a shortcut */);
     }
@@ -502,15 +500,15 @@ public final class Utils extends com.android.settingslib.Utils {
      * @param title String to display for the title of this set of preferences.
      */
     public static void startWithFragment(Context context, String fragmentName, Bundle args,
-            Fragment resultTo, int resultRequestCode, String titleResPackageName, int titleResId,
-            CharSequence title) {
+                                         Fragment resultTo, int resultRequestCode, String titleResPackageName, int titleResId,
+                                         CharSequence title) {
         startWithFragment(context, fragmentName, args, resultTo, resultRequestCode,
                 titleResPackageName, titleResId, title, false /* not a shortcut */);
     }
 
     public static void startWithFragment(Context context, String fragmentName, Bundle args,
-            Fragment resultTo, int resultRequestCode, int titleResId,
-            CharSequence title, boolean isShortcut) {
+                                         Fragment resultTo, int resultRequestCode, int titleResId,
+                                         CharSequence title, boolean isShortcut) {
         Intent intent = onBuildStartFragmentIntent(context, fragmentName, args,
                 null /* titleResPackageName */, titleResId, title, isShortcut);
         if (resultTo == null) {
@@ -521,8 +519,8 @@ public final class Utils extends com.android.settingslib.Utils {
     }
 
     public static void startWithFragment(Context context, String fragmentName, Bundle args,
-            Fragment resultTo, int resultRequestCode, String titleResPackageName, int titleResId,
-            CharSequence title, boolean isShortcut) {
+                                         Fragment resultTo, int resultRequestCode, String titleResPackageName, int titleResId,
+                                         CharSequence title, boolean isShortcut) {
         Intent intent = onBuildStartFragmentIntent(context, fragmentName, args, titleResPackageName,
                 titleResId, title, isShortcut);
         if (resultTo == null) {
@@ -533,8 +531,8 @@ public final class Utils extends com.android.settingslib.Utils {
     }
 
     public static void startWithFragmentAsUser(Context context, String fragmentName, Bundle args,
-            int titleResId, CharSequence title, boolean isShortcut,
-            UserHandle userHandle) {
+                                               int titleResId, CharSequence title, boolean isShortcut,
+                                               UserHandle userHandle) {
         // workaround to avoid crash in b/17523189
         if (userHandle.getIdentifier() == UserHandle.myUserId()) {
             startWithFragment(context, fragmentName, args, null, 0, titleResId, title, isShortcut);
@@ -548,8 +546,8 @@ public final class Utils extends com.android.settingslib.Utils {
     }
 
     public static void startWithFragmentAsUser(Context context, String fragmentName, Bundle args,
-            String titleResPackageName, int titleResId, CharSequence title, boolean isShortcut,
-            UserHandle userHandle) {
+                                               String titleResPackageName, int titleResId, CharSequence title, boolean isShortcut,
+                                               UserHandle userHandle) {
         // workaround to avoid crash in b/17523189
         if (userHandle.getIdentifier() == UserHandle.myUserId()) {
             startWithFragment(context, fragmentName, args, null, 0, titleResPackageName, titleResId,
@@ -580,8 +578,8 @@ public final class Utils extends com.android.settingslib.Utils {
      * fragment.
      */
     public static Intent onBuildStartFragmentIntent(Context context, String fragmentName,
-            Bundle args, String titleResPackageName, int titleResId, CharSequence title,
-            boolean isShortcut) {
+                                                    Bundle args, String titleResPackageName, int titleResId, CharSequence title,
+                                                    boolean isShortcut) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setClass(context, SubSettings.class);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT, fragmentName);
@@ -666,7 +664,7 @@ public final class Utils extends com.android.settingslib.Utils {
      * or in one that is in the same profile group, or if the user id is provided by the system.
      */
     public static UserHandle getSecureTargetUser(IBinder activityToken,
-            UserManager um, @Nullable Bundle arguments, @Nullable Bundle intentExtras) {
+                                                 UserManager um, @Nullable Bundle arguments, @Nullable Bundle intentExtras) {
         UserHandle currentUser = new UserHandle(UserHandle.myUserId());
         IActivityManager am = ActivityManagerNative.getDefault();
         try {
@@ -706,7 +704,8 @@ public final class Utils extends com.android.settingslib.Utils {
      * Lookup both {@link Intent#EXTRA_USER} and {@link Intent#EXTRA_USER_ID} in the bundle
      * and return the {@link UserHandle} object. Return {@code null} if nothing is found.
      */
-    private static @Nullable UserHandle getUserHandleFromBundle(Bundle bundle) {
+    private static @Nullable
+    UserHandle getUserHandleFromBundle(Bundle bundle) {
         if (bundle == null) {
             return null;
         }
@@ -732,49 +731,48 @@ public final class Utils extends com.android.settingslib.Utils {
      *
      * @see #getInsecureTargetUser(IBinder, Bundle, Bundle)
      */
-   public static UserHandle getInsecureTargetUser(IBinder activityToken, @Nullable Bundle arguments,
-           @Nullable Bundle intentExtras) {
-       UserHandle currentUser = new UserHandle(UserHandle.myUserId());
-       IActivityManager am = ActivityManagerNative.getDefault();
-       try {
-           UserHandle launchedFromUser = new UserHandle(UserHandle.getUserId(
-                   am.getLaunchedFromUid(activityToken)));
-           if (launchedFromUser != null && !launchedFromUser.equals(currentUser)) {
-               return launchedFromUser;
-           }
-           UserHandle extrasUser = intentExtras != null
-                   ? (UserHandle) intentExtras.getParcelable(EXTRA_USER) : null;
-           if (extrasUser != null && !extrasUser.equals(currentUser)) {
-               return extrasUser;
-           }
-           UserHandle argumentsUser = arguments != null
-                   ? (UserHandle) arguments.getParcelable(EXTRA_USER) : null;
-           if (argumentsUser != null && !argumentsUser.equals(currentUser)) {
-               return argumentsUser;
-           }
-       } catch (RemoteException e) {
-           // Should not happen
-           Log.v(TAG, "Could not talk to activity manager.", e);
-           return null;
-       }
-       return currentUser;
-   }
+    public static UserHandle getInsecureTargetUser(IBinder activityToken, @Nullable Bundle arguments,
+                                                   @Nullable Bundle intentExtras) {
+        UserHandle currentUser = new UserHandle(UserHandle.myUserId());
+        IActivityManager am = ActivityManagerNative.getDefault();
+        try {
+            UserHandle launchedFromUser = new UserHandle(UserHandle.getUserId(
+                    am.getLaunchedFromUid(activityToken)));
+            if (launchedFromUser != null && !launchedFromUser.equals(currentUser)) {
+                return launchedFromUser;
+            }
+            UserHandle extrasUser = intentExtras != null
+                    ? (UserHandle) intentExtras.getParcelable(EXTRA_USER) : null;
+            if (extrasUser != null && !extrasUser.equals(currentUser)) {
+                return extrasUser;
+            }
+            UserHandle argumentsUser = arguments != null
+                    ? (UserHandle) arguments.getParcelable(EXTRA_USER) : null;
+            if (argumentsUser != null && !argumentsUser.equals(currentUser)) {
+                return argumentsUser;
+            }
+        } catch (RemoteException e) {
+            // Should not happen
+            Log.v(TAG, "Could not talk to activity manager.", e);
+            return null;
+        }
+        return currentUser;
+    }
 
-   /**
-    * Returns true if the user provided is in the same profiles group as the current user.
-    */
-   private static boolean isProfileOf(UserManager um, UserHandle otherUser) {
-       if (um == null || otherUser == null) return false;
-       return (UserHandle.myUserId() == otherUser.getIdentifier())
-               || um.getUserProfiles().contains(otherUser);
-   }
-
+    /**
+     * Returns true if the user provided is in the same profiles group as the current user.
+     */
+    private static boolean isProfileOf(UserManager um, UserHandle otherUser) {
+        if (um == null || otherUser == null) return false;
+        return (UserHandle.myUserId() == otherUser.getIdentifier())
+                || um.getUserProfiles().contains(otherUser);
+    }
 
     /**
      * Returns whether or not this device is able to be OEM unlocked.
      */
     static boolean isOemUnlockEnabled(Context context) {
-        PersistentDataBlockManager manager =(PersistentDataBlockManager)
+        PersistentDataBlockManager manager = (PersistentDataBlockManager)
                 context.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
         return manager.getOemUnlockEnabled();
     }
@@ -942,7 +940,7 @@ public final class Utils extends com.android.settingslib.Utils {
             for (IntentFilter filter : filters) {
                 if (filter.hasCategory(Intent.CATEGORY_BROWSABLE)
                         && (filter.hasDataScheme(IntentFilter.SCHEME_HTTP) ||
-                                filter.hasDataScheme(IntentFilter.SCHEME_HTTPS))) {
+                        filter.hasDataScheme(IntentFilter.SCHEME_HTTPS))) {
                     result.addAll(filter.getHostsList());
                 }
             }
@@ -951,7 +949,7 @@ public final class Utils extends com.android.settingslib.Utils {
     }
 
     public static void handleLoadingContainer(View loading, View doneLoading, boolean done,
-            boolean animate) {
+                                              boolean animate) {
         setViewShown(loading, !done, animate);
         setViewShown(doneLoading, done, animate);
     }
@@ -1024,7 +1022,7 @@ public final class Utils extends com.android.settingslib.Utils {
      * @param accessibileText the text text-to-speech engines should read
      */
     public static SpannableString createAccessibleSequence(CharSequence displayText,
-            String accessibileText) {
+                                                           String accessibileText) {
         SpannableString str = new SpannableString(displayText);
         str.setSpan(new TtsSpan.TextBuilder(accessibileText).build(), 0,
                 displayText.length(),
@@ -1081,10 +1079,6 @@ public final class Utils extends com.android.settingslib.Utils {
         context.getTheme().resolveAttribute(attr, value, true);
         return value.resourceId;
     }
-
-    private static final StringBuilder sBuilder = new StringBuilder(50);
-    private static final java.util.Formatter sFormatter = new java.util.Formatter(
-            sBuilder, Locale.getDefault());
 
     public static String formatDateRange(Context context, long start, long end) {
         final int flags = FORMAT_SHOW_DATE | FORMAT_ABBREV_MONTH;
@@ -1143,7 +1137,7 @@ public final class Utils extends com.android.settingslib.Utils {
     }
 
     public static boolean startQuietModeDialogIfNecessary(Context context, UserManager um,
-            int userId) {
+                                                          int userId) {
         if (um.isQuietModeEnabled(UserHandle.of(userId))) {
             final Intent intent = UnlaunchableAppActivity.createInQuietModeDialogIntent(userId);
             context.startActivity(intent);
@@ -1181,7 +1175,7 @@ public final class Utils extends com.android.settingslib.Utils {
             final ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(
                     packageName,
                     PackageManager.MATCH_DISABLED_COMPONENTS
-                    | PackageManager.MATCH_UNINSTALLED_PACKAGES);
+                            | PackageManager.MATCH_UNINSTALLED_PACKAGES);
             return appInfo.loadLabel(context.getPackageManager());
         } catch (PackageManager.NameNotFoundException e) {
             Log.w(TAG, "Unable to find info for package: " + packageName);
@@ -1215,6 +1209,6 @@ public final class Utils extends com.android.settingslib.Utils {
                 && getUserManager(context).isDemoUser()
                 && !TextUtils.isEmpty(carrierDemoModeSetting)
                 && Settings.Secure.getInt(
-                        context.getContentResolver(), carrierDemoModeSetting, 0) == 1;
+                context.getContentResolver(), carrierDemoModeSetting, 0) == 1;
     }
 }

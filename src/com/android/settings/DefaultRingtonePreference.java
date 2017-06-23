@@ -25,7 +25,7 @@ import android.util.AttributeSet;
 
 public class DefaultRingtonePreference extends RingtonePreference {
     private static final String TAG = "DefaultRingtonePreference";
-    
+
     public DefaultRingtonePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -50,5 +50,5 @@ public class DefaultRingtonePreference extends RingtonePreference {
     protected Uri onRestoreRingtone() {
         return RingtoneManager.getActualDefaultRingtoneUri(getContext(), getRingtoneType());
     }
-    
+
 }

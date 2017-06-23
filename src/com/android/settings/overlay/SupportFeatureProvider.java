@@ -34,14 +34,6 @@ import java.util.List;
  */
 public interface SupportFeatureProvider {
 
-    @IntDef({SupportType.EMAIL, SupportType.PHONE, SupportType.CHAT})
-    @Retention(RetentionPolicy.SOURCE)
-    @interface SupportType {
-        int EMAIL = 1;
-        int PHONE = 2;
-        int CHAT = 3;
-    }
-
     /**
      * Returns a intent that will open help & feedback.
      */
@@ -78,7 +70,7 @@ public interface SupportFeatureProvider {
      * current country to figure out operation hours.
      */
     CharSequence getOperationHours(Context context, @SupportType int type, String countryCode,
-            boolean hasInternet);
+                                   boolean hasInternet);
 
     /**
      * Returns a localized string indicating estimated wait time for a support time.
@@ -119,8 +111,8 @@ public interface SupportFeatureProvider {
      * Starts support activity of specified type
      *
      * @param activity Calling activity
-     * @param account A account returned by {@link #getSupportEligibleAccount}
-     * @param type The type of support account needs.
+     * @param account  A account returned by {@link #getSupportEligibleAccount}
+     * @param type     The type of support account needs.
      */
     void startSupport(Activity activity, Account account, @SupportType int type);
 
@@ -144,4 +136,12 @@ public interface SupportFeatureProvider {
      */
     @StringRes
     int getDisclaimerStringResId();
+
+    @IntDef({SupportType.EMAIL, SupportType.PHONE, SupportType.CHAT})
+    @Retention(RetentionPolicy.SOURCE)
+    @interface SupportType {
+        int EMAIL = 1;
+        int PHONE = 2;
+        int CHAT = 3;
+    }
 }

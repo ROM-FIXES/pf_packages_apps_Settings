@@ -31,16 +31,14 @@ import com.android.internal.widget.LockPatternUtils;
  */
 abstract class SaveChosenLockWorkerBase extends Fragment {
 
-    private Listener mListener;
-    private boolean mFinished;
-    private Intent mResultData;
-
     protected LockPatternUtils mUtils;
     protected boolean mHasChallenge;
     protected long mChallenge;
     protected boolean mWasSecureBefore;
     protected int mUserId;
-
+    private Listener mListener;
+    private boolean mFinished;
+    private Intent mResultData;
     private boolean mBlocking;
 
     @Override
@@ -61,7 +59,7 @@ abstract class SaveChosenLockWorkerBase extends Fragment {
     }
 
     protected void prepare(LockPatternUtils utils, boolean credentialRequired,
-            boolean hasChallenge, long challenge, int userId) {
+                           boolean hasChallenge, long challenge, int userId) {
         mUtils = utils;
         mUserId = userId;
 
@@ -91,6 +89,7 @@ abstract class SaveChosenLockWorkerBase extends Fragment {
 
     /**
      * Executes the save and verify work in background.
+     *
      * @return Intent with challenge token or null.
      */
     protected abstract Intent saveAndVerifyInBackground();
@@ -107,9 +106,13 @@ abstract class SaveChosenLockWorkerBase extends Fragment {
         mBlocking = blocking;
     }
 
+    interface Listener {
+        public void onChosenLockSaveFinished(boolean wasSecureBefore, Intent resultData);
+    }
+
     private class Task extends AsyncTask<Void, Void, Intent> {
         @Override
-        protected Intent doInBackground(Void... params){
+        protected Intent doInBackground(Void... params) {
             return saveAndVerifyInBackground();
         }
 
@@ -117,9 +120,5 @@ abstract class SaveChosenLockWorkerBase extends Fragment {
         protected void onPostExecute(Intent resultData) {
             finish(resultData);
         }
-    }
-
-    interface Listener {
-        public void onChosenLockSaveFinished(boolean wasSecureBefore, Intent resultData);
     }
 }

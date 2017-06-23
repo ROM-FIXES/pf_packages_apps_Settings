@@ -17,22 +17,13 @@
 package com.android.settings.accessibility;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.accessibility.AccessibilityEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.View;
-import android.view.WindowInsets;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.view.accessibility.AccessibilityEvent;
 
-import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.setupwizardlib.util.SystemBarHelper;
-import com.android.setupwizardlib.view.NavigationBar;
 
 public class AccessibilitySettingsForSetupWizardActivity extends SettingsActivity {
 
@@ -88,7 +79,7 @@ public class AccessibilitySettingsForSetupWizardActivity extends SettingsActivit
 
     @Override
     public void startPreferencePanel(String fragmentClass, Bundle args, int titleRes,
-            CharSequence titleText, Fragment resultTo, int resultRequestCode) {
+                                     CharSequence titleText, Fragment resultTo, int resultRequestCode) {
         // Set the title.
         if (!TextUtils.isEmpty(titleText)) {
             setTitle(titleText);

@@ -38,6 +38,7 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.text.format.DateFormat;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -56,31 +57,84 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 public class DateTimeSettings extends SettingsPreferenceFragment
         implements OnTimeSetListener, OnDateSetListener, OnPreferenceChangeListener, Indexable {
 
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new DateTimeSearchIndexProvider();
+    // have we been launched from the setup wizard?
+    protected static final String EXTRA_IS_FIRST_RUN = "firstRun";
     private static final String HOURS_12 = "12";
     private static final String HOURS_24 = "24";
-
+    private static final String KEY_AUTO_TIME = "auto_time";
+    private static final String KEY_AUTO_TIME_ZONE = "auto_zone";
+    private static final int DIALOG_DATEPICKER = 0;
+    private static final int DIALOG_TIMEPICKER = 1;
+    // Minimum time is Nov 5, 2007, 0:00.
+    private static final long MIN_DATE = 1194220800000L;
     // Used for showing the current date format, which looks like "12/31/2010", "2010/12/13", etc.
     // The date value is dummy (independent of actual date).
     private Calendar mDummyDate;
-
-    private static final String KEY_AUTO_TIME = "auto_time";
-    private static final String KEY_AUTO_TIME_ZONE = "auto_zone";
-
-    private static final int DIALOG_DATEPICKER = 0;
-    private static final int DIALOG_TIMEPICKER = 1;
-
-    // have we been launched from the setup wizard?
-    protected static final String EXTRA_IS_FIRST_RUN = "firstRun";
-
-    // Minimum time is Nov 5, 2007, 0:00.
-    private static final long MIN_DATE = 1194220800000L;
-
     private RestrictedSwitchPreference mAutoTimePref;
     private Preference mTimePref;
     private Preference mTime24Pref;
     private SwitchPreference mAutoTimeZonePref;
     private Preference mTimeZone;
     private Preference mDatePref;
+    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final Activity activity = getActivity();
+            if (activity != null) {
+                updateTimeAndDateDisplay(activity);
+            }
+        }
+    };
+
+    static void configureDatePicker(DatePicker datePicker) {
+        // The system clock can't represent dates outside this range.
+        Calendar t = Calendar.getInstance();
+        t.clear();
+        t.set(1970, Calendar.JANUARY, 1);
+        datePicker.setMinDate(t.getTimeInMillis());
+        t.clear();
+        t.set(2037, Calendar.DECEMBER, 31);
+        datePicker.setMaxDate(t.getTimeInMillis());
+    }
+
+    /* package */
+    static void setDate(Context context, int year, int month, int day) {
+        Calendar c = Calendar.getInstance();
+
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, day);
+        long when = Math.max(c.getTimeInMillis(), MIN_DATE);
+
+        if (when / 1000 < Integer.MAX_VALUE) {
+            ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).setTime(when);
+        }
+    }
+
+    /* package */
+    static void setTime(Context context, int hourOfDay, int minute) {
+        Calendar c = Calendar.getInstance();
+
+        c.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        c.set(Calendar.MINUTE, minute);
+        c.set(Calendar.SECOND, 0);
+        c.set(Calendar.MILLISECOND, 0);
+        long when = Math.max(c.getTimeInMillis(), MIN_DATE);
+
+        if (when / 1000 < Integer.MAX_VALUE) {
+            ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).setTime(when);
+        }
+    }
 
     @Override
     protected int getMetricsCategory() {
@@ -140,7 +194,7 @@ public class DateTimeSettings extends SettingsPreferenceFragment
     public void onResume() {
         super.onResume();
 
-        ((SwitchPreference)mTime24Pref).setChecked(is24Hour());
+        ((SwitchPreference) mTime24Pref).setChecked(is24Hour());
 
         // Register for time ticks and other reasons for time change
         IntentFilter filter = new IntentFilter();
@@ -193,6 +247,8 @@ public class DateTimeSettings extends SettingsPreferenceFragment
         // SystemClock time.
     }
 
+    /*  Get & Set values from the system settings  */
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference.getKey().equals(KEY_AUTO_TIME)) {
@@ -214,36 +270,25 @@ public class DateTimeSettings extends SettingsPreferenceFragment
     public Dialog onCreateDialog(int id) {
         final Calendar calendar = Calendar.getInstance();
         switch (id) {
-        case DIALOG_DATEPICKER:
-            DatePickerDialog d = new DatePickerDialog(
-                    getActivity(),
-                    this,
-                    calendar.get(Calendar.YEAR),
-                    calendar.get(Calendar.MONTH),
-                    calendar.get(Calendar.DAY_OF_MONTH));
-            configureDatePicker(d.getDatePicker());
-            return d;
-        case DIALOG_TIMEPICKER:
-            return new TimePickerDialog(
-                    getActivity(),
-                    this,
-                    calendar.get(Calendar.HOUR_OF_DAY),
-                    calendar.get(Calendar.MINUTE),
-                    DateFormat.is24HourFormat(getActivity()));
-        default:
-            throw new IllegalArgumentException();
+            case DIALOG_DATEPICKER:
+                DatePickerDialog d = new DatePickerDialog(
+                        getActivity(),
+                        this,
+                        calendar.get(Calendar.YEAR),
+                        calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH));
+                configureDatePicker(d.getDatePicker());
+                return d;
+            case DIALOG_TIMEPICKER:
+                return new TimePickerDialog(
+                        getActivity(),
+                        this,
+                        calendar.get(Calendar.HOUR_OF_DAY),
+                        calendar.get(Calendar.MINUTE),
+                        DateFormat.is24HourFormat(getActivity()));
+            default:
+                throw new IllegalArgumentException();
         }
-    }
-
-    static void configureDatePicker(DatePicker datePicker) {
-        // The system clock can't represent dates outside this range.
-        Calendar t = Calendar.getInstance();
-        t.clear();
-        t.set(1970, Calendar.JANUARY, 1);
-        datePicker.setMinDate(t.getTimeInMillis());
-        t.clear();
-        t.set(2037, Calendar.DECEMBER, 31);
-        datePicker.setMaxDate(t.getTimeInMillis());
     }
 
     /*
@@ -281,7 +326,7 @@ public class DateTimeSettings extends SettingsPreferenceFragment
             removeDialog(DIALOG_TIMEPICKER);
             showDialog(DIALOG_TIMEPICKER);
         } else if (preference == mTime24Pref) {
-            final boolean is24Hour = ((SwitchPreference)mTime24Pref).isChecked();
+            final boolean is24Hour = ((SwitchPreference) mTime24Pref).isChecked();
             set24Hour(is24Hour);
             updateTimeAndDateDisplay(getActivity());
             timeUpdated(is24Hour);
@@ -291,7 +336,7 @@ public class DateTimeSettings extends SettingsPreferenceFragment
 
     @Override
     public void onActivityResult(int requestCode, int resultCode,
-            Intent data) {
+                                 Intent data) {
         updateTimeAndDateDisplay(getActivity());
     }
 
@@ -301,8 +346,6 @@ public class DateTimeSettings extends SettingsPreferenceFragment
         getActivity().sendBroadcast(timeChanged);
     }
 
-    /*  Get & Set values from the system settings  */
-
     private boolean is24Hour() {
         return DateFormat.is24HourFormat(getActivity());
     }
@@ -310,7 +353,7 @@ public class DateTimeSettings extends SettingsPreferenceFragment
     private void set24Hour(boolean is24Hour) {
         Settings.System.putString(getContentResolver(),
                 Settings.System.TIME_12_24,
-                is24Hour? HOURS_24 : HOURS_12);
+                is24Hour ? HOURS_24 : HOURS_12);
     }
 
     private boolean getAutoState(String name) {
@@ -320,43 +363,6 @@ public class DateTimeSettings extends SettingsPreferenceFragment
             return false;
         }
     }
-
-    /* package */ static void setDate(Context context, int year, int month, int day) {
-        Calendar c = Calendar.getInstance();
-
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, month);
-        c.set(Calendar.DAY_OF_MONTH, day);
-        long when = Math.max(c.getTimeInMillis(), MIN_DATE);
-
-        if (when / 1000 < Integer.MAX_VALUE) {
-            ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).setTime(when);
-        }
-    }
-
-    /* package */ static void setTime(Context context, int hourOfDay, int minute) {
-        Calendar c = Calendar.getInstance();
-
-        c.set(Calendar.HOUR_OF_DAY, hourOfDay);
-        c.set(Calendar.MINUTE, minute);
-        c.set(Calendar.SECOND, 0);
-        c.set(Calendar.MILLISECOND, 0);
-        long when = Math.max(c.getTimeInMillis(), MIN_DATE);
-
-        if (when / 1000 < Integer.MAX_VALUE) {
-            ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).setTime(when);
-        }
-    }
-
-    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final Activity activity = getActivity();
-            if (activity != null) {
-                updateTimeAndDateDisplay(activity);
-            }
-        }
-    };
 
     private static class SummaryProvider implements SummaryLoader.SummaryProvider {
 
@@ -377,18 +383,6 @@ public class DateTimeSettings extends SettingsPreferenceFragment
             }
         }
     }
-
-    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
-            = new SummaryLoader.SummaryProviderFactory() {
-        @Override
-        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
-                                                                   SummaryLoader summaryLoader) {
-            return new SummaryProvider(activity, summaryLoader);
-        }
-    };
-
-    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new DateTimeSearchIndexProvider();
 
     private static class DateTimeSearchIndexProvider extends BaseSearchIndexProvider {
 

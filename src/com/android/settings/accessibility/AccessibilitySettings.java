@@ -26,7 +26,6 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
@@ -67,10 +66,68 @@ import java.util.Set;
 public class AccessibilitySettings extends SettingsPreferenceFragment implements DialogCreatable,
         Preference.OnPreferenceChangeListener, Indexable {
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
+                    List<SearchIndexableRaw> indexables = new ArrayList<SearchIndexableRaw>();
+
+                    PackageManager packageManager = context.getPackageManager();
+                    AccessibilityManager accessibilityManager = (AccessibilityManager)
+                            context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+
+                    String screenTitle = context.getResources().getString(
+                            R.string.accessibility_services_title);
+
+                    // Indexing all services, regardless if enabled.
+                    List<AccessibilityServiceInfo> services = accessibilityManager
+                            .getInstalledAccessibilityServiceList();
+                    final int serviceCount = services.size();
+                    for (int i = 0; i < serviceCount; i++) {
+                        AccessibilityServiceInfo service = services.get(i);
+                        if (service == null || service.getResolveInfo() == null) {
+                            continue;
+                        }
+
+                        ServiceInfo serviceInfo = service.getResolveInfo().serviceInfo;
+                        ComponentName componentName = new ComponentName(serviceInfo.packageName,
+                                serviceInfo.name);
+
+                        SearchIndexableRaw indexable = new SearchIndexableRaw(context);
+                        indexable.key = componentName.flattenToString();
+                        indexable.title = service.getResolveInfo().loadLabel(packageManager).toString();
+                        indexable.summaryOn = context.getString(R.string.accessibility_feature_state_on);
+                        indexable.summaryOff = context.getString(R.string.accessibility_feature_state_off);
+                        indexable.screenTitle = screenTitle;
+                        indexables.add(indexable);
+                    }
+
+                    return indexables;
+                }
+
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    List<SearchIndexableResource> indexables = new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource indexable = new SearchIndexableResource(context);
+                    indexable.xmlResId = R.xml.accessibility_settings;
+                    indexables.add(indexable);
+                    return indexables;
+                }
+            };
+    // Extras passed to sub-fragments.
+    static final String EXTRA_PREFERENCE_KEY = "preference_key";
+    static final String EXTRA_CHECKED = "checked";
+    static final String EXTRA_TITLE = "title";
+    static final String EXTRA_SUMMARY = "summary";
+    static final String EXTRA_SETTINGS_TITLE = "settings_title";
+    static final String EXTRA_COMPONENT_NAME = "component_name";
+    static final String EXTRA_SETTINGS_COMPONENT_NAME = "settings_component_name";
+    // Auxiliary members.
+    static final Set<ComponentName> sInstalledServices = new HashSet<>();
     // Preference categories
     private static final String SERVICES_CATEGORY = "services_category";
     private static final String SYSTEM_CATEGORY = "system_category";
-
     // Preferences
     private static final String TOGGLE_HIGH_TEXT_CONTRAST_PREFERENCE =
             "toggle_high_text_contrast_preference";
@@ -98,38 +155,13 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             "autoclick_preference_screen";
     private static final String DISPLAY_DALTONIZER_PREFERENCE_SCREEN =
             "daltonizer_preference_screen";
-
-    // Extras passed to sub-fragments.
-    static final String EXTRA_PREFERENCE_KEY = "preference_key";
-    static final String EXTRA_CHECKED = "checked";
-    static final String EXTRA_TITLE = "title";
-    static final String EXTRA_SUMMARY = "summary";
-    static final String EXTRA_SETTINGS_TITLE = "settings_title";
-    static final String EXTRA_COMPONENT_NAME = "component_name";
-    static final String EXTRA_SETTINGS_COMPONENT_NAME = "settings_component_name";
-
     // Timeout before we update the services if packages are added/removed
     // since the AccessibilityManagerService has to do that processing first
     // to generate the AccessibilityServiceInfo we need for proper
     // presentation.
     private static final long DELAY_UPDATE_SERVICES_MILLIS = 1000;
-
-    // Auxiliary members.
-    static final Set<ComponentName> sInstalledServices = new HashSet<>();
-
     private final Map<String, String> mLongPressTimeoutValuetoTitleMap = new HashMap<>();
-
     private final Handler mHandler = new Handler();
-
-    private final Runnable mUpdateRunnable = new Runnable() {
-        @Override
-        public void run() {
-            if (getActivity() != null) {
-                updateServicesPreferences();
-            }
-        }
-    };
-
     private final PackageMonitor mSettingsPackageMonitor = new PackageMonitor() {
         @Override
         public void onPackageAdded(String packageName, int uid) {
@@ -155,19 +187,9 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             mHandler.postDelayed(mUpdateRunnable, DELAY_UPDATE_SERVICES_MILLIS);
         }
     };
-
-    private final SettingsContentObserver mSettingsContentObserver =
-            new SettingsContentObserver(mHandler) {
-                @Override
-                public void onChange(boolean selfChange, Uri uri) {
-                    updateAllPreferences();
-                }
-            };
-
     // Preference controls.
     private PreferenceCategory mServicesCategory;
     private PreferenceCategory mSystemsCategory;
-
     private SwitchPreference mToggleHighTextContrastPreference;
     private SwitchPreference mTogglePowerButtonEndsCallPreference;
     private SwitchPreference mToggleSpeakPasswordPreference;
@@ -182,10 +204,23 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mGlobalGesturePreferenceScreen;
     private PreferenceScreen mDisplayDaltonizerPreferenceScreen;
     private SwitchPreference mToggleInversionPreference;
-
     private int mLongPressTimeoutDefault;
-
     private DevicePolicyManager mDpm;
+    private final Runnable mUpdateRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (getActivity() != null) {
+                updateServicesPreferences();
+            }
+        }
+    };
+    private final SettingsContentObserver mSettingsContentObserver =
+            new SettingsContentObserver(mHandler) {
+                @Override
+                public void onChange(boolean selfChange, Uri uri) {
+                    updateAllPreferences();
+                }
+            };
 
     @Override
     protected int getMetricsCategory() {
@@ -615,54 +650,4 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
                 0 /* default */, UserHandle.USER_CURRENT) == 1;
         mToggleMasterMonoPreference.setChecked(masterMono);
     }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-        @Override
-        public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
-            List<SearchIndexableRaw> indexables = new ArrayList<SearchIndexableRaw>();
-
-            PackageManager packageManager = context.getPackageManager();
-            AccessibilityManager accessibilityManager = (AccessibilityManager)
-                    context.getSystemService(Context.ACCESSIBILITY_SERVICE);
-
-            String screenTitle = context.getResources().getString(
-                    R.string.accessibility_services_title);
-
-            // Indexing all services, regardless if enabled.
-            List<AccessibilityServiceInfo> services = accessibilityManager
-                    .getInstalledAccessibilityServiceList();
-            final int serviceCount = services.size();
-            for (int i = 0; i < serviceCount; i++) {
-                AccessibilityServiceInfo service = services.get(i);
-                if (service == null || service.getResolveInfo() == null) {
-                    continue;
-                }
-
-                ServiceInfo serviceInfo = service.getResolveInfo().serviceInfo;
-                ComponentName componentName = new ComponentName(serviceInfo.packageName,
-                        serviceInfo.name);
-
-                SearchIndexableRaw indexable = new SearchIndexableRaw(context);
-                indexable.key = componentName.flattenToString();
-                indexable.title = service.getResolveInfo().loadLabel(packageManager).toString();
-                indexable.summaryOn = context.getString(R.string.accessibility_feature_state_on);
-                indexable.summaryOff = context.getString(R.string.accessibility_feature_state_off);
-                indexable.screenTitle = screenTitle;
-                indexables.add(indexable);
-            }
-
-            return indexables;
-        }
-
-        @Override
-        public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-               boolean enabled) {
-            List<SearchIndexableResource> indexables = new ArrayList<SearchIndexableResource>();
-            SearchIndexableResource indexable = new SearchIndexableResource(context);
-            indexable.xmlResId = R.xml.accessibility_settings;
-            indexables.add(indexable);
-            return indexables;
-        }
-    };
 }

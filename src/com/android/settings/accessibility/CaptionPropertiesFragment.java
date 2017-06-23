@@ -67,7 +67,9 @@ public class CaptionPropertiesFragment extends SettingsPreferenceFragment
     private static final String PREF_PRESET = "captioning_preset";
     private static final String PREF_CUSTOM = "custom";
 
-    /** WebVtt specifies line height as 5.3% of the viewport height. */
+    /**
+     * WebVtt specifies line height as 5.3% of the viewport height.
+     */
     private static final float LINE_HEIGHT_RATIO = 0.0533f;
 
     private CaptioningManager mCaptioningManager;
@@ -95,6 +97,34 @@ public class CaptionPropertiesFragment extends SettingsPreferenceFragment
     private PreferenceCategory mCustom;
 
     private boolean mShowingCustom;
+
+    public static void applyCaptionProperties(CaptioningManager manager, SubtitleView previewText,
+                                              View previewWindow, int styleId) {
+        previewText.setStyle(styleId);
+
+        final Context context = previewText.getContext();
+        final ContentResolver cr = context.getContentResolver();
+        final float fontScale = manager.getFontScale();
+        if (previewWindow != null) {
+            // Assume the viewport is clipped with a 16:9 aspect ratio.
+            final float virtualHeight = Math.max(9 * previewWindow.getWidth(),
+                    16 * previewWindow.getHeight()) / 16.0f;
+            previewText.setTextSize(virtualHeight * LINE_HEIGHT_RATIO * fontScale);
+        } else {
+            final float textSize = context.getResources().getDimension(
+                    R.dimen.caption_preview_text_size);
+            previewText.setTextSize(textSize * fontScale);
+        }
+
+        final Locale locale = manager.getLocale();
+        if (locale != null) {
+            final CharSequence localizedText = AccessibilityUtils.getTextForLocale(
+                    context, locale, R.string.captioning_preview_characters);
+            previewText.setText(localizedText);
+        } else {
+            previewText.setText(R.string.captioning_preview_characters);
+        }
+    }
 
     @Override
     protected int getMetricsCategory() {
@@ -145,7 +175,7 @@ public class CaptionPropertiesFragment extends SettingsPreferenceFragment
         mPreviewViewport.addOnLayoutChangeListener(new OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom,
-                    int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                                       int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 refreshPreviewText();
             }
         });
@@ -202,34 +232,6 @@ public class CaptionPropertiesFragment extends SettingsPreferenceFragment
                 final CaptionStyle defStyle = CaptionStyle.DEFAULT;
                 mPreviewWindow.setBackgroundColor(defStyle.windowColor);
             }
-        }
-    }
-
-    public static void applyCaptionProperties(CaptioningManager manager, SubtitleView previewText,
-            View previewWindow, int styleId) {
-        previewText.setStyle(styleId);
-
-        final Context context = previewText.getContext();
-        final ContentResolver cr = context.getContentResolver();
-        final float fontScale = manager.getFontScale();
-        if (previewWindow != null) {
-            // Assume the viewport is clipped with a 16:9 aspect ratio.
-            final float virtualHeight = Math.max(9 * previewWindow.getWidth(),
-                    16 * previewWindow.getHeight()) / 16.0f;
-            previewText.setTextSize(virtualHeight * LINE_HEIGHT_RATIO * fontScale);
-        } else {
-            final float textSize = context.getResources().getDimension(
-                    R.dimen.caption_preview_text_size);
-            previewText.setTextSize(textSize * fontScale);
-        }
-
-        final Locale locale = manager.getLocale();
-        if (locale != null) {
-            final CharSequence localizedText = AccessibilityUtils.getTextForLocale(
-                    context, locale, R.string.captioning_preview_characters);
-            previewText.setText(localizedText);
-        } else {
-            previewText.setText(R.string.captioning_preview_characters);
         }
     }
 
@@ -367,9 +369,9 @@ public class CaptionPropertiesFragment extends SettingsPreferenceFragment
     /**
      * Unpack the specified color value and update the preferences.
      *
-     * @param color color preference
+     * @param color   color preference
      * @param opacity opacity preference
-     * @param value packed value
+     * @param value   packed value
      */
     private void parseColorOpacity(ColorPreference color, ColorPreference opacity, int value) {
         final int colorValue;

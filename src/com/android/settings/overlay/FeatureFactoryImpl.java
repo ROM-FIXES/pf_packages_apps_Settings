@@ -18,6 +18,7 @@ package com.android.settings.overlay;
 
 import android.content.Context;
 import android.support.annotation.Keep;
+
 import com.android.settings.dashboard.SuggestionFeatureProvider;
 import com.android.settings.dashboard.SuggestionFeatureProviderImpl;
 import com.android.settings.fuelgauge.PowerUsageFeatureProvider;

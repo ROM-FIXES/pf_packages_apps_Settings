@@ -75,6 +75,6 @@ public class CredentialCheckResultTracker extends Fragment {
 
     interface Listener {
         public void onCredentialChecked(boolean matched, Intent intent, int timeoutMs,
-                int effectiveUserId, boolean newResult);
+                                        int effectiveUserId, boolean newResult);
     }
 }

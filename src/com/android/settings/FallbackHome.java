@@ -17,7 +17,6 @@
 package com.android.settings;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +31,6 @@ import android.os.UserManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.view.animation.AnimationUtils;
 
@@ -41,9 +39,6 @@ import java.util.Objects;
 public class FallbackHome extends Activity {
     private static final String TAG = "FallbackHome";
     private static final int PROGRESS_TIMEOUT = 2000;
-
-    private boolean mProvisioned;
-
     private final Runnable mProgressTimeoutRunnable = () -> {
         View v = getLayoutInflater().inflate(
                 R.layout.fallback_home_finishing_boot, null /* root */);
@@ -56,6 +51,19 @@ public class FallbackHome extends Activity {
                         this, android.R.interpolator.fast_out_slow_in))
                 .start();
         getWindow().addFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
+    };
+    private boolean mProvisioned;
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            maybeFinish();
+        }
+    };
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            maybeFinish();
+        }
     };
 
     @Override
@@ -98,13 +106,6 @@ public class FallbackHome extends Activity {
         unregisterReceiver(mReceiver);
     }
 
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            maybeFinish();
-        }
-    };
-
     private void maybeFinish() {
         if (getSystemService(UserManager.class).isUserUnlocked()) {
             final Intent homeIntent = new Intent(Intent.ACTION_MAIN)
@@ -121,11 +122,4 @@ public class FallbackHome extends Activity {
             }
         }
     }
-
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            maybeFinish();
-        }
-    };
 }

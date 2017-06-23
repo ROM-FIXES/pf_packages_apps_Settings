@@ -1,4 +1,3 @@
-
 package com.android.settings;
 
 import android.content.BroadcastReceiver;
@@ -7,8 +6,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.util.Log;
-
-import com.android.settingslib.TetherUtil;
 
 /**
  * This receiver catches when quick settings turns off the hotspot, so we can

@@ -16,16 +16,14 @@
 
 package com.android.settings;
 
-import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
-
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.TextView;
 
 import com.android.settingslib.RestrictedLockUtils;
+
+import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 /**
  * A checkbox that can be restricted by device policy, in which case it shows a dialog explaining
@@ -54,6 +52,10 @@ public class RestrictedCheckBox extends CheckBox {
         return super.performClick();
     }
 
+    public boolean isDisabledByAdmin() {
+        return mDisabledByAdmin;
+    }
+
     public void setDisabledByAdmin(EnforcedAdmin admin) {
         final boolean disabled = (admin != null);
         mEnforcedAdmin = admin;
@@ -67,9 +69,5 @@ public class RestrictedCheckBox extends CheckBox {
                 getButtonDrawable().clearColorFilter();
             }
         }
-    }
-
-    public boolean isDisabledByAdmin() {
-        return mDisabledByAdmin;
     }
 }

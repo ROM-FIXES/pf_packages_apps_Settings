@@ -1,12 +1,12 @@
 /**
  * Copyright (C) 2009 Google Inc.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy
  * of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -46,7 +46,7 @@ public class UserDictionarySettings extends ListFragment {
     private static final String TAG = "UserDictionarySettings";
 
     private static final String[] QUERY_PROJECTION = {
-        UserDictionary.Words._ID, UserDictionary.Words.WORD, UserDictionary.Words.SHORTCUT
+            UserDictionary.Words._ID, UserDictionary.Words.WORD, UserDictionary.Words.SHORTCUT
     };
 
     // The index of the shortcut in the above array.
@@ -66,10 +66,21 @@ public class UserDictionarySettings extends ListFragment {
             + UserDictionary.Words.SHORTCUT + "=''";
 
     private static final int OPTIONS_MENU_ADD = Menu.FIRST;
-
+    protected String mLocale;
     private Cursor mCursor;
 
-    protected String mLocale;
+    public static void deleteWord(final String word, final String shortcut,
+                                  final ContentResolver resolver) {
+        if (TextUtils.isEmpty(shortcut)) {
+            resolver.delete(
+                    UserDictionary.Words.CONTENT_URI, DELETE_SELECTION_WITHOUT_SHORTCUT,
+                    new String[]{word});
+        } else {
+            resolver.delete(
+                    UserDictionary.Words.CONTENT_URI, DELETE_SELECTION_WITH_SHORTCUT,
+                    new String[]{word, shortcut});
+        }
+    }
 
     @Override
     public View onCreateView(
@@ -135,7 +146,7 @@ public class UserDictionarySettings extends ListFragment {
         } else {
             final String queryLocale = null != locale ? locale : Locale.getDefault().toString();
             return getActivity().managedQuery(UserDictionary.Words.CONTENT_URI, QUERY_PROJECTION,
-                    QUERY_SELECTION, new String[] { queryLocale },
+                    QUERY_SELECTION, new String[]{queryLocale},
                     "UPPER(" + UserDictionary.Words.WORD + ")");
         }
     }
@@ -143,8 +154,8 @@ public class UserDictionarySettings extends ListFragment {
     private ListAdapter createAdapter() {
         return new MyAdapter(getActivity(),
                 R.layout.user_dictionary_item, mCursor,
-                new String[] { UserDictionary.Words.WORD, UserDictionary.Words.SHORTCUT },
-                new int[] { android.R.id.text1, android.R.id.text2 }, this);
+                new String[]{UserDictionary.Words.WORD, UserDictionary.Words.SHORTCUT},
+                new int[]{android.R.id.text1, android.R.id.text2}, this);
     }
 
     @Override
@@ -160,7 +171,7 @@ public class UserDictionarySettings extends ListFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         MenuItem actionItem =
                 menu.add(0, OPTIONS_MENU_ADD, 0, R.string.user_dict_settings_add_menu_title)
-                .setIcon(R.drawable.ic_menu_add_white);
+                        .setIcon(R.drawable.ic_menu_add_white);
         actionItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
                 MenuItem.SHOW_AS_ACTION_WITH_TEXT);
     }
@@ -213,22 +224,7 @@ public class UserDictionarySettings extends ListFragment {
                 mCursor.getColumnIndexOrThrow(UserDictionary.Words.SHORTCUT));
     }
 
-    public static void deleteWord(final String word, final String shortcut,
-            final ContentResolver resolver) {
-        if (TextUtils.isEmpty(shortcut)) {
-            resolver.delete(
-                    UserDictionary.Words.CONTENT_URI, DELETE_SELECTION_WITHOUT_SHORTCUT,
-                    new String[] { word });
-        } else {
-            resolver.delete(
-                    UserDictionary.Words.CONTENT_URI, DELETE_SELECTION_WITH_SHORTCUT,
-                    new String[] { word, shortcut });
-        }
-    }
-
     private static class MyAdapter extends SimpleCursorAdapter implements SectionIndexer {
-
-        private AlphabetIndexer mIndexer;
 
         private final ViewBinder mViewBinder = new ViewBinder() {
 
@@ -239,7 +235,7 @@ public class UserDictionarySettings extends ListFragment {
                     if (TextUtils.isEmpty(shortcut)) {
                         v.setVisibility(View.GONE);
                     } else {
-                        ((TextView)v).setText(shortcut);
+                        ((TextView) v).setText(shortcut);
                         v.setVisibility(View.VISIBLE);
                     }
                     v.invalidate();
@@ -249,9 +245,10 @@ public class UserDictionarySettings extends ListFragment {
                 return false;
             }
         };
+        private AlphabetIndexer mIndexer;
 
         public MyAdapter(Context context, int layout, Cursor c, String[] from, int[] to,
-                UserDictionarySettings settings) {
+                         UserDictionarySettings settings) {
             super(context, layout, c, from, to);
 
             if (null != c) {

@@ -31,9 +31,9 @@ import java.util.ArrayList;
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 public class TimeoutListPreference extends RestrictedListPreference {
-    private EnforcedAdmin mAdmin;
     private final CharSequence[] mInitialEntries;
     private final CharSequence[] mInitialValues;
+    private EnforcedAdmin mAdmin;
 
     public TimeoutListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -43,7 +43,7 @@ public class TimeoutListPreference extends RestrictedListPreference {
 
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder,
-            DialogInterface.OnClickListener listener) {
+                                          DialogInterface.OnClickListener listener) {
         super.onPrepareDialogBuilder(builder, listener);
         if (mAdmin != null) {
             builder.setView(R.layout.admin_disabled_other_options_footer);
@@ -111,7 +111,7 @@ public class TimeoutListPreference extends RestrictedListPreference {
                 setValue(String.valueOf(userPreference));
             } else if (revisedValues.size() > 0
                     && Long.parseLong(revisedValues.get(revisedValues.size() - 1).toString())
-                            == maxTimeout) {
+                    == maxTimeout) {
                 // If the last one happens to be the same as the max timeout, select that
                 setValue(String.valueOf(maxTimeout));
             } else {

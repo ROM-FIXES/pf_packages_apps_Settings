@@ -27,7 +27,6 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.SearchIndexableResource;
-import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.text.TextUtils;
@@ -50,8 +49,16 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 public class DeviceInfoSettings extends SettingsPreferenceFragment implements Indexable {
 
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
+    static final int TAPS_TO_BE_A_DEVELOPER = 7;
     private static final String LOG_TAG = "DeviceInfoSettings";
-
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
@@ -63,17 +70,50 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(
+                        Context context, boolean enabled) {
+                    final SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.device_info_settings;
+                    return Arrays.asList(sir);
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = new ArrayList<String>();
+                    if (isPropertyMissing(PROPERTY_SELINUX_STATUS)) {
+                        keys.add(KEY_SELINUX_STATUS);
+                    }
+                    if (isPropertyMissing(PROPERTY_EQUIPMENT_ID)) {
+                        keys.add(KEY_EQUIPMENT_ID);
+                    }
+                    // Remove Baseband version if wifi-only device
+                    if (Utils.isWifiOnly(context)) {
+                        keys.add((KEY_BASEBAND_VERSION));
+                    }
+                    // Dont show feedback option if there is no reporter.
+                    if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(context))) {
+                        keys.add(KEY_DEVICE_FEEDBACK);
+                    }
+                    return keys;
+                }
+
+                private boolean isPropertyMissing(String property) {
+                    return SystemProperties.get(property).equals("");
+                }
+            };
     private static final String KEY_PURE_VERSION = "pure_version";
     private static final String KEY_VENDOR_VERSION = "vendor_version";
-
-    static final int TAPS_TO_BE_A_DEVELOPER = 7;
-
     long[] mHits = new long[3];
     int mDevHitCountdown;
     Toast mDevHitToast;
-
     private UserManager mUm;
-
     private EnforcedAdmin mFunDisallowedAdmin;
     private boolean mFunDisallowedBySystem;
     private EnforcedAdmin mDebuggingFeaturesDisallowedAdmin;
@@ -161,7 +201,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         super.onResume();
         mDevHitCountdown = getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
                 Context.MODE_PRIVATE).getBoolean(DevelopmentSettings.PREF_SHOW,
-                        android.os.Build.TYPE.equals("eng") || android.os.Build.TYPE.equals("userdebug")
+                android.os.Build.TYPE.equals("eng") || android.os.Build.TYPE.equals("userdebug")
                         || android.os.Build.TYPE.equals("user")) ? -1 : TAPS_TO_BE_A_DEVELOPER;
         mDevHitToast = null;
         mFunDisallowedAdmin = RestrictedLockUtils.checkIfRestrictionEnforced(
@@ -177,9 +217,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference.getKey().equals(KEY_FIRMWARE_VERSION)) {
-            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
-            mHits[mHits.length-1] = SystemClock.uptimeMillis();
-            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
+            System.arraycopy(mHits, 1, mHits, 0, mHits.length - 1);
+            mHits[mHits.length - 1] = SystemClock.uptimeMillis();
+            if (mHits[0] >= (SystemClock.uptimeMillis() - 500)) {
                 if (mUm.hasUserRestriction(UserManager.DISALLOW_FUN)) {
                     if (mFunDisallowedAdmin != null && !mFunDisallowedBySystem) {
                         RestrictedLockUtils.sendShowAdminSupportDetailsIntent(getActivity(),
@@ -221,7 +261,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 if (mDevHitCountdown == 0) {
                     getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
                             Context.MODE_PRIVATE).edit().putBoolean(
-                                    DevelopmentSettings.PREF_SHOW, true).apply();
+                            DevelopmentSettings.PREF_SHOW, true).apply();
                     if (mDevHitToast != null) {
                         mDevHitToast.cancel();
                     }
@@ -231,10 +271,10 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     // This is good time to index the Developer Options
                     Index.getInstance(
                             getActivity().getApplicationContext()).updateFromClassNameResource(
-                                    DevelopmentSettings.class.getName(), true, true);
+                            DevelopmentSettings.class.getName(), true, true);
 
                 } else if (mDevHitCountdown > 0
-                        && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
+                        && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER - 2)) {
                     if (mDevHitToast != null) {
                         mDevHitToast.cancel();
                     }
@@ -255,7 +295,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             if (getPackageManager().queryIntentActivities(preference.getIntent(), 0).isEmpty()) {
                 // Don't send out the intent to stop crash
                 Log.w(LOG_TAG, "Stop click action on " + KEY_SECURITY_PATCH + ": "
-                        + "queryIntentActivities() returns empty" );
+                        + "queryIntentActivities() returns empty");
                 return true;
             }
         } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
@@ -265,7 +305,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     }
 
     private void removePreferenceIfPropertyMissing(PreferenceGroup preferenceGroup,
-            String preference, String property ) {
+                                                   String preference, String property) {
         if (SystemProperties.get(property).equals("")) {
             // Property is missing so remove preference from group
             try {
@@ -301,7 +341,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             findPreference(preference).setSummary(value);
         } catch (RuntimeException e) {
             findPreference(preference).setSummary(
-                getResources().getString(R.string.device_info_default));
+                    getResources().getString(R.string.device_info_default));
         }
     }
 
@@ -343,53 +383,5 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             }
         }
     }
-
-    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
-            = new SummaryLoader.SummaryProviderFactory() {
-        @Override
-        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
-                                                                   SummaryLoader summaryLoader) {
-            return new SummaryProvider(activity, summaryLoader);
-        }
-    };
-
-    /**
-     * For Search.
-     */
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider() {
-
-            @Override
-            public List<SearchIndexableResource> getXmlResourcesToIndex(
-                    Context context, boolean enabled) {
-                final SearchIndexableResource sir = new SearchIndexableResource(context);
-                sir.xmlResId = R.xml.device_info_settings;
-                return Arrays.asList(sir);
-            }
-
-            @Override
-            public List<String> getNonIndexableKeys(Context context) {
-                final List<String> keys = new ArrayList<String>();
-                if (isPropertyMissing(PROPERTY_SELINUX_STATUS)) {
-                    keys.add(KEY_SELINUX_STATUS);
-                }
-                if (isPropertyMissing(PROPERTY_EQUIPMENT_ID)) {
-                    keys.add(KEY_EQUIPMENT_ID);
-                }
-                // Remove Baseband version if wifi-only device
-                if (Utils.isWifiOnly(context)) {
-                    keys.add((KEY_BASEBAND_VERSION));
-                }
-                // Dont show feedback option if there is no reporter.
-                if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(context))) {
-                    keys.add(KEY_DEVICE_FEEDBACK);
-                }
-                return keys;
-            }
-
-            private boolean isPropertyMissing(String property) {
-                return SystemProperties.get(property).equals("");
-            }
-        };
 
 }

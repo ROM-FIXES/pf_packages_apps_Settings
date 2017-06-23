@@ -16,9 +16,6 @@
 
 package com.android.settings;
 
-import static android.app.Activity.RESULT_OK;
-import static android.content.Context.TELEPHONY_SERVICE;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -60,6 +57,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static android.app.Activity.RESULT_OK;
+import static android.content.Context.TELEPHONY_SERVICE;
+
 public class ApnEditor extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener, OnKeyListener {
 
@@ -76,50 +76,10 @@ public class ApnEditor extends SettingsPreferenceFragment
     private static final int MENU_DELETE = Menu.FIRST;
     private static final int MENU_SAVE = Menu.FIRST + 1;
     private static final int MENU_CANCEL = Menu.FIRST + 2;
-
-    private static String sNotSet;
-    private EditTextPreference mName;
-    private EditTextPreference mApn;
-    private EditTextPreference mProxy;
-    private EditTextPreference mPort;
-    private EditTextPreference mUser;
-    private EditTextPreference mServer;
-    private EditTextPreference mPassword;
-    private EditTextPreference mMmsc;
-    private EditTextPreference mMcc;
-    private EditTextPreference mMnc;
-    private EditTextPreference mMmsProxy;
-    private EditTextPreference mMmsPort;
-    private ListPreference mAuthType;
-    private EditTextPreference mApnType;
-    private ListPreference mProtocol;
-    private ListPreference mRoamingProtocol;
-    private SwitchPreference mCarrierEnabled;
-    private MultiSelectListPreference mBearerMulti;
-    private ListPreference mMvnoType;
-    private EditTextPreference mMvnoMatchData;
-
-    private String mCurMnc;
-    private String mCurMcc;
-
-    private Uri mUri;
-    private Cursor mCursor;
-    private boolean mNewApn;
-    private boolean mFirstTime;
-    private int mSubId;
-    private Resources mRes;
-    private TelephonyManager mTelephonyManager;
-    private int mBearerInitialVal = 0;
-    private String mMvnoTypeStr;
-    private String mMvnoMatchDataStr;
-    private String[] mReadOnlyApnTypes;
-    private String[] mReadOnlyApnFields;
-    private boolean mReadOnlyApn;
-
     /**
      * Standard projection for the interesting columns of a normal note.
      */
-    private static final String[] sProjection = new String[] {
+    private static final String[] sProjection = new String[]{
             Telephony.Carriers._ID,     // 0
             Telephony.Carriers.NAME,    // 1
             Telephony.Carriers.APN,     // 2
@@ -145,7 +105,6 @@ public class ApnEditor extends SettingsPreferenceFragment
             Telephony.Carriers.MVNO_MATCH_DATA,  // 22
             Telephony.Carriers.EDITED   // 23
     };
-
     private static final int ID_INDEX = 0;
     private static final int NAME_INDEX = 1;
     private static final int APN_INDEX = 2;
@@ -169,7 +128,42 @@ public class ApnEditor extends SettingsPreferenceFragment
     private static final int MVNO_TYPE_INDEX = 21;
     private static final int MVNO_MATCH_DATA_INDEX = 22;
     private static final int EDITED_INDEX = 23;
-
+    private static String sNotSet;
+    private EditTextPreference mName;
+    private EditTextPreference mApn;
+    private EditTextPreference mProxy;
+    private EditTextPreference mPort;
+    private EditTextPreference mUser;
+    private EditTextPreference mServer;
+    private EditTextPreference mPassword;
+    private EditTextPreference mMmsc;
+    private EditTextPreference mMcc;
+    private EditTextPreference mMnc;
+    private EditTextPreference mMmsProxy;
+    private EditTextPreference mMmsPort;
+    private ListPreference mAuthType;
+    private EditTextPreference mApnType;
+    private ListPreference mProtocol;
+    private ListPreference mRoamingProtocol;
+    private SwitchPreference mCarrierEnabled;
+    private MultiSelectListPreference mBearerMulti;
+    private ListPreference mMvnoType;
+    private EditTextPreference mMvnoMatchData;
+    private String mCurMnc;
+    private String mCurMcc;
+    private Uri mUri;
+    private Cursor mCursor;
+    private boolean mNewApn;
+    private boolean mFirstTime;
+    private int mSubId;
+    private Resources mRes;
+    private TelephonyManager mTelephonyManager;
+    private int mBearerInitialVal = 0;
+    private String mMvnoTypeStr;
+    private String mMvnoMatchDataStr;
+    private String[] mReadOnlyApnTypes;
+    private String[] mReadOnlyApnFields;
+    private boolean mReadOnlyApn;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -301,6 +295,7 @@ public class ApnEditor extends SettingsPreferenceFragment
 
     /**
      * Check if passed in array of APN types indicates all APN types
+     *
      * @param apnTypes array of APN types. "*" indicates all types.
      * @return true if all apn types are included in the array, false otherwise
      */
@@ -326,9 +321,10 @@ public class ApnEditor extends SettingsPreferenceFragment
 
     /**
      * Check if APN types overlap.
+     *
      * @param apnTypesArray1 array of APNs. Empty array indicates no APN type; "*" indicates all
      *                       types
-     * @param apnTypes2 comma separated string of APN types. Empty string represents all types.
+     * @param apnTypes2      comma separated string of APN types. Empty string represents all types.
      * @return if any apn type matches return true, otherwise return false
      */
     private boolean apnTypesMatch(String[] apnTypesArray1, String apnTypes2) {
@@ -356,6 +352,7 @@ public class ApnEditor extends SettingsPreferenceFragment
 
     /**
      * Function to get Preference obj corresponding to an apnField
+     *
      * @param apnField apn field name for which pref is needed
      * @return Preference obj corresponding to passed in apnField
      */
@@ -502,7 +499,7 @@ public class ApnEditor extends SettingsPreferenceFragment
 
             mProtocol.setValue(mCursor.getString(PROTOCOL_INDEX));
             mRoamingProtocol.setValue(mCursor.getString(ROAMING_PROTOCOL_INDEX));
-            mCarrierEnabled.setChecked(mCursor.getInt(CARRIER_ENABLED_INDEX)==1);
+            mCarrierEnabled.setChecked(mCursor.getInt(CARRIER_ENABLED_INDEX) == 1);
             mBearerInitialVal = mCursor.getInt(BEARER_INDEX);
 
             HashSet<String> bearers = new HashSet<String>();
@@ -556,7 +553,7 @@ public class ApnEditor extends SettingsPreferenceFragment
             int authValIndex = Integer.parseInt(authVal);
             mAuthType.setValueIndex(authValIndex);
 
-            String []values = mRes.getStringArray(R.array.apn_auth_entries);
+            String[] values = mRes.getStringArray(R.array.apn_auth_entries);
             mAuthType.setSummary(values[authValIndex]);
         } else {
             mAuthType.setSummary(sNotSet);
@@ -723,31 +720,31 @@ public class ApnEditor extends SettingsPreferenceFragment
         // If it's a new APN, then cancel will delete the new entry in onPause
         if (!mNewApn && !mReadOnlyApn) {
             menu.add(0, MENU_DELETE, 0, R.string.menu_delete)
-                .setIcon(R.drawable.ic_menu_delete);
+                    .setIcon(R.drawable.ic_menu_delete);
         }
         menu.add(0, MENU_SAVE, 0, R.string.menu_save)
-            .setIcon(android.R.drawable.ic_menu_save);
+                .setIcon(android.R.drawable.ic_menu_save);
         menu.add(0, MENU_CANCEL, 0, R.string.menu_cancel)
-            .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
+                .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case MENU_DELETE:
-            deleteApn();
-            return true;
-        case MENU_SAVE:
-            if (validateAndSave(false)) {
+            case MENU_DELETE:
+                deleteApn();
+                return true;
+            case MENU_SAVE:
+                if (validateAndSave(false)) {
+                    finish();
+                }
+                return true;
+            case MENU_CANCEL:
+                if (mNewApn) {
+                    getContentResolver().delete(mUri, null, null);
+                }
                 finish();
-            }
-            return true;
-        case MENU_CANCEL:
-            if (mNewApn) {
-                getContentResolver().delete(mUri, null, null);
-            }
-            finish();
-            return true;
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -781,8 +778,9 @@ public class ApnEditor extends SettingsPreferenceFragment
 
     /**
      * Check the key fields' validity and save if valid.
+     *
      * @param force save even if the fields are not valid, if the app is
-     *        being suspended
+     *              being suspended
      * @return true if the data was saved
      */
     private boolean validateAndSave(boolean force) {

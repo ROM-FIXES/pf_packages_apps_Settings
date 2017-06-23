@@ -55,13 +55,6 @@ public class TrustAgentUtils {
         return true;
     }
 
-    public static class TrustAgentComponentInfo {
-        ComponentName componentName;
-        String title;
-        String summary;
-        EnforcedAdmin admin = null;
-    }
-
     public static ComponentName getComponentName(ResolveInfo resolveInfo) {
         if (resolveInfo == null || resolveInfo.serviceInfo == null) return null;
         return new ComponentName(resolveInfo.serviceInfo.packageName, resolveInfo.serviceInfo.name);
@@ -118,5 +111,12 @@ public class TrustAgentUtils {
         }
         trustAgentComponentInfo.componentName = (cn == null) ? null : ComponentName.unflattenFromString(cn);
         return trustAgentComponentInfo;
+    }
+
+    public static class TrustAgentComponentInfo {
+        ComponentName componentName;
+        String title;
+        String summary;
+        EnforcedAdmin admin = null;
     }
 }

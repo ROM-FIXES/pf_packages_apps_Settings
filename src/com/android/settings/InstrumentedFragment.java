@@ -34,16 +34,16 @@ public abstract class InstrumentedFragment extends PreferenceFragment {
 
     // Used by PreferenceActivity for the dummy fragment it adds, no useful data here.
     public static final int PREFERENCE_ACTIVITY_FRAGMENT = UNDECLARED + 1;
+    private BroadcastReceiver mReceiver;
 
     /**
      * Declare the view of this category.
-     *
+     * <p>
      * Categories are defined in {@link com.android.internal.logging.MetricsProto.MetricsEvent}
      * or if there is no relevant existing category you may define one in
      * {@link com.android.settings.InstrumentedFragment}.
      */
     protected abstract int getMetricsCategory();
-    private BroadcastReceiver mReceiver;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {

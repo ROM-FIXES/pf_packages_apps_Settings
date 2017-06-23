@@ -18,9 +18,6 @@ package com.android.settings;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import com.android.settings.notification.RedactionInterstitial;
 

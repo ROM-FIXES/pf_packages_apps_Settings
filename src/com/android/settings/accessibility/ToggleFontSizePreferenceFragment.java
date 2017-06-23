@@ -22,6 +22,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.provider.Settings;
+
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.PreviewSeekBarPreferenceFragment;
 import com.android.settings.R;
@@ -32,6 +33,22 @@ import com.android.settings.R;
 public class ToggleFontSizePreferenceFragment extends PreviewSeekBarPreferenceFragment {
 
     private float[] mValues;
+
+    /**
+     * Utility function that returns the index in a string array with which the represented value is
+     * the closest to a given float value.
+     */
+    public static int fontSizeValueToIndex(float val, String[] indices) {
+        float lastVal = Float.parseFloat(indices[0]);
+        for (int i = 1; i < indices.length; i++) {
+            float thisVal = Float.parseFloat(indices[i]);
+            if (val < (lastVal + (thisVal - lastVal) * .5f)) {
+                return i - 1;
+            }
+            lastVal = thisVal;
+        }
+        return indices.length - 1;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,22 +92,6 @@ public class ToggleFontSizePreferenceFragment extends PreviewSeekBarPreferenceFr
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.ACCESSIBILITY_FONT_SIZE;
-    }
-
-    /**
-     *  Utility function that returns the index in a string array with which the represented value is
-     *  the closest to a given float value.
-     */
-    public static int fontSizeValueToIndex(float val, String[] indices) {
-        float lastVal = Float.parseFloat(indices[0]);
-        for (int i=1; i<indices.length; i++) {
-            float thisVal = Float.parseFloat(indices[i]);
-            if (val < (lastVal + (thisVal-lastVal)*.5f)) {
-                return i-1;
-            }
-            lastVal = thisVal;
-        }
-        return indices.length-1;
     }
 
 }

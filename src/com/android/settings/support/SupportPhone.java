@@ -29,6 +29,17 @@ import java.text.ParseException;
  */
 public final class SupportPhone implements Parcelable {
 
+    public static final Creator<SupportPhone> CREATOR = new Creator<SupportPhone>() {
+        @Override
+        public SupportPhone createFromParcel(Parcel in) {
+            return new SupportPhone(in);
+        }
+
+        @Override
+        public SupportPhone[] newArray(int size) {
+            return new SupportPhone[size];
+        }
+    };
     public final String language;
     public final String number;
     public final boolean isTollFree;
@@ -69,16 +80,4 @@ public final class SupportPhone implements Parcelable {
         dest.writeString(number);
         dest.writeInt(isTollFree ? 1 : 0);
     }
-
-    public static final Creator<SupportPhone> CREATOR = new Creator<SupportPhone>() {
-        @Override
-        public SupportPhone createFromParcel(Parcel in) {
-            return new SupportPhone(in);
-        }
-
-        @Override
-        public SupportPhone[] newArray(int size) {
-            return new SupportPhone[size];
-        }
-    };
 }

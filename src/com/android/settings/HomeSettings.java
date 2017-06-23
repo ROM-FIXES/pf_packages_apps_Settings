@@ -60,34 +60,91 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeSettings extends SettingsPreferenceFragment implements Indexable {
+    public static final String HOME_PREFS = "home_prefs";
+    public static final String HOME_PREFS_DO_SHOW = "do_show";
+    public static final String HOME_SHOW_NOTICE = "show";
     static final String TAG = "HomeSettings";
+    /**
+     * For search
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
+                    final List<SearchIndexableRaw> result = new ArrayList<SearchIndexableRaw>();
 
+                    final PackageManager pm = context.getPackageManager();
+                    final ArrayList<ResolveInfo> homeActivities = new ArrayList<ResolveInfo>();
+                    pm.getHomeActivities(homeActivities);
+
+                    final SharedPreferences sp = context.getSharedPreferences(
+                            HomeSettings.HOME_PREFS, Context.MODE_PRIVATE);
+                    final boolean doShowHome = sp.getBoolean(HomeSettings.HOME_PREFS_DO_SHOW, false);
+
+                    // We index Home Launchers only if there are more than one or if we are showing the
+                    // Home tile into the Dashboard
+                    if (homeActivities.size() > 1 || doShowHome) {
+                        final Resources res = context.getResources();
+
+                        // Add fragment title
+                        SearchIndexableRaw data = new SearchIndexableRaw(context);
+                        data.title = res.getString(R.string.home_settings);
+                        data.screenTitle = res.getString(R.string.home_settings);
+                        data.keywords = res.getString(R.string.keywords_home);
+                        result.add(data);
+
+                        for (int i = 0; i < homeActivities.size(); i++) {
+                            final ResolveInfo resolveInfo = homeActivities.get(i);
+                            final ActivityInfo activityInfo = resolveInfo.activityInfo;
+
+                            CharSequence name;
+                            try {
+                                name = activityInfo.loadLabel(pm);
+                                if (TextUtils.isEmpty(name)) {
+                                    continue;
+                                }
+                            } catch (Exception e) {
+                                Log.v(TAG, "Problem dealing with Home " + activityInfo.name, e);
+                                continue;
+                            }
+
+                            data = new SearchIndexableRaw(context);
+                            data.title = name.toString();
+                            data.screenTitle = res.getString(R.string.home_settings);
+                            result.add(data);
+                        }
+                    }
+
+                    return result;
+                }
+            };
+    static final int REQUESTING_UNINSTALL = 10;
     // Boolean extra, indicates only launchers that support managed profiles should be shown.
     // Note: must match the constant defined in ManagedProvisioning
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
-
-    static final int REQUESTING_UNINSTALL = 10;
-
-    public static final String HOME_PREFS = "home_prefs";
-    public static final String HOME_PREFS_DO_SHOW = "do_show";
-
-    public static final String HOME_SHOW_NOTICE = "show";
-
-    private class HomePackageReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            buildHomeActivitiesList();
-            Index.getInstance(context).updateFromClassNameResource(
-                    HomeSettings.class.getName(), true, true);
-        }
-    }
-
+    private final IntentFilter mHomeFilter;
     private PreferenceGroup mPrefGroup;
     private PackageManager mPm;
     private ComponentName[] mHomeComponentSet;
     private ArrayList<HomeAppPreference> mPrefs;
+    OnClickListener mDeleteClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int index = (Integer) v.getTag();
+            uninstallApp(mPrefs.get(index));
+        }
+    };
     private HomeAppPreference mCurrentHome = null;
-    private final IntentFilter mHomeFilter;
+    OnClickListener mHomeClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int index = (Integer) v.getTag();
+            HomeAppPreference pref = mPrefs.get(index);
+            if (!pref.isChecked) {
+                makeCurrentHome(pref);
+            }
+        }
+    };
     private boolean mShowNotice;
     private HomePackageReceiver mHomePackageReceiver = new HomePackageReceiver();
 
@@ -96,25 +153,6 @@ public class HomeSettings extends SettingsPreferenceFragment implements Indexabl
         mHomeFilter.addCategory(Intent.CATEGORY_HOME);
         mHomeFilter.addCategory(Intent.CATEGORY_DEFAULT);
     }
-
-    OnClickListener mHomeClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            int index = (Integer)v.getTag();
-            HomeAppPreference pref = mPrefs.get(index);
-            if (!pref.isChecked) {
-                makeCurrentHome(pref);
-            }
-        }
-    };
-
-    OnClickListener mDeleteClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            int index = (Integer)v.getTag();
-            uninstallApp(mPrefs.get(index));
-        }
-    };
 
     void makeCurrentHome(HomeAppPreference newHome) {
         if (mCurrentHome != null) {
@@ -131,12 +169,12 @@ public class HomeSettings extends SettingsPreferenceFragment implements Indexabl
 
     void uninstallApp(HomeAppPreference pref) {
         // Uninstallation is done by asking the OS to do it
-       Uri packageURI = Uri.parse("package:" + pref.uninstallTarget);
-       Intent uninstallIntent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageURI);
-       uninstallIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
-       int requestCode = REQUESTING_UNINSTALL + (pref.isChecked ? 1 : 0);
-       startActivityForResult(uninstallIntent, requestCode);
-   }
+        Uri packageURI = Uri.parse("package:" + pref.uninstallTarget);
+        Intent uninstallIntent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageURI);
+        uninstallIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, false);
+        int requestCode = REQUESTING_UNINSTALL + (pref.isChecked ? 1 : 0);
+        startActivityForResult(uninstallIntent, requestCode);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -165,7 +203,7 @@ public class HomeSettings extends SettingsPreferenceFragment implements Indexabl
 
     private void buildHomeActivitiesList() {
         ArrayList<ResolveInfo> homeActivities = new ArrayList<ResolveInfo>();
-        ComponentName currentDefaultHome  = mPm.getHomeActivities(homeActivities);
+        ComponentName currentDefaultHome = mPm.getHomeActivities(homeActivities);
 
         Context context = getPrefContext();
         mCurrentHome = null;
@@ -191,7 +229,7 @@ public class HomeSettings extends SettingsPreferenceFragment implements Indexabl
                     pref = new HomeAppPreference(context, activityName, prefIndex,
                             icon, name, this, info, false /* not enabled */,
                             getResources().getString(R.string.home_work_profile_not_supported));
-                } else  {
+                } else {
                     pref = new HomeAppPreference(context, activityName, prefIndex,
                             icon, name, this, info, true /* enabled */, null);
                 }
@@ -213,9 +251,9 @@ public class HomeSettings extends SettingsPreferenceFragment implements Indexabl
             }
 
             new Handler().post(new Runnable() {
-               public void run() {
-                   mCurrentHome.setChecked(true);
-               }
+                public void run() {
+                    mCurrentHome.setChecked(true);
+                }
             });
         }
     }
@@ -281,19 +319,28 @@ public class HomeSettings extends SettingsPreferenceFragment implements Indexabl
         getActivity().unregisterReceiver(mHomePackageReceiver);
     }
 
+    private class HomePackageReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            buildHomeActivitiesList();
+            Index.getInstance(context).updateFromClassNameResource(
+                    HomeSettings.class.getName(), true, true);
+        }
+    }
+
     private class HomeAppPreference extends Preference {
+        final ColorFilter grayscaleFilter;
         ComponentName activityName;
         int index;
         HomeSettings fragment;
-        final ColorFilter grayscaleFilter;
         boolean isChecked;
 
         boolean isSystem;
         String uninstallTarget;
 
         public HomeAppPreference(Context context, ComponentName activity,
-                int i, Drawable icon, CharSequence title, HomeSettings parent, ActivityInfo info,
-                boolean enabled, CharSequence summary) {
+                                 int i, Drawable icon, CharSequence title, HomeSettings parent, ActivityInfo info,
+                                 boolean enabled, CharSequence summary) {
             super(context);
             setLayoutResource(R.layout.preference_home_app);
             setIcon(icon);
@@ -372,59 +419,4 @@ public class HomeSettings extends SettingsPreferenceFragment implements Indexabl
             }
         }
     }
-
-    /**
-     * For search
-     */
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider() {
-            @Override
-            public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
-                final List<SearchIndexableRaw> result = new ArrayList<SearchIndexableRaw>();
-
-                final PackageManager pm = context.getPackageManager();
-                final ArrayList<ResolveInfo> homeActivities = new ArrayList<ResolveInfo>();
-                pm.getHomeActivities(homeActivities);
-
-                final SharedPreferences sp = context.getSharedPreferences(
-                        HomeSettings.HOME_PREFS, Context.MODE_PRIVATE);
-                final boolean doShowHome = sp.getBoolean(HomeSettings.HOME_PREFS_DO_SHOW, false);
-
-                // We index Home Launchers only if there are more than one or if we are showing the
-                // Home tile into the Dashboard
-                if (homeActivities.size() > 1 || doShowHome) {
-                    final Resources res = context.getResources();
-
-                    // Add fragment title
-                    SearchIndexableRaw data = new SearchIndexableRaw(context);
-                    data.title = res.getString(R.string.home_settings);
-                    data.screenTitle = res.getString(R.string.home_settings);
-                    data.keywords = res.getString(R.string.keywords_home);
-                    result.add(data);
-
-                    for (int i = 0; i < homeActivities.size(); i++) {
-                        final ResolveInfo resolveInfo = homeActivities.get(i);
-                        final ActivityInfo activityInfo = resolveInfo.activityInfo;
-
-                        CharSequence name;
-                        try {
-                            name = activityInfo.loadLabel(pm);
-                            if (TextUtils.isEmpty(name)) {
-                                continue;
-                            }
-                        } catch (Exception e) {
-                            Log.v(TAG, "Problem dealing with Home " + activityInfo.name, e);
-                            continue;
-                        }
-
-                        data = new SearchIndexableRaw(context);
-                        data.title = name.toString();
-                        data.screenTitle = res.getString(R.string.home_settings);
-                        result.add(data);
-                    }
-                }
-
-                return result;
-            }
-        };
 }

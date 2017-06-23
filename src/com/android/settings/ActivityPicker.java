@@ -57,23 +57,23 @@ import java.util.List;
  */
 public class ActivityPicker extends AlertActivity implements
         DialogInterface.OnClickListener, DialogInterface.OnCancelListener {
-    
+
     /**
      * Adapter of items that are displayed in this dialog.
      */
     private PickAdapter mAdapter;
-    
+
     /**
      * Base {@link Intent} used when building list.
      */
     private Intent mBaseIntent;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         final Intent intent = getIntent();
-        
+
         // Read base intent from extras, otherwise assume default
         Parcelable parcel = intent.getParcelableExtra(Intent.EXTRA_INTENT);
         if (parcel instanceof Intent) {
@@ -87,14 +87,14 @@ public class ActivityPicker extends AlertActivity implements
         AlertController.AlertParams params = mAlertParams;
         params.mOnClickListener = this;
         params.mOnCancelListener = this;
-        
+
         // Use custom title if provided, otherwise default window title
         if (intent.hasExtra(Intent.EXTRA_TITLE)) {
             params.mTitle = intent.getStringExtra(Intent.EXTRA_TITLE);
         } else {
             params.mTitle = getTitle();
         }
-        
+
         // Build list adapter of pickable items
         List<PickAdapter.Item> items = getItems();
         mAdapter = new PickAdapter(this, items);
@@ -102,7 +102,7 @@ public class ActivityPicker extends AlertActivity implements
 
         setupAlert();
     }
-    
+
     /**
      * Handle clicking of dialog item by passing back
      * {@link #getIntentForPosition(int)} in {@link #setResult(int, Intent)}.
@@ -112,7 +112,7 @@ public class ActivityPicker extends AlertActivity implements
         setResult(Activity.RESULT_OK, intent);
         finish();
     }
-    
+
     /**
      * Handle canceled dialog by passing back {@link Activity#RESULT_CANCELED}.
      */
@@ -140,19 +140,19 @@ public class ActivityPicker extends AlertActivity implements
     protected List<PickAdapter.Item> getItems() {
         PackageManager packageManager = getPackageManager();
         List<PickAdapter.Item> items = new ArrayList<PickAdapter.Item>();
-        
+
         // Add any injected pick items
         final Intent intent = getIntent();
         ArrayList<String> labels =
-            intent.getStringArrayListExtra(Intent.EXTRA_SHORTCUT_NAME);
+                intent.getStringArrayListExtra(Intent.EXTRA_SHORTCUT_NAME);
         ArrayList<ShortcutIconResource> icons =
-            intent.getParcelableArrayListExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE);
-        
+                intent.getParcelableArrayListExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE);
+
         if (labels != null && icons != null && labels.size() == icons.size()) {
             for (int i = 0; i < labels.size(); i++) {
                 String label = labels.get(i);
                 Drawable icon = null;
-                
+
                 try {
                     // Try loading icon from requested package
                     ShortcutIconResource iconResource = icons.get(i);
@@ -163,7 +163,7 @@ public class ActivityPicker extends AlertActivity implements
                 } catch (NameNotFoundException e) {
                     // Ignore
                 }
-                
+
                 items.add(new PickAdapter.Item(this, label, icon));
             }
         }
@@ -172,105 +172,34 @@ public class ActivityPicker extends AlertActivity implements
         if (mBaseIntent != null) {
             putIntentItems(mBaseIntent, items);
         }
-        
+
         return items;
     }
 
     /**
-     * Fill the given list with any activities matching the base {@link Intent}. 
+     * Fill the given list with any activities matching the base {@link Intent}.
      */
     protected void putIntentItems(Intent baseIntent, List<PickAdapter.Item> items) {
         PackageManager packageManager = getPackageManager();
         List<ResolveInfo> list = packageManager.queryIntentActivities(baseIntent,
                 0 /* no flags */);
         Collections.sort(list, new ResolveInfo.DisplayNameComparator(packageManager));
-        
+
         final int listSize = list.size();
         for (int i = 0; i < listSize; i++) {
             ResolveInfo resolveInfo = list.get(i);
             items.add(new PickAdapter.Item(this, packageManager, resolveInfo));
         }
     }
-    
+
     /**
      * Adapter which shows the set of activities that can be performed for a
      * given {@link Intent}.
      */
     protected static class PickAdapter extends BaseAdapter {
-        
-        /**
-         * Item that appears in a {@link PickAdapter} list.
-         */
-        public static class Item implements AppWidgetLoader.LabelledItem {
-            protected static IconResizer sResizer;
-            
-            protected IconResizer getResizer(Context context) {
-                if (sResizer == null) {
-                    final Resources resources = context.getResources();
-                    int size = (int) resources.getDimension(android.R.dimen.app_icon_size);
-                    sResizer = new IconResizer(size, size, resources.getDisplayMetrics());
-                }
-                return sResizer;
-            }
-            
-            CharSequence label;
-            Drawable icon;
-            String packageName;
-            String className;
-            Bundle extras;
-            
-            /**
-             * Create a list item from given label and icon.
-             */
-            Item(Context context, CharSequence label, Drawable icon) {
-                this.label = label;
-                this.icon = getResizer(context).createIconThumbnail(icon);
-            }
 
-            /**
-             * Create a list item and fill it with details from the given
-             * {@link ResolveInfo} object.
-             */
-            Item(Context context, PackageManager pm, ResolveInfo resolveInfo) {
-                label = resolveInfo.loadLabel(pm);
-                if (label == null && resolveInfo.activityInfo != null) {
-                    label = resolveInfo.activityInfo.name;
-                }
-
-                icon = getResizer(context).createIconThumbnail(resolveInfo.loadIcon(pm));
-                packageName = resolveInfo.activityInfo.applicationInfo.packageName;
-                className = resolveInfo.activityInfo.name;
-            }
-
-            /**
-             * Build the {@link Intent} described by this item. If this item
-             * can't create a valid {@link android.content.ComponentName}, it will return
-             * {@link Intent#ACTION_CREATE_SHORTCUT} filled with the item label.
-             */
-            Intent getIntent(Intent baseIntent) {
-                Intent intent = new Intent(baseIntent);
-                if (packageName != null && className != null) {
-                    // Valid package and class, so fill details as normal intent
-                    intent.setClassName(packageName, className);
-                    if (extras != null) {
-                        intent.putExtras(extras);
-                    }
-                } else {
-                    // No valid package or class, so treat as shortcut with label
-                    intent.setAction(Intent.ACTION_CREATE_SHORTCUT);
-                    intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, label);
-                }
-                return intent;
-            }
-
-            public CharSequence getLabel() {
-                return label;
-            }
-        }
-        
         private final LayoutInflater mInflater;
         private final List<Item> mItems;
-        
         /**
          * Create an adapter for the given items.
          */
@@ -307,16 +236,84 @@ public class ActivityPicker extends AlertActivity implements
             if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.pick_item, parent, false);
             }
-            
+
             Item item = (Item) getItem(position);
             TextView textView = (TextView) convertView;
             textView.setText(item.label);
             textView.setCompoundDrawablesWithIntrinsicBounds(item.icon, null, null, null);
-            
+
             return convertView;
         }
+
+        /**
+         * Item that appears in a {@link PickAdapter} list.
+         */
+        public static class Item implements AppWidgetLoader.LabelledItem {
+            protected static IconResizer sResizer;
+            CharSequence label;
+            Drawable icon;
+            String packageName;
+            String className;
+            Bundle extras;
+            /**
+             * Create a list item from given label and icon.
+             */
+            Item(Context context, CharSequence label, Drawable icon) {
+                this.label = label;
+                this.icon = getResizer(context).createIconThumbnail(icon);
+            }
+
+            /**
+             * Create a list item and fill it with details from the given
+             * {@link ResolveInfo} object.
+             */
+            Item(Context context, PackageManager pm, ResolveInfo resolveInfo) {
+                label = resolveInfo.loadLabel(pm);
+                if (label == null && resolveInfo.activityInfo != null) {
+                    label = resolveInfo.activityInfo.name;
+                }
+
+                icon = getResizer(context).createIconThumbnail(resolveInfo.loadIcon(pm));
+                packageName = resolveInfo.activityInfo.applicationInfo.packageName;
+                className = resolveInfo.activityInfo.name;
+            }
+
+            protected IconResizer getResizer(Context context) {
+                if (sResizer == null) {
+                    final Resources resources = context.getResources();
+                    int size = (int) resources.getDimension(android.R.dimen.app_icon_size);
+                    sResizer = new IconResizer(size, size, resources.getDisplayMetrics());
+                }
+                return sResizer;
+            }
+
+            /**
+             * Build the {@link Intent} described by this item. If this item
+             * can't create a valid {@link android.content.ComponentName}, it will return
+             * {@link Intent#ACTION_CREATE_SHORTCUT} filled with the item label.
+             */
+            Intent getIntent(Intent baseIntent) {
+                Intent intent = new Intent(baseIntent);
+                if (packageName != null && className != null) {
+                    // Valid package and class, so fill details as normal intent
+                    intent.setClassName(packageName, className);
+                    if (extras != null) {
+                        intent.putExtras(extras);
+                    }
+                } else {
+                    // No valid package or class, so treat as shortcut with label
+                    intent.setAction(Intent.ACTION_CREATE_SHORTCUT);
+                    intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, label);
+                }
+                return intent;
+            }
+
+            public CharSequence getLabel() {
+                return label;
+            }
+        }
     }
-        
+
     /**
      * Utility class to resize icons to match default icon size. Code is mostly
      * borrowed from Launcher.
@@ -328,27 +325,26 @@ public class ActivityPicker extends AlertActivity implements
         private final DisplayMetrics mMetrics;
         private final Rect mOldBounds = new Rect();
         private final Canvas mCanvas = new Canvas();
-        
+
         public IconResizer(int width, int height, DisplayMetrics metrics) {
             mCanvas.setDrawFilter(new PaintFlagsDrawFilter(Paint.DITHER_FLAG,
                     Paint.FILTER_BITMAP_FLAG));
 
             mMetrics = metrics;
             mIconWidth = width;
-            mIconHeight = height; 
+            mIconHeight = height;
         }
 
         /**
          * Returns a Drawable representing the thumbnail of the specified Drawable.
          * The size of the thumbnail is defined by the dimension
          * android.R.dimen.launcher_application_icon_size.
-         *
+         * <p>
          * This method is not thread-safe and should be invoked on the UI thread only.
          *
          * @param icon The icon to get a thumbnail of.
-         *
          * @return A thumbnail for the specified icon or the icon itself if the
-         *         thumbnail could not be created. 
+         * thumbnail could not be created.
          */
         public Drawable createIconThumbnail(Drawable icon) {
             int width = mIconWidth;
@@ -357,7 +353,7 @@ public class ActivityPicker extends AlertActivity implements
             if (icon == null) {
                 return new EmptyDrawable(width, height);
             }
-            
+
             try {
                 if (icon instanceof PaintDrawable) {
                     PaintDrawable painter = (PaintDrawable) icon;
@@ -373,19 +369,19 @@ public class ActivityPicker extends AlertActivity implements
                 }
                 int iconWidth = icon.getIntrinsicWidth();
                 int iconHeight = icon.getIntrinsicHeight();
-    
+
                 if (iconWidth > 0 && iconHeight > 0) {
                     if (width < iconWidth || height < iconHeight) {
                         final float ratio = (float) iconWidth / iconHeight;
-    
+
                         if (iconWidth > iconHeight) {
                             height = (int) (width / ratio);
                         } else if (iconHeight > iconWidth) {
                             width = (int) (height * ratio);
                         }
-    
+
                         final Bitmap.Config c = icon.getOpacity() != PixelFormat.OPAQUE ?
-                                    Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565;
+                                Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565;
                         final Bitmap thumb = Bitmap.createBitmap(mIconWidth, mIconHeight, c);
                         final Canvas canvas = mCanvas;
                         canvas.setBitmap(thumb);
@@ -421,7 +417,7 @@ public class ActivityPicker extends AlertActivity implements
                         canvas.setBitmap(null);
                     }
                 }
-    
+
             } catch (Throwable t) {
                 icon = new EmptyDrawable(width, height);
             }

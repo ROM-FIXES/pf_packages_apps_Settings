@@ -18,13 +18,12 @@ package com.android.settings;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class AnimationScalePreference extends CustomDialogPreference
-    implements SeekBar.OnSeekBarChangeListener {
+        implements SeekBar.OnSeekBarChangeListener {
 
     private TextView mScaleText;
     private IntervalSeekBar mSeekBar;

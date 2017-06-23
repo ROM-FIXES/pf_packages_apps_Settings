@@ -4,16 +4,16 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import static com.android.internal.telephony.TelephonyIntents.SECRET_CODE_ACTION;
-
 import com.android.settings.Settings.TestingSettingsActivity;
+
+import static com.android.internal.telephony.TelephonyIntents.SECRET_CODE_ACTION;
 
 
 public class TestingSettingsBroadcastReceiver extends BroadcastReceiver {
-  
+
     public TestingSettingsBroadcastReceiver() {
     }
-    
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(SECRET_CODE_ACTION)) {

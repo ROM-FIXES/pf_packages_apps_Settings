@@ -44,14 +44,14 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
     }
 
     @Override
-    public void setChecked(boolean checked) {
-        mChecked = checked;
-        updateChecked();
+    public boolean isChecked() {
+        return mChecked;
     }
 
     @Override
-    public boolean isChecked() {
-        return mChecked;
+    public void setChecked(boolean checked) {
+        mChecked = checked;
+        updateChecked();
     }
 
     @Override

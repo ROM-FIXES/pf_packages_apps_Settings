@@ -33,8 +33,8 @@ import android.widget.LinearLayout;
 public class SetupChooseLockPassword extends ChooseLockPassword {
 
     public static Intent createIntent(Context context, int quality,
-            int minLength, final int maxLength, boolean requirePasswordToDecrypt,
-            boolean confirmCredentials) {
+                                      int minLength, final int maxLength, boolean requirePasswordToDecrypt,
+                                      boolean confirmCredentials) {
         Intent intent = ChooseLockPassword.createIntent(context, quality, minLength,
                 maxLength, requirePasswordToDecrypt, confirmCredentials);
         intent.setClass(context, SetupChooseLockPassword.class);
@@ -43,7 +43,7 @@ public class SetupChooseLockPassword extends ChooseLockPassword {
     }
 
     public static Intent createIntent(Context context, int quality,
-            int minLength, final int maxLength, boolean requirePasswordToDecrypt, String password) {
+                                      int minLength, final int maxLength, boolean requirePasswordToDecrypt, String password) {
         Intent intent = ChooseLockPassword.createIntent(context, quality, minLength, maxLength,
                 requirePasswordToDecrypt, password);
         intent.setClass(context, SetupChooseLockPassword.class);
@@ -52,7 +52,7 @@ public class SetupChooseLockPassword extends ChooseLockPassword {
     }
 
     public static Intent createIntent(Context context, int quality,
-            int minLength, final int maxLength, boolean requirePasswordToDecrypt, long challenge) {
+                                      int minLength, final int maxLength, boolean requirePasswordToDecrypt, long challenge) {
         Intent intent = ChooseLockPassword.createIntent(context, quality, minLength, maxLength,
                 requirePasswordToDecrypt, challenge);
         intent.setClass(context, SetupChooseLockPassword.class);

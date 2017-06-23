@@ -30,7 +30,7 @@ public class CustomDialogPreference extends DialogPreference {
     private CustomPreferenceDialogFragment mFragment;
 
     public CustomDialogPreference(Context context, AttributeSet attrs, int defStyleAttr,
-            int defStyleRes) {
+                                  int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -55,7 +55,7 @@ public class CustomDialogPreference extends DialogPreference {
     }
 
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder,
-            DialogInterface.OnClickListener listener) {
+                                          DialogInterface.OnClickListener listener) {
     }
 
     protected void onDialogClosed(boolean positiveResult) {

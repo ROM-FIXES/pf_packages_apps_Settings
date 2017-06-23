@@ -24,11 +24,10 @@ import android.widget.EditText;
 
 public class SelectableEditTextPreference extends CustomEditTextPreference {
 
-    private int mSelectionMode;
-
-    public static final int SELECTION_CURSOR_END   = 0;
+    public static final int SELECTION_CURSOR_END = 0;
     public static final int SELECTION_CURSOR_START = 1;
-    public static final int SELECTION_SELECT_ALL   = 2;
+    public static final int SELECTION_SELECT_ALL = 2;
+    private int mSelectionMode;
 
     public SelectableEditTextPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -36,9 +35,10 @@ public class SelectableEditTextPreference extends CustomEditTextPreference {
 
     /**
      * Sets the selection mode for the text when it shows up in the dialog
-     * @hide
+     *
      * @param selectionMode can be SELECTION_CURSOR_START, SELECTION_CURSOR_END or
-     * SELECTION_SELECT_ALL. Default is SELECTION_CURSOR_END
+     *                      SELECTION_SELECT_ALL. Default is SELECTION_CURSOR_END
+     * @hide
      */
     public void setInitialSelectionMode(int selectionMode) {
         mSelectionMode = selectionMode;
@@ -53,15 +53,15 @@ public class SelectableEditTextPreference extends CustomEditTextPreference {
         int length = editText.getText() != null ? editText.getText().length() : 0;
         if (!TextUtils.isEmpty(editText.getText())) {
             switch (mSelectionMode) {
-            case SELECTION_CURSOR_END:
-                editText.setSelection(length);
-                break;
-            case SELECTION_CURSOR_START:
-                editText.setSelection(0);
-                break;
-            case SELECTION_SELECT_ALL:
-                editText.setSelection(0, length);
-                break;
+                case SELECTION_CURSOR_END:
+                    editText.setSelection(length);
+                    break;
+                case SELECTION_CURSOR_START:
+                    editText.setSelection(0);
+                    break;
+                case SELECTION_SELECT_ALL:
+                    editText.setSelection(0, length);
+                    break;
             }
         }
     }

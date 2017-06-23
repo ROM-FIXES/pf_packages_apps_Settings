@@ -22,6 +22,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Display;
+
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.PreviewSeekBarPreferenceFragment;
 import com.android.settings.R;
@@ -38,6 +39,24 @@ import java.util.List;
  */
 public class ScreenZoomSettings extends PreviewSeekBarPreferenceFragment implements Indexable {
 
+    /**
+     * Index provider used to expose this fragment in search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
+                    final Resources res = context.getResources();
+                    final SearchIndexableRaw data = new SearchIndexableRaw(context);
+                    data.title = res.getString(R.string.screen_zoom_title);
+                    data.screenTitle = res.getString(R.string.screen_zoom_title);
+                    data.keywords = res.getString(R.string.screen_zoom_keywords);
+
+                    final List<SearchIndexableRaw> result = new ArrayList<>(1);
+                    result.add(data);
+                    return result;
+                }
+            };
     private int mDefaultDensity;
     private int[] mValues;
 
@@ -60,8 +79,8 @@ public class ScreenZoomSettings extends PreviewSeekBarPreferenceFragment impleme
             // connect to the window manager service. Just use the current
             // density and don't let the user change anything.
             final int densityDpi = getResources().getDisplayMetrics().densityDpi;
-            mValues = new int[] { densityDpi };
-            mEntries = new String[] { getString(DisplayDensityUtils.SUMMARY_DEFAULT) };
+            mValues = new int[]{densityDpi};
+            mEntries = new String[]{getString(DisplayDensityUtils.SUMMARY_DEFAULT)};
             mInitialIndex = 0;
             mDefaultDensity = densityDpi;
         } else {
@@ -97,21 +116,4 @@ public class ScreenZoomSettings extends PreviewSeekBarPreferenceFragment impleme
     protected int getMetricsCategory() {
         return MetricsEvent.DISPLAY_SCREEN_ZOOM;
     }
-
-    /** Index provider used to expose this fragment in search. */
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
-                    final Resources res = context.getResources();
-                    final SearchIndexableRaw data = new SearchIndexableRaw(context);
-                    data.title = res.getString(R.string.screen_zoom_title);
-                    data.screenTitle = res.getString(R.string.screen_zoom_title);
-                    data.keywords = res.getString(R.string.screen_zoom_keywords);
-
-                    final List<SearchIndexableRaw> result = new ArrayList<>(1);
-                    result.add(data);
-                    return result;
-                }
-            };
 }

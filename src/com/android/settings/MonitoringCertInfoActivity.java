@@ -58,7 +58,7 @@ public class MonitoringCertInfoActivity extends Activity implements OnClickListe
         builder.setTitle(title);
         builder.setCancelable(true);
         builder.setPositiveButton(getResources().getQuantityText(
-                R.plurals.ssl_ca_cert_settings_button, numberOfCertificates) , this);
+                R.plurals.ssl_ca_cert_settings_button, numberOfCertificates), this);
         builder.setNeutralButton(R.string.cancel, null);
         builder.setOnDismissListener(this);
 
@@ -69,7 +69,7 @@ public class MonitoringCertInfoActivity extends Activity implements OnClickListe
             builder.setMessage(getResources().getQuantityString(
                     R.plurals.ssl_ca_cert_info_message_device_owner, numberOfCertificates,
                     dpm.getDeviceOwnerNameOnAnyUser()));
-        } else  {
+        } else {
             // Consumer case.  Show scary warning.
             builder.setIcon(android.R.drawable.stat_notify_error);
             builder.setMessage(R.string.ssl_ca_cert_warning_message);

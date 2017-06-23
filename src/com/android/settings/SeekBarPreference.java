@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -119,10 +118,6 @@ public class SeekBarPreference extends RestrictedPreference
         }
     }
 
-    public void setProgress(int progress) {
-        setProgress(progress, true);
-    }
-
     private void setProgress(int progress, boolean notifyChanged) {
         if (progress > mMax) {
             progress = mMax;
@@ -141,6 +136,10 @@ public class SeekBarPreference extends RestrictedPreference
 
     public int getProgress() {
         return mProgress;
+    }
+
+    public void setProgress(int progress) {
+        setProgress(progress, true);
     }
 
     /**
@@ -223,6 +222,17 @@ public class SeekBarPreference extends RestrictedPreference
      * It is important to always call through to super methods.
      */
     private static class SavedState extends BaseSavedState {
+        @SuppressWarnings("unused")
+        public static final Parcelable.Creator<SavedState> CREATOR =
+                new Parcelable.Creator<SavedState>() {
+                    public SavedState createFromParcel(Parcel in) {
+                        return new SavedState(in);
+                    }
+
+                    public SavedState[] newArray(int size) {
+                        return new SavedState[size];
+                    }
+                };
         int progress;
         int max;
 
@@ -234,6 +244,10 @@ public class SeekBarPreference extends RestrictedPreference
             max = source.readInt();
         }
 
+        public SavedState(Parcelable superState) {
+            super(superState);
+        }
+
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
@@ -242,21 +256,5 @@ public class SeekBarPreference extends RestrictedPreference
             dest.writeInt(progress);
             dest.writeInt(max);
         }
-
-        public SavedState(Parcelable superState) {
-            super(superState);
-        }
-
-        @SuppressWarnings("unused")
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Parcelable.Creator<SavedState>() {
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
     }
 }

@@ -120,7 +120,7 @@ public class UserCredentialsSettings extends OptionsMenuFragment implements OnIt
                     .inflate(R.layout.user_credential_dialog, null);
             ViewGroup infoContainer = (ViewGroup) root.findViewById(R.id.credential_container);
             View view = new CredentialAdapter(getActivity(), R.layout.user_credential,
-                    new Credential[] {item}).getView(0, null, null);
+                    new Credential[]{item}).getView(0, null, null);
             infoContainer.addView(view);
 
             UserManager userManager
@@ -135,7 +135,8 @@ public class UserCredentialsSettings extends OptionsMenuFragment implements OnIt
             final int myUserId = UserHandle.myUserId();
             if (!RestrictedLockUtils.hasBaseUserRestriction(getContext(), restriction, myUserId)) {
                 DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
-                    @Override public void onClick(DialogInterface dialog, int id) {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
                         final EnforcedAdmin admin = RestrictedLockUtils.checkIfRestrictionEnforced(
                                 getContext(), restriction, myUserId);
                         if (admin != null) {
@@ -192,46 +193,10 @@ public class UserCredentialsSettings extends OptionsMenuFragment implements OnIt
     }
 
     /**
-     * Opens a background connection to KeyStore to list user credentials.
-     * The credentials are stored in a {@link CredentialAdapter} attached to the main
-     * {@link ListView} in the fragment.
-     */
-    private class AliasLoader extends AsyncTask<Void, Void, SortedMap<String, Credential>> {
-        @Override
-        protected SortedMap<String, Credential> doInBackground(Void... params) {
-            // Create a list of names for credential sets, ordered by name.
-            SortedMap<String, Credential> credentials = new TreeMap<>();
-            KeyStore keyStore = KeyStore.getInstance();
-            for (final Credential.Type type : Credential.Type.values()) {
-                for (final String alias : keyStore.list(type.prefix)) {
-                    // Do not show work profile keys in user credentials
-                    if (alias.startsWith(LockPatternUtils.PROFILE_KEY_NAME_ENCRYPT) ||
-                            alias.startsWith(LockPatternUtils.PROFILE_KEY_NAME_DECRYPT)) {
-                        continue;
-                    }
-                    Credential c = credentials.get(alias);
-                    if (c == null) {
-                        credentials.put(alias, (c = new Credential(alias)));
-                    }
-                    c.storedTypes.add(type);
-                }
-            }
-            return credentials;
-        }
-
-        @Override
-        protected void onPostExecute(SortedMap<String, Credential> credentials) {
-            // Convert the results to an array and present them using an ArrayAdapter.
-            mListView.setAdapter(new CredentialAdapter(getContext(), R.layout.user_credential,
-                    credentials.values().toArray(new Credential[0])));
-        }
-    }
-
-    /**
      * Helper class to display {@link Credential}s in a list.
      */
     private static class CredentialAdapter extends ArrayAdapter<Credential> {
-        public CredentialAdapter(Context context, int resource,  Credential[] objects) {
+        public CredentialAdapter(Context context, int resource, Credential[] objects) {
             super(context, resource, objects);
         }
 
@@ -254,19 +219,16 @@ public class UserCredentialsSettings extends OptionsMenuFragment implements OnIt
     }
 
     static class Credential implements Parcelable {
-        static enum Type {
-            CA_CERTIFICATE (Credentials.CA_CERTIFICATE),
-            USER_CERTIFICATE (Credentials.USER_CERTIFICATE),
-            USER_PRIVATE_KEY (Credentials.USER_PRIVATE_KEY),
-            USER_SECRET_KEY (Credentials.USER_SECRET_KEY);
-
-            final String prefix;
-
-            Type(String prefix) {
-                this.prefix = prefix;
+        public static final Parcelable.Creator<Credential> CREATOR
+                = new Parcelable.Creator<Credential>() {
+            public Credential createFromParcel(Parcel in) {
+                return new Credential(in);
             }
-        }
 
+            public Credential[] newArray(int size) {
+                return new Credential[size];
+            }
+        };
         /**
          * Main part of the credential's alias. To fetch an item from KeyStore, prepend one of the
          * prefixes from {@link CredentialItem.storedTypes}.
@@ -276,10 +238,10 @@ public class UserCredentialsSettings extends OptionsMenuFragment implements OnIt
         /**
          * Should contain some non-empty subset of:
          * <ul>
-         *   <li>{@link Credentials.CA_CERTIFICATE}</li>
-         *   <li>{@link Credentials.USER_CERTIFICATE}</li>
-         *   <li>{@link Credentials.USER_PRIVATE_KEY}</li>
-         *   <li>{@link Credentials.USER_SECRET_KEY}</li>
+         * <li>{@link Credentials.CA_CERTIFICATE}</li>
+         * <li>{@link Credentials.USER_CERTIFICATE}</li>
+         * <li>{@link Credentials.USER_PRIVATE_KEY}</li>
+         * <li>{@link Credentials.USER_SECRET_KEY}</li>
          * </ul>
          */
         final EnumSet<Type> storedTypes = EnumSet.noneOf(Type.class);
@@ -313,15 +275,53 @@ public class UserCredentialsSettings extends OptionsMenuFragment implements OnIt
             return 0;
         }
 
-        public static final Parcelable.Creator<Credential> CREATOR
-                = new Parcelable.Creator<Credential>() {
-            public Credential createFromParcel(Parcel in) {
-                return new Credential(in);
-            }
+        static enum Type {
+            CA_CERTIFICATE(Credentials.CA_CERTIFICATE),
+            USER_CERTIFICATE(Credentials.USER_CERTIFICATE),
+            USER_PRIVATE_KEY(Credentials.USER_PRIVATE_KEY),
+            USER_SECRET_KEY(Credentials.USER_SECRET_KEY);
 
-            public Credential[] newArray(int size) {
-                return new Credential[size];
+            final String prefix;
+
+            Type(String prefix) {
+                this.prefix = prefix;
             }
-        };
+        }
+    }
+
+    /**
+     * Opens a background connection to KeyStore to list user credentials.
+     * The credentials are stored in a {@link CredentialAdapter} attached to the main
+     * {@link ListView} in the fragment.
+     */
+    private class AliasLoader extends AsyncTask<Void, Void, SortedMap<String, Credential>> {
+        @Override
+        protected SortedMap<String, Credential> doInBackground(Void... params) {
+            // Create a list of names for credential sets, ordered by name.
+            SortedMap<String, Credential> credentials = new TreeMap<>();
+            KeyStore keyStore = KeyStore.getInstance();
+            for (final Credential.Type type : Credential.Type.values()) {
+                for (final String alias : keyStore.list(type.prefix)) {
+                    // Do not show work profile keys in user credentials
+                    if (alias.startsWith(LockPatternUtils.PROFILE_KEY_NAME_ENCRYPT) ||
+                            alias.startsWith(LockPatternUtils.PROFILE_KEY_NAME_DECRYPT)) {
+                        continue;
+                    }
+                    Credential c = credentials.get(alias);
+                    if (c == null) {
+                        credentials.put(alias, (c = new Credential(alias)));
+                    }
+                    c.storedTypes.add(type);
+                }
+            }
+            return credentials;
+        }
+
+        @Override
+        protected void onPostExecute(SortedMap<String, Credential> credentials) {
+            // Convert the results to an array and present them using an ArrayAdapter.
+            mListView.setAdapter(new CredentialAdapter(getContext(), R.layout.user_credential,
+                    credentials.values().toArray(new Credential[0])));
+        }
     }
 }

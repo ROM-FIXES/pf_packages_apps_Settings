@@ -47,12 +47,50 @@ import java.util.List;
 public class ScreenPinningSettings extends SettingsPreferenceFragment
         implements SwitchBar.OnSwitchChangeListener, Indexable {
 
+    /**
+     * For search
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
+                    final List<SearchIndexableRaw> result = new ArrayList<SearchIndexableRaw>();
+
+                    final Resources res = context.getResources();
+
+                    // Add fragment title
+                    SearchIndexableRaw data = new SearchIndexableRaw(context);
+                    data.title = res.getString(R.string.screen_pinning_title);
+                    data.screenTitle = res.getString(R.string.screen_pinning_title);
+                    result.add(data);
+
+                    if (isLockToAppEnabled(context)) {
+                        // Screen lock option
+                        data = new SearchIndexableRaw(context);
+                        data.title = res.getString(R.string.screen_pinning_unlock_none);
+                        data.screenTitle = res.getString(R.string.screen_pinning_title);
+                        result.add(data);
+                    } else {
+                        // Screen pinning description.
+                        data = new SearchIndexableRaw(context);
+                        data.title = res.getString(R.string.screen_pinning_description);
+                        data.screenTitle = res.getString(R.string.screen_pinning_title);
+                        result.add(data);
+                    }
+
+                    return result;
+                }
+            };
     private static final CharSequence KEY_USE_SCREEN_LOCK = "use_screen_lock";
     private static final int CHANGE_LOCK_METHOD_REQUEST = 43;
-
     private SwitchBar mSwitchBar;
     private SwitchPreference mUseScreenLock;
     private LockPatternUtils mLockPatternUtils;
+
+    private static boolean isLockToAppEnabled(Context context) {
+        return Settings.System.getInt(context.getContentResolver(),
+                Settings.System.LOCK_TO_APP_ENABLED, 0) != 0;
+    }
 
     @Override
     protected int getMetricsCategory() {
@@ -89,11 +127,6 @@ public class ScreenPinningSettings extends SettingsPreferenceFragment
 
         mSwitchBar.removeOnSwitchChangeListener(this);
         mSwitchBar.hide();
-    }
-
-    private static boolean isLockToAppEnabled(Context context) {
-        return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.LOCK_TO_APP_ENABLED, 0) != 0;
     }
 
     private void setLockToAppEnabled(boolean isEnabled) {
@@ -197,39 +230,4 @@ public class ScreenPinningSettings extends SettingsPreferenceFragment
             mUseScreenLock.setTitle(getCurrentSecurityTitle());
         }
     }
-
-    /**
-     * For search
-     */
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider() {
-            @Override
-            public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
-                final List<SearchIndexableRaw> result = new ArrayList<SearchIndexableRaw>();
-
-                final Resources res = context.getResources();
-
-                // Add fragment title
-                SearchIndexableRaw data = new SearchIndexableRaw(context);
-                data.title = res.getString(R.string.screen_pinning_title);
-                data.screenTitle = res.getString(R.string.screen_pinning_title);
-                result.add(data);
-
-                if (isLockToAppEnabled(context)) {
-                    // Screen lock option
-                    data = new SearchIndexableRaw(context);
-                    data.title = res.getString(R.string.screen_pinning_unlock_none);
-                    data.screenTitle = res.getString(R.string.screen_pinning_title);
-                    result.add(data);
-                } else {
-                    // Screen pinning description.
-                    data = new SearchIndexableRaw(context);
-                    data.title = res.getString(R.string.screen_pinning_description);
-                    data.screenTitle = res.getString(R.string.screen_pinning_title);
-                    result.add(data);
-                }
-
-                return result;
-            }
-        };
 }

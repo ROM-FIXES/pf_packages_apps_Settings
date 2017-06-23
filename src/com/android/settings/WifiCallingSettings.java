@@ -52,32 +52,15 @@ public class WifiCallingSettings extends SettingsPreferenceFragment
         implements SwitchBar.OnSwitchChangeListener,
         Preference.OnPreferenceChangeListener {
 
+    public static final String EXTRA_LAUNCH_CARRIER_APP = "EXTRA_LAUNCH_CARRIER_APP";
+    public static final int LAUCH_APP_ACTIVATE = 0;
+    public static final int LAUCH_APP_UPDATE = 1;
     private static final String TAG = "WifiCallingSettings";
-
     //String keys for preference lookup
     private static final String BUTTON_WFC_MODE = "wifi_calling_mode";
     private static final String BUTTON_WFC_ROAMING_MODE = "wifi_calling_roaming_mode";
     private static final String PREFERENCE_EMERGENCY_ADDRESS = "emergency_address_key";
-
     private static final int REQUEST_CHECK_WFC_EMERGENCY_ADDRESS = 1;
-
-    public static final String EXTRA_LAUNCH_CARRIER_APP = "EXTRA_LAUNCH_CARRIER_APP";
-
-    public static final int LAUCH_APP_ACTIVATE = 0;
-    public static final int LAUCH_APP_UPDATE = 1;
-
-    //UI objects
-    private SwitchBar mSwitchBar;
-    private Switch mSwitch;
-    private ListPreference mButtonWfcMode;
-    private ListPreference mButtonWfcRoamingMode;
-    private Preference mUpdateAddress;
-    private TextView mEmptyView;
-
-    private boolean mValidListener = false;
-    private boolean mEditableWfcMode = true;
-    private boolean mEditableWfcRoamingMode = true;
-
     private final PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
         /*
          * Enable/disable controls when in/out of a call and depending on
@@ -123,7 +106,6 @@ public class WifiCallingSettings extends SettingsPreferenceFragment
             }
         }
     };
-
     private final OnPreferenceClickListener mUpdateAddressListener =
             new OnPreferenceClickListener() {
                 /*
@@ -139,7 +121,83 @@ public class WifiCallingSettings extends SettingsPreferenceFragment
                     }
                     return true;
                 }
+            };
+    //UI objects
+    private SwitchBar mSwitchBar;
+    private Switch mSwitch;
+    private ListPreference mButtonWfcMode;
+    private ListPreference mButtonWfcRoamingMode;
+    private Preference mUpdateAddress;
+    private TextView mEmptyView;
+    private boolean mValidListener = false;
+    private boolean mEditableWfcMode = true;
+    private boolean mEditableWfcRoamingMode = true;
+    private IntentFilter mIntentFilter;
+    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(ImsManager.ACTION_IMS_REGISTRATION_ERROR)) {
+                // If this fragment is active then we are immediately
+                // showing alert on screen. There is no need to add
+                // notification in this case.
+                //
+                // In order to communicate to ImsPhone that it should
+                // not show notification, we are changing result code here.
+                setResultCode(Activity.RESULT_CANCELED);
+
+                // UX requirement is to disable WFC in case of "permanent" registration failures.
+                mSwitch.setChecked(false);
+
+                showAlert(intent);
+            }
+        }
     };
+
+    /*
+     * Get the Intent to launch carrier emergency address management activity.
+     * Return null when no activity found.
+     */
+    private static Intent getCarrierActivityIntent(Context context) {
+        // Retrive component name from carrirt config
+        CarrierConfigManager configManager = context.getSystemService(CarrierConfigManager.class);
+        if (configManager == null) return null;
+
+        PersistableBundle bundle = configManager.getConfig();
+        if (bundle == null) return null;
+
+        String carrierApp = bundle.getString(
+                CarrierConfigManager.KEY_WFC_EMERGENCY_ADDRESS_CARRIER_APP_STRING);
+        if (TextUtils.isEmpty(carrierApp)) return null;
+
+        ComponentName componentName = ComponentName.unflattenFromString(carrierApp);
+        if (componentName == null) return null;
+
+        // Build and return intent
+        Intent intent = new Intent();
+        intent.setComponent(componentName);
+        return intent;
+    }
+
+    static int getWfcModeSummary(Context context, int wfcMode) {
+        int resId = com.android.internal.R.string.wifi_calling_off_summary;
+        if (ImsManager.isWfcEnabledByUser(context)) {
+            switch (wfcMode) {
+                case ImsConfig.WfcModeFeatureValueConstants.WIFI_ONLY:
+                    resId = com.android.internal.R.string.wfc_mode_wifi_only_summary;
+                    break;
+                case ImsConfig.WfcModeFeatureValueConstants.CELLULAR_PREFERRED:
+                    resId = com.android.internal.R.string.wfc_mode_cellular_preferred_summary;
+                    break;
+                case ImsConfig.WfcModeFeatureValueConstants.WIFI_PREFERRED:
+                    resId = com.android.internal.R.string.wfc_mode_wifi_preferred_summary;
+                    break;
+                default:
+                    Log.e(TAG, "Unexpected WFC mode value: " + wfcMode);
+            }
+        }
+        return resId;
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -176,29 +234,6 @@ public class WifiCallingSettings extends SettingsPreferenceFragment
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-    private IntentFilter mIntentFilter;
-
-    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action.equals(ImsManager.ACTION_IMS_REGISTRATION_ERROR)) {
-                // If this fragment is active then we are immediately
-                // showing alert on screen. There is no need to add
-                // notification in this case.
-                //
-                // In order to communicate to ImsPhone that it should
-                // not show notification, we are changing result code here.
-                setResultCode(Activity.RESULT_CANCELED);
-
-                // UX requirement is to disable WFC in case of "permanent" registration failures.
-                mSwitch.setChecked(false);
-
-                showAlert(intent);
-            }
-        }
-    };
 
     @Override
     protected int getMetricsCategory() {
@@ -322,31 +357,6 @@ public class WifiCallingSettings extends SettingsPreferenceFragment
     }
 
     /*
-     * Get the Intent to launch carrier emergency address management activity.
-     * Return null when no activity found.
-     */
-    private static Intent getCarrierActivityIntent(Context context) {
-        // Retrive component name from carrirt config
-        CarrierConfigManager configManager = context.getSystemService(CarrierConfigManager.class);
-        if (configManager == null) return null;
-
-        PersistableBundle bundle = configManager.getConfig();
-        if (bundle == null) return null;
-
-        String carrierApp = bundle.getString(
-                CarrierConfigManager.KEY_WFC_EMERGENCY_ADDRESS_CARRIER_APP_STRING);
-        if (TextUtils.isEmpty(carrierApp)) return null;
-
-        ComponentName componentName = ComponentName.unflattenFromString(carrierApp);
-        if (componentName == null) return null;
-
-        // Build and return intent
-        Intent intent = new Intent();
-        intent.setComponent(componentName);
-        return intent;
-    }
-
-    /*
      * Turn on/off WFC mode with ImsManager and update UI accordingly
      */
     private void updateWfcMode(Context context, boolean wfcEnabled) {
@@ -442,25 +452,5 @@ public class WifiCallingSettings extends SettingsPreferenceFragment
             }
         }
         return true;
-    }
-
-    static int getWfcModeSummary(Context context, int wfcMode) {
-        int resId = com.android.internal.R.string.wifi_calling_off_summary;
-        if (ImsManager.isWfcEnabledByUser(context)) {
-            switch (wfcMode) {
-                case ImsConfig.WfcModeFeatureValueConstants.WIFI_ONLY:
-                    resId = com.android.internal.R.string.wfc_mode_wifi_only_summary;
-                    break;
-                case ImsConfig.WfcModeFeatureValueConstants.CELLULAR_PREFERRED:
-                    resId = com.android.internal.R.string.wfc_mode_cellular_preferred_summary;
-                    break;
-                case ImsConfig.WfcModeFeatureValueConstants.WIFI_PREFERRED:
-                    resId = com.android.internal.R.string.wfc_mode_wifi_preferred_summary;
-                    break;
-                default:
-                    Log.e(TAG, "Unexpected WFC mode value: " + wfcMode);
-            }
-        }
-        return resId;
     }
 }

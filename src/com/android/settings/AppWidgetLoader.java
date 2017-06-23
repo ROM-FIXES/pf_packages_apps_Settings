@@ -33,17 +33,12 @@ import java.util.List;
 public class AppWidgetLoader<Item extends AppWidgetLoader.LabelledItem> {
     private static final String TAG = "AppWidgetAdapter";
     private static final boolean LOGD = AppWidgetPickActivity.LOGD;
-
+    ItemConstructor<Item> mItemConstructor;
     private Context mContext;
     private AppWidgetManager mAppWidgetManager;
-    ItemConstructor<Item> mItemConstructor;
-
-    interface LabelledItem {
-        CharSequence getLabel();
-    }
 
     public AppWidgetLoader(Context context, AppWidgetManager appWidgetManager,
-            ItemConstructor<Item> itemConstructor) {
+                           ItemConstructor<Item> itemConstructor) {
         mContext = context;
         mAppWidgetManager = appWidgetManager;
         mItemConstructor = itemConstructor;
@@ -57,7 +52,8 @@ public class AppWidgetLoader<Item extends AppWidgetLoader.LabelledItem> {
         // get and validate the extras they gave us
         ArrayList<AppWidgetProviderInfo> customInfo = null;
         ArrayList<Bundle> customExtras = null;
-        try_custom_items: {
+        try_custom_items:
+        {
             customInfo = intent.getParcelableArrayListExtra(AppWidgetManager.EXTRA_CUSTOM_INFO);
             if (customInfo == null || customInfo.size() == 0) {
                 Log.i(TAG, "EXTRA_CUSTOM_INFO not present.");
@@ -65,7 +61,7 @@ public class AppWidgetLoader<Item extends AppWidgetLoader.LabelledItem> {
             }
 
             int customInfoSize = customInfo.size();
-            for (int i=0; i<customInfoSize; i++) {
+            for (int i = 0; i < customInfoSize; i++) {
                 Parcelable p = customInfo.get(i);
                 if (p == null || !(p instanceof AppWidgetProviderInfo)) {
                     customInfo = null;
@@ -91,7 +87,7 @@ public class AppWidgetLoader<Item extends AppWidgetLoader.LabelledItem> {
             }
 
 
-            for (int i=0; i<customExtrasSize; i++) {
+            for (int i = 0; i < customExtrasSize; i++) {
                 Parcelable p = customExtras.get(i);
                 if (p == null || !(p instanceof Bundle)) {
                     customInfo = null;
@@ -106,14 +102,13 @@ public class AppWidgetLoader<Item extends AppWidgetLoader.LabelledItem> {
         putAppWidgetItems(customInfo, customExtras, items, 0, true);
     }
 
-
     /**
      * Create list entries for the given {@link AppWidgetProviderInfo} widgets,
      * inserting extras if provided.
      */
     void putAppWidgetItems(List<AppWidgetProviderInfo> appWidgets,
-            List<Bundle> customExtras, List<Item> items, int categoryFilter,
-            boolean ignoreFilter) {
+                           List<Bundle> customExtras, List<Item> items, int categoryFilter,
+                           boolean ignoreFilter) {
         if (appWidgets == null) return;
         final int size = appWidgets.size();
         for (int i = 0; i < size; i++) {
@@ -130,11 +125,6 @@ public class AppWidgetLoader<Item extends AppWidgetLoader.LabelledItem> {
             items.add(item);
         }
     }
-
-    public interface ItemConstructor<Item> {
-        Item createItem(Context context, AppWidgetProviderInfo info, Bundle extras);
-    }
-
 
     /**
      * Build and return list of items to be shown in dialog. This will mix both
@@ -179,5 +169,14 @@ public class AppWidgetLoader<Item extends AppWidgetLoader.LabelledItem> {
         List<AppWidgetProviderInfo> installed =
                 mAppWidgetManager.getInstalledProviders(categoryFilter);
         putAppWidgetItems(installed, null, items, categoryFilter, false);
+    }
+
+
+    interface LabelledItem {
+        CharSequence getLabel();
+    }
+
+    public interface ItemConstructor<Item> {
+        Item createItem(Context context, AppWidgetProviderInfo info, Bundle extras);
     }
 }

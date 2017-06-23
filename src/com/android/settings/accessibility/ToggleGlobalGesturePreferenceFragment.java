@@ -34,7 +34,7 @@ public class ToggleGlobalGesturePreferenceFragment
     protected void onInstallSwitchBarToggleSwitch() {
         super.onInstallSwitchBarToggleSwitch();
         mToggleSwitch.setOnBeforeCheckedChangeListener(new OnBeforeCheckedChangeListener() {
-                @Override
+            @Override
             public boolean onBeforeCheckedChanged(ToggleSwitch toggleSwitch, boolean checked) {
                 mSwitchBar.setCheckedInternal(checked);
                 getArguments().putBoolean(AccessibilitySettings.EXTRA_CHECKED, checked);

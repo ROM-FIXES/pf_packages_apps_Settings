@@ -41,10 +41,75 @@ import java.util.Locale;
 public class CryptKeeperConfirm extends InstrumentedFragment {
 
     private static final String TAG = "CryptKeeperConfirm";
+    private View mContentView;
+    private Button mFinalButton;
+    private Button.OnClickListener mFinalClickListener = new Button.OnClickListener() {
+
+        public void onClick(View v) {
+            if (Utils.isMonkeyRunning()) {
+                return;
+            }
+
+            /* WARNING - nasty hack!
+               Settings for the lock screen are not available to the crypto
+               screen (CryptKeeper) at boot. We duplicate the ones that
+               CryptKeeper needs to the crypto key/value store when they are
+               modified (see LockPatternUtils).
+               However, prior to encryption, the crypto key/value store is not
+               persisted across reboots, thus modified settings are lost to
+               CryptKeeper.
+               In order to make sure CryptKeeper had the correct settings after
+               first encrypting, we thus need to rewrite them, which ensures the
+               crypto key/value store is up to date. On encryption, this store
+               is then persisted, and the settings will be there on future
+               reboots.
+             */
+
+            // 1. The owner info.
+            LockPatternUtils utils = new LockPatternUtils(getActivity());
+            utils.setVisiblePatternEnabled(
+                    utils.isVisiblePatternEnabled(UserHandle.USER_SYSTEM),
+                    UserHandle.USER_SYSTEM);
+            if (utils.isOwnerInfoEnabled(UserHandle.USER_SYSTEM)) {
+                utils.setOwnerInfo(utils.getOwnerInfo(UserHandle.USER_SYSTEM),
+                        UserHandle.USER_SYSTEM);
+            }
+            int value = Settings.System.getInt(getContext().getContentResolver(),
+                    Settings.System.TEXT_SHOW_PASSWORD,
+                    1);
+            utils.setVisiblePasswordEnabled(value != 0, UserHandle.USER_SYSTEM);
+
+            Intent intent = new Intent(getActivity(), Blank.class);
+            intent.putExtras(getArguments());
+            startActivity(intent);
+
+            // 2. The system locale.
+            try {
+                IBinder service = ServiceManager.getService("mount");
+                IMountService mountService = IMountService.Stub.asInterface(service);
+                mountService.setField("SystemLocale", Locale.getDefault().toLanguageTag());
+            } catch (Exception e) {
+                Log.e(TAG, "Error storing locale for decryption UI", e);
+            }
+        }
+    };
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.CRYPT_KEEPER_CONFIRM;
+    }
+
+    private void establishFinalConfirmationState() {
+        mFinalButton = (Button) mContentView.findViewById(R.id.execute_encrypt);
+        mFinalButton.setOnClickListener(mFinalClickListener);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        mContentView = inflater.inflate(R.layout.crypt_keeper_confirm, null);
+        establishFinalConfirmationState();
+        return mContentView;
     }
 
     public static class Blank extends Activity {
@@ -92,71 +157,5 @@ public class CryptKeeperConfirm extends InstrumentedFragment {
                 }
             }, 700);
         }
-    }
-
-    private View mContentView;
-    private Button mFinalButton;
-    private Button.OnClickListener mFinalClickListener = new Button.OnClickListener() {
-
-        public void onClick(View v) {
-            if (Utils.isMonkeyRunning()) {
-                return;
-            }
-
-            /* WARNING - nasty hack!
-               Settings for the lock screen are not available to the crypto
-               screen (CryptKeeper) at boot. We duplicate the ones that
-               CryptKeeper needs to the crypto key/value store when they are
-               modified (see LockPatternUtils).
-               However, prior to encryption, the crypto key/value store is not
-               persisted across reboots, thus modified settings are lost to
-               CryptKeeper.
-               In order to make sure CryptKeeper had the correct settings after
-               first encrypting, we thus need to rewrite them, which ensures the
-               crypto key/value store is up to date. On encryption, this store
-               is then persisted, and the settings will be there on future
-               reboots.
-             */
-
-            // 1. The owner info.
-            LockPatternUtils utils = new LockPatternUtils(getActivity());
-            utils.setVisiblePatternEnabled(
-                    utils.isVisiblePatternEnabled(UserHandle.USER_SYSTEM),
-                    UserHandle.USER_SYSTEM);
-            if (utils.isOwnerInfoEnabled(UserHandle.USER_SYSTEM)) {
-                utils.setOwnerInfo(utils.getOwnerInfo(UserHandle.USER_SYSTEM),
-                                   UserHandle.USER_SYSTEM);
-            }
-            int value = Settings.System.getInt(getContext().getContentResolver(),
-                                               Settings.System.TEXT_SHOW_PASSWORD,
-                                               1);
-            utils.setVisiblePasswordEnabled(value != 0, UserHandle.USER_SYSTEM);
-
-            Intent intent = new Intent(getActivity(), Blank.class);
-            intent.putExtras(getArguments());
-            startActivity(intent);
-
-            // 2. The system locale.
-            try {
-                IBinder service = ServiceManager.getService("mount");
-                IMountService mountService = IMountService.Stub.asInterface(service);
-                mountService.setField("SystemLocale", Locale.getDefault().toLanguageTag());
-            } catch (Exception e) {
-                Log.e(TAG, "Error storing locale for decryption UI", e);
-            }
-        }
-    };
-
-    private void establishFinalConfirmationState() {
-        mFinalButton = (Button) mContentView.findViewById(R.id.execute_encrypt);
-        mFinalButton.setOnClickListener(mFinalClickListener);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        mContentView = inflater.inflate(R.layout.crypt_keeper_confirm, null);
-        establishFinalConfirmationState();
-        return mContentView;
     }
 }

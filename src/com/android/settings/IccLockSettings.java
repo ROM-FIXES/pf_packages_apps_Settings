@@ -41,6 +41,7 @@ import android.widget.TabHost.TabContentFactory;
 import android.widget.TabHost.TabSpec;
 import android.widget.TabWidget;
 import android.widget.Toast;
+
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
@@ -53,7 +54,6 @@ import com.android.internal.telephony.TelephonyIntents;
  * In the Change PIN case, it prompts the user for old pin, new pin and new pin
  * again before attempting to change it. Calls the SimCard interface to execute
  * these operations.
- *
  */
 public class IccLockSettings extends SettingsPreferenceFragment
         implements EditPinPreference.OnPinEnteredListener {
@@ -86,32 +86,25 @@ public class IccLockSettings extends SettingsPreferenceFragment
 
     private static final int MIN_PIN_LENGTH = 4;
     private static final int MAX_PIN_LENGTH = 8;
+    // For async handler to identify request type
+    private static final int MSG_ENABLE_ICC_PIN_COMPLETE = 100;
+    private static final int MSG_CHANGE_ICC_PIN_COMPLETE = 101;
+    private static final int MSG_SIM_STATE_CHANGED = 102;
     // Which dialog to show next when popped up
     private int mDialogState = OFF_MODE;
-
     private String mPin;
     private String mOldPin;
     private String mNewPin;
     private String mError;
     // Are we trying to enable or disable ICC lock?
     private boolean mToState;
-
     private TabHost mTabHost;
     private TabWidget mTabWidget;
     private ListView mListView;
-
     private Phone mPhone;
-
     private EditPinPreference mPinDialog;
     private SwitchPreference mPinToggle;
-
     private Resources mRes;
-
-    // For async handler to identify request type
-    private static final int MSG_ENABLE_ICC_PIN_COMPLETE = 100;
-    private static final int MSG_CHANGE_ICC_PIN_COMPLETE = 101;
-    private static final int MSG_SIM_STATE_CHANGED = 102;
-
     // For replies from IccCard interface
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -138,6 +131,26 @@ public class IccLockSettings extends SettingsPreferenceFragment
             if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
                 mHandler.sendMessage(mHandler.obtainMessage(MSG_SIM_STATE_CHANGED));
             }
+        }
+    };
+    private OnTabChangeListener mTabListener = new OnTabChangeListener() {
+        @Override
+        public void onTabChanged(String tabId) {
+            final int slotId = Integer.parseInt(tabId);
+            final SubscriptionInfo sir = SubscriptionManager.from(getActivity().getBaseContext())
+                    .getActiveSubscriptionInfoForSimSlotIndex(slotId);
+
+            mPhone = (sir == null) ? null
+                    : PhoneFactory.getPhone(SubscriptionManager.getPhoneId(sir.getSubscriptionId()));
+
+            // The User has changed tab; update the body.
+            updatePreferences();
+        }
+    };
+    private TabContentFactory mEmptyTabContent = new TabContentFactory() {
+        @Override
+        public View createTabContent(String tag) {
+            return new View(mTabHost.getContext());
         }
     };
 
@@ -201,7 +214,7 @@ public class IccLockSettings extends SettingsPreferenceFragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
 
         final TelephonyManager tm =
                 (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
@@ -226,13 +239,13 @@ public class IccLockSettings extends SettingsPreferenceFragment
                 final SubscriptionInfo subInfo = sm.getActiveSubscriptionInfoForSimSlotIndex(i);
                 mTabHost.addTab(buildTabSpec(String.valueOf(i),
                         String.valueOf(subInfo == null
-                            ? getContext().getString(R.string.sim_editor_title, i + 1)
-                            : subInfo.getDisplayName())));
+                                ? getContext().getString(R.string.sim_editor_title, i + 1)
+                                : subInfo.getDisplayName())));
             }
             final SubscriptionInfo sir = sm.getActiveSubscriptionInfoForSimSlotIndex(0);
 
             mPhone = (sir == null) ? null
-                : PhoneFactory.getPhone(SubscriptionManager.getPhoneId(sir.getSubscriptionId()));
+                    : PhoneFactory.getPhone(SubscriptionManager.getPhoneId(sir.getSubscriptionId()));
             return view;
         } else {
             mPhone = PhoneFactory.getDefaultPhone();
@@ -489,28 +502,6 @@ public class IccLockSettings extends SettingsPreferenceFragment
         setDialogValues();
         mDialogState = OFF_MODE;
     }
-
-    private OnTabChangeListener mTabListener = new OnTabChangeListener() {
-        @Override
-        public void onTabChanged(String tabId) {
-            final int slotId = Integer.parseInt(tabId);
-            final SubscriptionInfo sir = SubscriptionManager.from(getActivity().getBaseContext())
-                    .getActiveSubscriptionInfoForSimSlotIndex(slotId);
-
-            mPhone = (sir == null) ? null
-                : PhoneFactory.getPhone(SubscriptionManager.getPhoneId(sir.getSubscriptionId()));
-
-            // The User has changed tab; update the body.
-            updatePreferences();
-        }
-    };
-
-    private TabContentFactory mEmptyTabContent = new TabContentFactory() {
-        @Override
-        public View createTabContent(String tag) {
-            return new View(mTabHost.getContext());
-        }
-    };
 
     private TabSpec buildTabSpec(String tag, String title) {
         return mTabHost.newTabSpec(tag).setIndicator(title).setContent(

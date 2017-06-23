@@ -9,7 +9,7 @@ import android.widget.Checkable;
 /**
  * A hybrid of AppListPreference and SwitchPreference, representing a preference which can be on or
  * off but must have a selected value when turned on.
- *
+ * <p>
  * It is invalid to show this preference when zero valid apps are present.
  */
 public class AppListSwitchPreference extends AppListPreference {

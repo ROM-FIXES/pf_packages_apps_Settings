@@ -30,13 +30,12 @@ public class VoiceInputOutputSettings {
 
     private static final String KEY_VOICE_CATEGORY = "voice_category";
     private static final String KEY_TTS_SETTINGS = "tts_settings";
-
+    private final SettingsPreferenceFragment mFragment;
+    private final TtsEngines mTtsEngines;
     private PreferenceGroup mParent;
     private PreferenceCategory mVoiceCategory;
     private Preference mVoiceInputSettingsPref;
     private Preference mTtsSettingsPref;
-    private final SettingsPreferenceFragment mFragment;
-    private final TtsEngines mTtsEngines;
 
     public VoiceInputOutputSettings(SettingsPreferenceFragment fragment) {
         mFragment = fragment;

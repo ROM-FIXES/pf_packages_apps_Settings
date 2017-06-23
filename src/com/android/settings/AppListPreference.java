@@ -64,50 +64,6 @@ public class AppListPreference extends CustomListPreference {
     private int componentCount;
     private int mSystemAppIndex = -1;
 
-    public class AppArrayAdapter extends ArrayAdapter<CharSequence> {
-        private Drawable[] mImageDrawables = null;
-        private int mSelectedIndex = 0;
-
-        public AppArrayAdapter(Context context, int textViewResourceId,
-                CharSequence[] objects, Drawable[] imageDrawables, int selectedIndex) {
-            super(context, textViewResourceId, objects);
-            mSelectedIndex = selectedIndex;
-            mImageDrawables = imageDrawables;
-        }
-
-        @Override
-        public boolean isEnabled(int position) {
-            return mSummaries == null || mSummaries[position] == null;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            View view = inflater.inflate(R.layout.app_preference_item, parent, false);
-            TextView textView = (TextView) view.findViewById(android.R.id.title);
-            textView.setText(getItem(position));
-            if (position == mSelectedIndex && position == mSystemAppIndex) {
-                view.findViewById(R.id.system_default_label).setVisibility(View.VISIBLE);
-            } else if (position == mSelectedIndex) {
-                view.findViewById(R.id.default_label).setVisibility(View.VISIBLE);
-            } else if (position == mSystemAppIndex) {
-                view.findViewById(R.id.system_label).setVisibility(View.VISIBLE);
-            }
-            ImageView imageView = (ImageView) view.findViewById(android.R.id.icon);
-            imageView.setImageDrawable(mImageDrawables[position]);
-            // Summaries are describing why a item is disabled, so anything with a summary
-            // is not enabled.
-            boolean enabled = mSummaries == null || mSummaries[position] == null;
-            view.setEnabled(enabled);
-            if (!enabled) {
-                TextView summary = (TextView) view.findViewById(android.R.id.summary);
-                summary.setText(mSummaries[position]);
-                summary.setVisibility(View.VISIBLE);
-            }
-            return view;
-        }
-    }
-
     public AppListPreference(Context context, AttributeSet attrs, int defStyle, int defAttrs) {
         super(context, attrs, defStyle, defAttrs);
 
@@ -137,7 +93,7 @@ public class AppListPreference extends CustomListPreference {
     }
 
     public void setPackageNames(CharSequence[] packageNames, CharSequence defaultPackageName,
-            CharSequence systemPackageName) {
+                                CharSequence systemPackageName) {
         // Look up all package names in PackageManager. Skip ones we can't find.
         PackageManager pm = getContext().getPackageManager();
         final int entryCount = packageNames.length + (mShowItemNone ? 1 : 0);
@@ -190,7 +146,7 @@ public class AppListPreference extends CustomListPreference {
     }
 
     public void setComponentNames(ComponentName[] componentNames, ComponentName defaultCN,
-            CharSequence[] summaries) {
+                                  CharSequence[] summaries) {
         mSummaries = summaries;
         // Look up all package names in PackageManager. Skip ones we can't find.
         PackageManager pm = getContext().getPackageManager();
@@ -235,7 +191,7 @@ public class AppListPreference extends CustomListPreference {
     }
 
     public void setComponentOrPackageNames(CharSequence[] charCoPNs, CharSequence charDefaultCoPN,
-            CharSequence[] summaries) {
+                                           CharSequence[] summaries) {
         // Get possible ComponentNames back from CharSequence
         ArrayList<ComponentName> componentOrPackageNames = new ArrayList<>();
         for (int i = 0; i < charCoPNs.length; i++) {
@@ -272,12 +228,12 @@ public class AppListPreference extends CustomListPreference {
                 (mShowItemNone && selectedValue.contentEquals(ITEM_NONE_VALUE));
         int selectedIndex = selectedNone ? -1 : findIndexOfValue(selectedValue);
         return new AppArrayAdapter(getContext(),
-            R.layout.app_preference_item, getEntries(), mEntryDrawables, selectedIndex);
+                R.layout.app_preference_item, getEntries(), mEntryDrawables, selectedIndex);
     }
 
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder,
-            DialogInterface.OnClickListener listener) {
+                                          DialogInterface.OnClickListener listener) {
         builder.setAdapter(createListAdapter(), listener);
     }
 
@@ -320,6 +276,22 @@ public class AppListPreference extends CustomListPreference {
 
     private static class SavedState implements Parcelable {
 
+        public static Creator<SavedState> CREATOR = new Creator<SavedState>() {
+            @Override
+            public SavedState createFromParcel(Parcel source) {
+                CharSequence[] entryValues = source.readCharSequenceArray();
+                CharSequence value = source.readCharSequence();
+                boolean showItemNone = source.readInt() != 0;
+                Parcelable superState = source.readParcelable(getClass().getClassLoader());
+                CharSequence[] summaries = source.readCharSequenceArray();
+                return new SavedState(entryValues, value, summaries, showItemNone, superState);
+            }
+
+            @Override
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
         public final CharSequence[] entryValues;
         public final CharSequence value;
         public final boolean showItemNone;
@@ -327,7 +299,7 @@ public class AppListPreference extends CustomListPreference {
         public final CharSequence[] summaries;
 
         public SavedState(CharSequence[] entryValues, CharSequence value, CharSequence[] summaries,
-                boolean showItemNone, Parcelable superState) {
+                          boolean showItemNone, Parcelable superState) {
             this.entryValues = entryValues;
             this.value = value;
             this.showItemNone = showItemNone;
@@ -348,22 +320,49 @@ public class AppListPreference extends CustomListPreference {
             dest.writeParcelable(superState, flags);
             dest.writeCharSequenceArray(summaries);
         }
+    }
 
-        public static Creator<SavedState> CREATOR = new Creator<SavedState>() {
-            @Override
-            public SavedState createFromParcel(Parcel source) {
-                CharSequence[] entryValues = source.readCharSequenceArray();
-                CharSequence value = source.readCharSequence();
-                boolean showItemNone = source.readInt() != 0;
-                Parcelable superState = source.readParcelable(getClass().getClassLoader());
-                CharSequence[] summaries = source.readCharSequenceArray();
-                return new SavedState(entryValues, value, summaries, showItemNone, superState);
-            }
+    public class AppArrayAdapter extends ArrayAdapter<CharSequence> {
+        private Drawable[] mImageDrawables = null;
+        private int mSelectedIndex = 0;
 
-            @Override
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
+        public AppArrayAdapter(Context context, int textViewResourceId,
+                               CharSequence[] objects, Drawable[] imageDrawables, int selectedIndex) {
+            super(context, textViewResourceId, objects);
+            mSelectedIndex = selectedIndex;
+            mImageDrawables = imageDrawables;
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            return mSummaries == null || mSummaries[position] == null;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            View view = inflater.inflate(R.layout.app_preference_item, parent, false);
+            TextView textView = (TextView) view.findViewById(android.R.id.title);
+            textView.setText(getItem(position));
+            if (position == mSelectedIndex && position == mSystemAppIndex) {
+                view.findViewById(R.id.system_default_label).setVisibility(View.VISIBLE);
+            } else if (position == mSelectedIndex) {
+                view.findViewById(R.id.default_label).setVisibility(View.VISIBLE);
+            } else if (position == mSystemAppIndex) {
+                view.findViewById(R.id.system_label).setVisibility(View.VISIBLE);
             }
-        };
+            ImageView imageView = (ImageView) view.findViewById(android.R.id.icon);
+            imageView.setImageDrawable(mImageDrawables[position]);
+            // Summaries are describing why a item is disabled, so anything with a summary
+            // is not enabled.
+            boolean enabled = mSummaries == null || mSummaries[position] == null;
+            view.setEnabled(enabled);
+            if (!enabled) {
+                TextView summary = (TextView) view.findViewById(android.R.id.summary);
+                summary.setText(mSummaries[position]);
+                summary.setVisibility(View.VISIBLE);
+            }
+            return view;
+        }
     }
 }

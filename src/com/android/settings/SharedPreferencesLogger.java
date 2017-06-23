@@ -14,8 +14,6 @@
 
 package com.android.settings;
 
-import com.android.internal.logging.MetricsLogger;
-
 import android.annotation.Nullable;
 import android.content.ComponentName;
 import android.content.Context;
@@ -23,7 +21,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.text.TextUtils;
-import android.util.Log;
+
+import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import java.util.Map;

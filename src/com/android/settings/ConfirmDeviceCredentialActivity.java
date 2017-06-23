@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2014 The Android Open Source Project
  *
@@ -34,9 +33,6 @@ import com.android.internal.widget.LockPatternUtils;
  */
 public class ConfirmDeviceCredentialActivity extends Activity {
     public static final String TAG = ConfirmDeviceCredentialActivity.class.getSimpleName();
-
-    public static class InternalActivity extends ConfirmDeviceCredentialActivity {
-    }
 
     public static Intent createIntent(CharSequence title, CharSequence details) {
         Intent intent = new Intent();
@@ -113,5 +109,8 @@ public class ConfirmDeviceCredentialActivity extends Activity {
         CharSequence organizationNameForUser = (dpm != null)
                 ? dpm.getOrganizationNameForUser(userId) : null;
         return organizationNameForUser != null ? organizationNameForUser.toString() : null;
+    }
+
+    public static class InternalActivity extends ConfirmDeviceCredentialActivity {
     }
 }

@@ -23,7 +23,6 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
 import android.support.v7.widget.RecyclerView;
@@ -42,12 +41,20 @@ import com.android.setupwizardlib.GlifPreferenceLayout;
 import java.util.List;
 
 public class EncryptionInterstitial extends SettingsActivity {
-    private static final String TAG = EncryptionInterstitial.class.getSimpleName();
-
+    public static final String EXTRA_REQUIRE_PASSWORD = "extra_require_password";
     protected static final String EXTRA_PASSWORD_QUALITY = "extra_password_quality";
     protected static final String EXTRA_UNLOCK_METHOD_INTENT = "extra_unlock_method_intent";
-    public static final String EXTRA_REQUIRE_PASSWORD = "extra_require_password";
+    private static final String TAG = EncryptionInterstitial.class.getSimpleName();
     private static final int CHOOSE_LOCK_REQUEST = 100;
+
+    public static Intent createStartIntent(Context ctx, int quality,
+                                           boolean requirePasswordDefault, Intent unlockMethodIntent) {
+        return new Intent(ctx, EncryptionInterstitial.class)
+                .putExtra(EXTRA_PASSWORD_QUALITY, quality)
+                .putExtra(EXTRA_SHOW_FRAGMENT_TITLE_RESID, R.string.encryption_interstitial_header)
+                .putExtra(EXTRA_REQUIRE_PASSWORD, requirePasswordDefault)
+                .putExtra(EXTRA_UNLOCK_METHOD_INTENT, unlockMethodIntent);
+    }
 
     @Override
     public Intent getIntent() {
@@ -59,15 +66,6 @@ public class EncryptionInterstitial extends SettingsActivity {
     @Override
     protected boolean isValidFragment(String fragmentName) {
         return EncryptionInterstitialFragment.class.getName().equals(fragmentName);
-    }
-
-    public static Intent createStartIntent(Context ctx, int quality,
-            boolean requirePasswordDefault, Intent unlockMethodIntent) {
-        return new Intent(ctx, EncryptionInterstitial.class)
-                .putExtra(EXTRA_PASSWORD_QUALITY, quality)
-                .putExtra(EXTRA_SHOW_FRAGMENT_TITLE_RESID, R.string.encryption_interstitial_header)
-                .putExtra(EXTRA_REQUIRE_PASSWORD, requirePasswordDefault)
-                .putExtra(EXTRA_UNLOCK_METHOD_INTENT, unlockMethodIntent);
     }
 
     @Override
@@ -169,7 +167,7 @@ public class EncryptionInterstitial extends SettingsActivity {
 
         @Override
         public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
-                Bundle savedInstanceState) {
+                                                 Bundle savedInstanceState) {
             GlifPreferenceLayout layout = (GlifPreferenceLayout) parent;
             return layout.onCreateRecyclerView(inflater, parent, savedInstanceState);
         }
@@ -214,7 +212,7 @@ public class EncryptionInterstitial extends SettingsActivity {
 
         @Override
         public Dialog onCreateDialog(int dialogId) {
-            switch(dialogId) {
+            switch (dialogId) {
                 case ACCESSIBILITY_WARNING_DIALOG: {
                     final int titleId;
                     final int messageId;
@@ -237,8 +235,8 @@ public class EncryptionInterstitial extends SettingsActivity {
 
                     List<AccessibilityServiceInfo> list =
                             AccessibilityManager.getInstance(getActivity())
-                            .getEnabledAccessibilityServiceList(
-                                    AccessibilityServiceInfo.FEEDBACK_ALL_MASK);
+                                    .getEnabledAccessibilityServiceList(
+                                            AccessibilityServiceInfo.FEEDBACK_ALL_MASK);
                     final CharSequence exampleAccessibility;
                     if (list.isEmpty()) {
                         // This should never happen.  But we shouldn't crash
@@ -248,14 +246,15 @@ public class EncryptionInterstitial extends SettingsActivity {
                                 .loadLabel(getPackageManager());
                     }
                     return new AlertDialog.Builder(getActivity())
-                        .setTitle(titleId)
-                        .setMessage(getString(messageId, exampleAccessibility))
-                        .setCancelable(true)
-                        .setPositiveButton(android.R.string.ok, this)
-                        .setNegativeButton(android.R.string.cancel, this)
-                        .create();
+                            .setTitle(titleId)
+                            .setMessage(getString(messageId, exampleAccessibility))
+                            .setCancelable(true)
+                            .setPositiveButton(android.R.string.ok, this)
+                            .setNegativeButton(android.R.string.cancel, this)
+                            .create();
                 }
-                default: throw new IllegalArgumentException();
+                default:
+                    throw new IllegalArgumentException();
             }
         }
 

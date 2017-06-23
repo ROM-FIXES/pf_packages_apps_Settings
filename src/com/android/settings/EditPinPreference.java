@@ -28,12 +28,8 @@ import android.widget.EditText;
  */
 class EditPinPreference extends CustomEditTextPreference {
 
-    interface OnPinEnteredListener {
-        void onPinEntered(EditPinPreference preference, boolean positiveResult);
-    }
-    
     private OnPinEnteredListener mPinListener;
-    
+
     public EditPinPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -41,7 +37,7 @@ class EditPinPreference extends CustomEditTextPreference {
     public EditPinPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-    
+
     public void setOnPinEnteredListener(OnPinEnteredListener listener) {
         mPinListener = listener;
     }
@@ -76,5 +72,9 @@ class EditPinPreference extends CustomEditTextPreference {
         if (dialog == null || !dialog.isShowing()) {
             onClick();
         }
+    }
+
+    interface OnPinEnteredListener {
+        void onPinEntered(EditPinPreference preference, boolean positiveResult);
     }
 }

@@ -42,13 +42,6 @@ import java.util.List;
 import java.util.function.IntConsumer;
 
 class TrustedCredentialsDialogBuilder extends AlertDialog.Builder {
-    public interface DelegateInterface {
-        List<X509Certificate> getX509CertsFromCertHolder(CertHolder certHolder);
-        void removeOrInstallCert(CertHolder certHolder);
-        boolean startConfirmCredentialIfNotConfirmed(int userId,
-                IntConsumer onCredentialConfirmedListener);
-    }
-
     private final DialogEventHandler mDialogEventHandler;
 
     public TrustedCredentialsDialogBuilder(Activity activity, DelegateInterface delegate) {
@@ -85,8 +78,17 @@ class TrustedCredentialsDialogBuilder extends AlertDialog.Builder {
         setNegativeButton(android.R.string.ok, null);
     }
 
+    public interface DelegateInterface {
+        List<X509Certificate> getX509CertsFromCertHolder(CertHolder certHolder);
+
+        void removeOrInstallCert(CertHolder certHolder);
+
+        boolean startConfirmCredentialIfNotConfirmed(int userId,
+                                                     IntConsumer onCredentialConfirmedListener);
+    }
+
     private static class DialogEventHandler implements DialogInterface.OnShowListener,
-            View.OnClickListener  {
+            View.OnClickListener {
         private static final long OUT_DURATION_MS = 300;
         private static final long IN_DURATION_MS = 200;
 
@@ -112,6 +114,20 @@ class TrustedCredentialsDialogBuilder extends AlertDialog.Builder {
 
             mRootContainer = new LinearLayout(mActivity);
             mRootContainer.setOrientation(LinearLayout.VERTICAL);
+        }
+
+        private static int getButtonConfirmation(CertHolder certHolder) {
+            return certHolder.isSystemCert() ? (certHolder.isDeleted()
+                    ? R.string.trusted_credentials_enable_confirmation
+                    : R.string.trusted_credentials_disable_confirmation)
+                    : R.string.trusted_credentials_remove_confirmation;
+        }
+
+        private static int getButtonLabel(CertHolder certHolder) {
+            return certHolder.isSystemCert() ? (certHolder.isDeleted()
+                    ? R.string.trusted_credentials_enable_label
+                    : R.string.trusted_credentials_disable_label)
+                    : R.string.trusted_credentials_remove_label;
         }
 
         public void setDialog(AlertDialog dialog) {
@@ -255,7 +271,6 @@ class TrustedCredentialsDialogBuilder extends AlertDialog.Builder {
             return button;
         }
 
-
         private void updateViewContainer() {
             CertHolder certHolder = getCurrentCertInfo();
             LinearLayout nextCertLayout = getCertLayout(certHolder);
@@ -270,7 +285,7 @@ class TrustedCredentialsDialogBuilder extends AlertDialog.Builder {
         }
 
         private LinearLayout getCertLayout(final CertHolder certHolder) {
-            final ArrayList<View> views =  new ArrayList<View>();
+            final ArrayList<View> views = new ArrayList<View>();
             final ArrayList<String> titles = new ArrayList<String>();
             List<X509Certificate> certificates = mDelegate.getX509CertsFromCertHolder(certHolder);
             if (certificates != null) {
@@ -290,7 +305,7 @@ class TrustedCredentialsDialogBuilder extends AlertDialog.Builder {
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position,
-                        long id) {
+                                           long id) {
                     for (int i = 0; i < views.size(); i++) {
                         views.get(i).setVisibility(i == position ? View.VISIBLE : View.GONE);
                     }
@@ -312,20 +327,6 @@ class TrustedCredentialsDialogBuilder extends AlertDialog.Builder {
             }
 
             return certLayout;
-        }
-
-        private static int getButtonConfirmation(CertHolder certHolder) {
-            return certHolder.isSystemCert() ? ( certHolder.isDeleted()
-                        ? R.string.trusted_credentials_enable_confirmation
-                        : R.string.trusted_credentials_disable_confirmation )
-                    : R.string.trusted_credentials_remove_confirmation;
-        }
-
-        private static int getButtonLabel(CertHolder certHolder) {
-            return certHolder.isSystemCert() ? ( certHolder.isDeleted()
-                        ? R.string.trusted_credentials_enable_label
-                        : R.string.trusted_credentials_disable_label )
-                    : R.string.trusted_credentials_remove_label;
         }
 
         /* Animation code */
@@ -354,10 +355,10 @@ class TrustedCredentialsDialogBuilder extends AlertDialog.Builder {
             mRootContainer.removeAllViews();
             mRootContainer.addView(nextCertLayout);
 
-            mRootContainer.addOnLayoutChangeListener( new View.OnLayoutChangeListener() {
+            mRootContainer.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                 @Override
                 public void onLayoutChange(View v, int left, int top, int right, int bottom,
-                        int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                                           int oldLeft, int oldTop, int oldRight, int oldBottom) {
                     mRootContainer.removeOnLayoutChangeListener(this);
 
                     // Animate slide in from the right

@@ -48,13 +48,28 @@ public final class SupportDisclaimerDialogFragment extends DialogFragment implem
     private static final String EXTRA_ACCOUNT = "extra_account";
 
     public static SupportDisclaimerDialogFragment newInstance(Account account,
-            @SupportFeatureProvider.SupportType int type) {
+                                                              @SupportFeatureProvider.SupportType int type) {
         final SupportDisclaimerDialogFragment fragment = new SupportDisclaimerDialogFragment();
         final Bundle bundle = new Bundle(2);
         bundle.putParcelable(SupportDisclaimerDialogFragment.EXTRA_ACCOUNT, account);
         bundle.putInt(SupportDisclaimerDialogFragment.EXTRA_TYPE, type);
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    /**
+     * Removes the underlines of {@link android.text.style.URLSpan}s.
+     */
+    private static void stripUnderlines(Spannable input) {
+        final URLSpan[] urls = input.getSpans(0, input.length(), URLSpan.class);
+
+        for (URLSpan span : urls) {
+            final int start = input.getSpanStart(span);
+            final int end = input.getSpanEnd(span);
+            input.removeSpan(span);
+            input.setSpan(new NoUnderlineUrlSpan(span.getURL()), start, end,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
     }
 
     @Override
@@ -100,21 +115,6 @@ public final class SupportDisclaimerDialogFragment extends DialogFragment implem
         super.onCancel(dialog);
         MetricsLogger.action(getContext(),
                 MetricsProto.MetricsEvent.ACTION_SUPPORT_DISCLAIMER_CANCEL);
-    }
-
-    /**
-     * Removes the underlines of {@link android.text.style.URLSpan}s.
-     */
-    private static void stripUnderlines(Spannable input) {
-        final URLSpan[] urls = input.getSpans(0, input.length(), URLSpan.class);
-
-        for (URLSpan span : urls) {
-            final int start = input.getSpanStart(span);
-            final int end = input.getSpanEnd(span);
-            input.removeSpan(span);
-            input.setSpan(new NoUnderlineUrlSpan(span.getURL()), start, end,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
     }
 
     /**

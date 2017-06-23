@@ -27,35 +27,46 @@ import android.content.Intent;
  * {@link android.app.admin.DevicePolicyManager#PASSWORD_QUALITY_MANAGED}.
  */
 public class ManagedLockPasswordProvider {
-    /** Factory method to make it easier to inject extended ManagedLockPasswordProviders. */
+    protected ManagedLockPasswordProvider() {
+    }
+
+    /**
+     * Factory method to make it easier to inject extended ManagedLockPasswordProviders.
+     */
     static ManagedLockPasswordProvider get(Context context, int userId) {
         return new ManagedLockPasswordProvider();
     }
-
-    protected ManagedLockPasswordProvider() {}
 
     /**
      * Whether choosing/setting a managed lock password is supported for the user.
      * Please update {@link #getPickerOptionTitle(boolean)} if overridden to return true.
      */
-    boolean isSettingManagedPasswordSupported() { return false; }
+    boolean isSettingManagedPasswordSupported() {
+        return false;
+    }
 
     /**
      * Whether the user should be able to choose managed lock password.
      */
-    boolean isManagedPasswordChoosable() { return false; }
+    boolean isManagedPasswordChoosable() {
+        return false;
+    }
 
     /**
      * Returns title for managed password preference in security (lock) setting picker.
      * Should be overridden if {@link #isManagedPasswordSupported()} returns true.
+     *
      * @param forFingerprint Whether fingerprint unlock is enabled.
      */
-    String getPickerOptionTitle(boolean forFingerprint) { return ""; }
+    String getPickerOptionTitle(boolean forFingerprint) {
+        return "";
+    }
 
     /**
      * Gets resource id of the lock screen preference that should be displayed in security settings
      * if the current password quality is set to
      * {@link android.app.admin.DevicePolicyManager#PASSWORD_QUALITY_MANAGED}.
+     *
      * @param forProfile Whether the settings are shown for a user profile rather than a user.
      */
     int getResIdForLockUnlockScreen(boolean forProfile) {
@@ -75,8 +86,9 @@ public class ManagedLockPasswordProvider {
     /**
      * Creates intent that should be launched when user chooses managed password in the lock
      * settings picker.
+     *
      * @param requirePasswordToDecrypt Whether a password is needed to decrypt the user.
-     * @param password Current lock password.
+     * @param password                 Current lock password.
      * @return Intent that should update lock password to a managed password.
      */
     Intent createIntent(boolean requirePasswordToDecrypt, String password) {

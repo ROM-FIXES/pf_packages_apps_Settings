@@ -50,7 +50,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -65,19 +64,16 @@ import java.util.ArrayList;
 
 public class ApnSettings extends RestrictedSettingsFragment implements
         Preference.OnPreferenceChangeListener {
-    static final String TAG = "ApnSettings";
-
     public static final String EXTRA_POSITION = "position";
     public static final String RESTORE_CARRIERS_URI =
-        "content://telephony/carriers/restore";
+            "content://telephony/carriers/restore";
     public static final String PREFERRED_APN_URI =
-        "content://telephony/carriers/preferapn";
-
+            "content://telephony/carriers/preferapn";
     public static final String APN_ID = "apn_id";
     public static final String SUB_ID = "sub_id";
     public static final String MVNO_TYPE = "mvno_type";
     public static final String MVNO_MATCH_DATA = "mvno_match_data";
-
+    static final String TAG = "ApnSettings";
     private static final int ID_INDEX = 0;
     private static final int NAME_INDEX = 1;
     private static final int APN_INDEX = 2;
@@ -114,13 +110,6 @@ public class ApnSettings extends RestrictedSettingsFragment implements
     private boolean mUnavailable;
 
     private boolean mHideImsApn;
-    private boolean mAllowAddingApns;
-    private boolean mApnSettingsHidden;
-
-    public ApnSettings() {
-        super(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS);
-    }
-
     private final BroadcastReceiver mMobileStateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -128,17 +117,23 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                     TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED)) {
                 PhoneConstants.DataState state = getMobileDataState(intent);
                 switch (state) {
-                case CONNECTED:
-                    if (!mRestoreDefaultApnMode) {
-                        fillList();
-                    } else {
-                        showDialog(DIALOG_RESTORE_DEFAULTAPN);
-                    }
-                    break;
+                    case CONNECTED:
+                        if (!mRestoreDefaultApnMode) {
+                            fillList();
+                        } else {
+                            showDialog(DIALOG_RESTORE_DEFAULTAPN);
+                        }
+                        break;
                 }
             }
         }
     };
+    private boolean mAllowAddingApns;
+    private boolean mApnSettingsHidden;
+
+    public ApnSettings() {
+        super(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS);
+    }
 
     private static PhoneConstants.DataState getMobileDataState(Intent intent) {
         String str = intent.getStringExtra(PhoneConstants.STATE_KEY);
@@ -240,7 +235,7 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         final UserHandle user = UserHandle.of(mUserManager.getUserHandle());
         if (mUserManager.hasUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS, user)
                 && !mUserManager.hasBaseUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS,
-                        user)) {
+                user)) {
             return EnforcedAdmin.MULTIPLE_ENFORCED_ADMIN;
         }
         return null;
@@ -249,7 +244,7 @@ public class ApnSettings extends RestrictedSettingsFragment implements
     private void fillList() {
         final TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         final String mccmnc = mSubscriptionInfo == null ? ""
-            : tm.getSimOperator(mSubscriptionInfo.getSubscriptionId());
+                : tm.getSimOperator(mSubscriptionInfo.getSubscriptionId());
         Log.d(TAG, "mccmnc = " + mccmnc);
         StringBuilder where = new StringBuilder("numeric=\"" + mccmnc +
                 "\" AND NOT (type='ia' AND (apn=\"\" OR apn IS NULL)) AND user_visible!=0");
@@ -258,8 +253,8 @@ public class ApnSettings extends RestrictedSettingsFragment implements
             where.append(" AND NOT (type='ims')");
         }
 
-        Cursor cursor = getContentResolver().query(Telephony.Carriers.CONTENT_URI, new String[] {
-                "_id", "name", "apn", "type", "mvno_type", "mvno_match_data"}, where.toString(),
+        Cursor cursor = getContentResolver().query(Telephony.Carriers.CONTENT_URI, new String[]{
+                        "_id", "name", "apn", "type", "mvno_type", "mvno_match_data"}, where.toString(),
                 null, Telephony.Carriers.DEFAULT_SORT_ORDER);
 
         if (cursor != null) {
@@ -359,13 +354,13 @@ public class ApnSettings extends RestrictedSettingsFragment implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case MENU_NEW:
-            addNewApn();
-            return true;
+            case MENU_NEW:
+                addNewApn();
+                return true;
 
-        case MENU_RESTORE:
-            restoreDefaultApn();
-            return true;
+            case MENU_RESTORE:
+                restoreDefaultApn();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -401,19 +396,10 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         return true;
     }
 
-    private void setSelectedApnKey(String key) {
-        mSelectedKey = key;
-        ContentResolver resolver = getContentResolver();
-
-        ContentValues values = new ContentValues();
-        values.put(APN_ID, mSelectedKey);
-        resolver.update(PREFERAPN_URI, values, null, null);
-    }
-
     private String getSelectedApnKey() {
         String key = null;
 
-        Cursor cursor = getContentResolver().query(PREFERAPN_URI, new String[] {"_id"},
+        Cursor cursor = getContentResolver().query(PREFERAPN_URI, new String[]{"_id"},
                 null, null, Telephony.Carriers.DEFAULT_SORT_ORDER);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
@@ -421,6 +407,15 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         }
         cursor.close();
         return key;
+    }
+
+    private void setSelectedApnKey(String key) {
+        mSelectedKey = key;
+        ContentResolver resolver = getContentResolver();
+
+        ContentValues values = new ContentValues();
+        values.put(APN_ID, mSelectedKey);
+        resolver.update(PREFERAPN_URI, values, null, null);
     }
 
     private boolean restoreDefaultApn() {
@@ -432,7 +427,7 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         }
 
         if (mRestoreApnProcessHandler == null ||
-            mRestoreDefaultApnThread == null) {
+                mRestoreDefaultApnThread == null) {
             mRestoreDefaultApnThread = new HandlerThread(
                     "Restore default APN Handler: Process Thread");
             mRestoreDefaultApnThread.start();
@@ -443,6 +438,21 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         mRestoreApnProcessHandler
                 .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_START);
         return true;
+    }
+
+    @Override
+    public Dialog onCreateDialog(int id) {
+        if (id == DIALOG_RESTORE_DEFAULTAPN) {
+            ProgressDialog dialog = new ProgressDialog(getActivity()) {
+                public boolean onTouchEvent(MotionEvent event) {
+                    return true;
+                }
+            };
+            dialog.setMessage(getResources().getString(R.string.restore_default_apn));
+            dialog.setCancelable(false);
+            return dialog;
+        }
+        return null;
     }
 
     private class RestoreApnUiHandler extends Handler {
@@ -462,10 +472,10 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                     // dismiss the dialog with state loss.
                     removeDialog(DIALOG_RESTORE_DEFAULTAPN, mApnSettingsHidden);
                     Toast.makeText(
-                        activity,
-                        getResources().getString(
-                                R.string.restore_default_apn_completed),
-                        Toast.LENGTH_LONG).show();
+                            activity,
+                            getResources().getString(
+                                    R.string.restore_default_apn_completed),
+                            Toast.LENGTH_LONG).show();
                     break;
             }
         }
@@ -486,24 +496,9 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                     ContentResolver resolver = getContentResolver();
                     resolver.delete(DEFAULTAPN_URI, null, null);
                     mRestoreApnUiHandler
-                        .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_COMPLETE);
+                            .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_COMPLETE);
                     break;
             }
         }
-    }
-
-    @Override
-    public Dialog onCreateDialog(int id) {
-        if (id == DIALOG_RESTORE_DEFAULTAPN) {
-            ProgressDialog dialog = new ProgressDialog(getActivity()) {
-                public boolean onTouchEvent(MotionEvent event) {
-                    return true;
-                }
-            };
-            dialog.setMessage(getResources().getString(R.string.restore_default_apn));
-            dialog.setCancelable(false);
-            return dialog;
-        }
-        return null;
     }
 }

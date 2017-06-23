@@ -39,7 +39,7 @@ import com.android.setupwizardlib.GlifPreferenceLayout;
 public class SetupEncryptionInterstitial extends EncryptionInterstitial {
 
     public static Intent createStartIntent(Context ctx, int quality,
-            boolean requirePasswordDefault, Intent unlockMethodIntent) {
+                                           boolean requirePasswordDefault, Intent unlockMethodIntent) {
         Intent startIntent = EncryptionInterstitial.createStartIntent(ctx, quality,
                 requirePasswordDefault, unlockMethodIntent);
         startIntent.setClass(ctx, SetupEncryptionInterstitial.class);

@@ -34,6 +34,14 @@ public class CopyablePreference extends Preference {
         this(context, null);
     }
 
+    public static void copyPreference(Context context, CopyablePreference pref) {
+        ClipboardManager cm =
+                (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        cm.setText(pref.getCopyableText());
+        Toast.makeText(context, com.android.internal.R.string.text_copied, Toast.LENGTH_SHORT)
+                .show();
+    }
+
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
@@ -51,13 +59,5 @@ public class CopyablePreference extends Preference {
 
     public CharSequence getCopyableText() {
         return getSummary();
-    }
-
-    public static void copyPreference(Context context, CopyablePreference pref) {
-        ClipboardManager cm =
-                (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        cm.setText(pref.getCopyableText());
-        Toast.makeText(context, com.android.internal.R.string.text_copied, Toast.LENGTH_SHORT)
-                .show();
     }
 }

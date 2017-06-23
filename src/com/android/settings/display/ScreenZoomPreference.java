@@ -16,13 +16,13 @@
 
 package com.android.settings.display;
 
-import com.android.settingslib.display.DisplayDensityUtils;
-
 import android.content.Context;
 import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v7.preference.PreferenceGroup;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+
+import com.android.settingslib.display.DisplayDensityUtils;
 
 /**
  * Preference for changing the density of the display on which the preference

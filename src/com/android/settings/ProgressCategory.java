@@ -41,7 +41,7 @@ public class ProgressCategory extends ProgressCategoryBase {
     }
 
     public ProgressCategory(Context context, AttributeSet attrs,
-            int defStyleAttr) {
+                            int defStyleAttr) {
         this(context, attrs, defStyleAttr, 0);
     }
 

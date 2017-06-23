@@ -38,17 +38,17 @@ public class AppHeader {
     private static final int INSTALLED_APP_DETAILS = 1;
 
     public static void createAppHeader(SettingsPreferenceFragment fragment, Drawable icon,
-            CharSequence label, String pkgName, int uid) {
+                                       CharSequence label, String pkgName, int uid) {
         createAppHeader(fragment, icon, label, pkgName, uid, 0, null);
     }
 
     public static void createAppHeader(SettingsPreferenceFragment fragment, Drawable icon,
-            CharSequence label, String pkgName, int uid, Intent externalSettings) {
+                                       CharSequence label, String pkgName, int uid, Intent externalSettings) {
         createAppHeader(fragment, icon, label, pkgName, uid, 0, externalSettings);
     }
 
     public static void createAppHeader(Activity activity, Drawable icon, CharSequence label,
-            String pkgName, int uid, ViewGroup pinnedHeader) {
+                                       String pkgName, int uid, ViewGroup pinnedHeader) {
         final View bar = activity.getLayoutInflater().inflate(R.layout.app_header,
                 pinnedHeader, false);
         setupHeaderView(activity, icon, label, pkgName, uid, false, 0, bar, null);
@@ -56,21 +56,21 @@ public class AppHeader {
     }
 
     public static void createAppHeader(SettingsPreferenceFragment fragment, Drawable icon,
-            CharSequence label, String pkgName, int uid, int tintColorRes) {
+                                       CharSequence label, String pkgName, int uid, int tintColorRes) {
         createAppHeader(fragment, icon, label, pkgName, uid, tintColorRes, null);
     }
 
     public static void createAppHeader(SettingsPreferenceFragment fragment, Drawable icon,
-            CharSequence label, String pkgName, int uid, int tintColorRes,
-            Intent externalSettings) {
+                                       CharSequence label, String pkgName, int uid, int tintColorRes,
+                                       Intent externalSettings) {
         View bar = fragment.setPinnedHeaderView(R.layout.app_header);
         setupHeaderView(fragment.getActivity(), icon, label, pkgName, uid, includeAppInfo(fragment),
                 tintColorRes, bar, externalSettings);
     }
 
     public static View setupHeaderView(final Activity activity, Drawable icon, CharSequence label,
-            final String pkgName, final int uid, final boolean includeAppInfo, int tintColorRes,
-            View bar, final Intent externalSettings) {
+                                       final String pkgName, final int uid, final boolean includeAppInfo, int tintColorRes,
+                                       View bar, final Intent externalSettings) {
         final ImageView appIcon = (ImageView) bar.findViewById(R.id.app_icon);
         appIcon.setImageDrawable(icon);
         if (tintColorRes != 0) {

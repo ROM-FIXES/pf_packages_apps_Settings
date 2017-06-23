@@ -47,7 +47,7 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
  * has defined one, followed by a final strongly-worded "THIS WILL RESET EVERYTHING"
  * prompt.  If at any time the phone is allowed to go to sleep, is
  * locked, et cetera, then the confirmation sequence is abandoned.
- *
+ * <p>
  * This is the confirmation screen.
  */
 public class ResetNetworkConfirm extends OptionsMenuFragment {
@@ -120,7 +120,7 @@ public class ResetNetworkConfirm extends OptionsMenuFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         final EnforcedAdmin admin = RestrictedLockUtils.checkIfRestrictionEnforced(
                 getActivity(), UserManager.DISALLOW_NETWORK_RESET, UserHandle.myUserId());
         if (RestrictedLockUtils.hasBaseUserRestriction(getActivity(),

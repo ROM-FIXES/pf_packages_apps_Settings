@@ -27,7 +27,7 @@ public class TestingSettings extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         addPreferencesFromResource(R.xml.testing_settings);
 
         final UserManager um = UserManager.get(getContext());

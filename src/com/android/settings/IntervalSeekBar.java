@@ -3,7 +3,6 @@ package com.android.settings;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.SeekBar;
 
 /**
@@ -68,12 +67,12 @@ public class IntervalSeekBar extends SeekBar {
         return mMin;
     }
 
-    public float getMaximum() {
-        return mMax;
+    public void setMinimum(float min) {
+        mMin = min;
     }
 
-    public float getDefault() {
-        return mDefault;
+    public float getMaximum() {
+        return mMax;
     }
 
     public void setMaximum(float max) {
@@ -81,7 +80,7 @@ public class IntervalSeekBar extends SeekBar {
         setMax(convertFloatToProgress(mMax));
     }
 
-    public void setMinimum(float min) {
-        mMin = min;
+    public float getDefault() {
+        return mDefault;
     }
 }

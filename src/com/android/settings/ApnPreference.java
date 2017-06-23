@@ -34,23 +34,19 @@ import android.widget.RelativeLayout;
 public class ApnPreference extends Preference implements
         CompoundButton.OnCheckedChangeListener, OnClickListener {
     final static String TAG = "ApnPreference";
-
-    public ApnPreference(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
-
-    public ApnPreference(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.apnPreferenceStyle);
-    }
-
-    public ApnPreference(Context context) {
-        this(context, null);
-    }
-
     private static String mSelectedKey = null;
     private static CompoundButton mCurrentChecked = null;
     private boolean mProtectFromCheckedChange = false;
     private boolean mSelectable = true;
+    public ApnPreference(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+    public ApnPreference(Context context, AttributeSet attrs) {
+        this(context, attrs, R.attr.apnPreferenceStyle);
+    }
+    public ApnPreference(Context context) {
+        this(context, null);
+    }
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder view) {
@@ -121,11 +117,11 @@ public class ApnPreference extends Preference implements
         }
     }
 
-    public void setSelectable(boolean selectable) {
-        mSelectable = selectable;
-    }
-
     public boolean getSelectable() {
         return mSelectable;
+    }
+
+    public void setSelectable(boolean selectable) {
+        mSelectable = selectable;
     }
 }

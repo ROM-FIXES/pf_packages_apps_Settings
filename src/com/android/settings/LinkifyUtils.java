@@ -34,20 +34,16 @@ public class LinkifyUtils {
     private LinkifyUtils() {
     }
 
-    /** Interface that handles the click event of the link */
-    public interface OnClickListener {
-        void onClick();
-    }
-
     /**
      * Applies the text into the {@link TextView} and part of it a clickable link.
      * The text surrounded with "LINK_BEGIN" and "LINK_END" will become a clickable link. Only
      * supports at most one link.
+     *
      * @return true if the link has been successfully applied, or false if the original text
-     *         contains no link place holders.
+     * contains no link place holders.
      */
     public static boolean linkify(TextView textView, StringBuilder text,
-            final OnClickListener listener) {
+                                  final OnClickListener listener) {
         // Remove place-holders from the string and record their positions
         final int beginIndex = text.indexOf(PLACE_HOLDER_LINK_BEGIN);
         if (beginIndex == -1) {
@@ -80,5 +76,12 @@ public class LinkifyUtils {
         spannableContent.setSpan(spannableLink, beginIndex, endIndex,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         return true;
+    }
+
+    /**
+     * Interface that handles the click event of the link
+     */
+    public interface OnClickListener {
+        void onClick();
     }
 }

@@ -32,7 +32,7 @@ import android.os.UserHandle;
 public class SetupChooseLockPattern extends ChooseLockPattern {
 
     public static Intent createIntent(Context context, boolean requirePassword,
-            boolean confirmCredentials) {
+                                      boolean confirmCredentials) {
         Intent intent = ChooseLockPattern.createIntent(context, requirePassword,
                 confirmCredentials, UserHandle.myUserId());
         intent.setClass(context, SetupChooseLockPattern.class);

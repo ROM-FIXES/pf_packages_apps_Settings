@@ -44,12 +44,11 @@ import java.util.List;
  * otherwise it will return the requested extras.
  */
 public class AppWidgetPickActivity extends ActivityPicker
-    implements AppWidgetLoader.ItemConstructor<PickAdapter.Item>{
-    private static final String TAG = "AppWidgetPickActivity";
+        implements AppWidgetLoader.ItemConstructor<PickAdapter.Item> {
     static final boolean LOGD = false;
-
+    private static final String TAG = "AppWidgetPickActivity";
     List<PickAdapter.Item> mItems;
-    
+
     /**
      * The allocated {@link AppWidgetManager#EXTRA_APPWIDGET_ID} that this
      * activity is binding.
@@ -64,13 +63,13 @@ public class AppWidgetPickActivity extends ActivityPicker
         mPackageManager = getPackageManager();
         mAppWidgetManager = AppWidgetManager.getInstance(this);
         mAppWidgetLoader = new AppWidgetLoader<PickAdapter.Item>
-            (this, mAppWidgetManager, this);
-        
+                (this, mAppWidgetManager, this);
+
         super.onCreate(icicle);
-        
+
         // Set default return data
         setResultData(RESULT_CANCELED, null);
-        
+
         // Read the appWidgetId passed our direction, otherwise bail if not found
         final Intent intent = getIntent();
         if (intent.hasExtra(AppWidgetManager.EXTRA_APPWIDGET_ID)) {
@@ -116,7 +115,7 @@ public class AppWidgetPickActivity extends ActivityPicker
                     default:
                         // The density is some abnormal value.  Return some other
                         // abnormal value that is a reasonable scaling of it.
-                        iconDensity = (int)((density*0.75f)+.5f);
+                        iconDensity = (int) ((density * 0.75f) + .5f);
                 }
                 Resources packageResources = mPackageManager.
                         getResourcesForApplication(info.provider.getPackageName());

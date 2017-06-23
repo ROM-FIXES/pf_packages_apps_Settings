@@ -35,6 +35,36 @@ import java.util.List;
 
 public class WallpaperTypeSettings extends SettingsPreferenceFragment implements Indexable {
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
+                    final List<SearchIndexableRaw> result = new ArrayList<SearchIndexableRaw>();
+
+                    final Intent intent = new Intent(Intent.ACTION_SET_WALLPAPER);
+                    final PackageManager pm = context.getPackageManager();
+                    final List<ResolveInfo> rList = pm.queryIntentActivities(intent,
+                            PackageManager.MATCH_DEFAULT_ONLY);
+
+                    // Add indexable data for each of the matching activities
+                    for (ResolveInfo info : rList) {
+                        CharSequence label = info.loadLabel(pm);
+                        if (label == null) label = info.activityInfo.packageName;
+
+                        SearchIndexableRaw data = new SearchIndexableRaw(context);
+                        data.title = label.toString();
+                        data.screenTitle = context.getResources().getString(
+                                R.string.wallpaper_settings_fragment_title);
+                        data.intentAction = Intent.ACTION_SET_WALLPAPER;
+                        data.intentTargetPackage = info.activityInfo.packageName;
+                        data.intentTargetClass = info.activityInfo.name;
+                        result.add(data);
+                    }
+
+                    return result;
+                }
+            };
+
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.WALLPAPER_TYPE;
@@ -77,34 +107,4 @@ public class WallpaperTypeSettings extends SettingsPreferenceFragment implements
             parent.addPreference(pref);
         }
     }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider() {
-            @Override
-            public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
-                final List<SearchIndexableRaw> result = new ArrayList<SearchIndexableRaw>();
-
-                final Intent intent = new Intent(Intent.ACTION_SET_WALLPAPER);
-                final PackageManager pm = context.getPackageManager();
-                final List<ResolveInfo> rList = pm.queryIntentActivities(intent,
-                        PackageManager.MATCH_DEFAULT_ONLY);
-
-                // Add indexable data for each of the matching activities
-                for (ResolveInfo info : rList) {
-                    CharSequence label = info.loadLabel(pm);
-                    if (label == null) label = info.activityInfo.packageName;
-
-                    SearchIndexableRaw data = new SearchIndexableRaw(context);
-                    data.title = label.toString();
-                    data.screenTitle = context.getResources().getString(
-                            R.string.wallpaper_settings_fragment_title);
-                    data.intentAction = Intent.ACTION_SET_WALLPAPER;
-                    data.intentTargetPackage = info.activityInfo.packageName;
-                    data.intentTargetClass = info.activityInfo.name;
-                    result.add(data);
-                }
-
-                return result;
-            }
-        };
 }

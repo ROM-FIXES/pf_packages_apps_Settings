@@ -48,20 +48,11 @@ import java.util.TimeZone;
  */
 public class ZonePicker extends ListFragment {
     private static final String TAG = "ZonePicker";
-
-    public interface ZoneSelectionListener {
-        // You can add any argument if you really need it...
-        void onZoneSelected(TimeZone tz);
-    }
-
-    private static final int MENU_TIMEZONE = Menu.FIRST+1;
+    private static final int MENU_TIMEZONE = Menu.FIRST + 1;
     private static final int MENU_ALPHABETICAL = Menu.FIRST;
-
     private boolean mSortedByTimezone;
-
     private SimpleAdapter mTimezoneSortedAdapter;
     private SimpleAdapter mAlphabeticalAdapter;
-
     private ZoneSelectionListener mListener;
 
     /**
@@ -70,7 +61,7 @@ public class ZonePicker extends ListFragment {
      * @param sortedByName use Name for sorting the list.
      */
     public static SimpleAdapter constructTimezoneAdapter(Context context,
-            boolean sortedByName) {
+                                                         boolean sortedByName) {
         return constructTimezoneAdapter(context, sortedByName,
                 R.layout.date_time_setup_custom_list_item_2);
     }
@@ -81,9 +72,9 @@ public class ZonePicker extends ListFragment {
      * @param sortedByName use Name for sorting the list.
      */
     public static SimpleAdapter constructTimezoneAdapter(Context context,
-            boolean sortedByName, int layoutId) {
-        final String[] from = new String[] {ZoneGetter.KEY_DISPLAYNAME, ZoneGetter.KEY_GMT};
-        final int[] to = new int[] {android.R.id.text1, android.R.id.text2};
+                                                         boolean sortedByName, int layoutId) {
+        final String[] from = new String[]{ZoneGetter.KEY_DISPLAYNAME, ZoneGetter.KEY_GMT};
+        final int[] to = new int[]{android.R.id.text1, android.R.id.text2};
 
         final String sortKey = (sortedByName ? ZoneGetter.KEY_DISPLAYNAME : ZoneGetter.KEY_OFFSET);
         final MyComparator comparator = new MyComparator(sortKey);
@@ -103,8 +94,8 @@ public class ZonePicker extends ListFragment {
      * the index for the TimeZone.
      *
      * @param adapter SimpleAdapter constructed by
-     * {@link #constructTimezoneAdapter(Context, boolean)}.
-     * @param tz TimeZone to be searched.
+     *                {@link #constructTimezoneAdapter(Context, boolean)}.
+     * @param tz      TimeZone to be searched.
      * @return Index for the given TimeZone. -1 when there's no corresponding list item.
      * returned.
      */
@@ -113,8 +104,8 @@ public class ZonePicker extends ListFragment {
         final int listSize = adapter.getCount();
         for (int i = 0; i < listSize; i++) {
             // Using HashMap<String, Object> induces unnecessary warning.
-            final HashMap<?,?> map = (HashMap<?,?>)adapter.getItem(i);
-            final String id = (String)map.get(ZoneGetter.KEY_ID);
+            final HashMap<?, ?> map = (HashMap<?, ?>) adapter.getItem(i);
+            final String id = (String) map.get(ZoneGetter.KEY_ID);
             if (defaultId.equals(id)) {
                 // If current timezone is in this list, move focus to it
                 return i;
@@ -125,11 +116,11 @@ public class ZonePicker extends ListFragment {
 
     /**
      * @param item one of items in adapters. The adapter should be constructed by
-     * {@link #constructTimezoneAdapter(Context, boolean)}.
+     *             {@link #constructTimezoneAdapter(Context, boolean)}.
      * @return TimeZone object corresponding to the item.
      */
     public static TimeZone obtainTimeZoneFromItem(Object item) {
-        return TimeZone.getTimeZone((String)((Map<?, ?>)item).get(ZoneGetter.KEY_ID));
+        return TimeZone.getTimeZone((String) ((Map<?, ?>) item).get(ZoneGetter.KEY_ID));
     }
 
     @Override
@@ -147,7 +138,7 @@ public class ZonePicker extends ListFragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         final View view = super.onCreateView(inflater, container, savedInstanceState);
         final ListView list = (ListView) view.findViewById(android.R.id.list);
         Utils.forcePrepareCustomPreferencesList(container, view, list, false);
@@ -157,9 +148,9 @@ public class ZonePicker extends ListFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_ALPHABETICAL, 0, R.string.zone_list_menu_sort_alphabetically)
-            .setIcon(android.R.drawable.ic_menu_sort_alphabetically);
+                .setIcon(android.R.drawable.ic_menu_sort_alphabetically);
         menu.add(0, MENU_TIMEZONE, 0, R.string.zone_list_menu_sort_by_timezone)
-            .setIcon(R.drawable.ic_menu_3d_globe);
+                .setIcon(R.drawable.ic_menu_3d_globe);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -210,7 +201,7 @@ public class ZonePicker extends ListFragment {
     public void onListItemClick(ListView listView, View v, int position, long id) {
         // Ignore extra clicks
         if (!isResumed()) return;
-        final Map<?, ?> map = (Map<?, ?>)listView.getItemAtPosition(position);
+        final Map<?, ?> map = (Map<?, ?>) listView.getItemAtPosition(position);
         final String tzId = (String) map.get(ZoneGetter.KEY_ID);
 
         // Update the system timezone value
@@ -223,6 +214,11 @@ public class ZonePicker extends ListFragment {
         } else {
             getActivity().onBackPressed();
         }
+    }
+
+    public interface ZoneSelectionListener {
+        // You can add any argument if you really need it...
+        void onZoneSelected(TimeZone tz);
     }
 
     private static class MyComparator implements Comparator<Map<?, ?>> {

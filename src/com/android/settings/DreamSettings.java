@@ -50,8 +50,8 @@ import java.util.List;
 
 public class DreamSettings extends SettingsPreferenceFragment implements
         SwitchBar.OnSwitchChangeListener {
-    private static final String TAG = DreamSettings.class.getSimpleName();
     static final boolean DEBUG = false;
+    private static final String TAG = DreamSettings.class.getSimpleName();
     private static final int DIALOG_WHEN_TO_DREAM = 1;
     private static final String PACKAGE_SCHEME = "package";
 
@@ -62,6 +62,33 @@ public class DreamSettings extends SettingsPreferenceFragment implements
     private SwitchBar mSwitchBar;
     private MenuItem[] mMenuItemsWhenEnabled;
     private boolean mRefreshing;
+
+    public static int getSummaryResource(Context context) {
+        DreamBackend backend = new DreamBackend(context);
+        boolean isEnabled = backend.isEnabled();
+        boolean activatedOnSleep = backend.isActivatedOnSleep();
+        boolean activatedOnDock = backend.isActivatedOnDock();
+        boolean activatedOnEither = activatedOnSleep && activatedOnDock;
+        return !isEnabled ? R.string.screensaver_settings_summary_off
+                : activatedOnEither ? R.string.screensaver_settings_summary_either_long
+                : activatedOnSleep ? R.string.screensaver_settings_summary_sleep
+                : activatedOnDock ? R.string.screensaver_settings_summary_dock
+                : 0;
+    }
+
+    public static CharSequence getSummaryTextWithDreamName(Context context) {
+        DreamBackend backend = new DreamBackend(context);
+        boolean isEnabled = backend.isEnabled();
+        if (!isEnabled) {
+            return context.getString(R.string.screensaver_settings_summary_off);
+        } else {
+            return backend.getActiveDreamName();
+        }
+    }
+
+    private static void logd(String msg, Object... args) {
+        if (DEBUG) Log.d(TAG, args == null || args.length == 0 ? msg : String.format(msg, args));
+    }
 
     @Override
     public int getHelpResource() {
@@ -137,11 +164,12 @@ public class DreamSettings extends SettingsPreferenceFragment implements
         // create "start" action
         MenuItem start = createMenuItem(menu, R.string.screensaver_settings_dream_start,
                 MenuItem.SHOW_AS_ACTION_NEVER,
-                isEnabled, new Runnable(){
+                isEnabled, new Runnable() {
                     @Override
                     public void run() {
                         mBackend.startDreaming();
-                    }});
+                    }
+                });
 
         // create "when to dream" overflow menu item
         MenuItem whenToDream = createMenuItem(menu,
@@ -152,16 +180,17 @@ public class DreamSettings extends SettingsPreferenceFragment implements
                     @Override
                     public void run() {
                         showDialog(DIALOG_WHEN_TO_DREAM);
-                    }});
+                    }
+                });
 
         // create "help" overflow menu item (make sure it appears last)
         super.onCreateOptionsMenu(menu, inflater);
 
-        mMenuItemsWhenEnabled = new MenuItem[] { start, whenToDream };
+        mMenuItemsWhenEnabled = new MenuItem[]{start, whenToDream};
     }
 
     private MenuItem createMenuItem(Menu menu,
-            int titleRes, int actionEnum, boolean isEnabled, final Runnable onClick) {
+                                    int titleRes, int actionEnum, boolean isEnabled, final Runnable onClick) {
         MenuItem item = menu.add(titleRes);
         item.setShowAsAction(actionEnum);
         item.setEnabled(isEnabled);
@@ -228,30 +257,7 @@ public class DreamSettings extends SettingsPreferenceFragment implements
         filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
         filter.addAction(Intent.ACTION_PACKAGE_REPLACED);
         filter.addDataScheme(PACKAGE_SCHEME);
-        mContext.registerReceiver(mPackageReceiver , filter);
-    }
-
-    public static int getSummaryResource(Context context) {
-        DreamBackend backend = new DreamBackend(context);
-        boolean isEnabled = backend.isEnabled();
-        boolean activatedOnSleep = backend.isActivatedOnSleep();
-        boolean activatedOnDock = backend.isActivatedOnDock();
-        boolean activatedOnEither = activatedOnSleep && activatedOnDock;
-        return !isEnabled ? R.string.screensaver_settings_summary_off
-                : activatedOnEither ? R.string.screensaver_settings_summary_either_long
-                : activatedOnSleep ? R.string.screensaver_settings_summary_sleep
-                : activatedOnDock ? R.string.screensaver_settings_summary_dock
-                : 0;
-    }
-
-    public static CharSequence getSummaryTextWithDreamName(Context context) {
-        DreamBackend backend = new DreamBackend(context);
-        boolean isEnabled = backend.isEnabled();
-        if (!isEnabled) {
-            return context.getString(R.string.screensaver_settings_summary_off);
-        } else {
-            return backend.getActiveDreamName();
-        }
+        mContext.registerReceiver(mPackageReceiver, filter);
     }
 
     private void refreshFromBackend() {
@@ -280,10 +286,6 @@ public class DreamSettings extends SettingsPreferenceFragment implements
             }
         }
         mRefreshing = false;
-    }
-
-    private static void logd(String msg, Object... args) {
-        if (DEBUG) Log.d(TAG, args == null || args.length == 0 ? msg : String.format(msg, args));
     }
 
     private class DreamInfoPreference extends Preference {
@@ -322,7 +324,7 @@ public class DreamSettings extends SettingsPreferenceFragment implements
             settingsButton.setAlpha(mInfo.isActive ? 1f : Utils.DISABLED_ALPHA);
             settingsButton.setEnabled(mInfo.isActive);
             settingsButton.setFocusable(mInfo.isActive);
-            settingsButton.setOnClickListener(new OnClickListener(){
+            settingsButton.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mBackend.launchSettings(mInfo);

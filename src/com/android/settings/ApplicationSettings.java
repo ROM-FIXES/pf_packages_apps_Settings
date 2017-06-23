@@ -39,7 +39,7 @@ public class ApplicationSettings extends SettingsPreferenceFragment {
     private static final String APP_INSTALL_DEVICE_ID = "device";
     private static final String APP_INSTALL_SDCARD_ID = "sdcard";
     private static final String APP_INSTALL_AUTO_ID = "auto";
-    
+
     private CheckBoxPreference mToggleAdvancedSettings;
     private ListPreference mInstallLocation;
 
@@ -54,7 +54,7 @@ public class ApplicationSettings extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.application_settings);
 
-        mToggleAdvancedSettings = (CheckBoxPreference)findPreference(
+        mToggleAdvancedSettings = (CheckBoxPreference) findPreference(
                 KEY_TOGGLE_ADVANCED_SETTINGS);
         mToggleAdvancedSettings.setChecked(isAdvancedSettingsEnabled());
         getPreferenceScreen().removePreference(mToggleAdvancedSettings);
@@ -83,7 +83,7 @@ public class ApplicationSettings extends SettingsPreferenceFragment {
     }
 
     protected void handleUpdateAppInstallLocation(final String value) {
-        if(APP_INSTALL_DEVICE_ID.equals(value)) {
+        if (APP_INSTALL_DEVICE_ID.equals(value)) {
             Settings.Global.putInt(getContentResolver(),
                     Settings.Global.DEFAULT_INSTALL_LOCATION, APP_INSTALL_DEVICE);
         } else if (APP_INSTALL_SDCARD_ID.equals(value)) {
@@ -112,8 +112,8 @@ public class ApplicationSettings extends SettingsPreferenceFragment {
 
     private boolean isAdvancedSettingsEnabled() {
         return Settings.System.getInt(getContentResolver(),
-                                      Settings.System.ADVANCED_SETTINGS,
-                                      Settings.System.ADVANCED_SETTINGS_DEFAULT) > 0;
+                Settings.System.ADVANCED_SETTINGS,
+                Settings.System.ADVANCED_SETTINGS_DEFAULT) > 0;
     }
 
     private void setAdvancedSettingsEnabled(boolean enabled) {
@@ -133,7 +133,7 @@ public class ApplicationSettings extends SettingsPreferenceFragment {
             return APP_INSTALL_DEVICE_ID;
         } else if (selectedLocation == APP_INSTALL_SDCARD) {
             return APP_INSTALL_SDCARD_ID;
-        } else  if (selectedLocation == APP_INSTALL_AUTO) {
+        } else if (selectedLocation == APP_INSTALL_AUTO) {
             return APP_INSTALL_AUTO_ID;
         } else {
             // Default value, should not happen.

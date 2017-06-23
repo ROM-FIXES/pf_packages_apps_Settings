@@ -44,30 +44,10 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 public class TrustAgentSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String SERVICE_INTERFACE = TrustAgentService.SERVICE_INTERFACE;
-
-    private ArrayMap<ComponentName, AgentInfo> mAvailableAgents;
     private final ArraySet<ComponentName> mActiveAgents = new ArraySet<ComponentName>();
+    private ArrayMap<ComponentName, AgentInfo> mAvailableAgents;
     private LockPatternUtils mLockPatternUtils;
     private DevicePolicyManager mDpm;
-
-    public static final class AgentInfo {
-        CharSequence label;
-        ComponentName component; // service that implements ITrustAgent
-        SwitchPreference preference;
-        public Drawable icon;
-
-        @Override
-        public boolean equals(Object other) {
-            if (other instanceof AgentInfo) {
-                return component.equals(((AgentInfo)other).component);
-            }
-            return true;
-        }
-
-        public int compareTo(AgentInfo other) {
-            return component.compareTo(other.component);
-        }
-    }
 
     @Override
     protected int getMetricsCategory() {
@@ -85,7 +65,7 @@ public class TrustAgentSettings extends SettingsPreferenceFragment implements
         super.onResume();
         removePreference("dummy_preference");
         updateAgents();
-    };
+    }
 
     private void updateAgents() {
         final Context context = getActivity();
@@ -127,6 +107,8 @@ public class TrustAgentSettings extends SettingsPreferenceFragment implements
         }
     }
 
+    ;
+
     private void loadActiveAgents() {
         List<ComponentName> activeTrustAgents = mLockPatternUtils.getEnabledTrustAgents(
                 UserHandle.myUserId());
@@ -149,7 +131,7 @@ public class TrustAgentSettings extends SettingsPreferenceFragment implements
         ArrayMap<ComponentName, AgentInfo> agents = new ArrayMap<ComponentName, AgentInfo>();
         final int count = resolveInfos.size();
         agents.ensureCapacity(count);
-        for (int i = 0; i < count; i++ ) {
+        for (int i = 0; i < count; i++) {
             ResolveInfo resolveInfo = resolveInfos.get(i);
             if (resolveInfo.serviceInfo == null) continue;
             if (!TrustAgentUtils.checkProvidePermission(resolveInfo, pm)) continue;
@@ -183,6 +165,25 @@ public class TrustAgentSettings extends SettingsPreferenceFragment implements
             }
         }
         return false;
+    }
+
+    public static final class AgentInfo {
+        public Drawable icon;
+        CharSequence label;
+        ComponentName component; // service that implements ITrustAgent
+        SwitchPreference preference;
+
+        @Override
+        public boolean equals(Object other) {
+            if (other instanceof AgentInfo) {
+                return component.equals(((AgentInfo) other).component);
+            }
+            return true;
+        }
+
+        public int compareTo(AgentInfo other) {
+            return component.compareTo(other.component);
+        }
     }
 
 }

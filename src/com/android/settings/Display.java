@@ -32,6 +32,30 @@ import android.widget.TextView;
 
 
 public class Display extends Activity implements View.OnClickListener {
+    private Spinner mFontSize;
+    private TextView mPreview;
+    private TypedValue mTextSizeTyped;
+    private DisplayMetrics mDisplayMetrics;
+    private float mFontScale = 1.0f;
+    private Spinner.OnItemSelectedListener mFontSizeChanged
+            = new Spinner.OnItemSelectedListener() {
+        public void onItemSelected(android.widget.AdapterView av, View v,
+                                   int position, long id) {
+            if (position == 0) {
+                mFontScale = .75f;
+            } else if (position == 2) {
+                mFontScale = 1.25f;
+            } else {
+                mFontScale = 1.0f;
+            }
+
+            updateFontScale();
+        }
+
+        public void onNothingSelected(android.widget.AdapterView av) {
+        }
+    };
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -59,8 +83,8 @@ public class Display extends Activity implements View.OnClickListener {
         save.setOnClickListener(this);
 
         mTextSizeTyped = new TypedValue();
-        TypedArray styledAttributes = 
-            obtainStyledAttributes(android.R.styleable.TextView);
+        TypedArray styledAttributes =
+                obtainStyledAttributes(android.R.styleable.TextView);
         styledAttributes.getValue(android.R.styleable.TextView_textSize,
                 mTextSizeTyped);
 
@@ -103,29 +127,4 @@ public class Display extends Activity implements View.OnClickListener {
         Settings.System.putFloat(resolver, Settings.System.FONT_SCALE, mFontScale);
         finish();
     }
-
-    private Spinner.OnItemSelectedListener mFontSizeChanged
-                                    = new Spinner.OnItemSelectedListener() {
-        public void onItemSelected(android.widget.AdapterView av, View v,
-                                    int position, long id) {
-            if (position == 0) {
-                mFontScale = .75f;
-            } else if (position == 2) {
-                mFontScale = 1.25f;
-            } else {
-                mFontScale = 1.0f;
-            }
-
-            updateFontScale();
-        }
-
-        public void onNothingSelected(android.widget.AdapterView av) {
-        }
-    };
-
-    private Spinner mFontSize;
-    private TextView mPreview;
-    private TypedValue mTextSizeTyped;
-    private DisplayMetrics mDisplayMetrics;
-    private float mFontScale = 1.0f;
 }

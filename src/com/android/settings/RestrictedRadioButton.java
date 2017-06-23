@@ -22,8 +22,6 @@ import android.util.AttributeSet;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import java.util.List;
-
 import com.android.settingslib.RestrictedLockUtils;
 
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
@@ -46,7 +44,7 @@ public class RestrictedRadioButton extends RadioButton {
     }
 
     public RestrictedRadioButton(Context context, AttributeSet attrs, int defStyleAttr,
-            int defStyleRes) {
+                                 int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         mContext = context;
     }
@@ -58,6 +56,10 @@ public class RestrictedRadioButton extends RadioButton {
             return true;
         }
         return super.performClick();
+    }
+
+    public boolean isDisabledByAdmin() {
+        return mDisabledByAdmin;
     }
 
     public void setDisabledByAdmin(EnforcedAdmin admin) {
@@ -74,9 +76,5 @@ public class RestrictedRadioButton extends RadioButton {
                 getButtonDrawable().clearColorFilter();
             }
         }
-    }
-
-    public boolean isDisabledByAdmin() {
-        return mDisabledByAdmin;
     }
 }

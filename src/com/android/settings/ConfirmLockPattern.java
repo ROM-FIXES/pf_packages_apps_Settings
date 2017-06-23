@@ -47,20 +47,11 @@ import java.util.List;
 
 /**
  * Launch this when you want the user to confirm their lock pattern.
- *
+ * <p>
  * Sets an activity result of {@link Activity#RESULT_OK} when the user
  * successfully confirmed their pattern.
  */
 public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
-
-    public static class InternalActivity extends ConfirmLockPattern {
-    }
-
-    private enum Stage {
-        NeedToUnlock,
-        NeedToUnlockWrong,
-        LockedOut
-    }
 
     @Override
     public Intent getIntent() {
@@ -73,6 +64,15 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
     protected boolean isValidFragment(String fragmentName) {
         if (ConfirmLockPatternFragment.class.getName().equals(fragmentName)) return true;
         return false;
+    }
+
+    private enum Stage {
+        NeedToUnlock,
+        NeedToUnlockWrong,
+        LockedOut
+    }
+
+    public static class InternalActivity extends ConfirmLockPattern {
     }
 
     public static class ConfirmLockPatternFragment extends ConfirmDeviceCredentialBaseFragment
@@ -100,6 +100,119 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
 
         private AppearAnimationUtils mAppearAnimationUtils;
         private DisappearAnimationUtils mDisappearAnimationUtils;
+        private Runnable mClearPatternRunnable = new Runnable() {
+            public void run() {
+                mLockPatternView.clearPattern();
+            }
+        };
+        /**
+         * The pattern listener that responds according to a user confirming
+         * an existing lock pattern.
+         */
+        private LockPatternView.OnPatternListener mConfirmExistingLockPatternListener
+                = new LockPatternView.OnPatternListener() {
+
+            public void onPatternStart() {
+                mLockPatternView.removeCallbacks(mClearPatternRunnable);
+            }
+
+            public void onPatternCleared() {
+                mLockPatternView.removeCallbacks(mClearPatternRunnable);
+            }
+
+            public void onPatternCellAdded(List<Cell> pattern) {
+
+            }
+
+            public void onPatternDetected(List<LockPatternView.Cell> pattern) {
+                if (mPendingLockCheck != null || mDisappearing) {
+                    return;
+                }
+
+                mLockPatternView.setEnabled(false);
+
+                final boolean verifyChallenge = getActivity().getIntent().getBooleanExtra(
+                        ChooseLockSettingsHelper.EXTRA_KEY_HAS_CHALLENGE, false);
+                Intent intent = new Intent();
+                if (verifyChallenge) {
+                    if (isInternalActivity()) {
+                        startVerifyPattern(pattern, intent);
+                        return;
+                    }
+                } else {
+                    startCheckPattern(pattern, intent);
+                    return;
+                }
+
+                mCredentialCheckResultTracker.setResult(false, intent, 0, mEffectiveUserId);
+            }
+
+            private boolean isInternalActivity() {
+                return getActivity() instanceof ConfirmLockPattern.InternalActivity;
+            }
+
+            private void startVerifyPattern(final List<LockPatternView.Cell> pattern,
+                                            final Intent intent) {
+                final int localEffectiveUserId = mEffectiveUserId;
+                final int localUserId = mUserId;
+                long challenge = getActivity().getIntent().getLongExtra(
+                        ChooseLockSettingsHelper.EXTRA_KEY_CHALLENGE, 0);
+                final LockPatternChecker.OnVerifyCallback onVerifyCallback =
+                        new LockPatternChecker.OnVerifyCallback() {
+                            @Override
+                            public void onVerified(byte[] token, int timeoutMs) {
+                                mPendingLockCheck = null;
+                                boolean matched = false;
+                                if (token != null) {
+                                    matched = true;
+                                    if (mReturnCredentials) {
+                                        intent.putExtra(
+                                                ChooseLockSettingsHelper.EXTRA_KEY_CHALLENGE_TOKEN,
+                                                token);
+                                    }
+                                }
+                                mCredentialCheckResultTracker.setResult(matched, intent, timeoutMs,
+                                        localEffectiveUserId);
+                            }
+                        };
+                mPendingLockCheck = (localEffectiveUserId == localUserId)
+                        ? LockPatternChecker.verifyPattern(
+                        mLockPatternUtils, pattern, challenge, localUserId,
+                        onVerifyCallback)
+                        : LockPatternChecker.verifyTiedProfileChallenge(
+                        mLockPatternUtils, LockPatternUtils.patternToString(pattern),
+                        true, challenge, localUserId, onVerifyCallback);
+            }
+
+            private void startCheckPattern(final List<LockPatternView.Cell> pattern,
+                                           final Intent intent) {
+                if (pattern.size() < LockPatternUtils.MIN_PATTERN_REGISTER_FAIL) {
+                    // Pattern size is less than the minimum, do not count it as an fail attempt.
+                    onPatternChecked(false, intent, 0, mEffectiveUserId, false /* newResult */);
+                    return;
+                }
+
+                final int localEffectiveUserId = mEffectiveUserId;
+                mPendingLockCheck = LockPatternChecker.checkPattern(
+                        mLockPatternUtils,
+                        pattern,
+                        localEffectiveUserId,
+                        new LockPatternChecker.OnCheckCallback() {
+                            @Override
+                            public void onChecked(boolean matched, int timeoutMs) {
+                                mPendingLockCheck = null;
+                                if (matched && isInternalActivity() && mReturnCredentials) {
+                                    intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_TYPE,
+                                            StorageManager.CRYPT_TYPE_PATTERN);
+                                    intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD,
+                                            LockPatternUtils.patternToString(pattern));
+                                }
+                                mCredentialCheckResultTracker.setResult(matched, intent, timeoutMs,
+                                        localEffectiveUserId);
+                            }
+                        });
+            }
+        };
 
         // required constructor for fragments
         public ConfirmLockPatternFragment() {
@@ -113,7 +226,7 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.confirm_lock_pattern, null);
             mHeaderTextView = (TextView) view.findViewById(R.id.headerText);
             mLockPatternView = (LockPatternView) view.findViewById(R.id.lockPattern);
@@ -163,7 +276,7 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
                     new AppearAnimationUtils.RowTranslationScaler() {
                         @Override
                         public float getRowTranslationScale(int row, int numRows) {
-                            return (float)(numRows - row) / numRows;
+                            return (float) (numRows - row) / numRows;
                         }
                     });
             setAccessibilityTitle(mHeaderTextView.getText());
@@ -321,12 +434,6 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
             mHeaderTextView.announceForAccessibility(mHeaderTextView.getText());
         }
 
-        private Runnable mClearPatternRunnable = new Runnable() {
-            public void run() {
-                mLockPatternView.clearPattern();
-            }
-        };
-
         // clear the wrong pattern unless they have started a new one
         // already
         private void postClearPatternRunnable() {
@@ -379,117 +486,8 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
             }
         }
 
-        /**
-         * The pattern listener that responds according to a user confirming
-         * an existing lock pattern.
-         */
-        private LockPatternView.OnPatternListener mConfirmExistingLockPatternListener
-                = new LockPatternView.OnPatternListener()  {
-
-            public void onPatternStart() {
-                mLockPatternView.removeCallbacks(mClearPatternRunnable);
-            }
-
-            public void onPatternCleared() {
-                mLockPatternView.removeCallbacks(mClearPatternRunnable);
-            }
-
-            public void onPatternCellAdded(List<Cell> pattern) {
-
-            }
-
-            public void onPatternDetected(List<LockPatternView.Cell> pattern) {
-                if (mPendingLockCheck != null || mDisappearing) {
-                    return;
-                }
-
-                mLockPatternView.setEnabled(false);
-
-                final boolean verifyChallenge = getActivity().getIntent().getBooleanExtra(
-                        ChooseLockSettingsHelper.EXTRA_KEY_HAS_CHALLENGE, false);
-                Intent intent = new Intent();
-                if (verifyChallenge) {
-                    if (isInternalActivity()) {
-                        startVerifyPattern(pattern, intent);
-                        return;
-                    }
-                } else {
-                    startCheckPattern(pattern, intent);
-                    return;
-                }
-
-                mCredentialCheckResultTracker.setResult(false, intent, 0, mEffectiveUserId);
-            }
-
-            private boolean isInternalActivity() {
-                return getActivity() instanceof ConfirmLockPattern.InternalActivity;
-            }
-
-            private void startVerifyPattern(final List<LockPatternView.Cell> pattern,
-                    final Intent intent) {
-                final int localEffectiveUserId = mEffectiveUserId;
-                final int localUserId = mUserId;
-                long challenge = getActivity().getIntent().getLongExtra(
-                        ChooseLockSettingsHelper.EXTRA_KEY_CHALLENGE, 0);
-                final LockPatternChecker.OnVerifyCallback onVerifyCallback =
-                    new LockPatternChecker.OnVerifyCallback() {
-                        @Override
-                        public void onVerified(byte[] token, int timeoutMs) {
-                            mPendingLockCheck = null;
-                            boolean matched = false;
-                            if (token != null) {
-                                matched = true;
-                                if (mReturnCredentials) {
-                                    intent.putExtra(
-                                            ChooseLockSettingsHelper.EXTRA_KEY_CHALLENGE_TOKEN,
-                                            token);
-                                }
-                            }
-                            mCredentialCheckResultTracker.setResult(matched, intent, timeoutMs,
-                                    localEffectiveUserId);
-                        }
-                    };
-                mPendingLockCheck = (localEffectiveUserId == localUserId)
-                        ? LockPatternChecker.verifyPattern(
-                                mLockPatternUtils, pattern, challenge, localUserId,
-                                onVerifyCallback)
-                        : LockPatternChecker.verifyTiedProfileChallenge(
-                                mLockPatternUtils, LockPatternUtils.patternToString(pattern),
-                                true, challenge, localUserId, onVerifyCallback);
-            }
-
-            private void startCheckPattern(final List<LockPatternView.Cell> pattern,
-                    final Intent intent) {
-                if (pattern.size() < LockPatternUtils.MIN_PATTERN_REGISTER_FAIL) {
-                    // Pattern size is less than the minimum, do not count it as an fail attempt.
-                    onPatternChecked(false, intent, 0, mEffectiveUserId, false /* newResult */);
-                    return;
-                }
-
-                final int localEffectiveUserId = mEffectiveUserId;
-                mPendingLockCheck = LockPatternChecker.checkPattern(
-                        mLockPatternUtils,
-                        pattern,
-                        localEffectiveUserId,
-                        new LockPatternChecker.OnCheckCallback() {
-                            @Override
-                            public void onChecked(boolean matched, int timeoutMs) {
-                                mPendingLockCheck = null;
-                                if (matched && isInternalActivity() && mReturnCredentials) {
-                                    intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_TYPE,
-                                                    StorageManager.CRYPT_TYPE_PATTERN);
-                                    intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD,
-                                                    LockPatternUtils.patternToString(pattern));
-                                }
-                                mCredentialCheckResultTracker.setResult(matched, intent, timeoutMs,
-                                        localEffectiveUserId);
-                            }
-                        });
-            }
-        };
-
         private void onPatternChecked(boolean matched, Intent intent, int timeoutMs,
-                int effectiveUserId, boolean newResult) {
+                                      int effectiveUserId, boolean newResult) {
             mLockPatternView.setEnabled(true);
             if (matched) {
                 if (newResult) {
@@ -516,7 +514,7 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
 
         @Override
         public void onCredentialChecked(boolean matched, Intent intent, int timeoutMs,
-                int effectiveUserId, boolean newResult) {
+                                        int effectiveUserId, boolean newResult) {
             onPatternChecked(matched, intent, timeoutMs, effectiveUserId, newResult);
         }
 
@@ -549,9 +547,9 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
 
         @Override
         public void createAnimation(Object obj, long delay,
-                long duration, float translationY, final boolean appearing,
-                Interpolator interpolator,
-                final Runnable finishListener) {
+                                    long duration, float translationY, final boolean appearing,
+                                    Interpolator interpolator,
+                                    final Runnable finishListener) {
             if (obj instanceof LockPatternView.CellState) {
                 final LockPatternView.CellState animatedCell = (LockPatternView.CellState) obj;
                 mLockPatternView.startCellStateAnimation(animatedCell,

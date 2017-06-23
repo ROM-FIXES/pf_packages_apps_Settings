@@ -19,18 +19,15 @@ package com.android.settings;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.UiModeManager;
-import android.app.WallpaperManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.ComponentName;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
-import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemProperties;
@@ -41,14 +38,13 @@ import android.provider.Settings;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.DropDownPreference;
 import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.internal.app.NightDisplayController;
-import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.accessibility.ToggleFontSizePreferenceFragment;
@@ -70,16 +66,23 @@ import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
-
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
     private static final String TAG = "DisplaySettings";
-
-    /** If there is no setting in the provider, use this. */
+    /**
+     * If there is no setting in the provider, use this.
+     */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
-
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
@@ -93,9 +96,57 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
 
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.display_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    if (!context.getResources().getBoolean(
+                            com.android.internal.R.bool.config_dreamsSupported)) {
+                        result.add(KEY_SCREEN_SAVER);
+                    }
+                    if (!isAutomaticBrightnessAvailable(context.getResources())) {
+                        result.add(KEY_AUTO_BRIGHTNESS);
+                    }
+                    if (!NightDisplayController.isAvailable(context)) {
+                        result.add(KEY_NIGHT_DISPLAY);
+                    }
+                    if (!isLiftToWakeAvailable(context)) {
+                        result.add(KEY_LIFT_TO_WAKE);
+                    }
+                    if (!isDozeAvailable(context)) {
+                        result.add(KEY_DOZE_FRAGMENT);
+                    }
+                    if (!isTapToWakeAvailable(context.getResources())) {
+                        result.add(KEY_TAP_TO_WAKE);
+                    }
+                    if (!isCameraGestureAvailable(context.getResources())) {
+                        result.add(KEY_CAMERA_GESTURE);
+                    }
+                    if (!isVrDisplayModeAvailable(context)) {
+                        result.add(KEY_VR_DISPLAY_PREF);
+                    }
+                    return result;
+                }
+            };
+    private static final String ROTATION_ANGLE_0 = "0";
+    private static final String ROTATION_ANGLE_90 = "90";
+    private static final String ROTATION_ANGLE_180 = "180";
+    private static final String ROTATION_ANGLE_270 = "270";
     private Preference mFontSizePref;
-
     private TimeoutListPreference mScreenTimeoutPreference;
     private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
@@ -105,131 +156,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
-
-    private static final String ROTATION_ANGLE_0 = "0";
-    private static final String ROTATION_ANGLE_90 = "90";
-    private static final String ROTATION_ANGLE_180 = "180";
-    private static final String ROTATION_ANGLE_270 = "270";
-
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
-        @Override
-        public void onChange(boolean selfChange) {
-            updateDisplayRotationPreferenceDescription();
-        }
-    };
-
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsEvent.DISPLAY;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        final Activity activity = getActivity();
-        final ContentResolver resolver = activity.getContentResolver();
-
-        addPreferencesFromResource(R.xml.display_settings);
-
-        mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
-        if (mScreenSaverPreference != null
-                && getResources().getBoolean(
-                        com.android.internal.R.bool.config_dreamsSupported) == false) {
-            getPreferenceScreen().removePreference(mScreenSaverPreference);
-        }
-
-        mScreenTimeoutPreference = (TimeoutListPreference) findPreference(KEY_SCREEN_TIMEOUT);
-
-        mFontSizePref = findPreference(KEY_FONT_SIZE);
-
-        if (isAutomaticBrightnessAvailable(getResources())) {
-            mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
-            mAutoBrightnessPreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_AUTO_BRIGHTNESS);
-        }
-
-        if (!NightDisplayController.isAvailable(activity)) {
-            removePreference(KEY_NIGHT_DISPLAY);
-        }
-
-        if (isLiftToWakeAvailable(activity)) {
-            mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
-            mLiftToWakePreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_LIFT_TO_WAKE);
-        }
-
-        mDozeFragment = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
-        if (mDozeFragment != null
-            && (!isDozeAvailable(activity))) {
-                getPreferenceScreen().removePreference(mDozeFragment);
-        }
-
-        if (isTapToWakeAvailable(getResources())) {
-            mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
-            mTapToWakePreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_TAP_TO_WAKE);
-        }
-
-        if (isCameraGestureAvailable(getResources())) {
-            mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
-            mCameraGesturePreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_CAMERA_GESTURE);
-        }
-
-        if (RotationPolicy.isRotationLockToggleVisible(activity)) {
-            mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
-        } else {
-            removePreference(KEY_DISPLAY_ROTATION);
-        }
-
-        if (isVrDisplayModeAvailable(activity)) {
-            DropDownPreference vrDisplayPref =
-                    (DropDownPreference) findPreference(KEY_VR_DISPLAY_PREF);
-            vrDisplayPref.setEntries(new CharSequence[] {
-                    activity.getString(R.string.display_vr_pref_low_persistence),
-                    activity.getString(R.string.display_vr_pref_off),
-            });
-            vrDisplayPref.setEntryValues(new CharSequence[] { "0", "1" });
-
-            final Context c = activity;
-            int currentUser = ActivityManager.getCurrentUser();
-            int current = Settings.Secure.getIntForUser(c.getContentResolver(),
-                            Settings.Secure.VR_DISPLAY_MODE,
-                            /*default*/Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE,
-                            currentUser);
-            vrDisplayPref.setValueIndex(current);
-            vrDisplayPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
                 @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    int i = Integer.parseInt((String) newValue);
-                    int u = ActivityManager.getCurrentUser();
-                    if (!Settings.Secure.putIntForUser(c.getContentResolver(),
-                            Settings.Secure.VR_DISPLAY_MODE,
-                            i, u)) {
-                        Log.e(TAG, "Could not change setting for " +
-                                Settings.Secure.VR_DISPLAY_MODE);
-                    }
-                    return true;
+                public void onChange(boolean selfChange) {
+                    updateDisplayRotationPreferenceDescription();
                 }
-            });
-        } else {
-            removePreference(KEY_VR_DISPLAY_PREF);
-        }
-
-        mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
-        if (mNightModePreference != null) {
-            final UiModeManager uiManager = (UiModeManager) getSystemService(
-                    Context.UI_MODE_SERVICE);
-            final int currentNightMode = uiManager.getNightMode();
-            mNightModePreference.setValue(String.valueOf(currentNightMode));
-            mNightModePreference.setOnPreferenceChangeListener(this);
-        }
-    }
+            };
 
     private static boolean allowAllRotations(Context context) {
         return Resources.getSystem().getBoolean(
@@ -270,6 +203,118 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return pm.hasSystemFeature(PackageManager.FEATURE_VR_MODE_HIGH_PERFORMANCE);
     }
 
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.DISPLAY;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        final Activity activity = getActivity();
+        final ContentResolver resolver = activity.getContentResolver();
+
+        addPreferencesFromResource(R.xml.display_settings);
+
+        mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
+        if (mScreenSaverPreference != null
+                && getResources().getBoolean(
+                com.android.internal.R.bool.config_dreamsSupported) == false) {
+            getPreferenceScreen().removePreference(mScreenSaverPreference);
+        }
+
+        mScreenTimeoutPreference = (TimeoutListPreference) findPreference(KEY_SCREEN_TIMEOUT);
+
+        mFontSizePref = findPreference(KEY_FONT_SIZE);
+
+        if (isAutomaticBrightnessAvailable(getResources())) {
+            mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
+            mAutoBrightnessPreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_AUTO_BRIGHTNESS);
+        }
+
+        if (!NightDisplayController.isAvailable(activity)) {
+            removePreference(KEY_NIGHT_DISPLAY);
+        }
+
+        if (isLiftToWakeAvailable(activity)) {
+            mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
+            mLiftToWakePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_LIFT_TO_WAKE);
+        }
+
+        mDozeFragment = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
+        if (mDozeFragment != null
+                && (!isDozeAvailable(activity))) {
+            getPreferenceScreen().removePreference(mDozeFragment);
+        }
+
+        if (isTapToWakeAvailable(getResources())) {
+            mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
+            mTapToWakePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_TAP_TO_WAKE);
+        }
+
+        if (isCameraGestureAvailable(getResources())) {
+            mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
+            mCameraGesturePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_CAMERA_GESTURE);
+        }
+
+        if (RotationPolicy.isRotationLockToggleVisible(activity)) {
+            mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
+        } else {
+            removePreference(KEY_DISPLAY_ROTATION);
+        }
+
+        if (isVrDisplayModeAvailable(activity)) {
+            DropDownPreference vrDisplayPref =
+                    (DropDownPreference) findPreference(KEY_VR_DISPLAY_PREF);
+            vrDisplayPref.setEntries(new CharSequence[]{
+                    activity.getString(R.string.display_vr_pref_low_persistence),
+                    activity.getString(R.string.display_vr_pref_off),
+            });
+            vrDisplayPref.setEntryValues(new CharSequence[]{"0", "1"});
+
+            final Context c = activity;
+            int currentUser = ActivityManager.getCurrentUser();
+            int current = Settings.Secure.getIntForUser(c.getContentResolver(),
+                    Settings.Secure.VR_DISPLAY_MODE,
+                            /*default*/Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE,
+                    currentUser);
+            vrDisplayPref.setValueIndex(current);
+            vrDisplayPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    int i = Integer.parseInt((String) newValue);
+                    int u = ActivityManager.getCurrentUser();
+                    if (!Settings.Secure.putIntForUser(c.getContentResolver(),
+                            Settings.Secure.VR_DISPLAY_MODE,
+                            i, u)) {
+                        Log.e(TAG, "Could not change setting for " +
+                                Settings.Secure.VR_DISPLAY_MODE);
+                    }
+                    return true;
+                }
+            });
+        } else {
+            removePreference(KEY_VR_DISPLAY_PREF);
+        }
+
+        mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
+        if (mNightModePreference != null) {
+            final UiModeManager uiManager = (UiModeManager) getSystemService(
+                    Context.UI_MODE_SERVICE);
+            final int currentNightMode = uiManager.getNightMode();
+            mNightModePreference.setValue(String.valueOf(currentNightMode));
+            mNightModePreference.setOnPreferenceChangeListener(this);
+        }
+    }
+
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
         TimeoutListPreference preference = mScreenTimeoutPreference;
         String summary;
@@ -308,8 +353,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
         int mode = Settings.System.getInt(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION_ANGLES,
-                DisplayRotation.ROTATION_0_MODE|DisplayRotation.ROTATION_90_MODE
-                |DisplayRotation.ROTATION_270_MODE);
+                DisplayRotation.ROTATION_0_MODE | DisplayRotation.ROTATION_90_MODE
+                        | DisplayRotation.ROTATION_270_MODE);
 
         if (!rotationEnabled) {
             summary.append(getString(R.string.display_rotation_disabled));
@@ -363,7 +408,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         disablePreferenceIfManaged(KEY_WALLPAPER, UserManager.DISALLOW_SET_WALLPAPER);
         getContentResolver().registerContentObserver(Settings.System.getUriFor(
-		    Settings.System.ACCELEROMETER_ROTATION), true, mAccelerometerRotationObserver);
+                Settings.System.ACCELEROMETER_ROTATION), true, mAccelerometerRotationObserver);
         updateDisplayRotationPreferenceDescription();
     }
 
@@ -415,7 +460,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         boolean dozeEnabled = Settings.Secure.getInt(
                 getContentResolver(), Settings.Secure.DOZE_ENABLED,
                 getActivity().getResources().getBoolean(
-                com.android.internal.R.bool.config_doze_enabled_by_default) ? 1 : 0) != 0;
+                        com.android.internal.R.bool.config_doze_enabled_by_default) ? 1 : 0) != 0;
         if (mDozeFragment != null) {
             mDozeFragment.setSummary(dozeEnabled
                     ? R.string.summary_doze_enabled : R.string.summary_doze_disabled);
@@ -526,60 +571,4 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     : R.string.display_summary_off));
         }
     }
-
-    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
-            = new SummaryLoader.SummaryProviderFactory() {
-        @Override
-        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
-                                                                   SummaryLoader summaryLoader) {
-            return new SummaryProvider(activity, summaryLoader);
-        }
-    };
-
-    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.display_settings;
-                    result.add(sir);
-
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    ArrayList<String> result = new ArrayList<String>();
-                    if (!context.getResources().getBoolean(
-                            com.android.internal.R.bool.config_dreamsSupported)) {
-                        result.add(KEY_SCREEN_SAVER);
-                    }
-                    if (!isAutomaticBrightnessAvailable(context.getResources())) {
-                        result.add(KEY_AUTO_BRIGHTNESS);
-                    }
-                    if (!NightDisplayController.isAvailable(context)) {
-                        result.add(KEY_NIGHT_DISPLAY);
-                    }
-                    if (!isLiftToWakeAvailable(context)) {
-                        result.add(KEY_LIFT_TO_WAKE);
-                    }
-                    if (!isDozeAvailable(context)) {
-                        result.add(KEY_DOZE_FRAGMENT);
-                    }
-                    if (!isTapToWakeAvailable(context.getResources())) {
-                        result.add(KEY_TAP_TO_WAKE);
-                    }
-                    if (!isCameraGestureAvailable(context.getResources())) {
-                        result.add(KEY_CAMERA_GESTURE);
-                    }
-                    if (!isVrDisplayModeAvailable(context)) {
-                        result.add(KEY_VR_DISPLAY_PREF);
-                    }
-                    return result;
-                }
-            };
 }

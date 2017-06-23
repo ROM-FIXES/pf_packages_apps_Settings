@@ -36,8 +36,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
-import android.net.Uri;
-import android.os.Binder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteCallback;
@@ -67,24 +65,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeviceAdminAdd extends Activity {
-    static final String TAG = "DeviceAdminAdd";
-
-    static final int DIALOG_WARNING = 1;
-
-    private static final int MAX_ADD_MSG_LINES_PORTRAIT = 5;
-    private static final int MAX_ADD_MSG_LINES_LANDSCAPE = 2;
-    private static final int MAX_ADD_MSG_LINES = 15;
-
     /**
      * Optional key to map to the package name of the Device Admin.
      * Currently only used when uninstalling an active device admin.
      */
     public static final String EXTRA_DEVICE_ADMIN_PACKAGE_NAME =
             "android.app.extra.DEVICE_ADMIN_PACKAGE_NAME";
-
     public static final String EXTRA_CALLED_FROM_SUPPORT_DIALOG =
             "android.app.extra.CALLED_FROM_SUPPORT_DIALOG";
-
+    static final String TAG = "DeviceAdminAdd";
+    static final int DIALOG_WARNING = 1;
+    private static final int MAX_ADD_MSG_LINES_PORTRAIT = 5;
+    private static final int MAX_ADD_MSG_LINES_LANDSCAPE = 2;
+    private static final int MAX_ADD_MSG_LINES = 15;
     Handler mHandler;
 
     DevicePolicyManager mDPM;
@@ -124,11 +117,11 @@ public class DeviceAdminAdd extends Activity {
 
         mHandler = new Handler(getMainLooper());
 
-        mDPM = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
-        mAppOps = (AppOpsManager)getSystemService(Context.APP_OPS_SERVICE);
+        mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+        mAppOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
         PackageManager packageManager = getPackageManager();
 
-        if ((getIntent().getFlags()&Intent.FLAG_ACTIVITY_NEW_TASK) != 0) {
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_NEW_TASK) != 0) {
             Log.w(TAG, "Cannot start ADD_DEVICE_ADMIN as a new task");
             finish();
             return;
@@ -138,7 +131,7 @@ public class DeviceAdminAdd extends Activity {
                 EXTRA_CALLED_FROM_SUPPORT_DIALOG, false);
 
         String action = getIntent().getAction();
-        ComponentName who = (ComponentName)getIntent().getParcelableExtra(
+        ComponentName who = (ComponentName) getIntent().getParcelableExtra(
                 DevicePolicyManager.EXTRA_DEVICE_ADMIN);
         if (who == null) {
             String packageName = getIntent().getStringExtra(EXTRA_DEVICE_ADMIN_PACKAGE_NAME);
@@ -200,7 +193,7 @@ public class DeviceAdminAdd extends Activity {
                     PackageManager.GET_DISABLED_UNTIL_USED_COMPONENTS);
             int count = avail == null ? 0 : avail.size();
             boolean found = false;
-            for (int i=0; i<count; i++) {
+            for (int i = 0; i < count; i++) {
                 ResolveInfo ri = avail.get(i);
                 if (ai.packageName.equals(ri.activityInfo.packageName)
                         && ai.name.equals(ri.activityInfo.name)) {
@@ -279,12 +272,12 @@ public class DeviceAdminAdd extends Activity {
 
         setContentView(R.layout.device_admin_add);
 
-        mAdminIcon = (ImageView)findViewById(R.id.admin_icon);
-        mAdminName = (TextView)findViewById(R.id.admin_name);
-        mAdminDescription = (TextView)findViewById(R.id.admin_description);
+        mAdminIcon = (ImageView) findViewById(R.id.admin_icon);
+        mAdminName = (TextView) findViewById(R.id.admin_name);
+        mAdminDescription = (TextView) findViewById(R.id.admin_description);
         mProfileOwnerWarning = (TextView) findViewById(R.id.profile_owner_warning);
 
-        mAddMsg = (TextView)findViewById(R.id.add_msg);
+        mAddMsg = (TextView) findViewById(R.id.add_msg);
         mAddMsgExpander = (ImageView) findViewById(R.id.add_msg_expander);
         final View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -307,7 +300,7 @@ public class DeviceAdminAdd extends Activity {
                         mAddMsgExpander.setVisibility(hideMsgExpander ? View.GONE : View.VISIBLE);
                         if (hideMsgExpander) {
                             mAddMsg.setOnClickListener(null);
-                            ((View)mAddMsgExpander.getParent()).invalidate();
+                            ((View) mAddMsgExpander.getParent()).invalidate();
                         }
                         mAddMsg.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
@@ -325,7 +318,7 @@ public class DeviceAdminAdd extends Activity {
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EventLog.writeEvent(EventLogTags.EXP_DET_DEVICE_ADMIN_DECLINED_BY_USER,
-                    mDeviceAdmin.getActivityInfo().applicationInfo.uid);
+                        mDeviceAdmin.getActivityInfo().applicationInfo.uid);
                 finish();
             }
         });
@@ -359,7 +352,7 @@ public class DeviceAdminAdd extends Activity {
                                     finish();
                                 }
                             }
-                            ).show();
+                    ).show();
                 } else if (mUninstalling) {
                     mDPM.uninstallPackageWithActiveAdmins(mDeviceAdmin.getPackageName());
                     finish();
@@ -384,10 +377,11 @@ public class DeviceAdminAdd extends Activity {
                             }, mHandler));
                     // Don't want to wait too long.
                     getWindow().getDecorView().getHandler().postDelayed(new Runnable() {
-                        @Override public void run() {
+                        @Override
+                        public void run() {
                             continueRemoveAction(null);
                         }
-                    }, 2*1000);
+                    }, 2 * 1000);
                 }
             }
         });
@@ -397,7 +391,7 @@ public class DeviceAdminAdd extends Activity {
         try {
             mDPM.setActiveAdmin(mDeviceAdmin.getComponent(), mRefreshing);
             EventLog.writeEvent(EventLogTags.EXP_DET_DEVICE_ADMIN_ACTIVATED_BY_USER,
-                mDeviceAdmin.getActivityInfo().applicationInfo.uid);
+                    mDeviceAdmin.getActivityInfo().applicationInfo.uid);
             setResult(Activity.RESULT_OK);
         } catch (RuntimeException e) {
             // Something bad happened...  could be that it was
@@ -492,15 +486,15 @@ public class DeviceAdminAdd extends Activity {
                 builder.setMessage(msg);
                 builder.setPositiveButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        try {
-                            ActivityManagerNative.getDefault().resumeAppSwitches();
-                        } catch (RemoteException e) {
-                        }
-                        mDPM.removeActiveAdmin(mDeviceAdmin.getComponent());
-                        finish();
-                    }
-                });
+                            public void onClick(DialogInterface dialog, int which) {
+                                try {
+                                    ActivityManagerNative.getDefault().resumeAppSwitches();
+                                } catch (RemoteException e) {
+                                }
+                                mDPM.removeActiveAdmin(mDeviceAdmin.getComponent());
+                                finish();
+                            }
+                        });
                 builder.setNegativeButton(R.string.dlg_cancel, null);
                 return builder.create();
             }
@@ -541,7 +535,7 @@ public class DeviceAdminAdd extends Activity {
                 mAdminWarning.setText(R.string.admin_profile_owner_message);
                 mActionButton.setText(R.string.remove_managed_profile_label);
             } else if (isProfileOwner || mDeviceAdmin.getComponent().equals(
-                            mDPM.getDeviceOwnerComponentOnCallingUser())) {
+                    mDPM.getDeviceOwnerComponentOnCallingUser())) {
                 // Profile owner in a user or device owner, user can't disable admin.
                 if (isProfileOwner) {
                     // Show profile owner in a user description.
@@ -556,7 +550,7 @@ public class DeviceAdminAdd extends Activity {
                 addDeviceAdminPolicies(false /* showDescription */);
                 mAdminWarning.setText(getString(R.string.device_admin_status,
                         mDeviceAdmin.getActivityInfo().applicationInfo.loadLabel(
-                        getPackageManager())));
+                                getPackageManager())));
                 setTitle(R.string.active_device_admin_msg);
                 if (mUninstalling) {
                     mActionButton.setText(R.string.remove_and_uninstall_device_admin);
@@ -607,21 +601,21 @@ public class DeviceAdminAdd extends Activity {
     void toggleMessageEllipsis(View v) {
         TextView tv = (TextView) v;
 
-        mAddMsgEllipsized = ! mAddMsgEllipsized;
+        mAddMsgEllipsized = !mAddMsgEllipsized;
         tv.setEllipsize(mAddMsgEllipsized ? TruncateAt.END : null);
         tv.setMaxLines(mAddMsgEllipsized ? getEllipsizedLines() : MAX_ADD_MSG_LINES);
 
         mAddMsgExpander.setImageResource(mAddMsgEllipsized ?
-            com.android.internal.R.drawable.expander_ic_minimized :
-            com.android.internal.R.drawable.expander_ic_maximized);
+                com.android.internal.R.drawable.expander_ic_minimized :
+                com.android.internal.R.drawable.expander_ic_maximized);
     }
 
     int getEllipsizedLines() {
         Display d = ((WindowManager) getSystemService(Context.WINDOW_SERVICE))
-                    .getDefaultDisplay();
+                .getDefaultDisplay();
 
         return d.getHeight() > d.getWidth() ?
-            MAX_ADD_MSG_LINES_PORTRAIT : MAX_ADD_MSG_LINES_LANDSCAPE;
+                MAX_ADD_MSG_LINES_PORTRAIT : MAX_ADD_MSG_LINES_LANDSCAPE;
     }
 
     /**

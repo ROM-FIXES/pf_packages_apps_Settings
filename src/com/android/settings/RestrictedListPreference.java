@@ -51,7 +51,7 @@ public class RestrictedListPreference extends CustomListPreference {
     }
 
     public RestrictedListPreference(Context context, AttributeSet attrs,
-            int defStyleAttr, int defStyleRes) {
+                                    int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         mHelper = new RestrictedPreferenceHelper(context, this, attrs);
     }
@@ -82,14 +82,14 @@ public class RestrictedListPreference extends CustomListPreference {
         super.setEnabled(enabled);
     }
 
+    public boolean isDisabledByAdmin() {
+        return mHelper.isDisabledByAdmin();
+    }
+
     public void setDisabledByAdmin(EnforcedAdmin admin) {
         if (mHelper.setDisabledByAdmin(admin)) {
             notifyChanged();
         }
-    }
-
-    public boolean isDisabledByAdmin() {
-        return mHelper.isDisabledByAdmin();
     }
 
     public boolean isRestrictedForEntry(CharSequence entry) {
@@ -138,49 +138,8 @@ public class RestrictedListPreference extends CustomListPreference {
 
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder,
-            DialogInterface.OnClickListener listener) {
+                                          DialogInterface.OnClickListener listener) {
         builder.setAdapter(createListAdapter(), listener);
-    }
-
-
-    public class RestrictedArrayAdapter extends ArrayAdapter<CharSequence> {
-        private final int mSelectedIndex;
-        public RestrictedArrayAdapter(Context context, CharSequence[] objects, int selectedIndex) {
-            super(context, R.layout.restricted_dialog_singlechoice, R.id.text1, objects);
-            mSelectedIndex = selectedIndex;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View root = super.getView(position, convertView, parent);
-            CharSequence entry = getItem(position);
-            CheckedTextView text = (CheckedTextView) root.findViewById(R.id.text1);
-            ImageView padlock = (ImageView) root.findViewById(R.id.restricted_lock_icon);
-            if (isRestrictedForEntry(entry)) {
-                text.setEnabled(false);
-                text.setChecked(false);
-                padlock.setVisibility(View.VISIBLE);
-            } else {
-                if (mSelectedIndex != -1) {
-                    text.setChecked(position == mSelectedIndex);
-                }
-                if (!text.isEnabled()) {
-                    text.setEnabled(true);
-                }
-                padlock.setVisibility(View.GONE);
-            }
-            return root;
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return true;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
     }
 
     public static class RestrictedListPreferenceDialogFragment extends
@@ -257,10 +216,51 @@ public class RestrictedListPreference extends CustomListPreference {
         public final EnforcedAdmin enforcedAdmin;
 
         public RestrictedItem(CharSequence entry, CharSequence entryValue,
-                EnforcedAdmin enforcedAdmin) {
+                              EnforcedAdmin enforcedAdmin) {
             this.entry = entry;
             this.entryValue = entryValue;
             this.enforcedAdmin = enforcedAdmin;
+        }
+    }
+
+    public class RestrictedArrayAdapter extends ArrayAdapter<CharSequence> {
+        private final int mSelectedIndex;
+
+        public RestrictedArrayAdapter(Context context, CharSequence[] objects, int selectedIndex) {
+            super(context, R.layout.restricted_dialog_singlechoice, R.id.text1, objects);
+            mSelectedIndex = selectedIndex;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View root = super.getView(position, convertView, parent);
+            CharSequence entry = getItem(position);
+            CheckedTextView text = (CheckedTextView) root.findViewById(R.id.text1);
+            ImageView padlock = (ImageView) root.findViewById(R.id.restricted_lock_icon);
+            if (isRestrictedForEntry(entry)) {
+                text.setEnabled(false);
+                text.setChecked(false);
+                padlock.setVisibility(View.VISIBLE);
+            } else {
+                if (mSelectedIndex != -1) {
+                    text.setChecked(position == mSelectedIndex);
+                }
+                if (!text.isEnabled()) {
+                    text.setEnabled(true);
+                }
+                padlock.setVisibility(View.GONE);
+            }
+            return root;
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return true;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
         }
     }
 }

@@ -40,6 +40,14 @@ public class OwnerInfoSettings extends DialogFragment implements OnClickListener
     private LockPatternUtils mLockPatternUtils;
     private EditText mOwnerInfo;
 
+    public static void show(Fragment parent) {
+        if (!parent.isAdded()) return;
+
+        final OwnerInfoSettings dialog = new OwnerInfoSettings();
+        dialog.setTargetFragment(parent, 0);
+        dialog.show(parent.getFragmentManager(), TAG_OWNER_INFO);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,13 +87,5 @@ public class OwnerInfoSettings extends DialogFragment implements OnClickListener
                 ((SecuritySettings.SecuritySubSettings) getTargetFragment()).updateOwnerInfo();
             }
         }
-    }
-
-    public static void show(Fragment parent) {
-        if (!parent.isAdded()) return;
-
-        final OwnerInfoSettings dialog = new OwnerInfoSettings();
-        dialog.setTargetFragment(parent, 0);
-        dialog.show(parent.getFragmentManager(), TAG_OWNER_INFO);
     }
 }

@@ -42,7 +42,7 @@ public class TetherProvisioningActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mResultReceiver = (ResultReceiver)getIntent().getParcelableExtra(
+        mResultReceiver = (ResultReceiver) getIntent().getParcelableExtra(
                 ConnectivityManager.EXTRA_PROVISION_CALLBACK);
 
         int tetherType = getIntent().getIntExtra(ConnectivityManager.EXTRA_ADD_TETHER_TYPE,

@@ -42,16 +42,24 @@ public abstract class ListDialogPreference extends CustomDialogPreference {
 
     private OnValueChangedListener mOnValueChangedListener;
 
-    /** The layout resource to use for grid items. */
+    /**
+     * The layout resource to use for grid items.
+     */
     private int mListItemLayout;
 
-    /** The current value of this preference. */
+    /**
+     * The current value of this preference.
+     */
     private int mValue;
 
-    /** The index within the value set of the current value. */
+    /**
+     * The index within the value set of the current value.
+     */
     private int mValueIndex;
 
-    /** Whether the value had been set using {@link #setValue}. */
+    /**
+     * Whether the value had been set using {@link #setValue}.
+     */
     private boolean mValueSet;
 
     public ListDialogPreference(Context context, AttributeSet attrs) {
@@ -102,7 +110,7 @@ public abstract class ListDialogPreference extends CustomDialogPreference {
     /**
      * Populates a list item view with data for the specified index.
      *
-     * @param view the view to populate
+     * @param view  the view to populate
      * @param index the index for which to populate the view
      * @see #setListItemLayoutResource(int)
      * @see #getValueAt(int)
@@ -139,7 +147,7 @@ public abstract class ListDialogPreference extends CustomDialogPreference {
 
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder,
-            DialogInterface.OnClickListener listener) {
+                                          DialogInterface.OnClickListener listener) {
         super.onPrepareDialogBuilder(builder, listener);
 
         final Context context = getContext();
@@ -174,7 +182,7 @@ public abstract class ListDialogPreference extends CustomDialogPreference {
 
     /**
      * @return the index of the specified value within the list of entry values,
-     *         or {@link AbsListView#INVALID_POSITION} if not found
+     * or {@link AbsListView#INVALID_POSITION} if not found
      */
     protected int getIndexForValue(int value) {
         final int[] values = mEntryValues;
@@ -188,6 +196,13 @@ public abstract class ListDialogPreference extends CustomDialogPreference {
         }
 
         return AbsListView.INVALID_POSITION;
+    }
+
+    /**
+     * @return the current value
+     */
+    public int getValue() {
+        return mValue;
     }
 
     /**
@@ -211,13 +226,6 @@ public abstract class ListDialogPreference extends CustomDialogPreference {
                 mOnValueChangedListener.onValueChanged(this, value);
             }
         }
-    }
-
-    /**
-     * @return the current value
-     */
-    public int getValue() {
-        return mValue;
     }
 
     @Override
@@ -256,6 +264,41 @@ public abstract class ListDialogPreference extends CustomDialogPreference {
         setValue(myState.value);
     }
 
+    public interface OnValueChangedListener {
+        public void onValueChanged(ListDialogPreference preference, int value);
+    }
+
+    private static class SavedState extends BaseSavedState {
+        @SuppressWarnings({"hiding", "unused"})
+        public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
+            @Override
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            @Override
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
+        public int value;
+
+        public SavedState(Parcel source) {
+            super(source);
+            value = source.readInt();
+        }
+
+        public SavedState(Parcelable superState) {
+            super(superState);
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeInt(value);
+        }
+    }
+
     private class ListPreferenceAdapter extends BaseAdapter {
         private LayoutInflater mInflater;
 
@@ -290,41 +333,5 @@ public abstract class ListDialogPreference extends CustomDialogPreference {
             onBindListItem(convertView, position);
             return convertView;
         }
-    }
-
-    private static class SavedState extends BaseSavedState {
-        public int value;
-
-        public SavedState(Parcel source) {
-            super(source);
-            value = source.readInt();
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            super.writeToParcel(dest, flags);
-            dest.writeInt(value);
-        }
-
-        public SavedState(Parcelable superState) {
-            super(superState);
-        }
-
-        @SuppressWarnings({ "hiding", "unused" })
-        public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
-            @Override
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            @Override
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
-    }
-
-    public interface OnValueChangedListener {
-        public void onValueChanged(ListDialogPreference preference, int value);
     }
 }

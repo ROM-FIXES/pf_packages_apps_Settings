@@ -47,7 +47,7 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
  * prompt, followed by a keyguard pattern trace if the user has defined one, followed by a final
  * strongly-worded "THIS WILL RESET EVERYTHING" prompt.  If at any time the phone is allowed to go
  * to sleep, is locked, et cetera, then the confirmation sequence is abandoned.
- *
+ * <p>
  * This is the initial screen.
  */
 public class ResetNetwork extends OptionsMenuFragment {
@@ -60,11 +60,26 @@ public class ResetNetwork extends OptionsMenuFragment {
 
     private View mContentView;
     private Spinner mSubscriptionSpinner;
+    /**
+     * If the user clicks to begin the reset sequence, we next require a
+     * keyguard confirmation if the user has currently enabled one.  If there
+     * is no keyguard available, we simply go to the final confirmation prompt.
+     */
+    private final Button.OnClickListener mInitiateListener = new Button.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            if (!runKeyguardConfirmation(KEYGUARD_REQUEST)) {
+                showFinalConfirmation();
+            }
+        }
+    };
     private Button mInitiateButton;
 
     /**
      * Keyguard validation is run using the standard {@link ConfirmLockPattern}
      * component as a subactivity
+     *
      * @param request the request code to be returned once confirmation finishes
      * @return true if confirmation launched
      */
@@ -103,26 +118,11 @@ public class ResetNetwork extends OptionsMenuFragment {
     }
 
     /**
-     * If the user clicks to begin the reset sequence, we next require a
-     * keyguard confirmation if the user has currently enabled one.  If there
-     * is no keyguard available, we simply go to the final confirmation prompt.
-     */
-    private final Button.OnClickListener mInitiateListener = new Button.OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            if (!runKeyguardConfirmation(KEYGUARD_REQUEST)) {
-                showFinalConfirmation();
-            }
-        }
-    };
-
-    /**
      * In its initial state, the activity presents a button for the user to
      * click in order to initiate a confirmation sequence.  This method is
      * called from various other points in the code to reset the activity to
      * this base state.
-     *
+     * <p>
      * <p>Reinflating views from resources is expensive and prevents us from
      * caching widget pointers, so we use a single-inflate pattern:  we lazy-
      * inflate each view, caching all of the widget pointers we'll need at the
@@ -186,7 +186,7 @@ public class ResetNetwork extends OptionsMenuFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         final UserManager um = UserManager.get(getActivity());
         final EnforcedAdmin admin = RestrictedLockUtils.checkIfRestrictionEnforced(
                 getActivity(), UserManager.DISALLOW_NETWORK_RESET, UserHandle.myUserId());

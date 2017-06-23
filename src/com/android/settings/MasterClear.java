@@ -56,25 +56,44 @@ import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
  * has defined one, followed by a final strongly-worded "THIS WILL ERASE EVERYTHING
  * ON THE PHONE" prompt.  If at any time the phone is allowed to go to sleep, is
  * locked, et cetera, then the confirmation sequence is abandoned.
- *
+ * <p>
  * This is the initial screen.
  */
 public class MasterClear extends OptionsMenuFragment
         implements CarrierDemoPasswordDialogFragment.Callback {
-    private static final String TAG = "MasterClear";
-
-    private static final int KEYGUARD_REQUEST = 55;
-
     static final String ERASE_EXTERNAL_EXTRA = "erase_sd";
-
+    private static final String TAG = "MasterClear";
+    private static final int KEYGUARD_REQUEST = 55;
     private View mContentView;
     private Button mInitiateButton;
     private View mExternalStorageContainer;
     private CheckBox mExternalStorage;
+    /**
+     * If the user clicks to begin the reset sequence, we next require a
+     * keyguard confirmation if the user has currently enabled one.  If there
+     * is no keyguard available, we simply go to the final confirmation prompt.
+     */
+    private final Button.OnClickListener mInitiateListener = new Button.OnClickListener() {
+
+        public void onClick(View v) {
+            if (Utils.isCarrierDemoUser(v.getContext())) {
+                // Require the carrier password before displaying the final confirmation.
+                final CarrierDemoPasswordDialogFragment passwordDialog =
+                        new CarrierDemoPasswordDialogFragment();
+                final FragmentManager fm = getChildFragmentManager();
+                if (fm != null && !fm.isDestroyed()) {
+                    passwordDialog.show(fm, null /* tag */);
+                }
+            } else if (!runKeyguardConfirmation(KEYGUARD_REQUEST)) {
+                showFinalConfirmation();
+            }
+        }
+    };
 
     /**
      * Keyguard validation is run using the standard {@link ConfirmLockPattern}
      * component as a subactivity
+     *
      * @param request the request code to be returned once confirmation finishes
      * @return true if confirmation launched
      */
@@ -108,28 +127,6 @@ public class MasterClear extends OptionsMenuFragment
                 args, R.string.master_clear_confirm_title, null, null, 0);
     }
 
-    /**
-     * If the user clicks to begin the reset sequence, we next require a
-     * keyguard confirmation if the user has currently enabled one.  If there
-     * is no keyguard available, we simply go to the final confirmation prompt.
-     */
-    private final Button.OnClickListener mInitiateListener = new Button.OnClickListener() {
-
-        public void onClick(View v) {
-            if ( Utils.isCarrierDemoUser(v.getContext())) {
-                // Require the carrier password before displaying the final confirmation.
-                final CarrierDemoPasswordDialogFragment passwordDialog =
-                        new CarrierDemoPasswordDialogFragment();
-                final FragmentManager fm = getChildFragmentManager();
-                if (fm != null && !fm.isDestroyed()) {
-                    passwordDialog.show(fm, null /* tag */);
-                }
-            } else if (!runKeyguardConfirmation(KEYGUARD_REQUEST)) {
-                showFinalConfirmation();
-            }
-        }
-    };
-
     @Override
     public void onPasswordVerified() {
         showFinalConfirmation();
@@ -140,7 +137,7 @@ public class MasterClear extends OptionsMenuFragment
      * click in order to initiate a confirmation sequence.  This method is
      * called from various other points in the code to reset the activity to
      * this base state.
-     *
+     * <p>
      * <p>Reinflating views from resources is expensive and prevents us from
      * caching widget pointers, so we use a single-inflate pattern:  we lazy-
      * inflate each view, caching all of the widget pointers we'll need at the
@@ -193,20 +190,20 @@ public class MasterClear extends OptionsMenuFragment
     }
 
     private void getContentDescription(View v, StringBuffer description) {
-       if (v.getVisibility() != View.VISIBLE) {
-           return;
-       }
-       if (v instanceof ViewGroup) {
-           ViewGroup vGroup = (ViewGroup) v;
-           for (int i = 0; i < vGroup.getChildCount(); i++) {
-               View nextChild = vGroup.getChildAt(i);
-               getContentDescription(nextChild, description);
-           }
-       } else if (v instanceof TextView) {
-           TextView vText = (TextView) v;
-           description.append(vText.getText());
-           description.append(","); // Allow Talkback to pause between sections.
-       }
+        if (v.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        if (v instanceof ViewGroup) {
+            ViewGroup vGroup = (ViewGroup) v;
+            for (int i = 0; i < vGroup.getChildCount(); i++) {
+                View nextChild = vGroup.getChildAt(i);
+                getContentDescription(nextChild, description);
+            }
+        } else if (v instanceof TextView) {
+            TextView vText = (TextView) v;
+            description.append(vText.getText());
+            description.append(","); // Allow Talkback to pause between sections.
+        }
     }
 
     private boolean isExtStorageEncrypted() {
@@ -216,7 +213,7 @@ public class MasterClear extends OptionsMenuFragment
 
     private void loadAccountList(final UserManager um) {
         View accountsLabel = mContentView.findViewById(R.id.accounts_label);
-        LinearLayout contents = (LinearLayout)mContentView.findViewById(R.id.accounts);
+        LinearLayout contents = (LinearLayout) mContentView.findViewById(R.id.accounts);
         contents.removeAllViews();
 
         Context context = getActivity();
@@ -225,7 +222,7 @@ public class MasterClear extends OptionsMenuFragment
 
         AccountManager mgr = AccountManager.get(context);
 
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
 
         int accountsCount = 0;
@@ -281,7 +278,7 @@ public class MasterClear extends OptionsMenuFragment
                     icon = context.getPackageManager().getDefaultActivityIcon();
                 }
 
-                TextView child = (TextView)inflater.inflate(R.layout.master_clear_account,
+                TextView child = (TextView) inflater.inflate(R.layout.master_clear_account,
                         contents, false);
                 child.setText(account.name);
                 child.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
@@ -301,7 +298,7 @@ public class MasterClear extends OptionsMenuFragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         final Context context = getContext();
         final EnforcedAdmin admin = RestrictedLockUtils.checkIfRestrictionEnforced(context,
                 UserManager.DISALLOW_FACTORY_RESET, UserHandle.myUserId());

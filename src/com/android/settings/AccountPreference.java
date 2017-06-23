@@ -31,11 +31,11 @@ import java.util.ArrayList;
  * the device.
  */
 public class AccountPreference extends Preference {
-    private static final String TAG = "AccountPreference";
     public static final int SYNC_ENABLED = 0; // all know sync adapters are enabled and OK
     public static final int SYNC_DISABLED = 1; // no sync adapters are enabled
     public static final int SYNC_ERROR = 2; // one or more sync adapters have a problem
     public static final int SYNC_IN_PROGRESS = 3; // currently syncing
+    private static final String TAG = "AccountPreference";
     private int mStatus;
     private Account mAccount;
     private ArrayList<String> mAuthorities;
@@ -43,7 +43,7 @@ public class AccountPreference extends Preference {
     private boolean mShowTypeIcon;
 
     public AccountPreference(Context context, Account account, Drawable icon,
-            ArrayList<String> authorities, boolean showTypeIcon) {
+                             ArrayList<String> authorities, boolean showTypeIcon) {
         super(context);
         mAccount = account;
         mAuthorities = authorities;

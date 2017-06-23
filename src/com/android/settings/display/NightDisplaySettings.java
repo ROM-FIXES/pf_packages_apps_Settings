@@ -89,12 +89,12 @@ public class NightDisplaySettings extends SettingsPreferenceFragment
         mEndTimePreference = findPreference(KEY_NIGHT_DISPLAY_END_TIME);
         mActivatedPreference = (TwoStatePreference) findPreference(KEY_NIGHT_DISPLAY_ACTIVATED);
 
-        mAutoModePreference.setEntries(new CharSequence[] {
+        mAutoModePreference.setEntries(new CharSequence[]{
                 getString(R.string.night_display_auto_mode_never),
                 getString(R.string.night_display_auto_mode_custom),
                 getString(R.string.night_display_auto_mode_twilight)
         });
-        mAutoModePreference.setEntryValues(new CharSequence[] {
+        mAutoModePreference.setEntryValues(new CharSequence[]{
                 String.valueOf(NightDisplayController.AUTO_MODE_DISABLED),
                 String.valueOf(NightDisplayController.AUTO_MODE_CUSTOM),
                 String.valueOf(NightDisplayController.AUTO_MODE_TWILIGHT)

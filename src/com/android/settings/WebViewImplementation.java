@@ -27,6 +27,7 @@ import android.os.UserManager;
 import android.util.Log;
 import android.webkit.IWebViewUpdateService;
 import android.webkit.WebViewProviderInfo;
+
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class WebViewImplementation extends InstrumentedActivity implements
             finish();
             return;
         }
-        mWebViewUpdateService  =
+        mWebViewUpdateService =
                 IWebViewUpdateService.Stub.asInterface(ServiceManager.getService("webviewupdate"));
         try {
             WebViewProviderInfo[] providers = mWebViewUpdateService.getValidWebViewPackages();
@@ -77,16 +78,16 @@ public class WebViewImplementation extends InstrumentedActivity implements
                     .setTitle(R.string.select_webview_provider_dialog_title)
                     .setSingleChoiceItems(options.toArray(new String[0]), currentIndex,
                             new OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            try {
-                                mWebViewUpdateService.changeProviderAndSetting(values.get(which));
-                            } catch (RemoteException e) {
-                                Log.w(TAG, "Problem reaching webviewupdate service", e);
-                            }
-                            finish();
-                        }
-                    }).setNegativeButton(android.R.string.cancel, null)
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    try {
+                                        mWebViewUpdateService.changeProviderAndSetting(values.get(which));
+                                    } catch (RemoteException e) {
+                                        Log.w(TAG, "Problem reaching webviewupdate service", e);
+                                    }
+                                    finish();
+                                }
+                            }).setNegativeButton(android.R.string.cancel, null)
                     .setOnCancelListener(this)
                     .setOnDismissListener(this)
                     .show();

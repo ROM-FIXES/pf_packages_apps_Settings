@@ -55,6 +55,16 @@ public class IconPreferenceScreen extends Preference {
     }
 
     /**
+     * Returns the icon of this Preference.
+     *
+     * @return The icon.
+     * @see #setIcon(Drawable)
+     */
+    public Drawable getIcon() {
+        return mIcon;
+    }
+
+    /**
      * Sets the icon for this Preference with a Drawable.
      *
      * @param icon The icon for this Preference
@@ -64,16 +74,6 @@ public class IconPreferenceScreen extends Preference {
             mIcon = icon;
             notifyChanged();
         }
-    }
-
-    /**
-     * Returns the icon of this Preference.
-     *
-     * @return The icon.
-     * @see #setIcon(Drawable)
-     */
-    public Drawable getIcon() {
-        return mIcon;
     }
 
     public void setHighlighted(boolean highlight) {

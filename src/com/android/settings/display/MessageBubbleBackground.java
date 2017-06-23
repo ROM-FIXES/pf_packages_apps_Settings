@@ -23,7 +23,7 @@ import android.widget.LinearLayout;
 import com.android.settings.R;
 
 public class MessageBubbleBackground extends LinearLayout {
-    private final  int mSnapWidthPixels;
+    private final int mSnapWidthPixels;
 
     public MessageBubbleBackground(Context context, AttributeSet attrs) {
         super(context, attrs);

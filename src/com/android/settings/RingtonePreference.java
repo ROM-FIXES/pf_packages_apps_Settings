@@ -41,7 +41,7 @@ import android.util.AttributeSet;
  * @attr ref android.R.styleable#RingtonePreference_ringtoneType
  * @attr ref android.R.styleable#RingtonePreference_showDefault
  * @attr ref android.R.styleable#RingtonePreference_showSilent
- *
+ * <p>
  * Based of frameworks/base/core/java/android/preference/RingtonePreference.java
  * but extends android.support.v7.preference.Preference instead.
  */
@@ -138,7 +138,7 @@ public class RingtonePreference extends Preference {
      * to adjust the parameters of the ringtone picker.
      *
      * @param ringtonePickerIntent The ringtone picker intent that can be
-     *            modified by putting extras.
+     *                             modified by putting extras.
      */
     public void onPrepareRingtonePickerIntent(Intent ringtonePickerIntent) {
 
@@ -209,6 +209,7 @@ public class RingtonePreference extends Preference {
             onSaveRingtone(Uri.parse(defaultValue));
         }
     }
+
     protected void onAttachedToHierarchy(PreferenceManager preferenceManager) {
         super.onAttachedToHierarchy(preferenceManager);
     }

@@ -41,18 +41,15 @@ import android.util.ArrayMap;
 import android.util.Log;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.settingslib.TetherUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TetherService extends Service {
-    private static final String TAG = "TetherService";
-    private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
-
     @VisibleForTesting
     public static final String EXTRA_RESULT = "EntitlementResult";
-
+    private static final String TAG = "TetherService";
+    private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
     // Activity results to match the activity provision protocol.
     // Default to something not ok.
     private static final int RESULT_DEFAULT = Activity.RESULT_CANCELED;
@@ -69,6 +66,57 @@ public class TetherService extends Service {
     private UsageStatsManagerWrapper mUsageManagerWrapper;
     private ArrayList<Integer> mCurrentTethers;
     private ArrayMap<Integer, List<ResultReceiver>> mPendingCallbacks;
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (DEBUG) Log.d(TAG, "Got provision result " + intent);
+            String provisionResponse = getResources().getString(
+                    com.android.internal.R.string.config_mobile_hotspot_provision_response);
+
+            if (provisionResponse.equals(intent.getAction())) {
+                if (!mInProvisionCheck) {
+                    Log.e(TAG, "Unexpected provision response " + intent);
+                    return;
+                }
+                int checkType = mCurrentTethers.get(mCurrentTypeIndex);
+                mInProvisionCheck = false;
+                int result = intent.getIntExtra(EXTRA_RESULT, RESULT_DEFAULT);
+                if (result != RESULT_OK) {
+                    switch (checkType) {
+                        case ConnectivityManager.TETHERING_WIFI:
+                            disableWifiTethering();
+                            break;
+                        case ConnectivityManager.TETHERING_BLUETOOTH:
+                            disableBtTethering();
+                            break;
+                        case ConnectivityManager.TETHERING_USB:
+                            disableUsbTethering();
+                            break;
+                    }
+                }
+                fireCallbacksForType(checkType, result);
+
+                if (++mCurrentTypeIndex >= mCurrentTethers.size()) {
+                    // We are done with all checks, time to die.
+                    stopSelf();
+                } else {
+                    // Start the next check in our list.
+                    startProvisioning(mCurrentTypeIndex);
+                }
+            }
+        }
+    };
+
+    /**
+     * Cancels the recheck alarm only if no tethering is currently active.
+     * <p>
+     * Runs in the background, to get access to bluetooth service that takes time to bind.
+     */
+    public static void cancelRecheckAlarmIfNecessary(final Context context, int type) {
+        Intent intent = new Intent(context, TetherService.class);
+        intent.putExtra(ConnectivityManager.EXTRA_REM_TETHER_TYPE, type);
+        context.startService(intent);
+    }
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -207,13 +255,13 @@ public class TetherService extends Service {
 
     private void disableWifiTethering() {
         ConnectivityManager cm =
-                (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.stopTethering(ConnectivityManager.TETHERING_WIFI);
     }
 
     private void disableUsbTethering() {
         ConnectivityManager cm =
-                (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.setUsbTethering(false);
     }
 
@@ -222,7 +270,8 @@ public class TetherService extends Service {
         if (adapter != null) {
             adapter.getProfileProxy(this, new ServiceListener() {
                 @Override
-                public void onServiceDisconnected(int profile) { }
+                public void onServiceDisconnected(int profile) {
+                }
 
                 @Override
                 public void onServiceConnected(int profile, BluetoothProfile proxy) {
@@ -290,17 +339,6 @@ public class TetherService extends Service {
                 pendingIntent);
     }
 
-    /**
-     * Cancels the recheck alarm only if no tethering is currently active.
-     *
-     * Runs in the background, to get access to bluetooth service that takes time to bind.
-     */
-    public static void cancelRecheckAlarmIfNecessary(final Context context, int type) {
-        Intent intent = new Intent(context, TetherService.class);
-        intent.putExtra(ConnectivityManager.EXTRA_REM_TETHER_TYPE, type);
-        context.startService(intent);
-    }
-
     private void cancelAlarmIfNecessary() {
         if (mCurrentTethers.size() != 0) {
             if (DEBUG) Log.d(TAG, "Tethering still active, not cancelling alarm");
@@ -321,52 +359,11 @@ public class TetherService extends Service {
         int errorCode = result == RESULT_OK ? ConnectivityManager.TETHER_ERROR_NO_ERROR :
                 ConnectivityManager.TETHER_ERROR_PROVISION_FAILED;
         for (ResultReceiver callback : callbacksForType) {
-          if (DEBUG) Log.d(TAG, "Firing result: " + errorCode + " to callback");
-          callback.send(errorCode, null);
+            if (DEBUG) Log.d(TAG, "Firing result: " + errorCode + " to callback");
+            callback.send(errorCode, null);
         }
         callbacksForType.clear();
     }
-
-    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (DEBUG) Log.d(TAG, "Got provision result " + intent);
-            String provisionResponse = getResources().getString(
-                    com.android.internal.R.string.config_mobile_hotspot_provision_response);
-
-            if (provisionResponse.equals(intent.getAction())) {
-                if (!mInProvisionCheck) {
-                    Log.e(TAG, "Unexpected provision response " + intent);
-                    return;
-                }
-                int checkType = mCurrentTethers.get(mCurrentTypeIndex);
-                mInProvisionCheck = false;
-                int result = intent.getIntExtra(EXTRA_RESULT, RESULT_DEFAULT);
-                if (result != RESULT_OK) {
-                    switch (checkType) {
-                        case ConnectivityManager.TETHERING_WIFI:
-                            disableWifiTethering();
-                            break;
-                        case ConnectivityManager.TETHERING_BLUETOOTH:
-                            disableBtTethering();
-                            break;
-                        case ConnectivityManager.TETHERING_USB:
-                            disableUsbTethering();
-                            break;
-                    }
-                }
-                fireCallbacksForType(checkType, result);
-
-                if (++mCurrentTypeIndex >= mCurrentTethers.size()) {
-                    // We are done with all checks, time to die.
-                    stopSelf();
-                } else {
-                    // Start the next check in our list.
-                    startProvisioning(mCurrentTypeIndex);
-                }
-            }
-        }
-    };
 
     @VisibleForTesting
     void setUsageStatsManagerWrapper(UsageStatsManagerWrapper wrapper) {

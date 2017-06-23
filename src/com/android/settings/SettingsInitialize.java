@@ -49,13 +49,13 @@ public class SettingsInitialize extends BroadcastReceiver {
     public void onReceive(Context context, Intent broadcast) {
         final UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
         UserInfo userInfo = um.getUserInfo(UserHandle.myUserId());
-        final PackageManager pm  = context.getPackageManager();
+        final PackageManager pm = context.getPackageManager();
         managedProfileSetup(context, pm, broadcast, userInfo);
         webviewSettingSetup(context, pm, userInfo);
     }
 
     private void managedProfileSetup(Context context, final PackageManager pm, Intent broadcast,
-            UserInfo userInfo) {
+                                     UserInfo userInfo) {
         if (userInfo == null || !userInfo.isManagedProfile()) {
             return;
         }
@@ -81,7 +81,7 @@ public class SettingsInitialize extends BroadcastReceiver {
                         PRIMARY_PROFILE_SETTING);
                 if (shouldForward) {
                     pm.addCrossProfileIntentFilter(info.filter, userInfo.id,
-                        userInfo.profileGroupId, PackageManager.SKIP_CURRENT_PROFILE);
+                            userInfo.profileGroupId, PackageManager.SKIP_CURRENT_PROFILE);
                 }
             }
         }
@@ -100,7 +100,7 @@ public class SettingsInitialize extends BroadcastReceiver {
             return;
         }
         ComponentName settingsComponentName =
-            new ComponentName(context, WebViewImplementation.class);
+                new ComponentName(context, WebViewImplementation.class);
         pm.setComponentEnabledSetting(settingsComponentName,
                 userInfo.isAdmin() ?
                         PackageManager.COMPONENT_ENABLED_STATE_ENABLED :

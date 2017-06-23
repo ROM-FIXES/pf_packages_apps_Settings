@@ -47,6 +47,62 @@ public class ShowAdminSupportDetailsDialog extends Activity
     private EnforcedAdmin mEnforcedAdmin;
     private View mDialogView;
 
+    public static void setAdminSupportDetails(final Activity activity, View root,
+                                              final EnforcedAdmin enforcedAdmin, final boolean finishActivity) {
+        if (enforcedAdmin == null) {
+            return;
+        }
+
+        if (enforcedAdmin.component != null) {
+            DevicePolicyManager dpm = (DevicePolicyManager) activity.getSystemService(
+                    Context.DEVICE_POLICY_SERVICE);
+            if (!RestrictedLockUtils.isAdminInCurrentUserOrProfile(activity,
+                    enforcedAdmin.component) || !RestrictedLockUtils.isCurrentUserOrProfile(
+                    activity, enforcedAdmin.userId)) {
+                enforcedAdmin.component = null;
+            } else {
+                if (enforcedAdmin.userId == UserHandle.USER_NULL) {
+                    enforcedAdmin.userId = UserHandle.myUserId();
+                }
+                CharSequence supportMessage = null;
+                if (UserHandle.isSameApp(Process.myUid(), Process.SYSTEM_UID)) {
+                    supportMessage = dpm.getShortSupportMessageForUser(
+                            enforcedAdmin.component, enforcedAdmin.userId);
+                }
+                if (supportMessage != null) {
+                    TextView textView = (TextView) root.findViewById(R.id.admin_support_msg);
+                    textView.setText(supportMessage);
+                }
+            }
+        }
+
+        root.findViewById(R.id.admins_policies_list).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent();
+                        if (enforcedAdmin.component != null) {
+                            intent.setClass(activity, DeviceAdminAdd.class);
+                            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,
+                                    enforcedAdmin.component);
+                            intent.putExtra(DeviceAdminAdd.EXTRA_CALLED_FROM_SUPPORT_DIALOG, true);
+                            // DeviceAdminAdd class may need to run as managed profile.
+                            activity.startActivityAsUser(intent,
+                                    new UserHandle(enforcedAdmin.userId));
+                        } else {
+                            intent.setClass(activity, Settings.DeviceAdminSettingsActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            // Activity merges both managed profile and parent users
+                            // admins so show as same user as this activity.
+                            activity.startActivity(intent);
+                        }
+                        if (finishActivity) {
+                            activity.finish();
+                        }
+                    }
+                });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,62 +163,6 @@ public class ShowAdminSupportDetailsDialog extends Activity
         }
 
         setAdminSupportDetails(this, root, new EnforcedAdmin(admin, userId), true);
-    }
-
-    public static void setAdminSupportDetails(final Activity activity, View root,
-            final EnforcedAdmin enforcedAdmin, final boolean finishActivity) {
-        if (enforcedAdmin == null) {
-            return;
-        }
-
-        if (enforcedAdmin.component != null) {
-            DevicePolicyManager dpm = (DevicePolicyManager) activity.getSystemService(
-                    Context.DEVICE_POLICY_SERVICE);
-            if (!RestrictedLockUtils.isAdminInCurrentUserOrProfile(activity,
-                    enforcedAdmin.component) || !RestrictedLockUtils.isCurrentUserOrProfile(
-                    activity, enforcedAdmin.userId)) {
-                enforcedAdmin.component = null;
-            } else {
-                if (enforcedAdmin.userId == UserHandle.USER_NULL) {
-                    enforcedAdmin.userId = UserHandle.myUserId();
-                }
-                CharSequence supportMessage = null;
-                if (UserHandle.isSameApp(Process.myUid(), Process.SYSTEM_UID)) {
-                    supportMessage = dpm.getShortSupportMessageForUser(
-                            enforcedAdmin.component, enforcedAdmin.userId);
-                }
-                if (supportMessage != null) {
-                    TextView textView = (TextView) root.findViewById(R.id.admin_support_msg);
-                    textView.setText(supportMessage);
-                }
-            }
-        }
-
-        root.findViewById(R.id.admins_policies_list).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent();
-                        if (enforcedAdmin.component != null) {
-                            intent.setClass(activity, DeviceAdminAdd.class);
-                            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,
-                                    enforcedAdmin.component);
-                            intent.putExtra(DeviceAdminAdd.EXTRA_CALLED_FROM_SUPPORT_DIALOG, true);
-                            // DeviceAdminAdd class may need to run as managed profile.
-                            activity.startActivityAsUser(intent,
-                                    new UserHandle(enforcedAdmin.userId));
-                        } else {
-                            intent.setClass(activity, Settings.DeviceAdminSettingsActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            // Activity merges both managed profile and parent users
-                            // admins so show as same user as this activity.
-                            activity.startActivity(intent);
-                        }
-                        if (finishActivity) {
-                            activity.finish();
-                        }
-                    }
-                });
     }
 
     @Override

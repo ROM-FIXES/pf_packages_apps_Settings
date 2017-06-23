@@ -63,7 +63,7 @@ public class ConversationMessageView extends FrameLayout {
     }
 
     public ConversationMessageView(Context context, AttributeSet attrs, int defStyleAttr,
-            int defStyleRes) {
+                                   int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
         final TypedArray a = context.obtainStyledAttributes(attrs,
@@ -79,6 +79,21 @@ public class ConversationMessageView extends FrameLayout {
 
         LayoutInflater.from(context).inflate(R.layout.conversation_message_icon, this);
         LayoutInflater.from(context).inflate(R.layout.conversation_message_content, this);
+    }
+
+    private static boolean isLayoutRtl(final View view) {
+        return View.LAYOUT_DIRECTION_RTL == view.getLayoutDirection();
+    }
+
+    private static Drawable getTintedDrawable(final Context context, final Drawable drawable,
+                                              final int color) {
+        // For some reason occassionally drawables on JB has a null constant state
+        final Drawable.ConstantState constantStateDrawable = drawable.getConstantState();
+        final Drawable retDrawable = (constantStateDrawable != null)
+                ? constantStateDrawable.newDrawable(context.getResources()).mutate()
+                : drawable;
+        retDrawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+        return retDrawable;
     }
 
     @Override
@@ -126,13 +141,13 @@ public class ConversationMessageView extends FrameLayout {
 
     @Override
     protected void onLayout(final boolean changed, final int left, final int top, final int right,
-            final int bottom) {
+                            final int bottom) {
         final boolean isRtl = isLayoutRtl(this);
 
         final int iconWidth = mContactIconView.getMeasuredWidth();
         final int iconHeight = mContactIconView.getMeasuredHeight();
         final int iconTop = getPaddingTop();
-        final int contentWidth = (right -left) - iconWidth - getPaddingLeft() - getPaddingRight();
+        final int contentWidth = (right - left) - iconWidth - getPaddingLeft() - getPaddingRight();
         final int contentHeight = mMessageBubble.getMeasuredHeight();
         final int contentTop = iconTop;
 
@@ -161,10 +176,6 @@ public class ConversationMessageView extends FrameLayout {
 
         mMessageBubble.layout(contentLeft, contentTop, contentLeft + contentWidth,
                 contentTop + contentHeight);
-    }
-
-    private static boolean isLayoutRtl(final View view) {
-        return View.LAYOUT_DIRECTION_RTL == view.getLayoutDirection();
     }
 
     private void updateViewContent() {
@@ -205,7 +216,7 @@ public class ConversationMessageView extends FrameLayout {
                 (Gravity.END | Gravity.CENTER_VERTICAL);
         final int messageTopPadding = res.getDimensionPixelSize(
                 R.dimen.message_padding_default);
-        final int metadataTopPadding =  res.getDimensionPixelOffset(
+        final int metadataTopPadding = res.getDimensionPixelOffset(
                 R.dimen.message_metadata_top_padding);
 
         // Update the message text/info views
@@ -248,16 +259,5 @@ public class ConversationMessageView extends FrameLayout {
         mMessageTextView.setTextColor(messageColor);
         mMessageTextView.setLinkTextColor(messageColor);
         mStatusTextView.setTextColor(timestampColorResId);
-    }
-
-    private static Drawable getTintedDrawable(final Context context, final Drawable drawable,
-            final int color) {
-        // For some reason occassionally drawables on JB has a null constant state
-        final Drawable.ConstantState constantStateDrawable = drawable.getConstantState();
-        final Drawable retDrawable = (constantStateDrawable != null)
-                ? constantStateDrawable.newDrawable(context.getResources()).mutate()
-                : drawable;
-        retDrawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
-        return retDrawable;
     }
 }

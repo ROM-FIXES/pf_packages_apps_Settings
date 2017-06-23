@@ -45,7 +45,7 @@ public class SetFullBackupPassword extends Activity {
 
                 if (!newPw.equals(confirmPw)) {
                     // Mismatch between new pw and its confirmation re-entry
-Log.i(TAG, "password mismatch");
+                    Log.i(TAG, "password mismatch");
                     Toast.makeText(SetFullBackupPassword.this,
                             R.string.local_backup_password_toast_confirmation_mismatch,
                             Toast.LENGTH_LONG).show();
@@ -56,14 +56,14 @@ Log.i(TAG, "password mismatch");
 
                 if (setBackupPassword(curPw, newPw)) {
                     // success
-Log.i(TAG, "password set successfully");
+                    Log.i(TAG, "password set successfully");
                     Toast.makeText(SetFullBackupPassword.this,
                             R.string.local_backup_password_toast_success,
                             Toast.LENGTH_LONG).show();
                     finish();
                 } else {
                     // failure -- bad existing pw, usually
-Log.i(TAG, "failure; password mismatch?");
+                    Log.i(TAG, "failure; password mismatch?");
                     Toast.makeText(SetFullBackupPassword.this,
                             R.string.local_backup_password_toast_validation_failure,
                             Toast.LENGTH_LONG).show();

@@ -18,7 +18,6 @@ package com.android.settings.overlay;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.IntentFilter;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
@@ -28,11 +27,25 @@ import android.support.v4.content.LocalBroadcastManager;
 public interface SurveyFeatureProvider {
 
     /**
+     * Unregisters the broadcast receiver for this activity. Should only be called once per activity
+     * after a call to {@link #createAndRegisterReceiver(Activity)}.
+     *
+     * @param activity The activity that was used to register the BroadcastReceiver.
+     */
+    static void unregisterReceiver(Activity activity, BroadcastReceiver receiver) {
+        if (activity == null) {
+            throw new IllegalStateException("Cannot unregister receiver if activity is null");
+        }
+
+        LocalBroadcastManager.getInstance(activity).unregisterReceiver(receiver);
+    }
+
+    /**
      * Downloads a survey asynchronously to shared preferences to be served at a later date.
      *
      * @param activity A valid context.
      * @param surveyId A unique Id representing a survey to download.
-     * @param data a text blob to be attached to the survey results.
+     * @param data     a text blob to be attached to the survey results.
      */
     void downloadSurvey(Activity activity, String surveyId, @Nullable String data);
 
@@ -49,7 +62,7 @@ public interface SurveyFeatureProvider {
      * A helper method to get the surveyId. Implementers should create a mapping of
      * keys to surveyIds and provide them via this function.
      *
-     * @param context A valid context.
+     * @param context   A valid context.
      * @param simpleKey The simple name of the key to get the surveyId for.
      * @return The unique Id as a string or null on error.
      */
@@ -60,7 +73,7 @@ public interface SurveyFeatureProvider {
      * unix timestamp) for the remaining survey should it exist and be ready to show. Returns -1 if
      * no valid survey exists after removing the potentially expired one.
      *
-     * @param context the calling context.
+     * @param context  the calling context.
      * @param surveyId the site ID.
      * @return the unix timestamp for the available survey for the given {@coe siteId} or -1 if
      * there is none available.
@@ -71,22 +84,10 @@ public interface SurveyFeatureProvider {
      * Registers an activity to show surveys/prompts as soon as they are downloaded. The receiver
      * should be unregistered prior to destroying the activity to avoid undefined behavior by
      * calling {@link #unregisterReceiver(Activity, BroadcastReceiver)}.
+     *
      * @param activity The activity that should show surveys once they are downloaded.
      * @return the broadcast receiver listening for survey downloads. Must be unregistered before
      * leaving the activity.
      */
     BroadcastReceiver createAndRegisterReceiver(Activity activity);
-
-    /**
-     * Unregisters the broadcast receiver for this activity. Should only be called once per activity
-     * after a call to {@link #createAndRegisterReceiver(Activity)}.
-     * @param activity The activity that was used to register the BroadcastReceiver.
-     */
-    static void unregisterReceiver(Activity activity, BroadcastReceiver receiver) {
-        if (activity == null) {
-            throw new IllegalStateException("Cannot unregister receiver if activity is null");
-        }
-
-        LocalBroadcastManager.getInstance(activity).unregisterReceiver(receiver);
-    }
 }

@@ -70,61 +70,74 @@ public class TetherSettings extends RestrictedSettingsFragment
     private static final int DIALOG_AP_SETTINGS = 1;
 
     private static final String TAG = "TetheringSettings";
-
-    private SwitchPreference mUsbTether;
-
-    private WifiApEnabler mWifiApEnabler;
-    private SwitchPreference mEnableWifiAp;
-
-    private SwitchPreference mBluetoothTether;
-
-    private BroadcastReceiver mTetherChangeReceiver;
-
-    private String[] mUsbRegexs;
-
-    private String[] mWifiRegexs;
-
-    private String[] mBluetoothRegexs;
-    private AtomicReference<BluetoothPan> mBluetoothPan = new AtomicReference<BluetoothPan>();
-
-    private Handler mHandler = new Handler();
-    private OnStartTetheringCallback mStartTetheringCallback;
-
     private static final String WIFI_AP_SSID_AND_SECURITY = "wifi_ap_ssid_and_security";
     private static final int CONFIG_SUBTEXT = R.string.wifi_tether_configure_subtext;
-
+    private static final int PROVISION_REQUEST = 0;
+    private SwitchPreference mUsbTether;
+    private WifiApEnabler mWifiApEnabler;
+    private SwitchPreference mEnableWifiAp;
+    private SwitchPreference mBluetoothTether;
+    private BroadcastReceiver mTetherChangeReceiver;
+    private String[] mUsbRegexs;
+    private String[] mWifiRegexs;
+    private String[] mBluetoothRegexs;
+    private AtomicReference<BluetoothPan> mBluetoothPan = new AtomicReference<BluetoothPan>();
+    private Handler mHandler = new Handler();
+    private OnStartTetheringCallback mStartTetheringCallback;
     private String[] mSecurityType;
     private Preference mCreateNetwork;
-
     private WifiApDialog mDialog;
     private WifiManager mWifiManager;
     private WifiConfiguration mWifiConfig = null;
     private ConnectivityManager mCm;
-
     private boolean mRestartWifiApAfterConfigChange;
-
     private boolean mUsbConnected;
     private boolean mMassStorageActive;
-
     private boolean mBluetoothEnableForTether;
-
     /* Stores the package name and the class name of the provisioning app */
     private String[] mProvisionApp;
-    private static final int PROVISION_REQUEST = 0;
-
     private boolean mUnavailable;
 
     private DataSaverBackend mDataSaverBackend;
     private boolean mDataSaverEnabled;
     private Preference mDataSaverFooter;
+    private BluetoothProfile.ServiceListener mProfileServiceListener =
+            new BluetoothProfile.ServiceListener() {
+                public void onServiceConnected(int profile, BluetoothProfile proxy) {
+                    mBluetoothPan.set((BluetoothPan) proxy);
+                }
+
+                public void onServiceDisconnected(int profile) {
+                    mBluetoothPan.set(null);
+                }
+            };
+
+    public TetherSettings() {
+        super(UserManager.DISALLOW_CONFIG_TETHERING);
+    }
+
+    public static boolean isProvisioningNeededButUnavailable(Context context) {
+        return (TetherUtil.isProvisioningNeeded(context)
+                && !isIntentAvailable(context));
+    }
+
+    private static boolean isIntentAvailable(Context context) {
+        String[] provisionApp = context.getResources().getStringArray(
+                com.android.internal.R.array.config_mobile_hotspot_provision_app);
+        if (provisionApp.length < 2) {
+            return false;
+        }
+        final PackageManager packageManager = context.getPackageManager();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setClassName(provisionApp[0], provisionApp[1]);
+
+        return (packageManager.queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY).size() > 0);
+    }
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.TETHER;
-    }
-
-    public TetherSettings() {
-        super(UserManager.DISALLOW_CONFIG_TETHERING);
     }
 
     @Override
@@ -216,7 +229,7 @@ public class TetherSettings extends RestrictedSettingsFragment
     }
 
     @Override
-    public void onBlacklistStatusChanged(int uid, boolean isBlacklisted)  {
+    public void onBlacklistStatusChanged(int uid, boolean isBlacklisted) {
     }
 
     private void initWifiTethering() {
@@ -250,67 +263,6 @@ public class TetherSettings extends RestrictedSettingsFragment
         }
 
         return null;
-    }
-
-    private class TetherChangeReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context content, Intent intent) {
-            String action = intent.getAction();
-            if (action.equals(ConnectivityManager.ACTION_TETHER_STATE_CHANGED)) {
-                // TODO - this should understand the interface types
-                ArrayList<String> available = intent.getStringArrayListExtra(
-                        ConnectivityManager.EXTRA_AVAILABLE_TETHER);
-                ArrayList<String> active = intent.getStringArrayListExtra(
-                        ConnectivityManager.EXTRA_ACTIVE_TETHER);
-                ArrayList<String> errored = intent.getStringArrayListExtra(
-                        ConnectivityManager.EXTRA_ERRORED_TETHER);
-                updateState(available.toArray(new String[available.size()]),
-                        active.toArray(new String[active.size()]),
-                        errored.toArray(new String[errored.size()]));
-                if (mWifiManager.getWifiApState() == WifiManager.WIFI_AP_STATE_DISABLED
-                        && mRestartWifiApAfterConfigChange) {
-                    mRestartWifiApAfterConfigChange = false;
-                    Log.d(TAG, "Restarting WifiAp due to prior config change.");
-                    startTethering(TETHERING_WIFI);
-                }
-            } else if (action.equals(WifiManager.WIFI_AP_STATE_CHANGED_ACTION)) {
-                int state = intent.getIntExtra(WifiManager.EXTRA_WIFI_AP_STATE, 0);
-                if (state == WifiManager.WIFI_AP_STATE_DISABLED
-                        && mRestartWifiApAfterConfigChange) {
-                    mRestartWifiApAfterConfigChange = false;
-                    Log.d(TAG, "Restarting WifiAp due to prior config change.");
-                    startTethering(TETHERING_WIFI);
-                }
-            } else if (action.equals(Intent.ACTION_MEDIA_SHARED)) {
-                mMassStorageActive = true;
-                updateState();
-            } else if (action.equals(Intent.ACTION_MEDIA_UNSHARED)) {
-                mMassStorageActive = false;
-                updateState();
-            } else if (action.equals(UsbManager.ACTION_USB_STATE)) {
-                mUsbConnected = intent.getBooleanExtra(UsbManager.USB_CONNECTED, false);
-                updateState();
-            } else if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
-                if (mBluetoothEnableForTether) {
-                    switch (intent
-                            .getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR)) {
-                        case BluetoothAdapter.STATE_ON:
-                            startTethering(TETHERING_BLUETOOTH);
-                            mBluetoothEnableForTether = false;
-                            break;
-
-                        case BluetoothAdapter.STATE_OFF:
-                        case BluetoothAdapter.ERROR:
-                            mBluetoothEnableForTether = false;
-                            break;
-
-                        default:
-                            // ignore transition states
-                    }
-                }
-                updateState();
-            }
-        }
     }
 
     @Override
@@ -382,14 +334,13 @@ public class TetherSettings extends RestrictedSettingsFragment
     }
 
     private void updateState(String[] available, String[] tethered,
-            String[] errored) {
+                             String[] errored) {
         updateUsbState(available, tethered, errored);
         updateBluetoothState(available, tethered, errored);
     }
 
-
     private void updateUsbState(String[] available, String[] tethered,
-            String[] errored) {
+                                String[] errored) {
         boolean usbAvailable = mUsbConnected && !mMassStorageActive;
         int usbError = ConnectivityManager.TETHER_ERROR_NO_ERROR;
         for (String s : available) {
@@ -408,7 +359,7 @@ public class TetherSettings extends RestrictedSettingsFragment
             }
         }
         boolean usbErrored = false;
-        for (String s: errored) {
+        for (String s : errored) {
             for (String regex : mUsbRegexs) {
                 if (s.matches(regex)) usbErrored = true;
             }
@@ -442,9 +393,9 @@ public class TetherSettings extends RestrictedSettingsFragment
     }
 
     private void updateBluetoothState(String[] available, String[] tethered,
-            String[] errored) {
+                                      String[] errored) {
         boolean bluetoothErrored = false;
-        for (String s: errored) {
+        for (String s : errored) {
             for (String regex : mBluetoothRegexs) {
                 if (s.matches(regex)) bluetoothErrored = true;
             }
@@ -499,25 +450,6 @@ public class TetherSettings extends RestrictedSettingsFragment
             mCm.stopTethering(TETHERING_WIFI);
         }
         return false;
-    }
-
-    public static boolean isProvisioningNeededButUnavailable(Context context) {
-        return (TetherUtil.isProvisioningNeeded(context)
-                && !isIntentAvailable(context));
-    }
-
-    private static boolean isIntentAvailable(Context context) {
-        String[] provisionApp = context.getResources().getStringArray(
-                com.android.internal.R.array.config_mobile_hotspot_provision_app);
-        if (provisionApp.length < 2) {
-            return false;
-        }
-        final PackageManager packageManager = context.getPackageManager();
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setClassName(provisionApp[0], provisionApp[1]);
-
-        return (packageManager.queryIntentActivities(intent,
-                PackageManager.MATCH_DEFAULT_ONLY).size() > 0);
     }
 
     private void startTethering(int choice) {
@@ -589,16 +521,6 @@ public class TetherSettings extends RestrictedSettingsFragment
         return R.string.help_url_tether;
     }
 
-    private BluetoothProfile.ServiceListener mProfileServiceListener =
-            new BluetoothProfile.ServiceListener() {
-        public void onServiceConnected(int profile, BluetoothProfile proxy) {
-            mBluetoothPan.set((BluetoothPan) proxy);
-        }
-        public void onServiceDisconnected(int profile) {
-            mBluetoothPan.set(null);
-        }
-    };
-
     private static final class OnStartTetheringCallback extends
             ConnectivityManager.OnStartTetheringCallback {
         final WeakReference<TetherSettings> mTetherSettings;
@@ -621,6 +543,67 @@ public class TetherSettings extends RestrictedSettingsFragment
             TetherSettings settings = mTetherSettings.get();
             if (settings != null) {
                 settings.updateState();
+            }
+        }
+    }
+
+    private class TetherChangeReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context content, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(ConnectivityManager.ACTION_TETHER_STATE_CHANGED)) {
+                // TODO - this should understand the interface types
+                ArrayList<String> available = intent.getStringArrayListExtra(
+                        ConnectivityManager.EXTRA_AVAILABLE_TETHER);
+                ArrayList<String> active = intent.getStringArrayListExtra(
+                        ConnectivityManager.EXTRA_ACTIVE_TETHER);
+                ArrayList<String> errored = intent.getStringArrayListExtra(
+                        ConnectivityManager.EXTRA_ERRORED_TETHER);
+                updateState(available.toArray(new String[available.size()]),
+                        active.toArray(new String[active.size()]),
+                        errored.toArray(new String[errored.size()]));
+                if (mWifiManager.getWifiApState() == WifiManager.WIFI_AP_STATE_DISABLED
+                        && mRestartWifiApAfterConfigChange) {
+                    mRestartWifiApAfterConfigChange = false;
+                    Log.d(TAG, "Restarting WifiAp due to prior config change.");
+                    startTethering(TETHERING_WIFI);
+                }
+            } else if (action.equals(WifiManager.WIFI_AP_STATE_CHANGED_ACTION)) {
+                int state = intent.getIntExtra(WifiManager.EXTRA_WIFI_AP_STATE, 0);
+                if (state == WifiManager.WIFI_AP_STATE_DISABLED
+                        && mRestartWifiApAfterConfigChange) {
+                    mRestartWifiApAfterConfigChange = false;
+                    Log.d(TAG, "Restarting WifiAp due to prior config change.");
+                    startTethering(TETHERING_WIFI);
+                }
+            } else if (action.equals(Intent.ACTION_MEDIA_SHARED)) {
+                mMassStorageActive = true;
+                updateState();
+            } else if (action.equals(Intent.ACTION_MEDIA_UNSHARED)) {
+                mMassStorageActive = false;
+                updateState();
+            } else if (action.equals(UsbManager.ACTION_USB_STATE)) {
+                mUsbConnected = intent.getBooleanExtra(UsbManager.USB_CONNECTED, false);
+                updateState();
+            } else if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
+                if (mBluetoothEnableForTether) {
+                    switch (intent
+                            .getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR)) {
+                        case BluetoothAdapter.STATE_ON:
+                            startTethering(TETHERING_BLUETOOTH);
+                            mBluetoothEnableForTether = false;
+                            break;
+
+                        case BluetoothAdapter.STATE_OFF:
+                        case BluetoothAdapter.ERROR:
+                            mBluetoothEnableForTether = false;
+                            break;
+
+                        default:
+                            // ignore transition states
+                    }
+                }
+                updateState();
             }
         }
     }

@@ -27,8 +27,6 @@ import android.os.UserHandle;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.settings.R;
-
 import java.net.URISyntaxException;
 
 /**

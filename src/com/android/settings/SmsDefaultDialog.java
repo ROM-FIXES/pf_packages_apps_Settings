@@ -84,7 +84,7 @@ public final class SmsDefaultDialog extends AlertActivity implements
     }
 
     private boolean buildDialog(String packageName) {
-        TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         if (!tm.isSmsCapable()) {
             // No phone, no SMS
             return false;
@@ -135,26 +135,10 @@ public final class SmsDefaultDialog extends AlertActivity implements
      * The list of SMS apps with label, icon. Current default SMS app is marked as "default".
      */
     private class AppListAdapter extends BaseAdapter {
-        /**
-         * SMS app item in the list
-         */
-        private class Item {
-            final String label;         // app label
-            final Drawable icon;        // app icon
-            final String packgeName;    // full app package name
-
-            public Item(String label, Drawable icon, String packageName) {
-                this.label = label;
-                this.icon = icon;
-                this.packgeName = packageName;
-            }
-        }
-
         // The list
         private final List<Item> mItems;
         // The index of selected
         private final int mSelectedIndex;
-
         public AppListAdapter() {
             mItems = getItems();
             int selected = getSelectedIndex();
@@ -194,7 +178,7 @@ public final class SmsDefaultDialog extends AlertActivity implements
             } else {
                 view.findViewById(R.id.default_label).setVisibility(View.GONE);
             }
-            ImageView imageView = (ImageView)view.findViewById(android.R.id.icon);
+            ImageView imageView = (ImageView) view.findViewById(android.R.id.icon);
             imageView.setImageDrawable(item.icon);
             return view;
         }
@@ -260,6 +244,21 @@ public final class SmsDefaultDialog extends AlertActivity implements
                 }
             }
             return -1;
+        }
+
+        /**
+         * SMS app item in the list
+         */
+        private class Item {
+            final String label;         // app label
+            final Drawable icon;        // app icon
+            final String packgeName;    // full app package name
+
+            public Item(String label, Drawable icon, String packageName) {
+                this.label = label;
+                this.icon = icon;
+                this.packgeName = packageName;
+            }
         }
     }
 }

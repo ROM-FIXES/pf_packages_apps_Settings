@@ -28,15 +28,16 @@ import com.android.settings.overlay.SurveyFeatureProvider;
  * Instrumented preference fragment that logs visibility state.
  */
 public abstract class InstrumentedPreferenceFragment extends PreferenceFragment {
+    private BroadcastReceiver mReceiver;
+
     /**
      * Declare the view of this category.
-     *
+     * <p>
      * Categories are defined in {@link com.android.internal.logging.MetricsProto.MetricsEvent}
      * or if there is no relevant existing category you may define one in
      * {@link com.android.settings.InstrumentedFragment}.
      */
     protected abstract int getMetricsCategory();
-    private BroadcastReceiver mReceiver;
 
     @Override
     public void onResume() {

@@ -16,7 +16,6 @@
 
 package com.android.settings;
 
-import android.app.Activity;
 import android.app.backup.IBackupManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -37,11 +36,9 @@ import android.support.v7.preference.PreferenceScreen;
 import android.util.Log;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settingslib.RestrictedLockUtils;
-import com.android.settingslib.RestrictedPreference;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -54,6 +51,11 @@ import java.util.Set;
  */
 public class PrivacySettings extends SettingsPreferenceFragment implements Indexable {
 
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new PrivacySearchIndexProvider();
     // Vendor specific
     private static final String GSETTINGS_PROVIDER = "com.google.settings";
     private static final String BACKUP_DATA = "backup_data";
@@ -69,6 +71,51 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
     private PreferenceScreen mConfigure;
     private PreferenceScreen mManageData;
     private boolean mEnabled;
+    private OnPreferenceChangeListener preferenceChangeListener = new OnPreferenceChangeListener() {
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object newValue) {
+            if (!(preference instanceof SwitchPreference)) {
+                return true;
+            }
+            boolean nextValue = (Boolean) newValue;
+            boolean result = false;
+            if (preference == mAutoRestore) {
+                try {
+                    mBackupManager.setAutoRestore(nextValue);
+                    result = true;
+                } catch (RemoteException e) {
+                    mAutoRestore.setChecked(!nextValue);
+                }
+            }
+            return result;
+        }
+    };
+
+    private static void getNonVisibleKeys(Context context, Collection<String> nonVisibleKeys) {
+        final IBackupManager backupManager = IBackupManager.Stub.asInterface(
+                ServiceManager.getService(Context.BACKUP_SERVICE));
+        boolean isServiceActive = false;
+        try {
+            isServiceActive = backupManager.isBackupServiceActive(UserHandle.myUserId());
+        } catch (RemoteException e) {
+            Log.w(TAG, "Failed querying backup manager service activity status. " +
+                    "Assuming it is inactive.");
+        }
+        boolean vendorSpecific = context.getPackageManager().
+                resolveContentProvider(GSETTINGS_PROVIDER, 0) == null;
+        if (vendorSpecific || isServiceActive) {
+            nonVisibleKeys.add(BACKUP_INACTIVE);
+        }
+        if (vendorSpecific || !isServiceActive) {
+            nonVisibleKeys.add(BACKUP_DATA);
+            nonVisibleKeys.add(AUTO_RESTORE);
+            nonVisibleKeys.add(CONFIGURE_ACCOUNT);
+        }
+        if (RestrictedLockUtils.hasBaseUserRestriction(context,
+                UserManager.DISALLOW_FACTORY_RESET, UserHandle.myUserId())) {
+            nonVisibleKeys.add(FACTORY_RESET);
+        }
+    }
 
     @Override
     protected int getMetricsCategory() {
@@ -120,27 +167,6 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
             updateToggles();
         }
     }
-
-    private OnPreferenceChangeListener preferenceChangeListener = new OnPreferenceChangeListener() {
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
-            if (!(preference instanceof SwitchPreference)) {
-                return true;
-            }
-            boolean nextValue = (Boolean) newValue;
-            boolean result = false;
-            if (preference == mAutoRestore) {
-                try {
-                    mBackupManager.setAutoRestore(nextValue);
-                    result = true;
-                } catch (RemoteException e) {
-                    mAutoRestore.setChecked(!nextValue);
-                }
-            }
-            return result;
-        }
-    };
-
 
     /*
      * Creates toggles for each backup/reset preference.
@@ -218,12 +244,6 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
         return R.string.help_url_backup_reset;
     }
 
-    /**
-     * For Search.
-     */
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new PrivacySearchIndexProvider();
-
     private static class PrivacySearchIndexProvider extends BaseSearchIndexProvider {
 
         boolean mIsPrimary;
@@ -258,32 +278,6 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
             final List<String> nonVisibleKeys = new ArrayList<>();
             getNonVisibleKeys(context, nonVisibleKeys);
             return nonVisibleKeys;
-        }
-    }
-
-    private static void getNonVisibleKeys(Context context, Collection<String> nonVisibleKeys) {
-        final IBackupManager backupManager = IBackupManager.Stub.asInterface(
-                ServiceManager.getService(Context.BACKUP_SERVICE));
-        boolean isServiceActive = false;
-        try {
-            isServiceActive = backupManager.isBackupServiceActive(UserHandle.myUserId());
-        } catch (RemoteException e) {
-            Log.w(TAG, "Failed querying backup manager service activity status. " +
-                    "Assuming it is inactive.");
-        }
-        boolean vendorSpecific = context.getPackageManager().
-                resolveContentProvider(GSETTINGS_PROVIDER, 0) == null;
-        if (vendorSpecific || isServiceActive) {
-            nonVisibleKeys.add(BACKUP_INACTIVE);
-        }
-        if (vendorSpecific || !isServiceActive) {
-            nonVisibleKeys.add(BACKUP_DATA);
-            nonVisibleKeys.add(AUTO_RESTORE);
-            nonVisibleKeys.add(CONFIGURE_ACCOUNT);
-        }
-        if (RestrictedLockUtils.hasBaseUserRestriction(context,
-                UserManager.DISALLOW_FACTORY_RESET, UserHandle.myUserId())) {
-            nonVisibleKeys.add(FACTORY_RESET);
         }
     }
 }

@@ -38,9 +38,9 @@ import android.os.UserManager;
 import android.security.IKeyChainService;
 import android.security.KeyChain;
 import android.security.KeyChain.KeyChainConnection;
+import android.util.ArraySet;
 import android.util.Log;
 import android.util.SparseArray;
-import android.util.ArraySet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,85 +76,15 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
     public static final String ARG_SHOW_NEW_FOR_USER = "ARG_SHOW_NEW_FOR_USER";
 
     private static final String TAG = "TrustedCredentialsSettings";
-
-    private UserManager mUserManager;
-    private KeyguardManager mKeyguardManager;
-    private int mTrustAllCaUserId;
-
     private static final String SAVED_CONFIRMED_CREDENTIAL_USERS = "ConfirmedCredentialUsers";
     private static final String SAVED_CONFIRMING_CREDENTIAL_USER = "ConfirmingCredentialUser";
     private static final String USER_ACTION = "com.android.settings.TRUSTED_CREDENTIALS_USER";
     private static final int REQUEST_CONFIRM_CREDENTIALS = 1;
-
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsEvent.TRUSTED_CREDENTIALS;
-    }
-
-    private enum Tab {
-        SYSTEM("system",
-                R.string.trusted_credentials_system_tab,
-                R.id.system_tab,
-                R.id.system_progress,
-                R.id.system_personal_container,
-                R.id.system_work_container,
-                R.id.system_expandable_list,
-                R.id.system_content,
-               true),
-        USER("user",
-                R.string.trusted_credentials_user_tab,
-                R.id.user_tab,
-                R.id.user_progress,
-                R.id.user_personal_container,
-                R.id.user_work_container,
-                R.id.user_expandable_list,
-                R.id.user_content,
-                false);
-
-        private final String mTag;
-        private final int mLabel;
-        private final int mView;
-        private final int mProgress;
-        private final int mPersonalList;
-        private final int mWorkList;
-        private final int mExpandableList;
-        private final int mContentView;
-        private final boolean mSwitch;
-
-        private Tab(String tag, int label, int view, int progress, int personalList, int workList,
-                int expandableList, int contentView, boolean withSwitch) {
-            mTag = tag;
-            mLabel = label;
-            mView = view;
-            mProgress = progress;
-            mPersonalList = personalList;
-            mWorkList = workList;
-            mExpandableList = expandableList;
-            mContentView = contentView;
-            mSwitch = withSwitch;
-        }
-
-        private List<ParcelableString> getAliases(IKeyChainService service) throws RemoteException {
-            switch (this) {
-                case SYSTEM: {
-                    return service.getSystemCaAliases().getList();
-                }
-                case USER:
-                    return service.getUserCaAliases().getList();
-            }
-            throw new AssertionError();
-        }
-        private boolean deleted(IKeyChainService service, String alias) throws RemoteException {
-            switch (this) {
-                case SYSTEM:
-                    return !service.containsCaAlias(alias);
-                case USER:
-                    return false;
-            }
-            throw new AssertionError();
-        }
-    }
-
+    private final SparseArray<KeyChainConnection>
+            mKeyChainConnectionByProfileId = new SparseArray<KeyChainConnection>();
+    private UserManager mUserManager;
+    private KeyguardManager mKeyguardManager;
+    private int mTrustAllCaUserId;
     private TabHost mTabHost;
     private ArrayList<GroupAdapter> mGroupAdapters = new ArrayList<>(2);
     private AliasOperation mAliasOperation;
@@ -162,9 +92,6 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
     private int mConfirmingCredentialUser;
     private IntConsumer mConfirmingCredentialListener;
     private Set<AdapterData.AliasLoader> mAliasLoaders = new ArraySet<AdapterData.AliasLoader>(2);
-    private final SparseArray<KeyChainConnection>
-            mKeyChainConnectionByProfileId = new SparseArray<KeyChainConnection>();
-
     private BroadcastReceiver mWorkProfileChangedReceiver = new BroadcastReceiver() {
 
         @Override
@@ -180,6 +107,11 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
         }
 
     };
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.TRUSTED_CREDENTIALS;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -218,7 +150,8 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
         outState.putInt(SAVED_CONFIRMING_CREDENTIAL_USER, mConfirmingCredentialUser);
     }
 
-    @Override public View onCreateView(
+    @Override
+    public View onCreateView(
             LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         mTabHost = (TabHost) inflater.inflate(R.layout.trusted_credentials, parent, false);
         mTabHost.setup();
@@ -231,6 +164,7 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
         }
         return mTabHost;
     }
+
     @Override
     public void onDestroy() {
         getActivity().unregisterReceiver(mWorkProfileChangedReceiver);
@@ -309,6 +243,7 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
 
     /**
      * Start work challenge activity.
+     *
      * @return true if screenlock exists
      */
     private boolean startConfirmCredential(int userId) {
@@ -320,6 +255,238 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
         mConfirmingCredentialUser = userId;
         startActivityForResult(newIntent, REQUEST_CONFIRM_CREDENTIALS);
         return true;
+    }
+
+    private boolean isTrustAllCaCertModeInProgress() {
+        return mTrustAllCaUserId != UserHandle.USER_NULL;
+    }
+
+    private void showTrustAllCaDialog(List<CertHolder> unapprovedCertHolders) {
+        final CertHolder[] arr = unapprovedCertHolders.toArray(
+                new CertHolder[unapprovedCertHolders.size()]);
+        new TrustedCredentialsDialogBuilder(getActivity(), this)
+                .setCertHolders(arr)
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                        // Avoid starting dialog again after Activity restart.
+                        getActivity().getIntent().removeExtra(ARG_SHOW_NEW_FOR_USER);
+                        mTrustAllCaUserId = UserHandle.USER_NULL;
+                    }
+                })
+                .show();
+    }
+
+    private void showCertDialog(final CertHolder certHolder) {
+        new TrustedCredentialsDialogBuilder(getActivity(), this)
+                .setCertHolder(certHolder)
+                .show();
+    }
+
+    @Override
+    public List<X509Certificate> getX509CertsFromCertHolder(CertHolder certHolder) {
+        List<X509Certificate> certificates = null;
+        try {
+            KeyChainConnection keyChainConnection = mKeyChainConnectionByProfileId.get(
+                    certHolder.mProfileId);
+            IKeyChainService service = keyChainConnection.getService();
+            List<String> chain = service.getCaCertificateChainAliases(certHolder.mAlias, true);
+            final int n = chain.size();
+            certificates = new ArrayList<X509Certificate>(n);
+            for (int i = 0; i < n; ++i) {
+                byte[] encodedCertificate = service.getEncodedCaCertificate(chain.get(i), true);
+                X509Certificate certificate = KeyChain.toCertificate(encodedCertificate);
+                certificates.add(certificate);
+            }
+        } catch (RemoteException ex) {
+            Log.e(TAG, "RemoteException while retrieving certificate chain for root "
+                    + certHolder.mAlias, ex);
+        }
+        return certificates;
+    }
+
+    @Override
+    public void removeOrInstallCert(CertHolder certHolder) {
+        new AliasOperation(certHolder).execute();
+    }
+
+    @Override
+    public boolean startConfirmCredentialIfNotConfirmed(int userId,
+                                                        IntConsumer onCredentialConfirmedListener) {
+        if (mConfirmedCredentialUsers.contains(userId)) {
+            // Credential has been confirmed. Don't start activity.
+            return false;
+        }
+
+        boolean result = startConfirmCredential(userId);
+        if (result) {
+            mConfirmingCredentialListener = onCredentialConfirmedListener;
+        }
+        return result;
+    }
+
+    private enum Tab {
+        SYSTEM("system",
+                R.string.trusted_credentials_system_tab,
+                R.id.system_tab,
+                R.id.system_progress,
+                R.id.system_personal_container,
+                R.id.system_work_container,
+                R.id.system_expandable_list,
+                R.id.system_content,
+                true),
+        USER("user",
+                R.string.trusted_credentials_user_tab,
+                R.id.user_tab,
+                R.id.user_progress,
+                R.id.user_personal_container,
+                R.id.user_work_container,
+                R.id.user_expandable_list,
+                R.id.user_content,
+                false);
+
+        private final String mTag;
+        private final int mLabel;
+        private final int mView;
+        private final int mProgress;
+        private final int mPersonalList;
+        private final int mWorkList;
+        private final int mExpandableList;
+        private final int mContentView;
+        private final boolean mSwitch;
+
+        private Tab(String tag, int label, int view, int progress, int personalList, int workList,
+                    int expandableList, int contentView, boolean withSwitch) {
+            mTag = tag;
+            mLabel = label;
+            mView = view;
+            mProgress = progress;
+            mPersonalList = personalList;
+            mWorkList = workList;
+            mExpandableList = expandableList;
+            mContentView = contentView;
+            mSwitch = withSwitch;
+        }
+
+        private List<ParcelableString> getAliases(IKeyChainService service) throws RemoteException {
+            switch (this) {
+                case SYSTEM: {
+                    return service.getSystemCaAliases().getList();
+                }
+                case USER:
+                    return service.getUserCaAliases().getList();
+            }
+            throw new AssertionError();
+        }
+
+        private boolean deleted(IKeyChainService service, String alias) throws RemoteException {
+            switch (this) {
+                case SYSTEM:
+                    return !service.containsCaAlias(alias);
+                case USER:
+                    return false;
+            }
+            throw new AssertionError();
+        }
+    }
+
+    /* package */ static class CertHolder implements Comparable<CertHolder> {
+        private final IKeyChainService mService;
+        private final GroupAdapter mAdapter;
+        private final Tab mTab;
+        private final String mAlias;
+        private final X509Certificate mX509Cert;
+        private final SslCertificate mSslCert;
+        private final String mSubjectPrimary;
+        private final String mSubjectSecondary;
+        public int mProfileId;
+        private boolean mDeleted;
+
+        private CertHolder(IKeyChainService service,
+                           GroupAdapter adapter,
+                           Tab tab,
+                           String alias,
+                           X509Certificate x509Cert,
+                           int profileId) {
+            mProfileId = profileId;
+            mService = service;
+            mAdapter = adapter;
+            mTab = tab;
+            mAlias = alias;
+            mX509Cert = x509Cert;
+
+            mSslCert = new SslCertificate(x509Cert);
+
+            String cn = mSslCert.getIssuedTo().getCName();
+            String o = mSslCert.getIssuedTo().getOName();
+            String ou = mSslCert.getIssuedTo().getUName();
+            // if we have a O, use O as primary subject, secondary prefer CN over OU
+            // if we don't have an O, use CN as primary, empty secondary
+            // if we don't have O or CN, use DName as primary, empty secondary
+            if (!o.isEmpty()) {
+                if (!cn.isEmpty()) {
+                    mSubjectPrimary = o;
+                    mSubjectSecondary = cn;
+                } else {
+                    mSubjectPrimary = o;
+                    mSubjectSecondary = ou;
+                }
+            } else {
+                if (!cn.isEmpty()) {
+                    mSubjectPrimary = cn;
+                    mSubjectSecondary = "";
+                } else {
+                    mSubjectPrimary = mSslCert.getIssuedTo().getDName();
+                    mSubjectSecondary = "";
+                }
+            }
+            try {
+                mDeleted = mTab.deleted(mService, mAlias);
+            } catch (RemoteException e) {
+                Log.e(TAG, "Remote exception while checking if alias " + mAlias + " is deleted.",
+                        e);
+                mDeleted = false;
+            }
+        }
+
+        @Override
+        public int compareTo(CertHolder o) {
+            int primary = this.mSubjectPrimary.compareToIgnoreCase(o.mSubjectPrimary);
+            if (primary != 0) {
+                return primary;
+            }
+            return this.mSubjectSecondary.compareToIgnoreCase(o.mSubjectSecondary);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (!(o instanceof CertHolder)) {
+                return false;
+            }
+            CertHolder other = (CertHolder) o;
+            return mAlias.equals(other.mAlias);
+        }
+
+        @Override
+        public int hashCode() {
+            return mAlias.hashCode();
+        }
+
+        public int getUserId() {
+            return mProfileId;
+        }
+
+        public String getAlias() {
+            return mAlias;
+        }
+
+        public boolean isSystemCert() {
+            return mTab == Tab.SYSTEM;
+        }
+
+        public boolean isDeleted() {
+            return mDeleted;
+        }
     }
 
     /**
@@ -339,6 +506,7 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
         public int getGroupCount() {
             return mData.mCertHoldersByUserId.size();
         }
+
         @Override
         public int getChildrenCount(int groupPosition) {
             List<CertHolder> certHolders = mData.mCertHoldersByUserId.valueAt(groupPosition);
@@ -347,36 +515,44 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
             }
             return 0;
         }
+
         @Override
         public UserHandle getGroup(int groupPosition) {
             return new UserHandle(mData.mCertHoldersByUserId.keyAt(groupPosition));
         }
+
         @Override
         public CertHolder getChild(int groupPosition, int childPosition) {
             return mData.mCertHoldersByUserId.get(getUserIdByGroup(groupPosition)).get(
                     childPosition);
         }
+
         @Override
         public long getGroupId(int groupPosition) {
             return getUserIdByGroup(groupPosition);
         }
+
         private int getUserIdByGroup(int groupPosition) {
             return mData.mCertHoldersByUserId.keyAt(groupPosition);
         }
+
         public UserInfo getUserInfoByGroup(int groupPosition) {
             return mUserManager.getUserInfo(getUserIdByGroup(groupPosition));
         }
+
         @Override
         public long getChildId(int groupPosition, int childPosition) {
             return childPosition;
         }
+
         @Override
         public boolean hasStableIds() {
             return false;
         }
+
         @Override
         public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
-                ViewGroup parent) {
+                                 ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) getActivity()
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -393,12 +569,14 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
 
             return convertView;
         }
+
         @Override
         public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
-                View convertView, ViewGroup parent) {
+                                 View convertView, ViewGroup parent) {
             return getViewForCertificate(getChild(groupPosition, childPosition), mData.mTab,
                     convertView, parent);
         }
+
         @Override
         public boolean isChildSelectable(int groupPosition, int childPosition) {
             return true;
@@ -406,14 +584,14 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
 
         @Override
         public boolean onChildClick(ExpandableListView expandableListView, View view,
-                int groupPosition, int childPosition, long id) {
+                                    int groupPosition, int childPosition, long id) {
             showCertDialog(getChild(groupPosition, childPosition));
             return true;
         }
 
         @Override
         public boolean onGroupClick(ExpandableListView expandableListView, View view,
-                int groupPosition, long id) {
+                                    int groupPosition, long id) {
             return !checkGroupExpandableAndStartWarningActivity(groupPosition);
         }
 
@@ -441,7 +619,7 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
         }
 
         public boolean checkGroupExpandableAndStartWarningActivity(int groupPosition,
-                boolean startActivity) {
+                                                                   boolean startActivity) {
             final UserHandle groupUser = getGroup(groupPosition);
             final int groupUserId = groupUser.getIdentifier();
             if (mUserManager.isQuietModeEnabled(groupUser)) {
@@ -465,7 +643,7 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
         }
 
         private View getViewForCertificate(CertHolder certHolder, Tab mTab, View convertView,
-                ViewGroup parent) {
+                                           ViewGroup parent) {
             ViewHolder holder;
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(getActivity());
@@ -522,6 +700,7 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
                 super.onChanged();
                 ChildAdapter.super.notifyDataSetChanged();
             }
+
             @Override
             public void onInvalidated() {
                 super.onInvalidated();
@@ -541,24 +720,33 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
             mParent.registerDataSetObserver(mObserver);
         }
 
-        @Override public int getCount() {
+        @Override
+        public int getCount() {
             return mParent.getChildrenCount(mGroupPosition);
         }
-        @Override public CertHolder getItem(int position) {
+
+        @Override
+        public CertHolder getItem(int position) {
             return mParent.getChild(mGroupPosition, position);
         }
-        @Override public long getItemId(int position) {
+
+        @Override
+        public long getItemId(int position) {
             return mParent.getChildId(mGroupPosition, position);
         }
-        @Override public View getView(int position, View convertView, ViewGroup parent) {
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
             return mParent.getChildView(mGroupPosition, position, false, convertView, parent);
         }
+
         // DataSet events
         @Override
         public void notifyDataSetChanged() {
             // Don't call super as the parent will propagate this event back later in mObserver
             mParent.notifyDataSetChanged();
         }
+
         @Override
         public void notifyDataSetInvalidated() {
             // Don't call super as the parent will propagate this event back later in mObserver
@@ -604,7 +792,7 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
 
         public void showDivider(boolean showDivider) {
             View dividerView = mHeaderView.findViewById(R.id.header_divider);
-            dividerView.setVisibility(showDivider ? View.VISIBLE : View.GONE );
+            dividerView.setVisibility(showDivider ? View.VISIBLE : View.GONE);
         }
 
         public void prepare() {
@@ -648,6 +836,15 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
             mTab = tab;
         }
 
+        public void remove(CertHolder certHolder) {
+            if (mCertHoldersByUserId != null) {
+                final List<CertHolder> certs = mCertHoldersByUserId.get(certHolder.mProfileId);
+                if (certs != null) {
+                    certs.remove(certHolder);
+                }
+            }
+        }
+
         private class AliasLoader extends AsyncTask<Void, Integer, SparseArray<List<CertHolder>>> {
             private ProgressBar mProgressBar;
             private View mContentView;
@@ -667,14 +864,17 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
                         || !mUserManager.isUserUnlocked(userHandle.getIdentifier());
             }
 
-            @Override protected void onPreExecute() {
+            @Override
+            protected void onPreExecute() {
                 View content = mTabHost.getTabContentView();
                 mProgressBar = (ProgressBar) content.findViewById(mTab.mProgress);
                 mContentView = content.findViewById(mTab.mContentView);
                 mProgressBar.setVisibility(View.VISIBLE);
                 mContentView.setVisibility(View.GONE);
             }
-            @Override protected SparseArray<List<CertHolder>> doInBackground(Void... params) {
+
+            @Override
+            protected SparseArray<List<CertHolder>> doInBackground(Void... params) {
                 SparseArray<List<CertHolder>> certHoldersByProfile =
                         new SparseArray<List<CertHolder>>();
                 try {
@@ -742,7 +942,9 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
                     return new SparseArray<List<CertHolder>>();
                 }
             }
-            @Override protected void onProgressUpdate(Integer... progressAndMax) {
+
+            @Override
+            protected void onProgressUpdate(Integer... progressAndMax) {
                 int progress = progressAndMax[0];
                 int max = progressAndMax[1];
                 if (max != mProgressBar.getMax()) {
@@ -750,7 +952,9 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
                 }
                 mProgressBar.setProgress(progress);
             }
-            @Override protected void onPostExecute(SparseArray<List<CertHolder>> certHolders) {
+
+            @Override
+            protected void onPostExecute(SparseArray<List<CertHolder>> certHolders) {
                 mCertHoldersByUserId.clear();
                 final int n = certHolders.size();
                 for (int i = 0; i < n; ++i) {
@@ -794,178 +998,6 @@ public class TrustedCredentialsSettings extends OptionsMenuFragment
                 showTrustAllCaDialog(unapprovedUserCertHolders);
             }
         }
-
-        public void remove(CertHolder certHolder) {
-            if (mCertHoldersByUserId != null) {
-                final List<CertHolder> certs = mCertHoldersByUserId.get(certHolder.mProfileId);
-                if (certs != null) {
-                    certs.remove(certHolder);
-                }
-            }
-        }
-    }
-
-    /* package */ static class CertHolder implements Comparable<CertHolder> {
-        public int mProfileId;
-        private final IKeyChainService mService;
-        private final GroupAdapter mAdapter;
-        private final Tab mTab;
-        private final String mAlias;
-        private final X509Certificate mX509Cert;
-
-        private final SslCertificate mSslCert;
-        private final String mSubjectPrimary;
-        private final String mSubjectSecondary;
-        private boolean mDeleted;
-
-        private CertHolder(IKeyChainService service,
-                           GroupAdapter adapter,
-                           Tab tab,
-                           String alias,
-                           X509Certificate x509Cert,
-                           int profileId) {
-            mProfileId = profileId;
-            mService = service;
-            mAdapter = adapter;
-            mTab = tab;
-            mAlias = alias;
-            mX509Cert = x509Cert;
-
-            mSslCert = new SslCertificate(x509Cert);
-
-            String cn = mSslCert.getIssuedTo().getCName();
-            String o = mSslCert.getIssuedTo().getOName();
-            String ou = mSslCert.getIssuedTo().getUName();
-            // if we have a O, use O as primary subject, secondary prefer CN over OU
-            // if we don't have an O, use CN as primary, empty secondary
-            // if we don't have O or CN, use DName as primary, empty secondary
-            if (!o.isEmpty()) {
-                if (!cn.isEmpty()) {
-                    mSubjectPrimary = o;
-                    mSubjectSecondary = cn;
-                } else {
-                    mSubjectPrimary = o;
-                    mSubjectSecondary = ou;
-                }
-            } else {
-                if (!cn.isEmpty()) {
-                    mSubjectPrimary = cn;
-                    mSubjectSecondary = "";
-                } else {
-                    mSubjectPrimary = mSslCert.getIssuedTo().getDName();
-                    mSubjectSecondary = "";
-                }
-            }
-            try {
-                mDeleted = mTab.deleted(mService, mAlias);
-            } catch (RemoteException e) {
-                Log.e(TAG, "Remote exception while checking if alias " + mAlias + " is deleted.",
-                        e);
-                mDeleted = false;
-            }
-        }
-        @Override public int compareTo(CertHolder o) {
-            int primary = this.mSubjectPrimary.compareToIgnoreCase(o.mSubjectPrimary);
-            if (primary != 0) {
-                return primary;
-            }
-            return this.mSubjectSecondary.compareToIgnoreCase(o.mSubjectSecondary);
-        }
-        @Override public boolean equals(Object o) {
-            if (!(o instanceof CertHolder)) {
-                return false;
-            }
-            CertHolder other = (CertHolder) o;
-            return mAlias.equals(other.mAlias);
-        }
-        @Override public int hashCode() {
-            return mAlias.hashCode();
-        }
-
-        public int getUserId() {
-            return mProfileId;
-        }
-
-        public String getAlias() {
-            return mAlias;
-        }
-
-        public boolean isSystemCert() {
-            return mTab == Tab.SYSTEM;
-        }
-
-        public boolean isDeleted() {
-            return mDeleted;
-        }
-    }
-
-
-    private boolean isTrustAllCaCertModeInProgress() {
-        return mTrustAllCaUserId != UserHandle.USER_NULL;
-    }
-
-    private void showTrustAllCaDialog(List<CertHolder> unapprovedCertHolders) {
-        final CertHolder[] arr = unapprovedCertHolders.toArray(
-                new CertHolder[unapprovedCertHolders.size()]);
-        new TrustedCredentialsDialogBuilder(getActivity(), this)
-                .setCertHolders(arr)
-                .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialogInterface) {
-                        // Avoid starting dialog again after Activity restart.
-                        getActivity().getIntent().removeExtra(ARG_SHOW_NEW_FOR_USER);
-                        mTrustAllCaUserId = UserHandle.USER_NULL;
-                    }
-                })
-                .show();
-    }
-
-    private void showCertDialog(final CertHolder certHolder) {
-        new TrustedCredentialsDialogBuilder(getActivity(), this)
-                .setCertHolder(certHolder)
-                .show();
-    }
-
-    @Override
-    public List<X509Certificate> getX509CertsFromCertHolder(CertHolder certHolder) {
-        List<X509Certificate> certificates = null;
-        try {
-            KeyChainConnection keyChainConnection = mKeyChainConnectionByProfileId.get(
-                    certHolder.mProfileId);
-            IKeyChainService service = keyChainConnection.getService();
-            List<String> chain = service.getCaCertificateChainAliases(certHolder.mAlias, true);
-            final int n = chain.size();
-            certificates = new ArrayList<X509Certificate>(n);
-            for (int i = 0; i < n; ++i) {
-                byte[] encodedCertificate = service.getEncodedCaCertificate(chain.get(i), true);
-                X509Certificate certificate = KeyChain.toCertificate(encodedCertificate);
-                certificates.add(certificate);
-            }
-        } catch (RemoteException ex) {
-            Log.e(TAG, "RemoteException while retrieving certificate chain for root "
-                    + certHolder.mAlias, ex);
-        }
-        return certificates;
-    }
-
-    @Override
-    public void removeOrInstallCert(CertHolder certHolder) {
-        new AliasOperation(certHolder).execute();
-    }
-
-    @Override
-    public boolean startConfirmCredentialIfNotConfirmed(int userId,
-            IntConsumer onCredentialConfirmedListener) {
-        if (mConfirmedCredentialUsers.contains(userId)) {
-            // Credential has been confirmed. Don't start activity.
-            return false;
-        }
-
-        boolean result = startConfirmCredential(userId);
-        if (result) {
-            mConfirmingCredentialListener = onCredentialConfirmedListener;
-        }
-        return result;
     }
 
     private class AliasOperation extends AsyncTask<Void, Void, Boolean> {

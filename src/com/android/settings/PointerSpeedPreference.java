@@ -47,7 +47,7 @@ public class PointerSpeedPreference extends SeekBarDialogPreference implements
 
     public PointerSpeedPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mIm = (InputManager)getContext().getSystemService(Context.INPUT_SERVICE);
+        mIm = (InputManager) getContext().getSystemService(Context.INPUT_SERVICE);
     }
 
     @Override
@@ -145,6 +145,17 @@ public class PointerSpeedPreference extends SeekBarDialogPreference implements
     }
 
     private static class SavedState extends BaseSavedState {
+        public static final Parcelable.Creator<SavedState> CREATOR =
+                new Parcelable.Creator<SavedState>() {
+
+                    public SavedState createFromParcel(Parcel in) {
+                        return new SavedState(in);
+                    }
+
+                    public SavedState[] newArray(int size) {
+                        return new SavedState[size];
+                    }
+                };
         int progress;
         int oldSpeed;
 
@@ -154,28 +165,16 @@ public class PointerSpeedPreference extends SeekBarDialogPreference implements
             oldSpeed = source.readInt();
         }
 
+        public SavedState(Parcelable superState) {
+            super(superState);
+        }
+
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
             dest.writeInt(progress);
             dest.writeInt(oldSpeed);
         }
-
-        public SavedState(Parcelable superState) {
-            super(superState);
-        }
-
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Parcelable.Creator<SavedState>() {
-
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
     }
 }
 

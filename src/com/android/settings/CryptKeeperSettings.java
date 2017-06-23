@@ -62,16 +62,16 @@ public class CryptKeeperSettings extends InstrumentedFragment {
                 final int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
                 final int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
                 final int invalidCharger = intent.getIntExtra(
-                    BatteryManager.EXTRA_INVALID_CHARGER, 0);
+                        BatteryManager.EXTRA_INVALID_CHARGER, 0);
 
                 final boolean levelOk = level >= MIN_BATTERY_LEVEL;
                 final boolean pluggedOk =
-                    ((plugged & BatteryManager.BATTERY_PLUGGED_ANY) != 0) &&
-                     invalidCharger == 0;
+                        ((plugged & BatteryManager.BATTERY_PLUGGED_ANY) != 0) &&
+                                invalidCharger == 0;
 
                 // Update UI elements based on power/battery status
                 mInitiateButton.setEnabled(levelOk && pluggedOk);
-                mPowerWarning.setVisibility(pluggedOk ? View.GONE : View.VISIBLE );
+                mPowerWarning.setVisibility(pluggedOk ? View.GONE : View.VISIBLE);
                 mBatteryWarning.setVisibility(levelOk ? View.GONE : View.VISIBLE);
             }
         }
@@ -88,11 +88,11 @@ public class CryptKeeperSettings extends InstrumentedFragment {
             if (!runKeyguardConfirmation(KEYGUARD_REQUEST)) {
                 // TODO replace (or follow) this dialog with an explicit launch into password UI
                 new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.crypt_keeper_dialog_need_password_title)
-                    .setMessage(R.string.crypt_keeper_dialog_need_password_message)
-                    .setPositiveButton(android.R.string.ok, null)
-                    .create()
-                    .show();
+                        .setTitle(R.string.crypt_keeper_dialog_need_password_title)
+                        .setMessage(R.string.crypt_keeper_dialog_need_password_message)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .create()
+                        .show();
             }
         }
     };
@@ -156,6 +156,7 @@ public class CryptKeeperSettings extends InstrumentedFragment {
     /**
      * Keyguard validation is run using the standard {@link ConfirmLockPattern}
      * component as a subactivity
+     *
      * @param request the request code to be returned once confirmation finishes
      * @return true if confirmation launched
      */

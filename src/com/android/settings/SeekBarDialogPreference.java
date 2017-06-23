@@ -46,6 +46,10 @@ public class SeekBarDialogPreference extends CustomDialogPreference {
         this(context, null);
     }
 
+    protected static SeekBar getSeekBar(View dialogView) {
+        return (SeekBar) dialogView.findViewById(R.id.seekbar);
+    }
+
     // Allow subclasses to override the action buttons
     public void createActionButtons() {
         setPositiveButtonText(android.R.string.ok);
@@ -62,9 +66,5 @@ public class SeekBarDialogPreference extends CustomDialogPreference {
         } else {
             iconView.setVisibility(View.GONE);
         }
-    }
-
-    protected static SeekBar getSeekBar(View dialogView) {
-        return (SeekBar) dialogView.findViewById(R.id.seekbar);
     }
 }

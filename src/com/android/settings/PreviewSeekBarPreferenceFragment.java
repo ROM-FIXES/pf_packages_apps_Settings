@@ -38,19 +38,29 @@ import com.android.settings.widget.LabeledSeekBar;
  */
 public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenceFragment {
 
-    /** List of entries corresponding the settings being set. */
+    /**
+     * List of entries corresponding the settings being set.
+     */
     protected String[] mEntries;
 
-    /** Index of the entry corresponding to initial value of the settings. */
+    /**
+     * Index of the entry corresponding to initial value of the settings.
+     */
     protected int mInitialIndex;
 
-    /** Index of the entry corresponding to current value of the settings. */
+    /**
+     * Index of the entry corresponding to current value of the settings.
+     */
     protected int mCurrentIndex;
 
-    /** Resource id of the layout for this preference fragment. */
+    /**
+     * Resource id of the layout for this preference fragment.
+     */
     protected int mActivityLayoutResId;
 
-    /** Resource id of the layout that defines the contents inside preview screen. */
+    /**
+     * Resource id of the layout that defines the contents inside preview screen.
+     */
     protected int[] mPreviewSampleResIds;
 
     private ViewPager mPreviewPager;
@@ -60,38 +70,40 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
     private TextView mLabel;
     private View mLarger;
     private View mSmaller;
-
-    private class onPreviewSeekBarChangeListener implements OnSeekBarChangeListener {
-        private boolean mSeekByTouch;
-
+    private OnPageChangeListener mPreviewPageChangeListener = new OnPageChangeListener() {
         @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            setPreviewLayer(progress, true);
-            if (!mSeekByTouch) {
-                commit();
-            }
+        public void onPageScrollStateChanged(int state) {
+            // Do nothing.
         }
 
         @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            mSeekByTouch = true;
+        public void onPageScrolled(int position, float positionOffset,
+                                   int positionOffsetPixels) {
+            // Do nothing.
         }
 
         @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            if (mPreviewPagerAdapter.isAnimating()) {
-                mPreviewPagerAdapter.setAnimationEndAction(new Runnable() {
-                    @Override
-                    public void run() {
-                        commit();
-                    }
-                });
-            } else {
-                commit();
-            }
-            mSeekByTouch = false;
+        public void onPageSelected(int position) {
+            mPreviewPager.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT);
         }
-    }
+    };
+    private OnPageChangeListener mPageIndicatorPageChangeListener = new OnPageChangeListener() {
+        @Override
+        public void onPageScrollStateChanged(int state) {
+            // Do nothing.
+        }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset,
+                                   int positionOffsetPixels) {
+            // Do nothing.
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            setPagerIndicatorContentDescription(position);
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -199,39 +211,35 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
                         position + 1, mPreviewSampleResIds.length));
     }
 
-    private OnPageChangeListener mPreviewPageChangeListener = new OnPageChangeListener() {
+    private class onPreviewSeekBarChangeListener implements OnSeekBarChangeListener {
+        private boolean mSeekByTouch;
+
         @Override
-        public void onPageScrollStateChanged(int state) {
-            // Do nothing.
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            setPreviewLayer(progress, true);
+            if (!mSeekByTouch) {
+                commit();
+            }
         }
 
         @Override
-        public void onPageScrolled(int position, float positionOffset,
-                int positionOffsetPixels) {
-            // Do nothing.
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            mSeekByTouch = true;
         }
 
         @Override
-        public void onPageSelected(int position) {
-            mPreviewPager.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT);
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            if (mPreviewPagerAdapter.isAnimating()) {
+                mPreviewPagerAdapter.setAnimationEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        commit();
+                    }
+                });
+            } else {
+                commit();
+            }
+            mSeekByTouch = false;
         }
-    };
-
-    private OnPageChangeListener mPageIndicatorPageChangeListener = new OnPageChangeListener() {
-        @Override
-        public void onPageScrollStateChanged(int state) {
-            // Do nothing.
-        }
-
-        @Override
-        public void onPageScrolled(int position, float positionOffset,
-                int positionOffsetPixels) {
-            // Do nothing.
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            setPagerIndicatorContentDescription(position);
-        }
-    };
+    }
 }

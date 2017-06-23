@@ -133,7 +133,7 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
         @Override
         public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
-                Bundle savedInstanceState) {
+                                                 Bundle savedInstanceState) {
             GlifPreferenceLayout layout = (GlifPreferenceLayout) parent;
             return layout.onCreateRecyclerView(inflater, parent, savedInstanceState);
         }
@@ -180,8 +180,8 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
         @Override
         protected Intent getLockPasswordIntent(Context context, int quality,
-                int minLength, final int maxLength,
-                boolean requirePasswordToDecrypt, boolean confirmCredentials, int userId) {
+                                               int minLength, final int maxLength,
+                                               boolean requirePasswordToDecrypt, boolean confirmCredentials, int userId) {
             final Intent intent = SetupChooseLockPassword.createIntent(context, quality, minLength,
                     maxLength, requirePasswordToDecrypt, confirmCredentials);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
@@ -190,8 +190,8 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
         @Override
         protected Intent getLockPasswordIntent(Context context, int quality,
-                int minLength, final int maxLength,
-                boolean requirePasswordToDecrypt, long challenge, int userId) {
+                                               int minLength, final int maxLength,
+                                               boolean requirePasswordToDecrypt, long challenge, int userId) {
             final Intent intent = SetupChooseLockPassword.createIntent(context, quality, minLength,
                     maxLength, requirePasswordToDecrypt, challenge);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
@@ -200,7 +200,7 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
         @Override
         protected Intent getLockPasswordIntent(Context context, int quality, int minLength,
-                int maxLength, boolean requirePasswordToDecrypt, String password, int userId) {
+                                               int maxLength, boolean requirePasswordToDecrypt, String password, int userId) {
             final Intent intent = SetupChooseLockPassword.createIntent(context, quality, minLength,
                     maxLength, requirePasswordToDecrypt, password);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
@@ -209,7 +209,7 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
         @Override
         protected Intent getLockPatternIntent(Context context, final boolean requirePassword,
-                final boolean confirmCredentials, int userId) {
+                                              final boolean confirmCredentials, int userId) {
             final Intent intent = SetupChooseLockPattern.createIntent(context, requirePassword,
                     confirmCredentials);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
@@ -218,7 +218,7 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
         @Override
         protected Intent getLockPatternIntent(Context context, final boolean requirePassword,
-                long challenge, int userId) {
+                                              long challenge, int userId) {
             final Intent intent = SetupChooseLockPattern.createIntent(context, requirePassword,
                     challenge);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
@@ -227,7 +227,7 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
         @Override
         protected Intent getLockPatternIntent(Context context, final boolean requirePassword,
-                final String pattern, int userId) {
+                                              final String pattern, int userId) {
             final Intent intent = SetupChooseLockPattern.createIntent(context, requirePassword,
                     pattern);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
@@ -236,7 +236,7 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
 
         @Override
         protected Intent getEncryptionInterstitialIntent(Context context, int quality,
-                boolean required, Intent unlockMethodIntent) {
+                                                         boolean required, Intent unlockMethodIntent) {
             Intent intent = SetupEncryptionInterstitial.createStartIntent(context, quality,
                     required, unlockMethodIntent);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);

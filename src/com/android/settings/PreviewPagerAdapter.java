@@ -30,7 +30,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 /**
  * A PagerAdapter used by PreviewSeekBarPreferenceFragment that for showing multiple preview screen
@@ -38,13 +37,19 @@ import android.widget.ScrollView;
  */
 public class PreviewPagerAdapter extends PagerAdapter {
 
-    /** Duration to use when cross-fading between previews. */
+    /**
+     * Duration to use when cross-fading between previews.
+     */
     private static final long CROSS_FADE_DURATION_MS = 400;
 
-    /** Interpolator to use when cross-fading between previews. */
+    /**
+     * Interpolator to use when cross-fading between previews.
+     */
     private static final Interpolator FADE_IN_INTERPOLATOR = new DecelerateInterpolator();
 
-    /** Interpolator to use when cross-fading between previews. */
+    /**
+     * Interpolator to use when cross-fading between previews.
+     */
     private static final Interpolator FADE_OUT_INTERPOLATOR = new AccelerateInterpolator();
 
     private FrameLayout[] mPreviewFrames;
@@ -58,7 +63,7 @@ public class PreviewPagerAdapter extends PagerAdapter {
     private boolean[][] mViewStubInflated;
 
     public PreviewPagerAdapter(Context context, boolean isLayoutRtl,
-            int[] previewSampleResIds, Configuration[] configurations) {
+                               int[] previewSampleResIds, Configuration[] configurations) {
         mIsLayoutRtl = isLayoutRtl;
         mPreviewFrames = new FrameLayout[previewSampleResIds.length];
         mViewStubInflated = new boolean[previewSampleResIds.length][configurations.length];
@@ -94,7 +99,7 @@ public class PreviewPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public void destroyItem (ViewGroup container, int position, Object object) {
+    public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
     }
 
@@ -123,7 +128,7 @@ public class PreviewPagerAdapter extends PagerAdapter {
     }
 
     void setPreviewLayer(int newLayerIndex, int currentLayerIndex, int currentFrameIndex,
-            final boolean animate) {
+                         final boolean animate) {
         for (FrameLayout previewFrame : mPreviewFrames) {
             if (currentLayerIndex >= 0) {
                 final View lastLayer = previewFrame.getChildAt(currentLayerIndex);
@@ -164,29 +169,29 @@ public class PreviewPagerAdapter extends PagerAdapter {
             if (visibility == View.VISIBLE) {
                 // Fade in animation.
                 view.animate()
-                .alpha(alpha)
-                .setInterpolator(FADE_IN_INTERPOLATOR)
-                .setDuration(CROSS_FADE_DURATION_MS)
-                .setListener(new PreviewFrameAnimatorListener())
-                .withStartAction(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.setVisibility(visibility);
-                    }
-                });
+                        .alpha(alpha)
+                        .setInterpolator(FADE_IN_INTERPOLATOR)
+                        .setDuration(CROSS_FADE_DURATION_MS)
+                        .setListener(new PreviewFrameAnimatorListener())
+                        .withStartAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                view.setVisibility(visibility);
+                            }
+                        });
             } else {
                 // Fade out animation.
                 view.animate()
-                .alpha(alpha)
-                .setInterpolator(FADE_OUT_INTERPOLATOR)
-                .setDuration(CROSS_FADE_DURATION_MS)
-                .setListener(new PreviewFrameAnimatorListener())
-                .withEndAction(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.setVisibility(visibility);
-                    }
-                });
+                        .alpha(alpha)
+                        .setInterpolator(FADE_OUT_INTERPOLATOR)
+                        .setDuration(CROSS_FADE_DURATION_MS)
+                        .setListener(new PreviewFrameAnimatorListener())
+                        .withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                view.setVisibility(visibility);
+                            }
+                        });
             }
         }
     }

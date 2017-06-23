@@ -71,6 +71,12 @@ public class DateTimeSettingsSetupWizard extends Activity
     private TimePicker mTimePicker;
     private DatePicker mDatePicker;
     private InputMethodManager mInputMethodManager;
+    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateTimeAndDateDisplay();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +93,7 @@ public class DateTimeSettingsSetupWizard extends Activity
             findViewById(R.id.next_button).setOnClickListener(this);
         }
         mTimeZoneAdapter = ZonePicker.constructTimezoneAdapter(this, false,
-            R.layout.date_time_setup_custom_list_item_2);
+                R.layout.date_time_setup_custom_list_item_2);
 
         // For the normal view, disable Back since changes stick immediately
         // and can't be canceled, and we already have a Next button. For xLarge,
@@ -113,7 +119,7 @@ public class DateTimeSettingsSetupWizard extends Activity
 
         final TimeZone tz = TimeZone.getDefault();
         mSelectedTimeZone = tz;
-        mTimeZoneButton = (Button)findViewById(R.id.time_zone_button);
+        mTimeZoneButton = (Button) findViewById(R.id.time_zone_button);
         mTimeZoneButton.setText(tz.getDisplayName());
         mTimeZoneButton.setOnClickListener(this);
 
@@ -125,21 +131,21 @@ public class DateTimeSettingsSetupWizard extends Activity
             autoDateTimeEnabled = isAutoDateTimeEnabled();
         }
 
-        mAutoDateTimeButton = (CompoundButton)findViewById(R.id.date_time_auto_button);
+        mAutoDateTimeButton = (CompoundButton) findViewById(R.id.date_time_auto_button);
         mAutoDateTimeButton.setChecked(autoDateTimeEnabled);
         mAutoDateTimeButton.setOnCheckedChangeListener(this);
 
-        mTimePicker = (TimePicker)findViewById(R.id.time_picker);
+        mTimePicker = (TimePicker) findViewById(R.id.time_picker);
         mTimePicker.setEnabled(!autoDateTimeEnabled);
-        mDatePicker = (DatePicker)findViewById(R.id.date_picker);
+        mDatePicker = (DatePicker) findViewById(R.id.date_picker);
         mDatePicker.setEnabled(!autoDateTimeEnabled);
         mDatePicker.setCalendarViewShown(false);
         DateTimeSettings.configureDatePicker(mDatePicker);
 
-        mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        ((Button)findViewById(R.id.next_button)).setOnClickListener(this);
-        final Button skipButton = (Button)findViewById(R.id.skip_button);
+        ((Button) findViewById(R.id.next_button)).setOnClickListener(this);
+        final Button skipButton = (Button) findViewById(R.id.skip_button);
         if (skipButton != null) {
             skipButton.setOnClickListener(this);
         }
@@ -164,36 +170,36 @@ public class DateTimeSettingsSetupWizard extends Activity
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-        case R.id.time_zone_button: {
-            showTimezonePicker(R.id.time_zone_button);
-            break;
-        }
-        case R.id.next_button: {
-            if (mSelectedTimeZone != null) {
-                final TimeZone systemTimeZone = TimeZone.getDefault();
-                if (!systemTimeZone.equals(mSelectedTimeZone)) {
-                    Log.i(TAG, "Another TimeZone is selected by a user. Changing system TimeZone.");
-                    final AlarmManager alarm = (AlarmManager)
-                            getSystemService(Context.ALARM_SERVICE);
-                    alarm.setTimeZone(mSelectedTimeZone.getID());
-                }
+            case R.id.time_zone_button: {
+                showTimezonePicker(R.id.time_zone_button);
+                break;
             }
-            if (mAutoDateTimeButton != null) {
-                Settings.Global.putInt(getContentResolver(), Settings.Global.AUTO_TIME,
-                      mAutoDateTimeButton.isChecked() ? 1 : 0);
-                if (!mAutoDateTimeButton.isChecked()) {
-                    DateTimeSettings.setDate(this, mDatePicker.getYear(), mDatePicker.getMonth(),
-                            mDatePicker.getDayOfMonth());
-                    DateTimeSettings.setTime(this,
-                            mTimePicker.getCurrentHour(), mTimePicker.getCurrentMinute());
+            case R.id.next_button: {
+                if (mSelectedTimeZone != null) {
+                    final TimeZone systemTimeZone = TimeZone.getDefault();
+                    if (!systemTimeZone.equals(mSelectedTimeZone)) {
+                        Log.i(TAG, "Another TimeZone is selected by a user. Changing system TimeZone.");
+                        final AlarmManager alarm = (AlarmManager)
+                                getSystemService(Context.ALARM_SERVICE);
+                        alarm.setTimeZone(mSelectedTimeZone.getID());
+                    }
                 }
+                if (mAutoDateTimeButton != null) {
+                    Settings.Global.putInt(getContentResolver(), Settings.Global.AUTO_TIME,
+                            mAutoDateTimeButton.isChecked() ? 1 : 0);
+                    if (!mAutoDateTimeButton.isChecked()) {
+                        DateTimeSettings.setDate(this, mDatePicker.getYear(), mDatePicker.getMonth(),
+                                mDatePicker.getDayOfMonth());
+                        DateTimeSettings.setTime(this,
+                                mTimePicker.getCurrentHour(), mTimePicker.getCurrentMinute());
+                    }
+                }
+            }  // $FALL-THROUGH$
+            case R.id.skip_button: {
+                setResult(RESULT_OK);
+                finish();
+                break;
             }
-        }  // $FALL-THROUGH$
-        case R.id.skip_button: {
-            setResult(RESULT_OK);
-            finish();
-            break;
-        }
         }
     }
 
@@ -260,7 +266,7 @@ public class DateTimeSettingsSetupWizard extends Activity
      * we'd then launch the timezone fragment in a new activity, but we aren't, and here
      * on a tablet display, we really want more of a popup picker look' like the one we use
      * for the xlarge version of this activity. So we just take this opportunity to launch that.
-     *
+     * <p>
      * TODO: For phones, we might want to change this to do the "normal" opening
      * of the zonepicker fragment in its own activity. Or we might end up just
      * creating a separate DateTimeSettingsSetupWizardPhone activity that subclasses
@@ -287,14 +293,6 @@ public class DateTimeSettingsSetupWizard extends Activity
         mTimeZonePopup.show();
     }
 
-    private boolean isAutoDateTimeEnabled() {
-        try {
-            return Settings.Global.getInt(getContentResolver(), Settings.Global.AUTO_TIME) > 0;
-        } catch (SettingNotFoundException e) {
-            return true;
-        }
-    }
-
     /*
     private boolean isAutoTimeZoneEnabled() {
         try {
@@ -304,6 +302,14 @@ public class DateTimeSettingsSetupWizard extends Activity
             return true;
         }
     }*/
+
+    private boolean isAutoDateTimeEnabled() {
+        try {
+            return Settings.Global.getInt(getContentResolver(), Settings.Global.AUTO_TIME) > 0;
+        } catch (SettingNotFoundException e) {
+            return true;
+        }
+    }
 
     private void updateTimeAndDateDisplay() {
         if (!mUsingXLargeLayout) {
@@ -316,11 +322,4 @@ public class DateTimeSettingsSetupWizard extends Activity
         mTimePicker.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
         mTimePicker.setCurrentMinute(now.get(Calendar.MINUTE));
     }
-
-    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            updateTimeAndDateDisplay();
-        }
-    };
 }

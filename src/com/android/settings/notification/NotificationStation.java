@@ -16,6 +16,7 @@
 
 package com.android.settings.notification;
 
+import android.annotation.TargetApi;
 import android.app.*;
 import android.app.INotificationManager;
 import android.content.ComponentName;
@@ -78,43 +79,50 @@ public class NotificationStation extends SettingsPreferenceFragment {
     private INotificationManager mNoMan;
     private RankingMap mRanking;
 
-    private Runnable mRefreshListRunnable = new Runnable() {
-        @Override
-        public void run() {
-            refreshList();
-        }
-    };
+    private Runnable mRefreshListRunnable = this::refreshList;
 
     private final NotificationListenerService mListener = new NotificationListenerService() {
         @Override
         public void onNotificationPosted(StatusBarNotification sbn, RankingMap ranking) {
-            logd("onNotificationPosted: %s, with update for %d", sbn.getNotification(),
-                    ranking == null ? 0 : ranking.getOrderedKeys().length);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    logd("onNotificationPosted: %s, with update for %d", sbn.getNotification(),
+                            ranking == null ? 0 : ranking.getOrderedKeys().length);
+                }
+            }
             mRanking = ranking;
             scheduleRefreshList();
         }
 
         @Override
         public void onNotificationRemoved(StatusBarNotification notification, RankingMap ranking) {
-            logd("onNotificationRankingUpdate with update for %d",
-                    ranking == null ? 0 : ranking.getOrderedKeys().length);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                logd("onNotificationRankingUpdate with update for %d",
+                        ranking == null ? 0 : ranking.getOrderedKeys().length);
+            }
             mRanking = ranking;
             scheduleRefreshList();
         }
 
         @Override
         public void onNotificationRankingUpdate(RankingMap ranking) {
-            logd("onNotificationRankingUpdate with update for %d",
-                    ranking == null ? 0 : ranking.getOrderedKeys().length);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                logd("onNotificationRankingUpdate with update for %d",
+                        ranking == null ? 0 : ranking.getOrderedKeys().length);
+            }
             mRanking = ranking;
             scheduleRefreshList();
         }
 
         @Override
         public void onListenerConnected() {
-            mRanking = getCurrentRanking();
-            logd("onListenerConnected with update for %d",
-                    mRanking == null ? 0 : mRanking.getOrderedKeys().length);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mRanking = getCurrentRanking();
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                logd("onListenerConnected with update for %d",
+                        mRanking == null ? 0 : mRanking.getOrderedKeys().length);
+            }
             scheduleRefreshList();
         }
     };
@@ -129,13 +137,7 @@ public class NotificationStation extends SettingsPreferenceFragment {
     private Context mContext;
 
     private final Comparator<HistoricalNotificationInfo> mNotificationSorter
-            = new Comparator<HistoricalNotificationInfo>() {
-                @Override
-                public int compare(HistoricalNotificationInfo lhs,
-                                   HistoricalNotificationInfo rhs) {
-                    return (int)(rhs.timestamp - lhs.timestamp);
-                }
-            };
+            = (lhs, rhs) -> (int)(rhs.timestamp - lhs.timestamp);
 
     @Override
     public void onAttach(Activity activity) {
@@ -225,10 +227,12 @@ public class NotificationStation extends SettingsPreferenceFragment {
 
     private static String getTitleString(Notification n) {
         CharSequence title = null;
-        if (n.extras != null) {
-            title = n.extras.getCharSequence(Notification.EXTRA_TITLE);
-            if (TextUtils.isEmpty(title)) {
-                title = n.extras.getCharSequence(Notification.EXTRA_TEXT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (n.extras != null) {
+                title = n.extras.getCharSequence(Notification.EXTRA_TITLE);
+                if (TextUtils.isEmpty(title)) {
+                    title = n.extras.getCharSequence(Notification.EXTRA_TEXT);
+                }
             }
         }
         if (TextUtils.isEmpty(title) && !TextUtils.isEmpty(n.tickerText)) {
@@ -237,19 +241,23 @@ public class NotificationStation extends SettingsPreferenceFragment {
         return String.valueOf(title);
     }
 
+    @TargetApi(Build.VERSION_CODES.DONUT)
     private static String formatPendingIntent(PendingIntent pi) {
         final StringBuilder sb = new StringBuilder();
         final IntentSender is = pi.getIntentSender();
-        sb.append("Intent(pkg=").append(is.getCreatorPackage());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            sb.append("Intent(pkg=").append(is.getCreatorPackage());
+        }
         try {
             final boolean isActivity =
                     ActivityManagerNative.getDefault().isIntentSenderAnActivity(is.getTarget());
             if (isActivity) sb.append(" (activity)");
-        } catch (RemoteException ex) {}
+        } catch (RemoteException ignored) {}
         sb.append(")");
         return sb.toString();
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
     private List<HistoricalNotificationInfo> loadNotifications() {
         final int currentUserId = ActivityManager.getCurrentUser();
         try {
@@ -259,21 +267,28 @@ public class NotificationStation extends SettingsPreferenceFragment {
                     mContext.getPackageName(), 50);
 
             List<HistoricalNotificationInfo> list
-                    = new ArrayList<HistoricalNotificationInfo>(active.length + dismissed.length);
+                    = new ArrayList<>(active.length + dismissed.length);
 
             final Ranking rank = new Ranking();
 
             for (StatusBarNotification[] resultset
                     : new StatusBarNotification[][] { active, dismissed }) {
                 for (StatusBarNotification sbn : resultset) {
-                    if (sbn.getUserId() != UserHandle.USER_ALL & sbn.getUserId() != currentUserId) {
-                        continue;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                        if (sbn.getUserId() != UserHandle.USER_ALL & sbn.getUserId() != currentUserId) {
+                            continue;
+                        }
                     }
 
                     final Notification n = sbn.getNotification();
+
                     final HistoricalNotificationInfo info = new HistoricalNotificationInfo();
-                    info.pkg = sbn.getPackageName();
-                    info.user = sbn.getUserId();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                        info.pkg = sbn.getPackageName();
+                    }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                        info.user = sbn.getUserId();
+                    }
                     info.icon = loadIconDrawable(info.pkg, info.user, n.icon);
                     info.pkgicon = loadPackageIconDrawable(info.pkg, info.user);
                     info.pkgname = loadPackageName(info.pkg);
@@ -281,8 +296,12 @@ public class NotificationStation extends SettingsPreferenceFragment {
                     if (TextUtils.isEmpty(info.title)) {
                         info.title = getString(R.string.notification_log_no_title);
                     }
-                    info.timestamp = sbn.getPostTime();
-                    info.priority = n.priority;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                        info.timestamp = sbn.getPostTime();
+                    }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        info.priority = n.priority;
+                    }
 
                     info.active = (resultset == active);
 
@@ -295,18 +314,22 @@ public class NotificationStation extends SettingsPreferenceFragment {
                             .append(bold(getString(R.string.notification_log_details_key)))
                             .append(delim)
                             .append(sbn.getKey());
-                    sb.append("\n")
-                            .append(bold(getString(R.string.notification_log_details_icon)))
-                            .append(delim)
-                            .append(n.getSmallIcon().toString());
-                    if (sbn.isGroup()) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         sb.append("\n")
-                                .append(bold(getString(R.string.notification_log_details_group)))
+                                .append(bold(getString(R.string.notification_log_details_icon)))
                                 .append(delim)
-                                .append(sbn.getGroupKey());
-                        if (n.isGroupSummary()) {
-                            sb.append(bold(
-                                    getString(R.string.notification_log_details_group_summary)));
+                                .append(n.getSmallIcon().toString());
+                    }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        if (sbn.isGroup()) {
+                            sb.append("\n")
+                                    .append(bold(getString(R.string.notification_log_details_group)))
+                                    .append(delim)
+                                    .append(sbn.getGroupKey());
+                            if (n.isGroupSummary()) {
+                                sb.append(bold(
+                                        getString(R.string.notification_log_details_group_summary)));
+                            }
                         }
                     }
                     sb.append("\n")
@@ -332,45 +355,57 @@ public class NotificationStation extends SettingsPreferenceFragment {
                     } else {
                         sb.append(getString(R.string.notification_log_details_none));
                     }
-                    sb.append("\n")
-                            .append(bold(getString(R.string.notification_log_details_visibility)))
-                            .append(delim)
-                            .append(Notification.visibilityToString(n.visibility));
-                    if (n.publicVersion != null) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         sb.append("\n")
-                                .append(bold(getString(
-                                        R.string.notification_log_details_public_version)))
+                                .append(bold(getString(R.string.notification_log_details_visibility)))
                                 .append(delim)
-                                .append(getTitleString(n.publicVersion));
+                                .append(Notification.visibilityToString(n.visibility));
                     }
-                    sb.append("\n")
-                            .append(bold(getString(R.string.notification_log_details_priority)))
-                            .append(delim)
-                            .append(Notification.priorityToString(n.priority));
-                    if (resultset == active) {
-                        // mRanking only applies to active notifications
-                        if (mRanking != null && mRanking.getRanking(sbn.getKey(), rank)) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        if (n.publicVersion != null) {
                             sb.append("\n")
                                     .append(bold(getString(
-                                            R.string.notification_log_details_importance)))
+                                            R.string.notification_log_details_public_version)))
                                     .append(delim)
-                                    .append(Ranking.importanceToString(rank.getImportance()));
-                            if (rank.getImportanceExplanation() != null) {
-                                sb.append("\n")
-                                        .append(bold(getString(
-                                                R.string.notification_log_details_explanation)))
-                                        .append(delim)
-                                        .append(rank.getImportanceExplanation());
-                            }
-                        } else {
-                            if (mRanking == null) {
-                                sb.append("\n")
-                                        .append(bold(getString(
-                                                R.string.notification_log_details_ranking_null)));
+                                    .append(getTitleString(n.publicVersion));
+                        }
+                    }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        sb.append("\n")
+                                .append(bold(getString(R.string.notification_log_details_priority)))
+                                .append(delim)
+                                .append(Notification.priorityToString(n.priority));
+                    }
+                    if (resultset == active) {
+                        // mRanking only applies to active notifications
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            if (mRanking != null && mRanking.getRanking(sbn.getKey(), rank)) {
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    sb.append("\n")
+                                            .append(bold(getString(
+                                                    R.string.notification_log_details_importance)))
+                                            .append(delim)
+                                            .append(Ranking.importanceToString(rank.getImportance()));
+                                }
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    if (rank.getImportanceExplanation() != null) {
+                                        sb.append("\n")
+                                                .append(bold(getString(
+                                                        R.string.notification_log_details_explanation)))
+                                                .append(delim)
+                                                .append(rank.getImportanceExplanation());
+                                    }
+                                }
                             } else {
-                                sb.append("\n")
-                                        .append(bold(getString(
-                                                R.string.notification_log_details_ranking_none)));
+                                if (mRanking == null) {
+                                    sb.append("\n")
+                                            .append(bold(getString(
+                                                    R.string.notification_log_details_ranking_null)));
+                                } else {
+                                    sb.append("\n")
+                                            .append(bold(getString(
+                                                    R.string.notification_log_details_ranking_none)));
+                                }
                             }
                         }
                     }
@@ -395,29 +430,31 @@ public class NotificationStation extends SettingsPreferenceFragment {
                                 .append(delim)
                                 .append(formatPendingIntent(n.fullScreenIntent));
                     }
-                    if (n.actions != null && n.actions.length > 0) {
-                        sb.append("\n")
-                                .append(bold(getString(R.string.notification_log_details_actions)));
-                        for (int ai=0; ai<n.actions.length; ai++) {
-                            final Notification.Action action = n.actions[ai];
-                            sb.append("\n  ").append(String.valueOf(ai)).append(' ')
-                                    .append(bold(getString(
-                                            R.string.notification_log_details_title)))
-                                    .append(delim)
-                                    .append(action.title);
-                            if (action.actionIntent != null) {
-                                sb.append("\n    ")
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                        if (n.actions != null && n.actions.length > 0) {
+                            sb.append("\n")
+                                    .append(bold(getString(R.string.notification_log_details_actions)));
+                            for (int ai=0; ai<n.actions.length; ai++) {
+                                final Notification.Action action = n.actions[ai];
+                                sb.append("\n  ").append(String.valueOf(ai)).append(' ')
                                         .append(bold(getString(
-                                                R.string.notification_log_details_content_intent)))
+                                                R.string.notification_log_details_title)))
                                         .append(delim)
-                                        .append(formatPendingIntent(action.actionIntent));
-                            }
-                            if (action.getRemoteInputs() != null) {
-                                sb.append("\n    ")
-                                        .append(bold(getString(
-                                                R.string.notification_log_details_remoteinput)))
-                                        .append(delim)
-                                        .append(String.valueOf(action.getRemoteInputs().length));
+                                        .append(action.title);
+                                if (action.actionIntent != null) {
+                                    sb.append("\n    ")
+                                            .append(bold(getString(
+                                                    R.string.notification_log_details_content_intent)))
+                                            .append(delim)
+                                            .append(formatPendingIntent(action.actionIntent));
+                                }
+                                if (action.getRemoteInputs() != null) {
+                                    sb.append("\n    ")
+                                            .append(bold(getString(
+                                                    R.string.notification_log_details_remoteinput)))
+                                            .append(delim)
+                                            .append(String.valueOf(action.getRemoteInputs().length));
+                                }
                             }
                         }
                     }
@@ -430,14 +467,16 @@ public class NotificationStation extends SettingsPreferenceFragment {
                     }
 
                     if (DUMP_EXTRAS) {
-                        if (n.extras != null && n.extras.size() > 0) {
-                            sb.append("\n")
-                                    .append(bold(getString(
-                                            R.string.notification_log_details_extras)));
-                            for (String extraKey : n.extras.keySet()) {
-                                String val = String.valueOf(n.extras.get(extraKey));
-                                if (val.length() > 100) val = val.substring(0, 100) + "...";
-                                sb.append("\n  ").append(extraKey).append(delim).append(val);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                            if (n.extras != null && n.extras.size() > 0) {
+                                sb.append("\n")
+                                        .append(bold(getString(
+                                                R.string.notification_log_details_extras)));
+                                for (String extraKey : n.extras.keySet()) {
+                                    String val = String.valueOf(n.extras.get(extraKey));
+                                    if (val.length() > 100) val = val.substring(0, 100) + "...";
+                                    sb.append("\n  ").append(extraKey).append(delim).append(val);
+                                }
                             }
                         }
                     }
@@ -470,7 +509,7 @@ public class NotificationStation extends SettingsPreferenceFragment {
     }
 
     private Resources getResourcesForUserPackage(String pkg, int userId) {
-        Resources r = null;
+        Resources r;
 
         if (pkg != null) {
             try {
@@ -501,8 +540,11 @@ public class NotificationStation extends SettingsPreferenceFragment {
 
     private CharSequence loadPackageName(String pkg) {
         try {
-            ApplicationInfo info = mPm.getApplicationInfo(pkg,
-                    PackageManager.GET_UNINSTALLED_PACKAGES);
+            ApplicationInfo info = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.CUPCAKE) {
+                info = mPm.getApplicationInfo(pkg,
+                        PackageManager.GET_UNINSTALLED_PACKAGES);
+            }
             if (info != null) return mPm.getApplicationLabel(info);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "Cannot load package name", e);
@@ -518,7 +560,9 @@ public class NotificationStation extends SettingsPreferenceFragment {
         }
 
         try {
-            return r.getDrawable(resId, null);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                return r.getDrawable(resId, null);
+            }
         } catch (RuntimeException e) {
             Log.w(TAG, "Icon not found in "
                     + (pkg != null ? resId : "<system>")
@@ -557,13 +601,8 @@ public class NotificationStation extends SettingsPreferenceFragment {
             extra.setVisibility(View.GONE);
 
             row.itemView.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            extra.setVisibility(extra.getVisibility() == View.VISIBLE
-                                    ? View.GONE : View.VISIBLE);
-                        }
-                    });
+                    (View.OnClickListener) view -> extra.setVisibility(extra.getVisibility() == View.VISIBLE
+                            ? View.GONE : View.VISIBLE));
 
             row.itemView.setAlpha(mInfo.active ? 1.0f : 0.5f);
         }

@@ -64,8 +64,8 @@ public class NotificationBackend {
                     com.android.internal.R.array.config_nonBlockableNotificationPackages);
         if (nonBlockablePkgs != null) {
             int N = nonBlockablePkgs.length;
-            for (int i = 0; i < N; i++) {
-                if (app.packageName.equals(nonBlockablePkgs[i])) {
+            for (String nonBlockablePkg : nonBlockablePkgs) {
+                if (app.packageName.equals(nonBlockablePkg)) {
                     row.cantBlock = row.cantSilence = true;
                 }
             }

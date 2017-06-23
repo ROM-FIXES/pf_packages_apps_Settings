@@ -93,12 +93,9 @@ public class NotificationAccessSettings extends ManagedServiceSettings {
     }
 
     private static void deleteRules(final Context context, final String pkg) {
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                final NotificationManager mgr = context.getSystemService(NotificationManager.class);
-                mgr.removeAutomaticZenRules(pkg);
-            }
+        AsyncTask.execute(() -> {
+            final NotificationManager mgr = context.getSystemService(NotificationManager.class);
+            mgr.removeAutomaticZenRules(pkg);
         });
     }
 
@@ -128,20 +125,16 @@ public class NotificationAccessSettings extends ManagedServiceSettings {
                     .setMessage(summary)
                     .setCancelable(true)
                     .setPositiveButton(R.string.notification_listener_disable_warning_confirm,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    mServiceListing.setEnabled(cn, false);
-                                    if (!mNm.isNotificationPolicyAccessGrantedForPackage(
-                                            cn.getPackageName())) {
-                                        deleteRules(mContext, cn.getPackageName());
-                                    }
+                            (dialog, id) -> {
+                                mServiceListing.setEnabled(cn, false);
+                                if (!mNm.isNotificationPolicyAccessGrantedForPackage(
+                                        cn.getPackageName())) {
+                                    deleteRules(mContext, cn.getPackageName());
                                 }
                             })
                     .setNegativeButton(R.string.notification_listener_disable_warning_cancel,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // pass
-                                }
+                            (dialog, id) -> {
+                                // pass
                             })
                     .create();
         }

@@ -98,21 +98,18 @@ public class ZenModeScheduleRuleSettings extends ZenModeRuleSettingsBase {
         mStart = new TimePickerPreference(getPrefContext(), mgr);
         mStart.setKey(KEY_START_TIME);
         mStart.setTitle(R.string.zen_mode_start_time);
-        mStart.setCallback(new TimePickerPreference.Callback() {
-            @Override
-            public boolean onSetTime(final int hour, final int minute) {
-                if (mDisableListeners) return true;
-                if (!ZenModeConfig.isValidHour(hour)) return false;
-                if (!ZenModeConfig.isValidMinute(minute)) return false;
-                if (hour == mSchedule.startHour && minute == mSchedule.startMinute) {
-                    return true;
-                }
-                if (DEBUG) Log.d(TAG, "onPrefChange start h=" + hour + " m=" + minute);
-                mSchedule.startHour = hour;
-                mSchedule.startMinute = minute;
-                updateRule(ZenModeConfig.toScheduleConditionId(mSchedule));
+        mStart.setCallback((hour, minute) -> {
+            if (mDisableListeners) return true;
+            if (!ZenModeConfig.isValidHour(hour)) return false;
+            if (!ZenModeConfig.isValidMinute(minute)) return false;
+            if (hour == mSchedule.startHour && minute == mSchedule.startMinute) {
                 return true;
             }
+            if (DEBUG) Log.d(TAG, "onPrefChange start h=" + hour + " m=" + minute);
+            mSchedule.startHour = hour;
+            mSchedule.startMinute = minute;
+            updateRule(ZenModeConfig.toScheduleConditionId(mSchedule));
+            return true;
         });
         root.addPreference(mStart);
         mStart.setDependency(mDays.getKey());
@@ -120,21 +117,18 @@ public class ZenModeScheduleRuleSettings extends ZenModeRuleSettingsBase {
         mEnd = new TimePickerPreference(getPrefContext(), mgr);
         mEnd.setKey(KEY_END_TIME);
         mEnd.setTitle(R.string.zen_mode_end_time);
-        mEnd.setCallback(new TimePickerPreference.Callback() {
-            @Override
-            public boolean onSetTime(final int hour, final int minute) {
-                if (mDisableListeners) return true;
-                if (!ZenModeConfig.isValidHour(hour)) return false;
-                if (!ZenModeConfig.isValidMinute(minute)) return false;
-                if (hour == mSchedule.endHour && minute == mSchedule.endMinute) {
-                    return true;
-                }
-                if (DEBUG) Log.d(TAG, "onPrefChange end h=" + hour + " m=" + minute);
-                mSchedule.endHour = hour;
-                mSchedule.endMinute = minute;
-                updateRule(ZenModeConfig.toScheduleConditionId(mSchedule));
+        mEnd.setCallback((hour, minute) -> {
+            if (mDisableListeners) return true;
+            if (!ZenModeConfig.isValidHour(hour)) return false;
+            if (!ZenModeConfig.isValidMinute(minute)) return false;
+            if (hour == mSchedule.endHour && minute == mSchedule.endMinute) {
                 return true;
             }
+            if (DEBUG) Log.d(TAG, "onPrefChange end h=" + hour + " m=" + minute);
+            mSchedule.endHour = hour;
+            mSchedule.endMinute = minute;
+            updateRule(ZenModeConfig.toScheduleConditionId(mSchedule));
+            return true;
         });
         root.addPreference(mEnd);
         mEnd.setDependency(mDays.getKey());
@@ -157,10 +151,9 @@ public class ZenModeScheduleRuleSettings extends ZenModeRuleSettingsBase {
             final StringBuilder sb = new StringBuilder();
             final Calendar c = Calendar.getInstance();
             int[] daysOfWeek = ZenModeScheduleDaysSelection.getDaysOfWeekForLocale(c);
-            for (int i = 0; i < daysOfWeek.length; i++) {
-                final int day = daysOfWeek[i];
-                for (int j = 0; j < days.length; j++) {
-                    if (day == days[j]) {
+            for (final int day : daysOfWeek) {
+                for (int day1 : days) {
+                    if (day == day1) {
                         c.set(Calendar.DAY_OF_WEEK, day);
                         if (sb.length() > 0) {
                             sb.append(mContext.getString(R.string.summary_divider_text));
@@ -215,12 +208,7 @@ public class ZenModeScheduleRuleSettings extends ZenModeRuleSettingsBase {
                           updateRule(ZenModeConfig.toScheduleConditionId(mSchedule));
                       }
                 })
-                .setOnDismissListener(new OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        updateDays();
-                    }
-                })
+                .setOnDismissListener(dialog -> updateDays())
                 .setPositiveButton(R.string.done_button, null)
                 .show();
     }

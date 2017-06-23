@@ -48,19 +48,16 @@ public abstract class ZenRuleNameDialog {
         mDialog = new AlertDialog.Builder(context)
                 .setTitle(mIsNew ? R.string.zen_mode_add_rule : R.string.zen_mode_rule_name)
                 .setView(v)
-                .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        final String newName = trimmedText();
-                        if (TextUtils.isEmpty(newName)) {
-                            return;
-                        }
-                        if (!mIsNew && mOriginalRuleName != null
-                                && mOriginalRuleName.equals(newName)) {
-                            return;  // no change to an existing rule, just dismiss
-                        }
-                        onOk(newName);
+                .setPositiveButton(R.string.okay, (dialog, which) -> {
+                    final String newName = trimmedText();
+                    if (TextUtils.isEmpty(newName)) {
+                        return;
                     }
+                    if (!mIsNew && mOriginalRuleName != null
+                            && mOriginalRuleName.equals(newName)) {
+                        return;  // no change to an existing rule, just dismiss
+                    }
+                    onOk(newName);
                 })
                 .setNegativeButton(R.string.cancel, null)
                 .create();

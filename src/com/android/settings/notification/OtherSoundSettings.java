@@ -49,6 +49,7 @@ import com.android.settings.search.Indexable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.android.settings.notification.SettingPref.TYPE_GLOBAL;
@@ -126,16 +127,13 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements On
             TYPE_SYSTEM, KEY_TOUCH_SOUNDS, System.SOUND_EFFECTS_ENABLED, DEFAULT_ON) {
         @Override
         protected boolean setSetting(final Context context, final int value) {
-            AsyncTask.execute(new Runnable() {
-                @Override
-                public void run() {
-                    final AudioManager am =
-                            (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-                    if (value != 0) {
-                        am.loadSoundEffects();
-                    } else {
-                        am.unloadSoundEffects();
-                    }
+            AsyncTask.execute(() -> {
+                final AudioManager am =
+                        (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+                if (value != 0) {
+                    am.loadSoundEffects();
+                } else {
+                    am.unloadSoundEffects();
                 }
             });
             return super.setSetting(context, value);
@@ -395,11 +393,11 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements On
                 Context context, boolean enabled) {
             final SearchIndexableResource sir = new SearchIndexableResource(context);
             sir.xmlResId = R.xml.other_sound_settings;
-            return Arrays.asList(sir);
+            return Collections.singletonList(sir);
         }
 
         public List<String> getNonIndexableKeys(Context context) {
-            final ArrayList<String> rt = new ArrayList<String>();
+            final ArrayList<String> rt = new ArrayList<>();
             for (SettingPref pref : PREFS) {
                 if (!pref.isApplicable(context)) {
                     rt.add(pref.getKey());

@@ -22,10 +22,8 @@ public class ZenRuleInfo {
                 that.configurationActivity) : that.configurationActivity != null) return false;
         if (defaultConditionId != null ? !defaultConditionId.equals(
                 that.defaultConditionId) : that.defaultConditionId != null) return false;
-        if (serviceComponent != null ? !serviceComponent.equals(
-                that.serviceComponent) : that.serviceComponent != null) return false;
-        return packageLabel != null ? packageLabel.equals(
-                that.packageLabel) : that.packageLabel == null;
+        return (serviceComponent != null ? serviceComponent.equals(
+                that.serviceComponent) : that.serviceComponent == null) && (packageLabel != null ? packageLabel.equals(that.packageLabel) : that.packageLabel == null);
 
     }
 

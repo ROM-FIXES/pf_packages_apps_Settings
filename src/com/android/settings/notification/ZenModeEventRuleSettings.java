@@ -49,7 +49,6 @@ public class ZenModeEventRuleSettings extends ZenModeRuleSettingsBase {
     private DropDownPreference mReply;
 
     private EventInfo mEvent;
-    private List<CalendarInfo> mCalendars;
     private boolean mCreate;
 
     @Override
@@ -82,7 +81,7 @@ public class ZenModeEventRuleSettings extends ZenModeRuleSettingsBase {
     }
 
     private void reloadCalendar() {
-        mCalendars = getCalendars(mContext);
+        List<CalendarInfo> mCalendars = getCalendars(mContext);
         ArrayList<CharSequence> entries = new ArrayList<>();
         ArrayList<CharSequence> values = new ArrayList<>();
         entries.add(getString(R.string.zen_mode_event_rule_calendar_any));
@@ -232,12 +231,7 @@ public class ZenModeEventRuleSettings extends ZenModeRuleSettingsBase {
         return EventInfo.resolveUserId(userId) + ":" + (calendar == null ? "" : calendar);
     }
 
-    private static final Comparator<CalendarInfo> CALENDAR_NAME = new Comparator<CalendarInfo>() {
-        @Override
-        public int compare(CalendarInfo lhs, CalendarInfo rhs) {
-            return lhs.name.compareTo(rhs.name);
-        }
-    };
+    private static final Comparator<CalendarInfo> CALENDAR_NAME = (lhs, rhs) -> lhs.name.compareTo(rhs.name);
 
     public static class CalendarInfo {
         public String name;

@@ -32,40 +32,34 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 public class ZenModeScheduleDaysSelection extends ScrollView {
-    // per-instance to ensure we're always using the current locale
-    private final SimpleDateFormat mDayFormat = new SimpleDateFormat("EEEE");
     private final SparseBooleanArray mDays = new SparseBooleanArray();
-    private final LinearLayout mLayout;
 
     public ZenModeScheduleDaysSelection(Context context, int[] days) {
         super(context);
-        mLayout = new LinearLayout(mContext);
+        LinearLayout mLayout = new LinearLayout(mContext);
         final int hPad = context.getResources()
                 .getDimensionPixelSize(R.dimen.zen_schedule_day_margin);
         mLayout.setPadding(hPad, 0, hPad, 0);
         addView(mLayout);
         if (days != null) {
-            for (int i = 0; i < days.length; i++) {
-                mDays.put(days[i], true);
+            for (int day : days) {
+                mDays.put(day, true);
             }
         }
         mLayout.setOrientation(LinearLayout.VERTICAL);
         final Calendar c = Calendar.getInstance();
         int[] daysOfWeek = getDaysOfWeekForLocale(c);
         final LayoutInflater inflater = LayoutInflater.from(context);
-        for (int i = 0; i < daysOfWeek.length; i++) {
-            final int day = daysOfWeek[i];
+        for (final int day : daysOfWeek) {
             final CheckBox checkBox = (CheckBox) inflater.inflate(R.layout.zen_schedule_rule_day,
                     this, false);
             c.set(Calendar.DAY_OF_WEEK, day);
+            SimpleDateFormat mDayFormat = new SimpleDateFormat("EEEE");
             checkBox.setText(mDayFormat.format(c.getTime()));
             checkBox.setChecked(mDays.get(day));
-            checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    mDays.put(day, isChecked);
-                    onChanged(getDays());
-                }
+            checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                mDays.put(day, isChecked);
+                onChanged(getDays());
             });
             mLayout.addView(checkBox);
         }

@@ -77,12 +77,9 @@ public abstract class ZenRuleSelectionDialog {
         mDialog = new AlertDialog.Builder(context)
                 .setTitle(R.string.zen_mode_choose_rule_type)
                 .setView(v)
-                .setOnDismissListener(new OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        if (mServiceListing != null) {
-                            mServiceListing.removeZenCallback(mServiceListingCallback);
-                        }
+                .setOnDismissListener(dialog -> {
+                    if (mServiceListing != null) {
+                        mServiceListing.removeZenCallback(mServiceListingCallback);
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)
@@ -110,15 +107,12 @@ public abstract class ZenRuleSelectionDialog {
                 subtitle.setText(info.loadLabel(mPm));
                 subtitle.setVisibility(View.VISIBLE);
             }
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mDialog.dismiss();
-                    if (ri.isSystem) {
-                        onSystemRuleSelected(ri);
-                    } else {
-                        onExternalRuleSelected(ri);
-                    }
+            v.setOnClickListener(v1 -> {
+                mDialog.dismiss();
+                if (ri.isSystem) {
+                    onSystemRuleSelected(ri);
+                } else {
+                    onExternalRuleSelected(ri);
                 }
             });
             mRuleContainer.addView(v);

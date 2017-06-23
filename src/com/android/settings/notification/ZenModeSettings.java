@@ -53,7 +53,6 @@ public class ZenModeSettings extends ZenModeSettingsBase {
     public void onResume() {
         super.onResume();
         if (isUiRestricted()) {
-            return;
         }
     }
 

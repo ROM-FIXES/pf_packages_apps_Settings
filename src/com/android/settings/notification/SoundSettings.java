@@ -67,6 +67,7 @@ import com.android.settingslib.RestrictedPreference;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -125,7 +126,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private VolumeSeekBarPreference mRingPreference;
     private VolumeSeekBarPreference mNotificationPreference;
 
-    private TwoStatePreference mIncreasingRing;
     private IncreasingRingVolumePreference mIncreasingRingVolume;
     private Preference mPhoneRingtonePreference;
     private Preference mNotificationRingtonePreference;
@@ -135,8 +135,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private int mRingerMode = -1;
     private TwoStatePreference mVolumeLinkNotification;
 
-    private PackageManager mPm;
-    private UserManager mUserManager;
     private RingtonePreference mRequestPreference;
 
     @Override
@@ -148,8 +146,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
-        mPm = getPackageManager();
-        mUserManager = UserManager.get(getContext());
+        PackageManager mPm = getPackageManager();
+        UserManager mUserManager = UserManager.get(getContext());
         mVoiceCapable = Utils.isVoiceCapable(mContext);
 
         mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
@@ -413,11 +411,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                 final boolean linkEnabled = Settings.System.getInt(getContentResolver(),
                         Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
                 if (!linkEnabled) {
-                    mHandler.post(new Runnable() {
-                        public void run() {
-                            updateNotificationPreference();
-                        }
-                    });
+                    mHandler.post(() -> updateNotificationPreference());
                 }
             }
         }
@@ -427,7 +421,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                 mCurrent.stopSample();
             }
         }
-    };
+    }
 
     // === Phone & notification ringtone ===
 
@@ -516,8 +510,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
 
     private void initIncreasingRing() {
         PreferenceScreen root = getPreferenceScreen();
-        mIncreasingRing = (TwoStatePreference)
-		        root.findPreference(Settings.System.INCREASING_RING);
+        TwoStatePreference mIncreasingRing = (TwoStatePreference)
+                root.findPreference(Settings.System.INCREASING_RING);
         mIncreasingRingVolume = (IncreasingRingVolumePreference)
                 root.findPreference(KEY_INCREASING_RING_VOLUME);
 
@@ -782,13 +776,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     }
 
     public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
-            = new SummaryLoader.SummaryProviderFactory() {
-        @Override
-        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
-                SummaryLoader summaryLoader) {
-            return new SummaryProvider(activity, summaryLoader);
-        }
-    };
+            = (activity, summaryLoader) -> new SummaryProvider(activity, summaryLoader);
 
     // === Indexing ===
 
@@ -799,11 +787,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                 Context context, boolean enabled) {
             final SearchIndexableResource sir = new SearchIndexableResource(context);
             sir.xmlResId = R.xml.sound_settings;
-            return Arrays.asList(sir);
+            return Collections.singletonList(sir);
         }
 
         public List<String> getNonIndexableKeys(Context context) {
-            final ArrayList<String> rt = new ArrayList<String>();
+            final ArrayList<String> rt = new ArrayList<>();
             if (Utils.isVoiceCapable(context)) {
                 rt.add(KEY_NOTIFICATION_VOLUME);
             } else {

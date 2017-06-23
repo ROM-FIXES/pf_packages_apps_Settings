@@ -101,7 +101,7 @@ public class ZenModeVoiceActivity extends VoiceSettingsActivity {
             case Global.ZEN_MODE_OFF:
                 indefinite = R.string.zen_mode_summary_always;
                 break;
-        };
+        }
 
         if (minutes < 0 || mode == Global.ZEN_MODE_OFF) {
             return getString(indefinite);

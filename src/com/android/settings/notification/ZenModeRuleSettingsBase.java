@@ -238,13 +238,10 @@ public abstract class ZenModeRuleSettingsBase extends ZenModeSettingsBase
         final AlertDialog dialog = new AlertDialog.Builder(mContext)
                 .setMessage(getString(R.string.zen_mode_delete_rule_confirmation, mRule.getName()))
                 .setNegativeButton(R.string.cancel, null)
-                .setPositiveButton(R.string.zen_mode_delete_rule_button, new OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        MetricsLogger.action(mContext, MetricsEvent.ACTION_ZEN_DELETE_RULE_OK);
-                        mDeleting = true;
-                        removeZenRule(mId);
-                    }
+                .setPositiveButton(R.string.zen_mode_delete_rule_button, (dialog1, which) -> {
+                    MetricsLogger.action(mContext, MetricsEvent.ACTION_ZEN_DELETE_RULE_OK);
+                    mDeleting = true;
+                    removeZenRule(mId);
                 })
                 .show();
         final View messageView = dialog.findViewById(android.R.id.message);

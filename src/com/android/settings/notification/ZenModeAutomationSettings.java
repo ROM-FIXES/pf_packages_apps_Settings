@@ -126,13 +126,10 @@ public class ZenModeAutomationSettings extends ZenModeSettingsBase {
                 .setMessage(getString(R.string.zen_mode_delete_rule_confirmation, ruleName))
                 .setNegativeButton(R.string.cancel, null)
                 .setPositiveButton(R.string.zen_mode_delete_rule_button,
-                        new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        MetricsLogger.action(mContext, MetricsEvent.ACTION_ZEN_DELETE_RULE_OK);
-                        removeZenRule(ruleId);
-                    }
-                })
+                        (dialog, which) -> {
+                            MetricsLogger.action(mContext, MetricsEvent.ACTION_ZEN_DELETE_RULE_OK);
+                            removeZenRule(ruleId);
+                        })
                 .show();
     }
 
@@ -269,7 +266,7 @@ public class ZenModeAutomationSettings extends ZenModeSettingsBase {
             final int type = ZenModeConfig.isValidScheduleConditionId(rule.getConditionId()) ? 1
                     : ZenModeConfig.isValidEventConditionId(rule.getConditionId()) ? 2
                     : 3;
-            return type + rule.getName().toString();
+            return type + rule.getName();
         }
     };
 

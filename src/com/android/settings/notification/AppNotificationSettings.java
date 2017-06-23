@@ -83,10 +83,10 @@ public class AppNotificationSettings extends NotificationSettingsBase {
 
             NotificationManager.Policy policy =
                     NotificationManager.from(mContext).getNotificationPolicy();
-            mDndVisualEffectsSuppressed = policy == null ? false : policy.suppressedVisualEffects != 0;
+            mDndVisualEffectsSuppressed = policy != null && policy.suppressedVisualEffects != 0;
 
             // load settings intent
-            ArrayMap<String, AppRow> rows = new ArrayMap<String, AppRow>();
+            ArrayMap<String, AppRow> rows = new ArrayMap<>();
             rows.put(mAppRow.pkg, mAppRow);
             collectConfigActivities(rows);
 
@@ -119,10 +119,7 @@ public class AppNotificationSettings extends NotificationSettingsBase {
     }
 
     protected boolean checkCanBeVisible(int minImportanceVisible, int importance) {
-        if (importance == Ranking.IMPORTANCE_UNSPECIFIED) {
-            return true;
-        }
-        return importance >= minImportanceVisible;
+        return importance == Ranking.IMPORTANCE_UNSPECIFIED || importance >= minImportanceVisible;
     }
 
     private List<ResolveInfo> queryNotificationConfigActivities() {

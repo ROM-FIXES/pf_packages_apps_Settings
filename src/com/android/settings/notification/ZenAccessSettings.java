@@ -56,7 +56,6 @@ public class ZenAccessSettings extends EmptyTextSettings {
     private final SettingObserver mObserver = new SettingObserver();
     private static final String ENABLED_SERVICES_SEPARATOR = ":";
 
-    private Context mContext;
     private PackageManager mPkgMan;
     private NotificationManager mNoMan;
 
@@ -69,7 +68,7 @@ public class ZenAccessSettings extends EmptyTextSettings {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        mContext = getActivity();
+        Context mContext = getActivity();
         mPkgMan = mContext.getPackageManager();
         mNoMan = mContext.getSystemService(NotificationManager.class);
         setPreferenceScreen(getPreferenceManager().createPreferenceScreen(mContext));
@@ -155,8 +154,8 @@ public class ZenAccessSettings extends EmptyTextSettings {
                 Settings.Secure.ENABLED_NOTIFICATION_LISTENERS);
         if (!TextUtils.isEmpty(settingValue)) {
             String[] restored = settingValue.split(ENABLED_SERVICES_SEPARATOR);
-            for (int i = 0; i < restored.length; i++) {
-                ComponentName value = ComponentName.unflattenFromString(restored[i]);
+            for (String aRestored : restored) {
+                ComponentName value = ComponentName.unflattenFromString(aRestored);
                 if (null != value) {
                     packages.add(value.getPackageName());
                 }
@@ -170,22 +169,16 @@ public class ZenAccessSettings extends EmptyTextSettings {
     }
 
     private static void setAccess(final Context context, final String pkg, final boolean access) {
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                final NotificationManager mgr = context.getSystemService(NotificationManager.class);
-                mgr.setNotificationPolicyAccessGranted(pkg, access);
-            }
+        AsyncTask.execute(() -> {
+            final NotificationManager mgr = context.getSystemService(NotificationManager.class);
+            mgr.setNotificationPolicyAccessGranted(pkg, access);
         });
     }
 
     private static void deleteRules(final Context context, final String pkg) {
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                final NotificationManager mgr = context.getSystemService(NotificationManager.class);
-                mgr.removeAutomaticZenRules(pkg);
-            }
+        AsyncTask.execute(() -> {
+            final NotificationManager mgr = context.getSystemService(NotificationManager.class);
+            mgr.removeAutomaticZenRules(pkg);
         });
     }
 
@@ -231,16 +224,10 @@ public class ZenAccessSettings extends EmptyTextSettings {
                     .setTitle(title)
                     .setCancelable(true)
                     .setPositiveButton(R.string.allow,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    setAccess(getContext(), pkg, true);
-                                }
-                            })
+                            (dialog, id) -> setAccess(getContext(), pkg, true))
                     .setNegativeButton(R.string.deny,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // pass
-                                }
+                            (dialog, id) -> {
+                                // pass
                             })
                     .create();
         }
@@ -277,17 +264,13 @@ public class ZenAccessSettings extends EmptyTextSettings {
                     .setTitle(title)
                     .setCancelable(true)
                     .setPositiveButton(R.string.okay,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    deleteRules(getContext(), pkg);
-                                    setAccess(getContext(), pkg, false);
-                                }
+                            (dialog, id) -> {
+                                deleteRules(getContext(), pkg);
+                                setAccess(getContext(), pkg, false);
                             })
                     .setNegativeButton(R.string.cancel,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // pass
-                                }
+                            (dialog, id) -> {
+                                // pass
                             })
                     .create();
         }

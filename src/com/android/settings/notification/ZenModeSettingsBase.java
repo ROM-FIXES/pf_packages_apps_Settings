@@ -72,7 +72,6 @@ abstract public class ZenModeSettingsBase extends RestrictedSettingsFragment {
         if (isUiRestricted()) {
             if (isUiRestrictedByOnlyAdmin()) {
                 getPreferenceScreen().removeAll();
-                return;
             } else {
                 finish();
             }

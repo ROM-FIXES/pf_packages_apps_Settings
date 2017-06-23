@@ -165,14 +165,11 @@ abstract public class NotificationSettingsBase extends SettingsPreferenceFragmen
             mImportance.setMax(Ranking.IMPORTANCE_MAX);
             mImportance.setProgress(importance);
             mImportance.setAutoOn(importance == Ranking.IMPORTANCE_UNSPECIFIED);
-            mImportance.setCallback(new ImportanceSeekBarPreference.Callback() {
-                @Override
-                public void onImportanceChanged(int progress, boolean fromUser) {
-                    if (fromUser) {
-                        mBackend.setImportance(mPkg, mUid, progress);
-                    }
-                    updateDependents(progress);
+            mImportance.setCallback((progress, fromUser) -> {
+                if (fromUser) {
+                    mBackend.setImportance(mPkg, mUid, progress);
                 }
+                updateDependents(progress);
             });
         } else {
             setVisible(mImportance, false);
@@ -325,8 +322,7 @@ abstract public class NotificationSettingsBase extends SettingsPreferenceFragmen
         final String[] packages = mPm.getPackagesForUid(uid);
         if (packages != null && pkg != null) {
             final int N = packages.length;
-            for (int i = 0; i < N; i++) {
-                final String p = packages[i];
+            for (final String p : packages) {
                 if (pkg.equals(p)) {
                     try {
                         return mPm.getPackageInfo(pkg, PackageManager.GET_SIGNATURES);

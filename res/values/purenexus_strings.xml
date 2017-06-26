@@ -126,7 +126,7 @@
 
     <!-- Device Info Settings -->
     <!-- Pure version -->
-    <string name="pure_version">PureFusion version</string>
+    <string name="pure_version">Pure Fusion version</string>
     <string name="pure_version_default">Unknown</string>
     <!-- Vendor version -->
     <string name="vendor_version">Vendor version</string>

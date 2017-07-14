@@ -356,12 +356,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private SwitchPreference mSelinux;
 
-    private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
-
-    private final ArrayList<SwitchPreference> mResetSwitchPrefs
-            = new ArrayList<SwitchPreference>();
-
-    private final HashSet<Preference> mDisabledPrefs = new HashSet<Preference>();
     // To track whether a confirmation dialog was clicked.
     private boolean mDialogClicked;
     private Dialog mEnableDialog;

@@ -18,6 +18,15 @@
     android:title="@string/about_settings">
 
     <!-- Device status - launches activity -->
+    <!-- PureFusionOTA -->
+    <PreferenceScreen android:key="fusion_updates"
+        android:title="@string/fusionupdate_settings_title"
+        android:summary="@string/system_update_settings_list_item_summary">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.fusion.ota"
+            android:targetClass="com.fusion.ota.activities.MainActivity" />
+    </PreferenceScreen>
+
     <PreferenceScreen
         android:fragment="com.android.settings.deviceinfo.Status"
         android:key="status_info"

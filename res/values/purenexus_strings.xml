@@ -317,5 +317,8 @@
     <!-- About device screen, CPU and RAM info. -->
     <string name="cpu_info">CPU</string>
     <string name="mem_info">RAM</string>
+    
+    <!-- Vibration mode entered indicated by vibrating switch -->
+    <string name="vibration_mode_indication_title">Indicate vibration mode by vibrating</string>
 
 </resources>

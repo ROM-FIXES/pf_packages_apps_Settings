@@ -171,7 +171,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(DeviceInfoUtils.getFormattedKernelVersion());
-        setValueSummary(KEY_PURE_VERSION, "ro.pure.version");
+        setValueSummary(KEY_PURE_VERSION, "ro.fusion.version");
         findPreference(KEY_PURE_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_COMPILER_GCC, "ro.build.fusion.gcc");
         setValueSummary(KEY_MOD_BUILD_COMPILER_CLANG, "ro.build.fusion.clang");

@@ -236,6 +236,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private static final String KEY_CONVERT_FBE = "convert_to_file_encryption";
 
+    private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
+
     private static final int RESULT_DEBUG_APP = 1000;
     private static final int RESULT_MOCK_LOCATION_APP = 1001;
 
@@ -260,8 +262,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private boolean mHaveDebugSettings;
     private boolean mDontPokeProperties;
-
-    private boolean mOtaDisabledOnce = false;
 
     private SwitchPreference mEnableAdb;
     private SwitchPreference mAdbNotify;
@@ -570,23 +570,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             mColorTemperaturePreference = null;
         }
 
-        /* With this commit we are removing the user switch, but this is a System API and as Google
-            says in the original commit this value is set internally (and its code is within Google services too).
-            Indeed the related frameworks base commit just publishes the String, but the main code is
-            somewhere else.
-            So, to be sure the automatic update function is really kept disabled, we are forcing it to disabled
-            (it means we are enabling the "disable automatic ota" feature) at least once in the onCreate method.*/
         final ContentResolver cr = getActivity().getContentResolver();
-        if (!mOtaDisabledOnce && 
-                (Settings.Global.getInt(cr, Settings.Global.OTA_DISABLE_AUTOMATIC_UPDATE, 0) != 1)) {
-            Settings.Global.putInt(cr, Settings.Global.OTA_DISABLE_AUTOMATIC_UPDATE, 1);
-            mOtaDisabledOnce = true;
-        }
-
-        if (Settings.Secure.getInt(cr,
-                Settings.Secure.BUGREPORT_IN_POWER_MENU, 0) == 1) {
-            Settings.Secure.putInt(cr, Settings.Secure.BUGREPORT_IN_POWER_MENU, 0);
-        }
 
         addDashboardCategoryPreferences();
     }
@@ -823,6 +807,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateShowAllANRsOptions();
         updateShowNotificationChannelWarningsOptions();
         mVerifyAppsOverUsbController.updatePreference();
+        updateBugreportOptions();
         updateForceRtlOptions();
         updateLogdSizeValues();
         updateLogpersistValues();

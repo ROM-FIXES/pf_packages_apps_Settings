@@ -121,4 +121,8 @@
     <string name="app_ops_answer_phone_calls">answer calls</string>
     <string name="app_ops_boot_completed">auto start</string>
 
+    <string name="dashboard_conditions_title">Dashboard conditions</string>
+    <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
+    <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
+
 </resources>

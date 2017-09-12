@@ -3146,6 +3146,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter> 
         </activity>
+        <!-- Hide Apps from Recents (HAFR) -->
+        <activity android:name="com.fusion.reactor.settings.hideappfromrecents.HAFRAppListActivity" />
+
         <!-- This is the longest AndroidManifest.xml ever. -->
     </application>
 </manifest>

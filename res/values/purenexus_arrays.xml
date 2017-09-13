@@ -252,6 +252,7 @@
    <string-array name="donate_entries">
          <item>@string/donate_elim</item>
          <item>@string/donate_tab</item>
+         <item>@string/donate_sian</item>
    </string-array>
 
    <!-- social media -->
@@ -274,4 +275,10 @@
    <string-array name="prstorero_entries">
         <item>@string/xda</item>
    </string-array>
+
+   <!-- siankatabg profiles -->
+   <string-array name="sian_entries">
+        <item>@string/xda</item>
+   </string-array>
+
 </resources>

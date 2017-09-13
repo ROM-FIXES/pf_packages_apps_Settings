@@ -251,13 +251,13 @@
    <!-- Donations -->
    <string-array name="donate_entries">
          <item>@string/donate_elim</item>
-        <item>@string/donate_tab</item>
+         <item>@string/donate_tab</item>
    </string-array>
 
    <!-- social media -->
    <string-array name="social_entries">
          <item>@string/gplus_community</item>
-        <item>@string/xda</item>
+         <item>@string/xda</item>
    </string-array>
 
    <!-- Eliminater74 profiles -->
@@ -270,4 +270,8 @@
         <item>@string/xda</item>
    </string-array>
    
+   <!-- prstorero profiles -->
+   <string-array name="prstorero_entries">
+        <item>@string/xda</item>
+   </string-array>
 </resources>

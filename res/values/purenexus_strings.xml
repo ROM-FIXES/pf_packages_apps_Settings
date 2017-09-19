@@ -131,6 +131,11 @@
     <string name="force_authorize_substratum_packages_title">Force authorize every theme app</string>
     <string name="force_authorize_substratum_packages_summary">Allow theme apps from unknown sources</string>
 
+    <!-- Quick unlock information -->
+    <string name="quick_unlock_alert_title">Alert</string>
+    <string name="quick_unlock_alert_msg">This feature will only work if you use 4-digit PIN\'s, otherwise unwanted effects may occur with your device.</string>
+    <string name="ok">OK</string>
+
     <!-- Device Info Settings -->
     <!-- Pure version -->
     <string name="pure_version">Pure Fusion version</string>
@@ -353,5 +358,10 @@
 
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">Screenshot sound</string>
+
+    <!-- Quick unlock -->
+    <string name="unlock_quick_unlock_control_title">Quick unlock</string>
+    <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN is entered\nNote: will only work for 4 digit PIN !</string>
+
 
 </resources>

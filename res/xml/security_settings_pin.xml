@@ -27,6 +27,12 @@
             android:title="@string/unlock_set_unlock_launch_picker_title"
             settings:keywords="@string/keywords_lockscreen" />
 
+        <SwitchPreference
+            android:key="quick_unlock_control"
+            android:title="@string/unlock_quick_unlock_control_title"
+            android:summary="@string/unlock_quick_unlock_control_summary"
+            android:persistent="false"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

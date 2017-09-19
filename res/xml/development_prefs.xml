@@ -85,11 +85,11 @@
         android:title="@string/color_temperature"
         android:summary="@string/color_temperature_desc" />
 
-    <Preference
+   <!-- <Preference
         android:key="demo_mode"
         android:title="@string/demo_mode">
         <intent android:action="com.android.settings.action.DEMO_MODE" />
-    </Preference>
+    </Preference> -->
 
     <Preference
         android:key="quick_settings_tiles"

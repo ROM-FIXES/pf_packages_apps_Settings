@@ -49,11 +49,6 @@ public class ShadowUtils {
         sIsCarrierDemoUser = false;
     }
 
-    @Implementation
-    public static boolean isWifiOnly(Context context) {
-        return true;
-    }
-
     public static void setIsCarrierDemoUser(boolean isCarrierDemoUser) {
         sIsCarrierDemoUser = isCarrierDemoUser;
     }

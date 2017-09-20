@@ -17,14 +17,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/about_settings">
 
-        <!-- System update settings - launches activity
-        <Preference android:key="additional_system_update_settings"
-                    android:title="@string/additional_system_update_settings_list_item_title">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="@string/additional_system_update"
-                    android:targetClass="@string/additional_system_update_menu" />
-        </Preference> -->
-
         <!-- PureFusionOTA -->
         <Preference android:key="fusion_updates"
                     android:title="@string/fusionupdate_settings_title"
@@ -39,31 +31,6 @@
                 android:title="@string/device_status"
                 android:summary="@string/device_status_summary"
                 android:fragment="com.android.settings.deviceinfo.Status"/>
-
-        <!-- Manual
-        <Preference
-                android:key="manual"
-                android:title="@string/manual">
-            <intent android:action="android.settings.SHOW_MANUAL" />
-        </Preference> -->
-
-        <!-- Legal Information
-        <Preference
-                android:key="legal_container"
-                android:title="@string/legal_information"
-                android:fragment="com.android.settings.LegalSettings" />
-
-        <Preference
-                android:key="regulatory_info"
-                android:title="@string/regulatory_labels">
-            <intent android:action="android.settings.SHOW_REGULATORY_INFO" />
-        </Preference>
-
-        <Preference
-                android:key="safety_info"
-                android:title="@string/safety_and_regulatory_info">
-                <intent android:action="android.settings.SHOW_SAFETY_AND_REGULATORY_INFO" />
-        </Preference> -->
 
         <!-- Device hardware model -->
         <Preference

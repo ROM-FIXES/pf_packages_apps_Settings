@@ -80,6 +80,12 @@
         android:title="@string/color_temperature"
         android:summary="@string/color_temperature_desc" />
 
+    <com.fusion.reactor.preference.GlobalSettingSwitchPreference
+        android:key="show_cpu_overlay"
+        android:title="@string/show_cpu_info"
+        android:summary="@string/show_cpu_info_summary" 
+        android:defaultValue="false" />
+
     <PreferenceCategory android:key="debug_debugging_category"
             android:title="@string/debug_debugging_category">
 

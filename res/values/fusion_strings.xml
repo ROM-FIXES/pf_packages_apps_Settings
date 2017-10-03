@@ -33,4 +33,7 @@
     <string name="custom_encryption_and_credential_settings_summary_on">Device is encrypted</string>
     <string name="custom_encryption_and_credential_settings_summary_off">Device is decrypted</string>
 
+    <!-- Density category -->
+    <string name="density_category">Density options</string>
+
 </resources>

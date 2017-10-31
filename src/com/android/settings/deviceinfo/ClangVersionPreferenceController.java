@@ -1,4 +1,4 @@
-BUILD_COMPILER_CLANG/*
+/*
  * Copyright (C) 2017 Pure Fusion OS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,12 +24,12 @@ import android.text.TextUtils;
 import com.android.settings.R;
 import com.android.settings.core.PreferenceController;
 
-public class ClangVersionPerferenceController extends PreferenceController {
+public class ClangVersionPreferenceController extends PreferenceController {
 
     private static final String PROPERTY_MOD_BUILD_COMPILER_CLANG = "ro.build.fusion.clang";
     private static final String KEY_MOD_BUILD_COMPILER_CLANG = "build_compiler_clang";
 
-    public ClangVersionPerferenceController(Context context) {
+    public ClangVersionPreferenceController(Context context) {
         super(context);
     }
 
@@ -49,7 +49,7 @@ public class ClangVersionPerferenceController extends PreferenceController {
         final Preference pref = screen.findPreference(KEY_MOD_BUILD_COMPILER_CLANG);
         if (pref != null) {
             final String summary = SystemProperties.get(PROPERTY_MOD_BUILD_COMPILER_CLANG,
-                    mContext.getResources().getString(R.string.build_compiler_clang_default));
+                    mContext.getResources().getString(R.string.build_compiler_default));
             pref.setSummary(summary);
         }
     }

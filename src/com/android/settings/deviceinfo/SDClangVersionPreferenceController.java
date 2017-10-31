@@ -24,12 +24,12 @@ import android.text.TextUtils;
 import com.android.settings.R;
 import com.android.settings.core.PreferenceController;
 
-public class SDClangVersionPerferenceController extends PreferenceController {
+public class SDClangVersionPreferenceController extends PreferenceController {
 
     private static final String PROPERTY_MOD_BUILD_COMPILER_SDCLANG = "ro.build.fusion.sdclang";
     private static final String KEY_MOD_BUILD_COMPILER_SDCLANG = "build_compiler_sdclang";
 
-    public SDClangVersionPerferenceController(Context context) {
+    public SDClangVersionPreferenceController(Context context) {
         super(context);
     }
 
@@ -49,7 +49,7 @@ public class SDClangVersionPerferenceController extends PreferenceController {
         final Preference pref = screen.findPreference(KEY_MOD_BUILD_COMPILER_SDCLANG);
         if (pref != null) {
             final String summary = SystemProperties.get(PROPERTY_MOD_BUILD_COMPILER_SDCLANG,
-                    mContext.getResources().getString(R.string.build_compiler_sdclang_default));
+                    mContext.getResources().getString(R.string.build_compiler_default));
             pref.setSummary(summary);
         }
     }

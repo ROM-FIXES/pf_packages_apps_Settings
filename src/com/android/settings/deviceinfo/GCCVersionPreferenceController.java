@@ -24,12 +24,12 @@ import android.text.TextUtils;
 import com.android.settings.R;
 import com.android.settings.core.PreferenceController;
 
-public class GCCVersionPerferenceController extends PreferenceController {
+public class GCCVersionPreferenceController extends PreferenceController {
 
     private static final String PROPERTY_MOD_BUILD_COMPILER_GCC = "ro.build.fusion.gcc";
     private static final String KEY_MOD_BUILD_COMPILER_GCC = "build_compiler_gcc";
 
-    public GCCVersionPerferenceController(Context context) {
+    public GCCVersionPreferenceController(Context context) {
         super(context);
     }
 
@@ -49,7 +49,7 @@ public class GCCVersionPerferenceController extends PreferenceController {
         final Preference pref = screen.findPreference(KEY_MOD_BUILD_COMPILER_GCC);
         if (pref != null) {
             final String summary = SystemProperties.get(PROPERTY_MOD_BUILD_COMPILER_GCC,
-                    mContext.getResources().getString(R.string.build_compiler_gcc_default));
+                    mContext.getResources().getString(R.string.build_compiler_default));
             pref.setSummary(summary);
         }
     }

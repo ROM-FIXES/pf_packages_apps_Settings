@@ -51,4 +51,7 @@
     <!-- About phone screen, SDCLANG Compiler  [CHAR LIMIT=40] -->
     <string name="build_compiler_sdclang">SDClang version</string>
 
+    <!-- About phone screen, OTA item label -->
+    <string name="fusionupdate_settings_title">Pure Fusion System updates</string>
+
 </resources>

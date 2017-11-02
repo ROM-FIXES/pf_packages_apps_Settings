@@ -70,15 +70,11 @@ public class DozePreferenceController extends PreferenceController implements
 
     @Override
     public boolean isAvailable() {
-        if (!Utils.hasAltAmbientDisplay(mContext.getApplicationContext())) {
-            String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
-            if (TextUtils.isEmpty(name)) {
-                name = mContext.getResources().getString(
-                        com.android.internal.R.string.config_dozeComponent);
-            }
-            return !TextUtils.isEmpty(name);
-        } else {
-            return false;
+        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
+        if (TextUtils.isEmpty(name)) {
+            name = mContext.getResources().getString(
+                    com.android.internal.R.string.config_dozeComponent);
         }
+        return !TextUtils.isEmpty(name);
     }
 }

@@ -14,46 +14,46 @@
 package com.android.settings.display;
 
 import android.content.Context;
-import android.provider.Settings;
-import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
+
+import com.android.internal.util.fusion.PureFusionUtils;
 
 import com.android.settings.core.PreferenceController;
 
-import com.fusion.reactor.preference.SystemSettingSwitchPreference;
-
-public class ProximityOnWakePreferenceController extends PreferenceController implements
+public class DozeCategoryPreferenceController extends PreferenceController implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
+    private static final String KEY_DOZE_CATEGORY = "doze_category";
 
-    public ProximityOnWakePreferenceController(Context context) {
+    public DozeCategoryPreferenceController(Context context) {
         super(context);
     }
 
     @Override
     public String getPreferenceKey() {
-        return KEY_PROXIMITY_WAKE;
+        return KEY_DOZE_CATEGORY;
     }
 
     @Override
-    public boolean isAvailable() {
-        return mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_proximityCheckOnWake);
+    public boolean handlePreferenceTreeClick(Preference preference) {
+        return false;
     }
 
     @Override
     public void updateState(Preference preference) {
-        int value = Settings.System.getInt(
-                mContext.getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 0);
-        ((SwitchPreference) preference).setChecked(value != 0);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean value = (Boolean) newValue;
-        Settings.System.putInt(
-                mContext.getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, value ? 1 : 0);
         return true;
+    }
+
+    @Override
+    public boolean isAvailable() {
+        if (!PureFusionUtils.hasAltAmbientDisplay(mContext.getApplicationContext())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

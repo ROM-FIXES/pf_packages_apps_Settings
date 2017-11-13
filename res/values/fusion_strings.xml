@@ -14,6 +14,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Fusion Reactor -->
+    <string name="fusion_settings_title">Fusion Reactor</string>
+    <string name="fusion_dashboard_summary">Where The Magic Begins.</string>
+
 <!-- Device Info Settings -->
 
     <!-- PureFusion version -->
@@ -26,6 +31,8 @@
 
    <!-- Phone info shortcut -->
     <string name="device_info_title">Phone info</string>
+
+<!-- END OF DEVICE INFO -->
 
     <!-- Developer options enabled by default -->
     <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>

@@ -129,6 +129,10 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 
 import com.fusion.reactor.PartsFragment;
 import com.fusion.reactor.HeadsUpSettings;
+import com.fusion.reactor.NavigationBar;
+import com.fusion.reactor.dui.FlingSettings;
+import com.fusion.reactor.dui.PulseSettings;
+import com.fusion.reactor.dui.SmartbarSettings;
 
 public class SettingsGateway {
 
@@ -249,6 +253,10 @@ public class SettingsGateway {
             LockscreenDashboardFragment.class.getName(),
             PartsFragment.class.getName(),
             HeadsUpSettings.class.getName(),
+            NavigationBar.class.getName(),
+            FlingSettings.class.getName(),
+            SmartbarSettings.class.getName(),
+            PulseSettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -288,5 +296,9 @@ public class SettingsGateway {
             Settings.DeviceInfoSettingsActivity.class.getName(),
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
             Settings.FusionReactorSettingsActivity.class.getName(),
+            Settings.NavigationSettingsActivity.class.getName(),
+            Settings.FlingSettingsActivity.class.getName(),
+            Settings.SmartbarSettingsActivity.class.getName(),
+            Settings.PulseSettingsActivity.class.getName()
     };
 }

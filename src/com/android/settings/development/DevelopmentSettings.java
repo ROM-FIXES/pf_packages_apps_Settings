@@ -807,7 +807,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateShowAllANRsOptions();
         updateShowNotificationChannelWarningsOptions();
         mVerifyAppsOverUsbController.updatePreference();
-        updateBugreportOptions();
         updateForceRtlOptions();
         updateLogdSizeValues();
         updateLogpersistValues();

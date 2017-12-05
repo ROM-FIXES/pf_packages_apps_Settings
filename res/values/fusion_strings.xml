@@ -16,6 +16,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+<!-- Device Info Settings -->
+    <!-- Pure version -->
+    <string name="pure_version">Pure Fusion version</string>
+    <string name="pure_version_default">Unknown</string>
+    <!-- Vendor version -->
+    <string name="vendor_version">Vendor version</string>
+    <string name="vendor_version_default">Unknown</string>
+    <!-- Phone info shortcut -->
+    <string name="device_info_title">Phone info</string>
+    <!-- Developer options enabled by default -->
+    <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
+
+    <!-- Proximity wake -->
+    <string name="proximity_wake_title">Prevent accidental wake up</string>
+    <string name="proximity_wake_summary">Check the proximity sensor prior to waking up screen</string>
+
+    <!-- Compiler versions -->
+    <!-- About phone screen, compiler default string value -->
+    <string name="build_compiler_default">Unknown</string>
+    <!-- About phone screen, GCC Compiler  [CHAR LIMIT=40] -->
+    <string name="build_compiler_gcc">GCC version</string>
+    <!-- About phone screen, CLANG Compiler  [CHAR LIMIT=40] -->
+    <string name="build_compiler_clang">Clang version</string>
+    <!-- About phone screen, SDCLANG Compiler  [CHAR LIMIT=40] -->
+    <string name="build_compiler_sdclang">SDClang version</string>
+
+    <!-- About phone screen, OTA item label -->
+    <string name="fusionupdate_settings_title">Pure Fusion System updates</string>
+
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>
 

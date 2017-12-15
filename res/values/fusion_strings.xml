@@ -69,13 +69,6 @@
     <!-- Density category -->
     <string name="density_category">Density options</string>
 
-    <!-- Ambient category -->
-    <string name="doze_category">Ambient options</string>
-
-    <!-- Ambient display always-on of the tuner-->
-    <string name="always_on_title">Always on</string>
-    <string name="always_on_summary">Allows your device to always display information without unlocking the screen</string>
-
     <!-- App Ops Settings -->
     <!-- App Ops Categories -->
     <string name="app_ops_cat_location">Location</string>
